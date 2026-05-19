@@ -265,25 +265,23 @@ export default function Biography() {
       {/* ── Karl: Portrait + Origins ── */}
       <div className="flex flex-col lg:flex-row border-b border-sand/10">
 
-        {/* Portrait placeholder */}
+        {/* Portrait */}
         <motion.div
           className="relative lg:w-[45%] h-[72vh] md:h-[65vh] lg:h-auto overflow-hidden"
           initial={{ opacity: 0, x: -32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1.0] }}
-          style={{ minHeight: '480px', background: 'linear-gradient(135deg, rgba(42,51,41,0.9) 0%, rgba(30,38,28,1) 100%)' }}
+          style={{ minHeight: '480px' }}
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div
-                className="w-24 h-24 rounded-full border border-sand/15 flex items-center justify-center mx-auto mb-4"
-              >
-                <span className="font-cormorant text-sand/30 text-3xl font-light">K</span>
-              </div>
-              <p className="label-text text-sage/25 text-xs tracking-widest">Fotografia em breve</p>
-            </div>
-          </div>
+          <Image
+            src="/portrait-karl.jpg"
+            alt="Karl Müller — Co-Fundador Instituto CherieThai"
+            fill
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,31,27,0.5) 0%, transparent 60%)' }} />
           <div className="absolute bottom-7 left-7">
             <p className="label-text text-sage/35 text-xs">Rio de Janeiro, Brasil&nbsp;&nbsp;·&nbsp;&nbsp;Ban Tam Ye, Tailândia</p>
           </div>
