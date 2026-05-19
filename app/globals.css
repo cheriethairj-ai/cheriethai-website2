@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom Properties ─────────────────────────────── */
+:root {
+  --color-moss: #4B5A4F;
+  --color-deep-moss: #3D4A40;
+  --color-dark-moss: #2A3329;
+  --color-sage: #AAB6A2;
+  --color-sand: #DCC9A0;
+  --color-earth: #6B5C4E;
+  --color-ivory: #F5F0E8;
+  --color-off-white: #FAF8F4;
+  --ease-luxury: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-luxury-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ─── Base Reset ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-earth);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) {
+  body { cursor: auto; }
+  #custom-cursor { display: none; }
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-ivory); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-moss); }
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection {
+  background: var(--color-sand);
+  color: var(--color-dark-moss);
+}
+
+/* ─── Typography Utilities ───────────────────────────── */
+.font-cormorant { font-family: var(--font-cormorant), Georgia, serif; }
+.font-inter { font-family: var(--font-inter), system-ui, sans-serif; }
+
+.display-hero {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+.display-section {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.display-quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.label-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.body-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+/* ─── Custom Cursor ──────────────────────────────────── */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+#custom-cursor .cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-sand);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 300ms var(--ease-luxury),
+              height 300ms var(--ease-luxury),
+              background 300ms var(--ease-luxury);
+}
+
+#custom-cursor.is-hovering .cursor-dot {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--color-sand);
+}
+
+/* ─── Underline Link Hover Effect ────────────────────── */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 400ms var(--ease-luxury-out);
+}
+
+.link-underline:hover::after { width: 100%; }
+
+/* ─── Section Transitions ────────────────────────────── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 800ms var(--ease-luxury),
+              transform 800ms var(--ease-luxury);
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Ghost Button ───────────────────────────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  border: 1px solid currentColor;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 400ms var(--ease-luxury),
+              color 400ms var(--ease-luxury);
+  cursor: none;
+}
+
+.btn-ghost:hover {
+  background: currentColor;
+}
+
+.btn-ghost:hover span { mix-blend-mode: difference; }
+
+/* ─── Solid Button ───────────────────────────────────── */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.125rem 2rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 300ms var(--ease-luxury);
+  cursor: none;
+}
+
+.btn-solid:hover { opacity: 0.85; }
+
+/* ─── Form Inputs ────────────────────────────────────── */
+.input-underline {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(107, 92, 78, 0.25);
+  padding: 0.875rem 0 0.75rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.9375rem;
+  color: var(--color-earth);
+  outline: none;
+  transition: border-color 300ms var(--ease-luxury);
+  cursor: none;
+}
+
+.input-underline:focus {
+  border-bottom-color: var(--color-earth);
+}
+
+.input-underline::placeholder {
+  color: rgba(107, 92, 78, 0.4);
+}
+
+/* ─── Gradient Overlays ──────────────────────────────── */
+.overlay-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 51, 41, 0.75) 0%,
+    rgba(42, 51, 41, 0.45) 60%,
+    rgba(42, 51, 41, 0.6) 100%
+  );
+}
+
+.overlay-bottom {
+  background: linear-gradient(
+    to top,
+    rgba(42, 51, 41, 0.85) 0%,
+    rgba(42, 51, 41, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+/* ─── Atmospheric Backgrounds ────────────────────────── */
+.bg-hero-atmosphere {
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(75, 90, 79, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(61, 74, 64, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(42, 51, 41, 0.8) 0%, transparent 60%),
+    linear-gradient(160deg, #2A3329 0%, #3D4A40 35%, #4B5A4F 65%, #2A3329 100%);
+}
+
+.bg-therapist-atmosphere {
+  background: linear-gradient(145deg, #3D4A40 0%, #2A3329 100%);
+}
+
+.bg-image-placeholder {
+  background:
+    radial-gradient(ellipse at 40% 40%, rgba(170, 182, 162, 0.12) 0%, transparent 60%),
+    linear-gradient(160deg, #2A3329 0%, #3D4A40 60%, #4B5A4F 100%);
+}
+
+/* ─── Divider Lines ──────────────────────────────────── */
+.divider-sand {
+  height: 1px;
+  background: rgba(220, 201, 160, 0.2);
+}
+
+.divider-earth {
+  height: 1px;
+  background: rgba(107, 92, 78, 0.15);
+}
+
+/* ─── Noise Texture Overlay ──────────────────────────── */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ─── Loading Screen ─────────────────────────────────── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--color-dark-moss);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Scroll Progress Line ───────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-sand);
+  z-index: 100;
+  transform-origin: left;
+}
+
+/* ─── Mobile Optimizations ───────────────────────────── */
+@media (max-width: 768px) {
+  .display-hero { letter-spacing: -0.015em; }
+  body { cursor: auto; }
+
+  /* Remove iOS tap highlight and 300ms delay — critical for premium feel */
+  a, button, [role="button"], [tabindex="0"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Larger minimum touch targets */
+  .btn-ghost {
+    min-height: 52px;
+    padding: 1rem 1.75rem;
+  }
+
+  .btn-solid {
+    min-height: 52px;
+    padding: 1.25rem 2rem;
+  }
+
+  /* More breathable body text for mobile reading */
+  .body-text {
+    line-height: 2;
+  }
+
+  /* Hide scrollbar — cleaner on mobile */
+  ::-webkit-scrollbar { display: none; }
+
+  /* Prevent horizontal overflow from animated elements */
+  section { overflow-x: hidden; }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
