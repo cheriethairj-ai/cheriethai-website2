@@ -545,23 +545,28 @@ export default function Institute() {
       >
         <div className="px-6 md:px-12 lg:px-16 pb-16 md:pb-24">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
-            {[1, 2, 3, 4, 5].map((n) => (
+            {[
+              '1194162752',
+              '1194162791',
+              '1194162814',
+              '1194162829',
+              '1194162875',
+            ].map((vimeoId, i) => (
               <motion.div
-                key={n}
+                key={vimeoId}
                 className="relative overflow-hidden"
                 style={{ aspectRatio: '9/16' }}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.85, delay: n * 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
+                transition={{ duration: 0.85, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
               >
-                <video
-                  src={`/retiro-chapada-${n}.mp4`}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
+                <iframe
+                  src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&dnt=1`}
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 'none', pointerEvents: 'none' }}
+                  allow="autoplay; fullscreen"
+                  title={`Retiro Chapada ${i + 1}`}
                 />
               </motion.div>
             ))}

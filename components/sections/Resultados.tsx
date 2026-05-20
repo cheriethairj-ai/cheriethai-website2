@@ -50,7 +50,7 @@ const cases: Case[] = [
       'Reeducação respiratória',
       'Ampliação progressiva da tolerância',
     ],
-    video: '/result-amanda.mp4',
+    video: 'https://player.vimeo.com/video/1194162598?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'fisio',
@@ -77,7 +77,7 @@ const cases: Case[] = [
       role: 'Fisioterapeuta · Hospital privado, São Paulo',
       text: 'Eu tinha uma dor de estimação na região do ombro, que eu sempre ia levando com adesivos para dor e outras medicações. Mas ultimamente a mobilidade do braço direito e da cervical estavam indo cada vez mais para o espaço. Durante a sessão com a Cherrie, eu fui sentindo os pontos dolorosos se desfazendo aos pouquinhos. Ela foi respeitando meus limites e cuidadosamente, liberando toda a tensão. A certeza de cada ação e a paz que ela transmite fez toda a diferença. Sai de lá destravada real. E depois da segunda sessão, percebi que ganhei ainda mais mobilidade de cervical.',
     },
-    video: '/result-fisio.mp4',
+    video: 'https://player.vimeo.com/video/1194162601?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'joelho-nazare',
@@ -127,7 +127,7 @@ const cases: Case[] = [
       role: 'Empresária · São Paulo',
       text: 'Sempre fui uma pessoa muito ativa. Mas com 20 anos sofri um acidente e perdi um pouco de mobilidade na perna esquerda. Depois de muitos anos compensando essa perda, meu corpo começou a sentir. Uma tarde espirrei e travei. Por esse motivo entrei em contato com a Cherie e desde a hora que cheguei senti confiança. Ela foi muito pontual e sai de lá sem dor, andando bem e destravada. Já voltei outras vezes porque percebi que depois de alguns dias, continuei evoluindo minha condição. Verdadeiramente sou muito grata e pelo menos uma vez por mês quero estar com ela para continuar me sentindo bem.',
     },
-    video: '/result-miranda-nazare.mp4',
+    video: 'https://player.vimeo.com/video/1194162701?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'vanessa',
@@ -154,7 +154,7 @@ const cases: Case[] = [
       role: 'Empresária · São Paulo',
       text: 'Eu cheguei até a Cherie por indicação e foi incrível. O nível de relaxamento, não só mental, mas de todos os músculos, porque ela vai soltando cada fibra muscular. Parece que a Cherie vai te dissolvendo aos poucos. Saio sem dor porque é um tratamento. Tem muita técnica e ela se entrega de corpo e alma, porque entende e ama o que faz. Obrigada por cuidar tão bem de mim!',
     },
-    video: '/result-vanessa.mp4',
+    video: null,
   },
   {
     id: 'karen',
@@ -174,7 +174,7 @@ const cases: Case[] = [
       'Neuromodulação',
       'Liberação do ombro',
     ],
-    video: '/result-flavio.mp4',
+    video: 'https://player.vimeo.com/video/1194162599?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'flavio',
@@ -193,7 +193,7 @@ const cases: Case[] = [
       'Manejo da dor funcional',
       'Mobilização articular do joelho',
     ],
-    video: '/result-karen.mp4',
+    video: 'https://player.vimeo.com/video/1194162702?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'vitor',
@@ -213,7 +213,7 @@ const cases: Case[] = [
       'Integração respiratória',
       'Liberação progressiva em camadas',
     ],
-    video: '/result-vitor.mp4',
+    video: 'https://player.vimeo.com/video/1194162710?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'guilherme',
@@ -232,7 +232,7 @@ const cases: Case[] = [
       'Restauração do alinhamento da coluna',
       'Mobilidade Thai avançada',
     ],
-    video: '/result-guilherme.mp4',
+    video: 'https://player.vimeo.com/video/1194162666?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'bruno',
@@ -259,7 +259,7 @@ const cases: Case[] = [
       role: 'Paciente · Rio de Janeiro',
       text: 'Passei quase 2 anos sem poder jogar tênis e praticar qualquer exercício, não conseguia nem amarrar o cadarço! Já tinha tentado outras terapias e tomava muitos anti-inflamatórios. Meus músculos reagiam com dor aos movimentos e estavam sempre contraídos. Graças à Cherie eu comecei a melhorar e tomei coragem para voltar aos treinos. Hoje estou jogando tênis e treinando e não uso mais nenhum remédio! A Cherri salvou minha vida, serei eternamente grato.',
     },
-    video: '/result-bruno.mp4',
+    video: 'https://player.vimeo.com/video/1194162600?title=0&byline=0&portrait=0&dnt=1',
   },
   {
     id: 'pvpiress',
@@ -379,11 +379,12 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           }}
         >
           {caso.video ? (
-            <video
+            <iframe
               src={caso.video}
-              controls
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 'none' }}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
             />
           ) : caso.cover ? (
             <img
