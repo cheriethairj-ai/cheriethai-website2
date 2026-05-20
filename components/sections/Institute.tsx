@@ -299,6 +299,21 @@ export default function Institute() {
               </motion.div>
             </div>
 
+            {/* Session photo */}
+            <motion.div
+              {...inView(0.1)}
+              className="relative overflow-hidden mb-16 md:mb-20"
+              style={{ aspectRatio: '16/9' }}
+            >
+              <Image
+                src="/session-formacao.jpg"
+                alt="Formação São Paulo — Mesa clínica CherieThai"
+                fill
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </motion.div>
+
             {/* Curriculum grid */}
             <motion.div
               {...inView(0.1)}
