@@ -40,23 +40,21 @@ export default function CinematicSection() {
           }}
         />
 
-        {/* YouTube autoplay background — desktop only, cropped to hide YouTube UI */}
-        <div className="hidden md:block absolute inset-0">
-          <iframe
-            src={src}
-            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-            style={{
-              position: 'absolute',
-              top: 'calc(50% - 60px)',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 'max(100%, 56.25vh)',
-              height: 'calc(max(100%, 177.78vw) + 120px)',
-              border: 'none',
-              pointerEvents: 'none',
-            }}
-          />
-        </div>
+        {/* YouTube autoplay background — cropped to hide YouTube UI */}
+        <iframe
+          src={src}
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          style={{
+            position: 'absolute',
+            top: 'calc(50% - 60px)',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 'max(100%, 56.25vh)',
+            height: 'calc(max(100%, 177.78vw) + 120px)',
+            border: 'none',
+            pointerEvents: 'none',
+          }}
+        />
       </div>
 
       {/* ── Overlays ── */}
@@ -64,10 +62,10 @@ export default function CinematicSection() {
         className="absolute inset-0"
         style={{
           background: `linear-gradient(to bottom,
-            rgba(26,31,27,0.55) 0%,
-            rgba(26,31,27,0.3) 35%,
-            rgba(26,31,27,0.45) 70%,
-            rgba(26,31,27,0.85) 100%
+            rgba(26,31,27,0.75) 0%,
+            rgba(26,31,27,0.65) 35%,
+            rgba(26,31,27,0.65) 70%,
+            rgba(26,31,27,0.92) 100%
           )`,
         }}
       />
