@@ -40,8 +40,15 @@ export default function VideoReel() {
           <motion.div {...inView(0.12)} className="relative overflow-hidden w-full" style={{ aspectRatio: '16/9' }}>
             <iframe
               src={`https://www.youtube.com/embed/${VIDEO_A}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_A}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&showinfo=0&disablekb=1`}
-              className="absolute inset-0 w-full h-full"
-              style={{ border: 'none', pointerEvents: 'none' }}
+              style={{
+                position: 'absolute',
+                top: '-60px',
+                left: 0,
+                width: '100%',
+                height: 'calc(100% + 120px)',
+                border: 'none',
+                pointerEvents: 'none',
+              }}
               allow="autoplay; fullscreen"
             />
           </motion.div>
