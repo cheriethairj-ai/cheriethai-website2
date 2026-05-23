@@ -286,7 +286,7 @@ const cases: Case[] = [
       role: 'Rio de Janeiro',
       text: 'A avó já estava há anos sofrendo com dor crônica. Depois de muitas tentativas frustradas com a medicina tradicional, foi a melhor decisão possível. A cada sessão, testemunhamos uma melhora notável. Você fez a diferença em nossas vidas. Que possa impactar a vida de mais e mais pessoas. Mil vezes obrigado. Eu, Dudu e toda a sua família, seremos eternamente gratos.',
     },
-    video: 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1',
+    video: 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&mute=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'pvpiress',
