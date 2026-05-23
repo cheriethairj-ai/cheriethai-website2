@@ -8,7 +8,7 @@ import LazyYouTubeShort from '@/components/LazyYouTubeShort'
 function EdnaVideoWithAudio() {
   const ref = useRef<HTMLDivElement>(null)
   const [src, setSrc] = useState('')
-  const embedUrl = 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1&showinfo=0'
+  const embedUrl = 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&mute=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1&showinfo=0'
 
   useEffect(() => {
     const observer = new IntersectionObserver(
