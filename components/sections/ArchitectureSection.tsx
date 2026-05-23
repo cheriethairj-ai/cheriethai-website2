@@ -99,8 +99,7 @@ export default function ArchitectureSection() {
             transition={{ duration: 1.0, delay: 0.18, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
             Cada linha<br />
-            existe para<br />
-            <span className="text-sage/65">libertar.</span>
+            <span className="text-sage/65">existe com propósito.</span>
           </motion.h2>
 
           <motion.p
