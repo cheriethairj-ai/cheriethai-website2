@@ -42,8 +42,8 @@ export default function CinematicSection() {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 'max(100%, 177.78vh)',
-            height: 'max(100%, 56.25vw)',
+            width: 'max(100%, 56.25vh)',
+            height: 'max(100%, 177.78vw)',
             border: 'none',
             pointerEvents: 'none',
           }}
