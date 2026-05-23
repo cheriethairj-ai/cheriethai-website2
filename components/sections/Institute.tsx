@@ -127,9 +127,7 @@ export default function Institute() {
           </motion.p>
           <motion.a
             {...inView(0.3)}
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#institute-cursos"
             className="btn-ghost text-sand/80 border-sand/30 inline-flex"
           >
             <span>Consultar Disponibilidade</span>
