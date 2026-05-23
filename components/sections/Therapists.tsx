@@ -178,7 +178,7 @@ const therapists = [
     imageSub: 'Trabalho estrutural fluido · Luz em tons terrosos',
     accent: '#AAB6A2',
     image: '/portrait-ricardo.jpg' as string | null,
-    imagePosition: 'center center',
+    imagePosition: 'center 20%',
     priceLabel: null as string | null,
     price: null as string | null,
     supportingTone: null as string | null,
