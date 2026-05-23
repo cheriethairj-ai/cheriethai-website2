@@ -207,7 +207,7 @@ export default function Institute() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Os nossos clientes são executivos, atletas e figuras públicas. Pessoas que já tentaram de tudo e chegam até nós por indicação, porque o nível de exigência que trazem não encontra resposta em qualquer lugar. Os nossos alunos aprendem a trabalhar exactamente nesse contexto.
+            Os nossos clientes incluem executivos de multinacionais, atletas de elite e figuras públicas internacionais. A CherieThai é reconhecida internacionalmente pelo mais alto nível de excelência clínica — e os nossos alunos aprendem a trabalhar exactamente nesse contexto.
           </motion.p>
 
           <motion.p
