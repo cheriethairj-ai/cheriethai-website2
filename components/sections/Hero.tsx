@@ -58,7 +58,7 @@ export default function Hero() {
           priority
           quality={95}
           sizes="100vw"
-          style={{ objectFit: 'contain', objectPosition: 'center top' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
         />
       </div>
 
