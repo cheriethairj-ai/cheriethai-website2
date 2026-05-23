@@ -40,21 +40,23 @@ export default function CinematicSection() {
           }}
         />
 
-        {/* YouTube autoplay background — cropped to hide title/UI bars */}
-        <iframe
-          src={src}
-          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-          style={{
-            position: 'absolute',
-            top: 'calc(50% - 60px)',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 'max(100%, 56.25vh)',
-            height: 'calc(max(100%, 177.78vw) + 120px)',
-            border: 'none',
-            pointerEvents: 'none',
-          }}
-        />
+        {/* YouTube autoplay background — desktop only, cropped to hide YouTube UI */}
+        <div className="hidden md:block absolute inset-0">
+          <iframe
+            src={src}
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            style={{
+              position: 'absolute',
+              top: 'calc(50% - 60px)',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 'max(100%, 56.25vh)',
+              height: 'calc(max(100%, 177.78vw) + 120px)',
+              border: 'none',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
       </div>
 
       {/* ── Overlays ── */}
