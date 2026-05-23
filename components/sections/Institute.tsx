@@ -703,7 +703,7 @@ export default function Institute() {
 
                 <motion.a
                   {...inView(0.2)}
-                  href={whatsappUrl('o Workshop com Karl no Rio de Janeiro')}
+                  href={`https://wa.me/5521996466022?text=${encodeURIComponent('Olá, gostaria de receber mais informações sobre o Workshop com Karl no Rio de Janeiro.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-ghost text-deep-moss border-deep-moss/25 inline-flex"
