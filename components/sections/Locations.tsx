@@ -218,7 +218,7 @@ export default function Locations() {
           { k: 'Sessões', v: 'Somente com agendamento' },
           { k: 'Equipe', v: 'Cherie T. Charnkul e equipe completa' },
         ]}
-        image="/clinic-saopaulo-studio.jpg"
+        image="/clinicsp.jpg"
         imageFallbackGradient="linear-gradient(145deg, #3D4A40 0%, #2A3329 100%)"
         imagePosition="center center"
         accentNote="ESTÚDIO PRINCIPAL · SÃO PAULO"
