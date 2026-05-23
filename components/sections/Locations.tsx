@@ -28,6 +28,7 @@ function SpaceSection({
   accentNote,
   studioName,
   textSide,
+  mapsUrl,
 }: {
   id: string
   city: string
@@ -45,6 +46,7 @@ function SpaceSection({
   accentNote: string
   studioName?: string
   textSide: 'left' | 'right'
+  mapsUrl?: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -143,14 +145,29 @@ function SpaceSection({
             </div>
           </motion.div>
 
-          <motion.a
-            {...inView(0.32)}
-            href="#contact"
-            className="label-text text-sand/45 hover:text-sand/75 transition-colors duration-300 flex items-center gap-2"
-          >
-            Entre em contato
-            <span aria-hidden>→</span>
-          </motion.a>
+          <div className="flex flex-col gap-4">
+            <motion.a
+              {...inView(0.32)}
+              href="#contact"
+              className="label-text text-sand/45 hover:text-sand/75 transition-colors duration-300 flex items-center gap-2"
+            >
+              Entre em contato
+              <span aria-hidden>→</span>
+            </motion.a>
+
+            {mapsUrl && (
+              <motion.a
+                {...inView(0.36)}
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label-text text-sage/45 hover:text-sage/80 transition-colors duration-300 flex items-center gap-2"
+              >
+                Ver no Google Maps
+                <span aria-hidden>↗</span>
+              </motion.a>
+            )}
+          </div>
 
         </div>
       </div>
@@ -206,6 +223,7 @@ export default function Locations() {
         imagePosition="center center"
         accentNote="ESTÚDIO PRINCIPAL · SÃO PAULO"
         textSide="right"
+        mapsUrl="https://maps.app.goo.gl/Chwst6qECbztjH4x7"
       />
 
       {/* ── São Paulo · Detalhe de musgo ── */}

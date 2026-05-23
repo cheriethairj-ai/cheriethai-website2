@@ -167,63 +167,11 @@ function PrincipleSection({
         </motion.span>
       </div>
 
-      {/* ── Main layout grid ── */}
-      <div
-        className={`relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 min-h-screen ${
-          imageLeft ? 'lg:grid-flow-dense' : ''
-        }`}
-      >
-        {/* Image column */}
-        <motion.div
-          className={`relative h-72 md:h-96 lg:h-auto overflow-hidden ${
-            imageLeft ? 'lg:col-start-1' : 'lg:col-start-2'
-          }`}
-          initial={{ opacity: 0, x: imageLeft ? -32 : 32 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
-        >
-          <motion.div
-            className="absolute inset-0"
-            style={{ y: imageY }}
-          >
-            {/* Atmospheric image placeholder */}
-            <div
-              className="absolute inset-0"
-              style={{ background: principle.imageGradient }}
-            />
-            {/* Accent light */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `radial-gradient(ellipse at 45% 45%, ${principle.imageAccent} 0%, transparent 65%)`,
-              }}
-            />
-            {/* Compositional line elements */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="w-px opacity-20"
-                style={{
-                  height: '35%',
-                  background: `linear-gradient(180deg, transparent, ${principle.accent}, transparent)`,
-                }}
-              />
-            </div>
-            <div className="absolute bottom-6 left-6">
-              <p className="label-text text-xs opacity-25" style={{ color: principle.accent }}>
-                [ {principle.imageMeta} ]
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Text column */}
-        <div
-          className={`relative flex items-center px-6 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28 lg:py-36 ${
-            imageLeft ? 'lg:col-start-2' : 'lg:col-start-1 lg:row-start-1'
-          }`}
-        >
-          <div className="max-w-lg w-full">
+      {/* ── Main layout ── */}
+      <div className="relative z-10 w-full flex items-center min-h-screen">
+        {/* Text — full width, constrained max */}
+        <div className="relative flex items-center px-6 md:px-12 lg:px-24 xl:px-36 py-20 md:py-28 lg:py-36 w-full">
+          <div className="max-w-2xl w-full">
 
             {/* Number + name header */}
             <motion.div

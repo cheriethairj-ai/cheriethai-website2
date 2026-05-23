@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '@/components/Logo'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const navItems = [
+const navItemsPT = [
   {
     label: 'Sobre',
     href: '/#about',
@@ -20,7 +21,7 @@ const navItems = [
     dropdown: [
       { label: 'São Paulo', href: '/#location-saopaulo' },
       { label: 'Rio de Janeiro', href: '/#location-rio' },
-      { label: 'Resultados', href: '/resultados' },
+      { label: 'Resultados', href: '/resultados', isLarge: true },
     ],
   },
   { label: 'Terapeutas', href: '/#therapists' },
@@ -33,7 +34,40 @@ const navItems = [
       { label: 'Cursos', href: '/#institute-cursos' },
       { label: 'Retiros', href: '/#institute-retiros' },
       { label: 'Workshops', href: '/#institute-workshops' },
-      { label: 'Alunos', href: '/#institute-alunos' },
+      { label: 'Alunos', href: '/#institute-alunos', isLarge: true },
+    ],
+  },
+]
+
+const navItemsEN = [
+  {
+    label: 'About',
+    href: '/#about',
+    dropdown: [
+      { label: 'Philosophy', href: '/philosophy' },
+      { label: 'Our Story', href: '/#about' },
+    ],
+  },
+  {
+    label: 'Clinics',
+    href: '/#locations',
+    dropdown: [
+      { label: 'São Paulo', href: '/#location-saopaulo' },
+      { label: 'Rio de Janeiro', href: '/#location-rio' },
+      { label: 'Results', href: '/resultados', isLarge: true },
+    ],
+  },
+  { label: 'Therapists', href: '/#therapists' },
+  { label: 'To Embody', href: '/#to-embody' },
+  {
+    label: 'Institute',
+    href: '/#institute',
+    dropdown: [
+      { label: 'The Institute', href: '/#institute' },
+      { label: 'Courses', href: '/#institute-cursos' },
+      { label: 'Retreats', href: '/#institute-retiros' },
+      { label: 'Workshops', href: '/#institute-workshops' },
+      { label: 'Students', href: '/#institute-alunos', isLarge: true },
     ],
   },
 ]
@@ -46,8 +80,10 @@ export default function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
-  const [lang, setLang] = useState<'EN' | 'PT'>('EN')
+  const { lang, setLang } = useLanguage()
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const navItems = lang === 'EN' ? navItemsEN : navItemsPT
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -97,7 +133,7 @@ export default function Navigation() {
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16"
         animate={{
-          backgroundColor: scrolled ? 'rgba(245, 240, 232, 0.96)' : 'transparent',
+          backgroundColor: scrolled ? 'rgba(245, 240, 232, 0.96)' : 'rgba(26,31,27,0.0)',
           borderBottomColor: scrolled ? 'rgba(220, 201, 160, 0.2)' : 'transparent',
           borderBottomWidth: '1px',
           backdropFilter: scrolled ? 'blur(12px)' : 'blur(0px)',
@@ -107,7 +143,8 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between h-16 md:h-20">
 
-          {/* Logo */}
+          {/* Logo + Language toggle */}
+          <div className="flex items-center gap-4">
           <button
             onClick={() => {
               if (pathname === '/') { window.scrollTo({ top: 0, behavior: 'smooth' }) }
@@ -143,6 +180,32 @@ export default function Navigation() {
               </motion.span>
             </motion.div>
           </button>
+
+          {/* Language toggle — next to logo */}
+          <div className="flex items-center gap-2">
+            {(['EN', 'PT'] as const).map((l, i) => (
+              <span key={l} className="flex items-center gap-2">
+                <button
+                  onClick={() => setLang(l)}
+                  className="label-text transition-colors duration-300"
+                  style={{
+                    color: lang === l
+                      ? (scrolled ? '#3D4A40' : '#F5F0E8')
+                      : (scrolled ? 'rgba(61,74,64,0.35)' : 'rgba(245,240,232,0.35)'),
+                    fontSize: '0.6rem',
+                    letterSpacing: '0.22em',
+                  }}
+                >
+                  {l}
+                </button>
+                {i === 0 && (
+                  <span style={{ color: scrolled ? 'rgba(61,74,64,0.25)' : 'rgba(245,240,232,0.25)' }}>·</span>
+                )}
+              </span>
+            ))}
+          </div>
+
+          </div>{/* end Logo + Language toggle */}
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-12">
@@ -184,11 +247,11 @@ export default function Navigation() {
                             key={sub.label}
                             onClick={() => navigate(sub.href)}
                             className={`w-full text-left px-5 hover:bg-earth/5 transition-colors duration-200 block ${
-                              sub.label === 'Alunos' || sub.label === 'Resultados'
+                              sub.isLarge
                                 ? 'font-cormorant font-light text-deep-moss/70 hover:text-deep-moss pt-3 pb-4'
                                 : 'label-text text-deep-moss/60 hover:text-deep-moss py-3'
                             }`}
-                            style={sub.label === 'Alunos' || sub.label === 'Resultados' ? { fontSize: '1.35rem', lineHeight: 1 } : undefined}
+                            style={sub.isLarge ? { fontSize: '1.35rem', lineHeight: 1 } : undefined}
                           >
                             {sub.label}
                           </button>
@@ -213,27 +276,6 @@ export default function Navigation() {
               )
             )}
 
-            <div className="flex items-center gap-2 ml-4">
-              {(['EN', 'PT'] as const).map((l, i) => (
-                <span key={l} className="flex items-center gap-2">
-                  <button
-                    onClick={() => setLang(l)}
-                    className="label-text transition-colors duration-300"
-                    style={{
-                      color: lang === l
-                        ? (scrolled ? '#3D4A40' : '#F5F0E8')
-                        : (scrolled ? 'rgba(61,74,64,0.35)' : 'rgba(245,240,232,0.35)'),
-                    }}
-                  >
-                    {l}
-                  </button>
-                  {i === 0 && (
-                    <span style={{ color: scrolled ? 'rgba(61,74,64,0.25)' : 'rgba(245,240,232,0.25)' }}>·</span>
-                  )}
-                </span>
-              ))}
-            </div>
-
             <button
               onClick={() => navigate('/#contact')}
               className="label-text transition-colors duration-300 ml-6"
@@ -243,7 +285,7 @@ export default function Navigation() {
                 letterSpacing: '0.22em',
               }}
             >
-              Contato
+              {lang === 'EN' ? 'Contact' : 'Contato'}
             </button>
           </nav>
 
@@ -347,12 +389,12 @@ export default function Navigation() {
                               key={sub.label}
                               onClick={() => navigate(sub.href)}
                               className={`w-full text-left flex items-center justify-between ${
-                                sub.label === 'Alunos' || sub.label === 'Resultados'
+                                sub.isLarge
                                   ? 'font-cormorant font-light text-sand/70 hover:text-sand pt-4 pb-3'
                                   : 'label-text text-sage/60 hover:text-sage py-3'
                               }`}
                               style={
-                                sub.label === 'Alunos' || sub.label === 'Resultados'
+                                sub.isLarge
                                   ? { fontSize: '1.65rem', lineHeight: 1 }
                                   : { fontSize: '0.7rem', letterSpacing: '0.18em' }
                               }
@@ -389,7 +431,7 @@ export default function Navigation() {
                     className="label-text text-sand/65 flex items-center gap-3"
                     style={{ fontSize: '0.625rem', letterSpacing: '0.22em' }}
                   >
-                    Solicitar uma Sessão
+                    {lang === 'EN' ? 'Request a Session' : 'Solicitar uma Sessão'}
                     <span aria-hidden>→</span>
                   </a>
                   <a
@@ -432,7 +474,7 @@ export default function Navigation() {
                     className="label-text text-sand/30 hover:text-sand/60 transition-colors duration-300"
                     style={{ fontSize: '0.625rem', letterSpacing: '0.22em' }}
                   >
-                    Contato
+                    {lang === 'EN' ? 'Contact' : 'Contato'}
                   </button>
                 </div>
               </div>

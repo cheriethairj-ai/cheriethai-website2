@@ -8,7 +8,7 @@ const WA_MESSAGE = encodeURIComponent(
   'Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.'
 )
 const WHATSAPP_SP = `https://wa.me/5511911135083?text=${WA_MESSAGE}`
-const WHATSAPP_RJ = `https://wa.me/5521000000000?text=${WA_MESSAGE}` // TODO: replace RJ number
+const WHATSAPP_RJ = `https://wa.me/5521996466022?text=${WA_MESSAGE}`
 const EMAIL = 'cheriethairj@gmail.com'
 
 const inView = (delay = 0) => ({

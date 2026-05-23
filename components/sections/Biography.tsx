@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import LazyYouTubeShort from '@/components/LazyYouTubeShort'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -33,7 +34,7 @@ export default function Biography() {
           {...inView(0.1)}
         >
           Nascida em Phimai.<br />
-          <span className="text-sage/70">Forjada pela tradição.</span><br />
+          <span className="text-sage/70">Criada entre dois mundos.</span><br />
           Estabelecida no Brasil.
         </motion.h2>
       </div>
@@ -69,7 +70,7 @@ export default function Biography() {
 
           {/* Origin caption */}
           <div className="absolute bottom-7 left-7">
-            <p className="label-text text-sage/35 text-xs">Phimai, Tailândia&nbsp;&nbsp;·&nbsp;&nbsp;São Paulo, Brasil</p>
+            <p className="label-text text-sage/35 text-xs">Phimai, Tailândia&nbsp;&nbsp;·&nbsp;&nbsp;Reino Unido&nbsp;&nbsp;·&nbsp;&nbsp;São Paulo, Brasil</p>
           </div>
         </motion.div>
 
@@ -78,7 +79,7 @@ export default function Biography() {
           <div className="max-w-xl">
 
             <motion.p {...inView()} className="label-text text-sage/55 mb-8">
-              Origens&nbsp;&nbsp;·&nbsp;&nbsp;Phimai, Nordeste da Tailândia
+              Origens&nbsp;&nbsp;·&nbsp;&nbsp;Phimai, Tailândia&nbsp;&nbsp;·&nbsp;&nbsp;Reino Unido
             </motion.p>
 
             <motion.div {...inView(0.1)} className="body-text text-sand/70 space-y-5 text-base md:text-lg leading-loose mb-10">
@@ -91,6 +92,13 @@ export default function Biography() {
                 Aos quatro anos, começou a praticar massagem dentro da família,
                 desenvolvendo uma sensibilidade tátil precoce que mais tarde
                 evoluiu para seu caminho profissional.
+              </p>
+              <p>
+                Parte da sua formação aconteceu no Reino Unido, onde cresceu
+                dentro de uma comunidade tailandesa — um espaço entre dois mundos,
+                onde a tradição do seu povo era preservada longe da sua terra de origem.
+                Foi nessa ponte entre culturas que Cherie aprendeu o que significa
+                carregar uma prática através de fronteiras.
               </p>
             </motion.div>
 
@@ -106,6 +114,105 @@ export default function Biography() {
 
           </div>
         </div>
+      </div>
+
+      {/* ── Masters & Witch Doctor photos ── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 border-b border-sand/10">
+
+        {/* Group photo — Cherie with female masters */}
+        <motion.div
+          className="relative overflow-hidden border-b md:border-b-0 md:border-r border-sand/10"
+          style={{ aspectRatio: '3/4' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
+        >
+          <Image
+            src="/site-img-1.jpg"
+            alt="Cherie com suas mestras na Tailândia"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,31,27,0.7) 0%, transparent 50%)' }} />
+          <div className="absolute bottom-6 left-6">
+            <p className="label-text text-sage/50 text-xs">Mestras · Tailândia</p>
+          </div>
+        </motion.div>
+
+        {/* Witch doctor photo */}
+        <motion.div
+          className="relative overflow-hidden"
+          style={{ aspectRatio: '3/4' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.0, delay: 0.12, ease: [0.25, 0.1, 0.25, 1.0] }}
+        >
+          <Image
+            src="/masters-witchdoctor.jpg"
+            alt="Mestra curandeira — linhagem tradicional tailandesa"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,31,27,0.7) 0%, transparent 50%)' }} />
+          <div className="absolute bottom-6 left-6">
+            <p className="label-text text-sage/50 text-xs">Curandeira · Linhagem tradicional</p>
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* ── Hometown + School photos ── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 border-b border-sand/10">
+
+        {/* Hometown */}
+        <motion.div
+          className="relative overflow-hidden border-b md:border-b-0 md:border-r border-sand/10"
+          style={{ aspectRatio: '3/4' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1.0] }}
+        >
+          <Image
+            src="/bio-hometown.jpg"
+            alt="Cherie com crianças da sua região natal na Tailândia"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 30%' }}
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,31,27,0.65) 0%, transparent 45%)' }} />
+          <div className="absolute bottom-6 left-6">
+            <p className="label-text text-sage/50 text-xs">Região natal · Tailândia</p>
+          </div>
+        </motion.div>
+
+        {/* School */}
+        <motion.div
+          className="relative overflow-hidden"
+          style={{ aspectRatio: '3/4' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.2, delay: 0.12, ease: [0.25, 0.1, 0.25, 1.0] }}
+        >
+          <Image
+            src="/bio-school.jpg"
+            alt="Cherie na escola em Phimai, nordeste da Tailândia"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,31,27,0.65) 0%, transparent 45%)' }} />
+          <div className="absolute bottom-6 left-6">
+            <p className="label-text text-sage/50 text-xs">Escola · Phimai, Tailândia</p>
+          </div>
+        </motion.div>
+
       </div>
 
       {/* ── Pull quote ── */}
@@ -214,12 +321,40 @@ export default function Biography() {
         </div>
       </div>
 
+      {/* ── Blindfolded massage video — Japan ── */}
+      <motion.div
+        className="relative border-b border-sand/10 overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1.0] }}
+      >
+        {/* Label overlay */}
+        <div className="absolute top-6 left-6 md:top-10 md:left-12 lg:left-16 z-10">
+          <p className="label-text text-sage/50" style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}>
+            Japão&nbsp;&nbsp;·&nbsp;&nbsp;Massagem às cegas
+          </p>
+        </div>
+
+        {/* Video embed — shorts 9:16, full width */}
+        <div className="relative w-full" style={{ aspectRatio: '9/16' }}>
+          <LazyYouTubeShort youtubeId="9TQyuUUYkVA" />
+        </div>
+
+        {/* Caption */}
+        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 lg:right-16 z-10 text-right">
+          <p className="font-cormorant font-light italic text-sand/45" style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}>
+            O toque que dispensa a visão.
+          </p>
+        </div>
+      </motion.div>
+
       {/* ── Journey ── */}
       <div className="px-6 md:px-12 lg:px-16 py-16 md:py-24 border-b border-sand/10">
         <div className="max-w-5xl">
 
           <motion.p {...inView()} className="label-text text-sage/55 mb-8">
-            Trajetória&nbsp;&nbsp;·&nbsp;&nbsp;Tailândia · Europa · Brasil
+            Trajetória&nbsp;&nbsp;·&nbsp;&nbsp;Tailândia · Reino Unido · Europa · Brasil
           </motion.p>
 
           <motion.div
@@ -275,7 +410,7 @@ export default function Biography() {
           style={{ minHeight: '480px' }}
         >
           <Image
-            src="/portrait-karl.jpg"
+            src="/portrait-karl-bio.jpg"
             alt="Karl Müller — Co-Fundador Instituto CherieThai"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"

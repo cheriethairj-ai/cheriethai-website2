@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import YouTubeEmbed from '@/components/YouTubeEmbed'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -50,7 +51,7 @@ const cases: Case[] = [
       'Reeducação respiratória',
       'Ampliação progressiva da tolerância',
     ],
-    video: 'https://player.vimeo.com/video/1194162598?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/swtG3Y3nmyw?autoplay=1&mute=1&loop=1&playlist=swtG3Y3nmyw&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'fisio',
@@ -77,7 +78,7 @@ const cases: Case[] = [
       role: 'Fisioterapeuta · Hospital privado, São Paulo',
       text: 'Eu tinha uma dor de estimação na região do ombro, que eu sempre ia levando com adesivos para dor e outras medicações. Mas ultimamente a mobilidade do braço direito e da cervical estavam indo cada vez mais para o espaço. Durante a sessão com a Cherrie, eu fui sentindo os pontos dolorosos se desfazendo aos pouquinhos. Ela foi respeitando meus limites e cuidadosamente, liberando toda a tensão. A certeza de cada ação e a paz que ela transmite fez toda a diferença. Sai de lá destravada real. E depois da segunda sessão, percebi que ganhei ainda mais mobilidade de cervical.',
     },
-    video: 'https://player.vimeo.com/video/1194162601?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/FsbpJW6Mq54?autoplay=1&mute=1&loop=1&playlist=FsbpJW6Mq54&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'joelho-nazare',
@@ -98,8 +99,8 @@ const cases: Case[] = [
     ],
     outcome: 'Realinhamento visível do joelho após uma única sessão. Melhora imediata na distribuição de carga e postura.',
     sessions: '1 sessão',
-    before: '/result-nazare-joelho-before.jpg',
-    after: '/result-nazare-joelho-after.jpg',
+    before: null,
+    after: null,
     video: null,
   },
   {
@@ -127,7 +128,7 @@ const cases: Case[] = [
       role: 'Empresária · São Paulo',
       text: 'Sempre fui uma pessoa muito ativa. Mas com 20 anos sofri um acidente e perdi um pouco de mobilidade na perna esquerda. Depois de muitos anos compensando essa perda, meu corpo começou a sentir. Uma tarde espirrei e travei. Por esse motivo entrei em contato com a Cherie e desde a hora que cheguei senti confiança. Ela foi muito pontual e sai de lá sem dor, andando bem e destravada. Já voltei outras vezes porque percebi que depois de alguns dias, continuei evoluindo minha condição. Verdadeiramente sou muito grata e pelo menos uma vez por mês quero estar com ela para continuar me sentindo bem.',
     },
-    video: 'https://player.vimeo.com/video/1194162701?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/0UwufJJtq_0?autoplay=1&mute=1&loop=1&playlist=0UwufJJtq_0&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'vanessa',
@@ -154,7 +155,7 @@ const cases: Case[] = [
       role: 'Empresária · São Paulo',
       text: 'Eu cheguei até a Cherie por indicação e foi incrível. O nível de relaxamento, não só mental, mas de todos os músculos, porque ela vai soltando cada fibra muscular. Parece que a Cherie vai te dissolvendo aos poucos. Saio sem dor porque é um tratamento. Tem muita técnica e ela se entrega de corpo e alma, porque entende e ama o que faz. Obrigada por cuidar tão bem de mim!',
     },
-    video: null,
+    video: 'https://www.youtube.com/embed/dNbG-NJdI2g?autoplay=1&mute=1&loop=1&playlist=dNbG-NJdI2g&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'karen',
@@ -174,7 +175,7 @@ const cases: Case[] = [
       'Neuromodulação',
       'Liberação do ombro',
     ],
-    video: 'https://player.vimeo.com/video/1194162599?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/v_5QA8QqE8E?autoplay=1&mute=1&loop=1&playlist=v_5QA8QqE8E&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'flavio',
@@ -193,7 +194,7 @@ const cases: Case[] = [
       'Manejo da dor funcional',
       'Mobilização articular do joelho',
     ],
-    video: 'https://player.vimeo.com/video/1194162702?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/6nd3rOV_-G8?autoplay=1&mute=1&loop=1&playlist=6nd3rOV_-G8&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'vitor',
@@ -213,7 +214,7 @@ const cases: Case[] = [
       'Integração respiratória',
       'Liberação progressiva em camadas',
     ],
-    video: 'https://player.vimeo.com/video/1194162710?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/j9gFj0iwJQY?autoplay=1&mute=1&loop=1&playlist=j9gFj0iwJQY&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'guilherme',
@@ -232,7 +233,7 @@ const cases: Case[] = [
       'Restauração do alinhamento da coluna',
       'Mobilidade Thai avançada',
     ],
-    video: 'https://player.vimeo.com/video/1194162666?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/Rw8bzLNUA3E?autoplay=1&mute=1&loop=1&playlist=Rw8bzLNUA3E&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'bruno',
@@ -259,18 +260,44 @@ const cases: Case[] = [
       role: 'Paciente · Rio de Janeiro',
       text: 'Passei quase 2 anos sem poder jogar tênis e praticar qualquer exercício, não conseguia nem amarrar o cadarço! Já tinha tentado outras terapias e tomava muitos anti-inflamatórios. Meus músculos reagiam com dor aos movimentos e estavam sempre contraídos. Graças à Cherie eu comecei a melhorar e tomei coragem para voltar aos treinos. Hoje estou jogando tênis e treinando e não uso mais nenhum remédio! A Cherri salvou minha vida, serei eternamente grato.',
     },
-    video: 'https://player.vimeo.com/video/1194162600?title=0&byline=0&portrait=0&dnt=1',
+    video: 'https://www.youtube.com/embed/DsP6716MzUw?autoplay=1&mute=1&loop=1&playlist=DsP6716MzUw&controls=1&playsinline=1&rel=0&modestbranding=1',
+  },
+  {
+    id: 'edna',
+    location: 'Rio de Janeiro',
+    client: 'Edna',
+    age: 81,
+    profession: 'Paciente · Ipanema, Rio de Janeiro',
+    headline: '81 anos. Anos de dor. 3 sessões.',
+    years: 'Anos',
+    complaint: 'Dor crônica com anos de evolução',
+    symptoms: 'Dona Edna, 81 anos, carregava anos de dor crônica que o tempo havia normalizado. Após múltiplas tentativas com a medicina tradicional sem resultado, a família buscou o tratamento como última alternativa.',
+    treatment: 'Abordagem integrada com liberação estrutural das cadeias de tensão acumuladas ao longo dos anos, adaptada às especificidades da faixa etária e ao histórico da paciente. O trabalho foi conduzido com precisão e sensibilidade, respeitando os limites do corpo em cada momento.',
+    techniques: [
+      'Liberação estrutural em camadas',
+      'Descompressão das cadeias de tensão',
+      'Mobilização suave e progressiva',
+      'Abordagem geriátrica adaptada',
+    ],
+    outcome: 'Melhora significativa após a sessão, presenciada pela família. A cada sessão seguinte, testemunharam uma melhora notável e contínua.',
+    sessions: '3 sessões · Rio de Janeiro',
+    testimonial: {
+      author: 'Família de Edna',
+      role: 'Rio de Janeiro',
+      text: 'A avó já estava há anos sofrendo com dor crônica. Depois de muitas tentativas frustradas com a medicina tradicional, foi a melhor decisão possível. A cada sessão, testemunhamos uma melhora notável. Você fez a diferença em nossas vidas. Que possa impactar a vida de mais e mais pessoas. Mil vezes obrigado. Eu, Dudu e toda a sua família, seremos eternamente gratos.',
+    },
+    video: 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'pvpiress',
     location: 'Rio de Janeiro',
-    client: '@pvpiress',
+    client: 'Paulo',
     age: null,
     profession: 'Paciente · Rio de Janeiro',
-    headline: 'Sem dor após 7 anos de ombro crônico e enxaquecas',
+    headline: 'Sem dor após 7 anos de enxaquecas terríveis.',
     years: '7 anos',
     complaint: 'Dor crônica no ombro com enxaquecas recorrentes',
-    symptoms: 'Dor crônica severa no ombro há sete anos, associada a enxaquecas frequentes. O quadro afetava profundamente a qualidade de vida e não havia cedido com tratamentos anteriores.',
+    symptoms: 'Quase 7 anos sofrendo com crises terríveis de enxaqueca, associadas a dor crônica no ombro. O quadro afetava profundamente a qualidade de vida e não havia cedido com tratamentos anteriores.',
     treatment: 'Liberação cervical profunda e descompressão das estruturas associadas ao ombro, abordando as conexões neurovasculares que alimentavam as enxaquecas. O trabalho integrou a cadeia cervical, escapular e craniana, permitindo que o sistema nervoso encontrasse um novo padrão de regulação.',
     techniques: [
       'Liberação cervical profunda',
@@ -279,9 +306,14 @@ const cases: Case[] = [
       'Liberação craniana',
       'Reorganização do sistema nervoso',
     ],
-    outcome: 'Sem dor após 4 sessões. Eliminação das enxaquecas e resolução completa da dor crônica no ombro.',
+    outcome: 'Livre das enxaquecas. Resultados perceptíveis desde a primeira sessão. "Um dos melhores investimentos da minha vida."',
     sessions: '4 sessões',
-    video: null,
+    testimonial: {
+      author: 'PV Pires',
+      role: '★★★★★ · Google Review · Rio de Janeiro',
+      text: 'Minha recuperação com a Cherie foi incomparável. Ela realmente me salvou. Não foi um investimento barato, mas faço questão de dizer que foi um dos melhores investimentos da minha vida. Depois de quase 7 anos sofrendo com crises terríveis de enxaqueca, hoje posso dizer que estou livre. Tudo isso ficou no passado graças ao talento, sensibilidade e profissionalismo da Cherie. Os resultados já foram perceptíveis desde a primeira sessão, o que pra mim foi impressionante.',
+    },
+    video: 'https://www.youtube.com/embed/0MpzjewC2XE?autoplay=1&mute=1&loop=1&playlist=0MpzjewC2XE&controls=1&playsinline=1&rel=0&modestbranding=1',
   },
   {
     id: 'miriam-zigoni',
@@ -379,12 +411,9 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           }}
         >
           {caso.video ? (
-            <iframe
+            <YouTubeEmbed
               src={caso.video}
               className="absolute inset-0 w-full h-full"
-              style={{ border: 'none' }}
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
             />
           ) : caso.cover ? (
             <img

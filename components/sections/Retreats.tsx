@@ -52,7 +52,10 @@ export default function Retreats() {
       {/* ── Hero ── */}
       <div ref={heroRef} className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
 
-        <motion.div className="absolute inset-0" style={{ y: bgY }}>
+        {/* Video background — luxury retreat Thailand */}
+        {/* Replace YOUTUBE_RETREAT_ID with your YouTube video ID once uploaded */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Fallback gradient */}
           <div
             className="absolute inset-0"
             style={{
@@ -64,7 +67,24 @@ export default function Retreats() {
               `,
             }}
           />
-        </motion.div>
+          {/* YouTube embed — uncomment once ID is available */}
+          {/* <iframe
+            src="https://www.youtube.com/embed/YOUTUBE_RETREAT_ID?autoplay=1&mute=1&loop=1&playlist=YOUTUBE_RETREAT_ID&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&showinfo=0"
+            allow="autoplay; fullscreen"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 'max(100%, 177.78vh)',
+              height: 'max(100%, 56.25vw)',
+              border: 'none',
+              pointerEvents: 'none',
+            }}
+          /> */}
+        </div>
+
+        <motion.div className="absolute inset-0" style={{ y: bgY }} />
 
         <div className="absolute inset-0 overlay-bottom" />
         <div

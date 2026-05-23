@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/sections/Hero'
 import Philosophy from '@/components/sections/Philosophy'
 import Method from '@/components/sections/Method'
+import ArchitectureSection from '@/components/sections/ArchitectureSection'
 import Biography from '@/components/sections/Biography'
 import FivePrinciples from '@/components/sections/FivePrinciples'
 import ClinicalResults from '@/components/sections/ClinicalResults'
@@ -15,13 +16,17 @@ import Institute from '@/components/sections/Institute'
 import CertifiedPractitioners from '@/components/sections/CertifiedPractitioners'
 import Retreats from '@/components/sections/Retreats'
 import Locations from '@/components/sections/Locations'
+import CinematicSection from '@/components/sections/CinematicSection'
+import VideoReel from '@/components/sections/VideoReel'
 import ToEmbody from '@/components/sections/ToEmbody'
 import Booking from '@/components/sections/Booking'
 import Footer from '@/components/sections/Footer'
 import SectionDivider from '@/components/SectionDivider'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const { lang } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 2200)
@@ -38,22 +43,25 @@ export default function Home() {
       >
         <Navigation />
         <Hero />
+        <CinematicSection />
         <Philosophy />
         <Method />
+        <ArchitectureSection />
         <Biography />
+        <VideoReel />
         <FivePrinciples />
         <ClinicalResults />
-        <SectionDivider label="Terapeutas" />
+        <SectionDivider label={lang === 'EN' ? 'Therapists' : 'Terapeutas'} />
         <Therapists />
-        <SectionDivider label="Instituto" />
+        <SectionDivider label={lang === 'EN' ? 'Institute' : 'Instituto'} />
         <Institute />
         <CertifiedPractitioners />
         <Retreats />
         <SectionDivider label="São Paulo. Rio de Janeiro. Phimai." />
         <Locations />
-        <SectionDivider label="Loja" />
+        <SectionDivider label={lang === 'EN' ? 'Shop' : 'Loja'} />
         <ToEmbody />
-        <SectionDivider label="Contacto" />
+        <SectionDivider label={lang === 'EN' ? 'Contact' : 'Contacto'} />
         <Booking />
         <Footer />
       </main>

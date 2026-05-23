@@ -3,6 +3,43 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import LazyYouTubeShort from '@/components/LazyYouTubeShort'
+
+function EdnaVideoWithAudio() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [src, setSrc] = useState('')
+  const embedUrl = 'https://www.youtube.com/embed/XFFAP-_K-1o?autoplay=1&loop=1&playlist=XFFAP-_K-1o&controls=1&playsinline=1&rel=0&modestbranding=1&showinfo=0'
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setSrc(embedUrl) },
+      { threshold: 0.05 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [embedUrl])
+
+  return (
+    <div ref={ref} className="absolute inset-0" style={{ background: '#0D110E' }}>
+      {src && (
+        <iframe
+          src={src}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 'max(100%, 56.25vh)',
+            height: 'max(100%, 177.78vw)',
+            border: 'none',
+          }}
+          allow="autoplay; fullscreen"
+          title="Edna — Depoimento família"
+        />
+      )}
+    </div>
+  )
+}
 
 const stats = [
   { value: 94, suffix: '%', label: 'Satisfação dos clientes\nem todos os programas' },
@@ -50,6 +87,7 @@ function CountUp({ target, suffix, isActive }: { target: number; suffix: string;
 
   return <>{count}{suffix}</>
 }
+
 
 export default function ClinicalResults() {
   const statsRef = useRef<HTMLDivElement>(null)
@@ -116,6 +154,142 @@ export default function ClinicalResults() {
             background: 'linear-gradient(to bottom, rgba(245,240,232,0.15) 0%, rgba(245,240,232,0.05) 50%, rgba(245,240,232,0.2) 100%)',
           }}
         />
+      </div>
+
+      {/* ── Edna: Featured case ── */}
+      <div className="border-b border-earth/10 px-6 md:px-12 lg:px-16 py-24 md:py-36">
+        <div className="max-w-6xl mx-auto">
+
+          <motion.p
+            className="label-text text-sage mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            Caso em Destaque&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+          </motion.p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Video */}
+            <motion.div
+              className="relative overflow-hidden"
+              style={{ aspectRatio: '9/16', maxWidth: '340px', margin: '0 auto' }}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1.0] }}
+            >
+              <LazyYouTubeShort youtubeId="XFFAP-_K-1o" />
+            </motion.div>
+
+            {/* Text */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, delay: 0.12, ease: [0.25, 0.1, 0.25, 1.0] }}
+            >
+              <p className="font-cormorant font-light text-deep-moss mb-2" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1 }}>
+                Edna.
+              </p>
+              <p className="label-text text-sage mb-10" style={{ letterSpacing: '0.22em' }}>
+                81 anos&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+              </p>
+
+              <p className="body-text text-earth/65 leading-relaxed mb-8" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', lineHeight: 1.7 }}>
+                Aos 81 anos, Edna chegou carregando uma dor que o tempo havia normalizado. Após a sessão, os familiares que acompanhavam o processo deixaram registrado o que sentiram.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <blockquote
+                    className="border-l border-sage/40 pl-6 font-cormorant font-light text-deep-moss/75 italic mb-3"
+                    style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', lineHeight: 1.6 }}
+                  >
+                    "Você fez a diferença em nossas vidas. Que possa impactar a vida de mais e mais pessoas. Mil vezes obrigado."
+                  </blockquote>
+                  <p className="label-text text-earth/35 pl-6" style={{ fontSize: '0.58rem', letterSpacing: '0.2em' }}>
+                    — Eduardo&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+                  </p>
+                </div>
+
+                <div>
+                  <blockquote
+                    className="border-l border-sage/40 pl-6 font-cormorant font-light text-deep-moss/75 italic mb-3"
+                    style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', lineHeight: 1.6 }}
+                  >
+                    "A avó já estava há anos sofrendo com dor crônica. Depois de muitas tentativas frustradas com a medicina tradicional, foi a melhor decisão possível. A cada sessão, testemunhamos uma melhora notável. Eu, Dudu e toda a sua família, seremos eternamente gratos."
+                  </blockquote>
+                  <p className="label-text text-earth/35 pl-6" style={{ fontSize: '0.58rem', letterSpacing: '0.2em' }}>
+                    — Igor&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── Edna: second video with audio ── */}
+      <div className="border-b border-earth/10 px-6 md:px-12 lg:px-16 py-24 md:py-36" style={{ background: '#F5F0E8' }}>
+        <div className="max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Text — left on desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1.0] }}
+            >
+              <p className="label-text text-sage mb-10" style={{ letterSpacing: '0.22em' }}>
+                O que a família disse
+              </p>
+
+              <div className="space-y-10">
+                <div>
+                  <blockquote
+                    className="border-l border-sage/40 pl-6 font-cormorant font-light text-deep-moss/75 italic mb-3"
+                    style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', lineHeight: 1.6 }}
+                  >
+                    "Você fez a diferença em nossas vidas. Que possa impactar a vida de mais e mais pessoas. Mil vezes obrigado."
+                  </blockquote>
+                  <p className="label-text text-earth/35 pl-6" style={{ fontSize: '0.58rem', letterSpacing: '0.2em' }}>
+                    — Eduardo&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+                  </p>
+                </div>
+
+                <div>
+                  <blockquote
+                    className="border-l border-sage/40 pl-6 font-cormorant font-light text-deep-moss/75 italic mb-3"
+                    style={{ fontSize: 'clamp(1.1rem, 2vw, 1.45rem)', lineHeight: 1.6 }}
+                  >
+                    "A avó já estava há anos sofrendo com dor crônica. Depois de muitas tentativas frustradas com a medicina tradicional, foi a melhor decisão possível. A cada sessão, testemunhamos uma melhora notável. Eu, Dudu e toda a sua família, seremos eternamente gratos."
+                  </blockquote>
+                  <p className="label-text text-earth/35 pl-6" style={{ fontSize: '0.58rem', letterSpacing: '0.2em' }}>
+                    — Igor&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Video with audio — right on desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, delay: 0.12, ease: [0.25, 0.1, 0.25, 1.0] }}
+              className="relative overflow-hidden"
+              style={{ aspectRatio: '9/16', maxWidth: '340px', margin: '0 auto' }}
+            >
+              <EdnaVideoWithAudio />
+            </motion.div>
+
+          </div>
+        </div>
       </div>
 
       {/* Depoimentos */}

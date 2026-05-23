@@ -38,8 +38,10 @@ const founders = [
     ideal: 'Procurada especialmente por clientes com dores complexas, tensões antigas ou casos que exigem uma abordagem altamente especializada. Aqueles que passaram por outros tratamentos sem resolução duradoura.',
     note: 'Lista de espera aplicável.',
     imageSub: 'Mãos em trabalho estrutural · Luz clínica',
-    image: '/portrait-cherie.jpg',
-    imagePosition: 'center top' as const,
+    image: '/portrait-cherie-2.jpg',
+    imagePosition: 'center 30%' as const,
+    imageZoom: 1.5,
+    imageZoomOrigin: 'center 30%',
     priceLabel: 'Experiência Recomendada',
     price: 'R$ 920',
     supportingTone: null as string | null,
@@ -47,12 +49,12 @@ const founders = [
   },
   {
     id: 'karl',
-    name: 'Karl',
+    name: 'Karl Georges',
     role: 'Co-Fundador · CherieThai · Linhagem Thai Tradicional',
     location: 'Rio de Janeiro · Linhagem do Nordeste da Tailândia',
     bg: 'from-[#3A3028] via-[#4A3C30] to-[#3A3028]',
     textSide: 'left' as const,
-    philosophy: `"O corpo sempre foi inteiro.\nEm algum momento, esqueceu.\n\nO bodywork Thai tradicional não introduz nada de novo. Remove o que não pertence, a respiração contida, o ombro tenso, o peso carregado na direção errada.\n\nA prática é muito antiga. O silêncio ao seu redor é o mesmo silêncio que sempre teve."`,
+    philosophy: `"Não escolhi uma profissão.\nEscolhi uma vida.\n\nO que pratico foi transmitido por quem veio antes, e por quem veio antes deles. Não sou a origem disso. Sou apenas quem escolheu carregar.\n\nO silêncio não é ausência. É o que acontece quando a presença é total."`,
     atmosphere: `As sessões de Karl não começam com uma consulta. Começam com silêncio.\n\nSeu trabalho é praticado no chão, como sempre foi, principalmente sem óleo, usando a inteligência plena das mãos, antebraços, polegares e pés em uma progressão rítmica e meditativa que segue as linhas meridianas do corpo.\n\nO ritmo é ancestral. Não há pressa. Não há protocolo que anule o que o corpo apresenta. Os clientes frequentemente descrevem não lembrar quando pararam de pensar, apenas que pararam.`,
     presence: 'Enraizado. Meditativo. Profundamente tradicional. A rara qualidade de um praticante que carrega linhagem, não técnica.',
     strengths: [
@@ -66,9 +68,9 @@ const founders = [
     ideal: 'Aqueles que buscam a raiz autêntica do bodywork Thai, sem adaptação ou modernização. Corpos que precisam de profundidade através de pressão sustentada e rítmica, em vez de liberação pontual. Aqueles que querem algo mais antigo do que o que está disponível atualmente.',
     note: 'Sessões de chão. Sem óleo. Formato tradicional.',
     imageSub: 'Trabalho tradicional de chão · Luz natural',
-    image: null as string | null,
-    imagePosition: 'center center' as const,
-    priceLabel: 'Sessões com Karl',
+    image: '/portrait-karl.jpg' as string | null,
+    imagePosition: 'center top' as const,
+    priceLabel: 'Sessões com Karl Georges',
     price: 'R$ 450',
     supportingTone: 'Terapia Thai tradicional de chão, enraizada nas tradições ancestrais do bodywork tailandês e no movimento assistido rítmico.' as string | null,
     consultationNote: 'Disponibilidade e formatos adicionais mediante consulta.',
@@ -93,11 +95,11 @@ const therapists = [
       'Presença tátil envolvente',
       'Transições elegantes de técnica',
     ],
-    ideal: 'Aqueles que sustentam tensão pela vigilância, cujos corpos estão tensos contra a próxima demanda. Clientes que precisam ser movidos, não tratados. Aqueles que buscam regulação profunda através de ritmo sustentado e inteligente.',
+    ideal: 'Aqueles que sustentam tensão pela vigilância, cujos corpos estão tensos contra a próxima demanda. Clientes que buscam regulação profunda através de ritmo sustentado e inteligente — seja para dores específicas ou para restaurar o equilíbrio geral do corpo.',
     imageSub: 'Movimento fluido · Luz direcional quente',
     accent: '#AAB6A2',
-    image: '/portrait-lucas.jpg' as string | null,
-    imagePosition: 'center top',
+    image: '/site-img-3.jpg' as string | null,
+    imagePosition: 'center 20%',
     priceLabel: 'Sessões com Lucas' as string | null,
     price: 'R$ 400' as string | null,
     supportingTone: 'Bodywork fluido e imersivo guiado pelo ritmo, movimento contínuo e fluxo tátil refinado.' as string | null,
@@ -149,8 +151,8 @@ const therapists = [
     ideal: 'Aqueles que precisam de profundidade sem intensidade, liberação estrutural sem a sensação de ter sido trabalhado demais. Clientes em recuperação de padrões de tensão relacionados ao estresse. Aqueles que foram chamados de "sensíveis" e dispensados. Não são sensíveis demais. Precisam de mais precisão.',
     imageSub: 'Toque refinado · Luz direcional suave',
     accent: '#DCC9A0',
-    image: null as string | null,
-    imagePosition: 'center top',
+    image: '/portrait-grace.jpg' as string | null,
+    imagePosition: 'center 15%',
     priceLabel: 'Sessões com Grace-Kelly' as string | null,
     price: 'R$ 420' as string | null,
     supportingTone: 'Bodywork terapêutico equilibrado, alongamento elegante, pressão refinada e toque profundamente preciso.' as string | null,
@@ -176,7 +178,7 @@ const therapists = [
     imageSub: 'Trabalho estrutural fluido · Luz em tons terrosos',
     accent: '#AAB6A2',
     image: '/portrait-ricardo.jpg' as string | null,
-    imagePosition: 'center top',
+    imagePosition: 'center center',
     priceLabel: null as string | null,
     price: null as string | null,
     supportingTone: null as string | null,
@@ -225,7 +227,11 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
                 fill
                 sizes="(max-width: 1024px) 100vw, 52vw"
                 className="object-cover"
-                style={{ objectPosition: founder.imagePosition ?? 'center top' }}
+                style={{
+                  objectPosition: founder.imagePosition ?? 'center top',
+                  transform: founder.imageZoom ? `scale(${founder.imageZoom})` : undefined,
+                  transformOrigin: founder.imageZoomOrigin ?? 'center top',
+                }}
               />
               <div
                 className="absolute inset-0"
@@ -248,9 +254,6 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
               </div>
             </div>
           )}
-          <div className="absolute bottom-6 left-6 right-6">
-            <p className="label-text text-sage/30 text-xs">[ {founder.imageSub} ]</p>
-          </div>
         </motion.div>
       </motion.div>
 
@@ -419,9 +422,6 @@ function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]
             <span aria-hidden className="text-sand/60">◎</span>
             {therapist.location}
           </span>
-        </div>
-        <div className="absolute bottom-5 left-5 right-5 z-10">
-          <p className="label-text text-sage/25 text-xs">[ {therapist.imageSub} ]</p>
         </div>
       </div>
 

@@ -3,6 +3,10 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import dynamic from 'next/dynamic'
+import LazyYouTubeShort from '@/components/LazyYouTubeShort'
+
+const StudentMap = dynamic(() => import('@/components/sections/StudentMap'), { ssr: false })
 
 const WHATSAPP_NUMBER = '5511911135083'
 const whatsappUrl = (subject?: string) => {
@@ -87,14 +91,16 @@ export default function Institute() {
       {/* ── Hero ── */}
       <div ref={heroRef} className="relative h-[80vh] min-h-[500px] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-          <Image
-            src="/session-archer.jpg"
-            alt="Instituto CherieThai"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            priority
-          />
+          {/* DJI background video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/dji-main.mov" type="video/mp4" />
+          </video>
           <div
             className="absolute inset-0"
             style={{
@@ -115,9 +121,9 @@ export default function Institute() {
             O Instituto<br />CherieThai.
           </motion.h2>
           <motion.p {...inView(0.2)} className="body-text text-sand/75 max-w-md text-base md:text-lg mb-10">
-            Um ambiente de formação para terapeutas<br />
-            que já dominaram a técnica —<br />
-            e querem compreender o corpo.
+            Para terapeutas que querem transformar vidas<br />
+            e construir uma carreira<br/>
+            à altura do seu potencial.
           </motion.p>
           <motion.a
             {...inView(0.3)}
@@ -191,7 +197,17 @@ export default function Institute() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            O Instituto CherieThai é o único programa de formação no Brasil afiliado à UTTMS, reconhecida pelo governo tailandês e com diploma de validade internacional. Os nossos clientes são executivos, atletas e figuras públicas que exigem o mais alto nível. Esse contexto coloca o nosso nome em jogo a cada sessão. Por isso formamos grupos pequenos e íntimos. Não por limitação. Porque cada praticante que sai daqui representa este nome fora da escola. Que eles o façam com o padrão mais alto possível. Esse é o nosso maior objetivo.
+            Somos o único programa no Brasil que integra a certificação da UTTMS, reconhecida pelo governo tailandês e com validade internacional, ao Sistema CherieThai. Aqui desenvolvemos a técnica clínica ao nível mais alto, e também a imagem, a presença, o trabalho autónomo e a identidade profissional. Tudo o que é preciso para atender quem exige o melhor e ser reconhecido por isso.
+          </motion.p>
+
+          <motion.p
+            className="body-text text-sand/60 text-base md:text-lg leading-relaxed max-w-2xl mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.9, delay: 0.25, ease: [0.25, 0.1, 0.25, 1.0] }}
+          >
+            Os nossos clientes são executivos, atletas e figuras públicas. Pessoas que já tentaram de tudo e chegam até nós por indicação, porque o nível de exigência que trazem não encontra resposta em qualquer lugar. Os nossos alunos aprendem a trabalhar exactamente nesse contexto.
           </motion.p>
 
           <motion.p
@@ -201,7 +217,7 @@ export default function Institute() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Quem passa pelo Instituto é sempre bem-vindo de volta. Realizamos revisões periódicas por convite, onde os praticantes formados retornam para ser observados, corrigidos e recalibrados. É a nossa forma de garantir que o que foi ensinado continua a ser praticado com a mesma integridade. Maus hábitos formam-se em silêncio. As revisões existem para que isso nunca aconteça.
+            Levo cada aluno debaixo das minhas asas. O programa é composto por múltiplos pilares: a técnica, o ser terapeuta, o trabalho por conta própria, a construção da imagem e da autoridade, e o atendimento com a mais alta qualidade do nosso método. Publicamos o trabalho e os resultados dos nossos alunos porque a credibilidade constrói-se com prova. O objectivo é que cada pessoa que sai daqui saiba exactamente quem é, o que oferece, e como fazer isso render.
           </motion.p>
         </div>
           </div>
@@ -219,7 +235,6 @@ export default function Institute() {
           Cursos
         </motion.p>
       </div>
-
 
       {/* ══════════════════════════════════════════════════════════ */}
       {/* ── 01. FORMAÇÃO SÃO PAULO ─────────────────────────────── */}
@@ -263,7 +278,7 @@ export default function Institute() {
                 <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10">
                   {[
                     { k: 'Duração', v: '30 horas' },
-                    { k: 'Grupo', v: 'Máximo 4 praticantes' },
+                    { k: 'Grupo', v: 'Grupo reduzido' },
                     { k: 'Formato', v: 'Presencial · Mesa clínica' },
                     { k: 'Local', v: 'São Paulo, Brasil' },
                   ].map(({ k, v }) => (
@@ -275,15 +290,15 @@ export default function Institute() {
                 </div>
 
                 <div className="border border-earth/15 px-5 py-4 inline-block">
-                  <p className="label-text text-earth/50 text-xs mb-1">Lista de Espera</p>
-                  <p className="body-text text-earth/70 text-sm">Lista completa. Sem previsão de reabertura.</p>
+                  <p className="label-text text-earth/50 text-xs mb-1">Turma 2026</p>
+                  <p className="body-text text-earth/70 text-sm">Esgotada. Lista de espera para 2027 abre no final de 2026.</p>
                 </div>
               </motion.div>
 
               <motion.div {...inView(0.15)} className="flex flex-col justify-between">
                 <div className="space-y-5 mb-10">
                   <p className="body-text text-earth/65 text-base leading-relaxed">
-                    Uma imersão de trinta horas no Método CherieThai, conduzida integralmente sobre mesa clínica, em um ambiente de mentoria íntima com no máximo quatro praticantes por edição.
+                    Uma imersão de trinta horas no Método CherieThai, conduzida integralmente sobre mesa clínica, em um ambiente de mentoria íntima e grupos reduzidos.
                   </p>
                   <p className="body-text text-earth/65 text-base leading-relaxed">
                     Não é um curso. É uma reconfiguração. Ao longo dos dias, a forma como você lê um corpo, constrói uma sequência e aplica pressão muda estruturalmente, porque é trabalhada estruturalmente, sob supervisão direta e correções personalizadas de Cherie.
@@ -424,6 +439,42 @@ export default function Institute() {
       </div>
 
 
+      {/* ── Teaching in Thai video ── */}
+      <motion.div
+        className="relative overflow-hidden"
+        style={{ background: '#0D110E' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
+      >
+        {/* Video — full width, 9:16 contained */}
+        <div className="relative w-full max-w-sm mx-auto" style={{ aspectRatio: '9/16' }}>
+          <LazyYouTubeShort youtubeId="apgY6rYHFK8" />
+        </div>
+
+        {/* Text overlay — centered on top */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
+          <p
+            className="font-cormorant font-light text-ivory text-center"
+            style={{
+              fontSize: 'clamp(2.5rem, 8vw, 7rem)',
+              lineHeight: 1.0,
+              letterSpacing: '-0.02em',
+              textShadow: '0 2px 40px rgba(0,0,0,0.7)',
+            }}
+          >
+            Teaching in my<br />native language.
+          </p>
+          <p
+            className="label-text text-sage/60 mt-6 text-center"
+            style={{ fontSize: '0.62rem', letterSpacing: '0.28em', textShadow: '0 1px 12px rgba(0,0,0,0.8)' }}
+          >
+            Instituto CherieThai&nbsp;&nbsp;·&nbsp;&nbsp;Tailândia
+          </p>
+        </div>
+      </motion.div>
+
       {/* ── RETIROS ── */}
       <div id="institute-retiros" className="bg-dark-moss border-t border-sand/10 px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <motion.p
@@ -486,7 +537,7 @@ export default function Institute() {
                     className="font-cormorant font-light text-sand/65"
                     style={{ fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', lineHeight: 1.1 }}
                   >
-                    28 Set até 4 Out
+                    28 Set – 4 Out 2026
                   </p>
                 </motion.div>
 
@@ -561,28 +612,22 @@ export default function Institute() {
         <div className="px-6 md:px-12 lg:px-16 pb-16 md:pb-24">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
             {[
-              '1194162752',
-              '1194162791',
-              '1194162814',
-              '1194162829',
-              '1194162875',
-            ].map((vimeoId, i) => (
+              'oUHcd6o-rQY',
+              'gjvkkywhOPg',
+              'NLnJXhy64dc',
+              'R2-WhPnVZik',
+              '8968zNfqUHI',
+            ].map((youtubeId, i) => (
               <motion.div
-                key={vimeoId}
+                key={youtubeId}
                 className="relative overflow-hidden"
-                style={{ aspectRatio: '9/16' }}
+                style={{ aspectRatio: '9/16', background: '#0D110E' }}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.85, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
               >
-                <iframe
-                  src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&dnt=1`}
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 'none', pointerEvents: 'none' }}
-                  allow="autoplay; fullscreen"
-                  title={`Retiro Chapada ${i + 1}`}
-                />
+                <LazyYouTubeShort youtubeId={youtubeId} />
               </motion.div>
             ))}
           </div>
@@ -731,24 +776,56 @@ export default function Institute() {
       {/* ── 05. ALUNOS FORMADOS ────────────────────────────────── */}
       {/* ══════════════════════════════════════════════════════════ */}
 
-      <div className="bg-ivory">
-        <div className="px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-24 md:pb-36">
+      <div className="bg-dark-moss border-t border-sand/6">
+        <div className="px-6 md:px-12 lg:px-16 pt-20 md:pt-28 pb-24 md:pb-36">
           <div className="max-w-6xl mx-auto">
 
-            <motion.div
-              {...inView(0.05)}
-              className="border border-earth/12 px-10 py-16 md:py-24 text-center max-w-2xl"
-            >
-              <p className="label-text text-sage/40 mb-6 tracking-[0.22em]">Em Breve</p>
-              <p
-                className="font-cormorant font-light text-deep-moss mb-6"
-                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 3rem)', lineHeight: 1.15 }}
+            {/* Heading */}
+            <div className="flex items-end justify-between gap-8 mb-16 md:mb-20">
+              <motion.div {...inView()}>
+                <p className="label-text text-sage/40 mb-4" style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}>
+                  ALUNOS FORMADOS
+                </p>
+                <h3
+                  className="font-cormorant font-light text-ivory"
+                  style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', lineHeight: 1.1 }}
+                >
+                  Presentes em estados<br />
+                  <span className="text-sage/60">e no mundo.</span>
+                </h3>
+              </motion.div>
+              <motion.p
+                {...inView(0.1)}
+                className="body-text text-sand/35 text-right max-w-xs hidden md:block"
+                style={{ fontSize: '0.85rem', lineHeight: 1.7 }}
               >
-                Os perfis dos terapeutas certificados serão apresentados em breve.
-              </p>
-              <p className="body-text text-earth/50 text-sm leading-relaxed">
-                Cada um com a sua foto, localização, horas de formação concluídas, estilo de trabalho, Instagram e apresentação final em vídeo.
-              </p>
+                Terapeutas formados pelo Instituto CherieThai<br />
+                já actuam em diferentes estados do Brasil<br />
+                e em outros países.
+              </motion.p>
+            </div>
+
+            {/* Interactive map */}
+            <motion.div {...inView(0.12)}>
+              <StudentMap />
+            </motion.div>
+
+            {/* Coming soon note */}
+            <motion.div {...inView(0.2)} className="mt-12 border-t border-sand/8 pt-10">
+              <div className="flex items-start gap-6">
+                <div
+                  className="w-px self-stretch"
+                  style={{ background: 'linear-gradient(to bottom, rgba(138,162,120,0.4), transparent)' }}
+                />
+                <div>
+                  <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}>
+                    EM BREVE
+                  </p>
+                  <p className="font-cormorant font-light text-ivory/50" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.4rem)', lineHeight: 1.5 }}>
+                    Os perfis individuais de cada terapeuta certificado — com foto, localização, horas de formação e apresentação em vídeo — serão publicados em breve.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
           </div>
