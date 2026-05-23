@@ -45,7 +45,7 @@ const founders = [
     priceLabel: 'Experiência Recomendada',
     price: 'R$ 920',
     supportingTone: null as string | null,
-    consultationNote: 'Outras configurações de sessão disponíveis. Entre em contato para saber mais.',
+    consultationNote: 'Além das sessões individuais, Cherie trabalha com diferentes formatos terapêuticos. Fale connosco para descobrir a abordagem certa para si.',
   },
   {
     id: 'karl',
