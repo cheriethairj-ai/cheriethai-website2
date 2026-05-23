@@ -30,20 +30,27 @@ export default function CinematicSection() {
 
       {/* ── Video background ── */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Dark fallback while video loads */}
-        <div className="absolute inset-0 bg-dark-moss" />
+        {/* Fallback background image (shows on iOS / when video blocked) */}
+        <div
+          className="absolute inset-0 bg-dark-moss"
+          style={{
+            backgroundImage: 'url(/hero-studio.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+          }}
+        />
 
-        {/* YouTube autoplay background */}
+        {/* YouTube autoplay background — cropped to hide title/UI bars */}
         <iframe
           src={src}
           allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
           style={{
             position: 'absolute',
-            top: '50%',
+            top: 'calc(50% - 60px)',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 'max(100%, 56.25vh)',
-            height: 'max(100%, 177.78vw)',
+            height: 'calc(max(100%, 177.78vw) + 120px)',
             border: 'none',
             pointerEvents: 'none',
           }}
