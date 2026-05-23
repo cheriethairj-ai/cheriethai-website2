@@ -372,9 +372,19 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
               <span>Solicitar uma Sessão</span>
               <span aria-hidden>→</span>
             </a>
-            <p className="label-text text-sage/28 text-xs leading-relaxed">
+            <p className="label-text text-sage/28 text-xs leading-relaxed mb-4">
               {founder.consultationNote}
             </p>
+            {founder.id === 'cherie' && (
+              <a
+                href="/resultados"
+                className="label-text text-sand/35 hover:text-sand/60 transition-colors duration-300 flex items-center gap-2 w-fit"
+                style={{ fontSize: '0.6rem', letterSpacing: '0.18em' }}
+              >
+                <span>Ver Resultados</span>
+                <span aria-hidden>→</span>
+              </a>
+            )}
           </motion.div>
 
         </div>
