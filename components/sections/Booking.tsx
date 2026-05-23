@@ -147,8 +147,7 @@ export default function Booking() {
             {/* ── Payment note ── */}
             <motion.p {...inView(0.5)} className="label-text text-sage/25 text-xs leading-relaxed">
               O pagamento é coordenado após a confirmação —
-              via Pix, cartão de crédito ou parcelamento,
-              pelo Mercado Pago.
+              via Pix ou cartão de crédito.
             </motion.p>
 
           </div>
