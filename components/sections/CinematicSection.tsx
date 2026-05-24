@@ -13,7 +13,7 @@ const translations = {
     line1: 'Nascida em Phimai.',
     line2: 'Criada entre os campos de arroz.',
     body1: 'Quatro anos de idade. Uma aldeia no nordeste da Tailândia. Filha de agricultores, aprendeu com quem trabalha o corpo por necessidade, não por protocolo.',
-    body2: 'No Brasil, esse entendimento se traduziu em algo mais raro. Uma clínica construída em silêncio, reconhecida por quem a vive. Cada sessão é uma leitura estrutural. Uma decisão tomada antes de qualquer palavra.',
+    body2: 'No Brasil, essa compreensão evoluiu para uma abordagem terapêutica rara. Cada sessão guiada por percepção estrutural, precisão e uma compreensão íntima do corpo.',
     cta: 'Nossa História',
   },
   EN: {
