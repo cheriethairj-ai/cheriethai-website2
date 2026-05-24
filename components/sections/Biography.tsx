@@ -136,12 +136,12 @@ const translations = {
 
     // Japan video
     japanLabel: 'Japan  ·  Blindfolded massage',
-    japanCaption: 'Touch that needs no sight.',
+    japanCaption: '"The touch that no longer depends on sight."',
 
     // Journey
-    journeyLabel: 'Journey  ·  Thailand · United Kingdom · Europe · Brazil',
-    journeyP1: 'With over fifteen years of professional experience across Thailand, Europe, and Brazil, Cherie developed a clinical approach that integrates traditional Thai therapeutic lineage with advanced structural bodywork and movement-based therapeutic understanding.',
-    journeyP2: 'This work culminated in the founding of CherieThai Clínica, a boutique therapeutic institute operating between São Paulo and Rio de Janeiro, offering highly personalised treatments to restore mobility, improve structural balance, and support long-term physical health.',
+    journeyLabel: 'Trajectory  ·  Thailand · United Kingdom · Europe · Brazil',
+    journeyP1: 'With more than fifteen years of professional experience across Thailand, Europe, and Brazil, Cherie developed a clinical approach that integrates the traditional Thai therapeutic lineage with advanced structural bodywork and movement-based therapeutic understanding.',
+    journeyP2: 'This work ultimately led to the creation of CherieThai Clínica — a boutique therapeutic institute operating between São Paulo and Rio de Janeiro, offering highly individualized treatments designed to restore mobility, improve structural balance, and support long-term physical wellbeing.',
 
     // Karl header
     karlLabel: 'Co-Founder  ·  Karl Müller',
