@@ -229,9 +229,9 @@ const therapistsData = {
       name: 'Pedro',
       role: 'Praticante · Lutador Profissional de MMA · Tecido Profundo',
       location: 'São Paulo',
-      philosophy: '"Luto há anos. O corpo é tudo que tenho no octógono. Aprendi a ler músculos, articulações, tensões, não em uma mesa, mas em combate. Quando trabalho com alguém aqui, estou usando esse mesmo vocabulário. Só que desta vez, para restaurar."',
+      philosophy: '"As pessoas esperam que um lutador seja bruto.\nFicam surpresas quando sentem como trabalho.\n\nNão desenvolvi sensibilidade apesar de lutar. Desenvolvi por causa disso. Anos de combate ensinam a ler o corpo em um nível que nenhuma sala de aula alcança. Você sente um músculo resistir antes de tensionar. Sabe onde alguém vai ceder antes de ceder.\n\nO que trago aqui é essa mesma percepção — usada na direção oposta."',
       atmosphere: `Pedro é lutador profissional de MMA, e terapeuta. Essa combinação é rara, e o que ela produz é algo que a formação clínica sozinha não consegue replicar.\n\nEle conhece o corpo de dentro do conflito. Sabe o que acontece com um músculo sob pressão extrema, como uma articulação cede antes de lesionar, como a tensão densa de um atleta difere de qualquer outro corpo. Quando ele trabalha, há uma precisão anatômica que vem de anos de experiência corporificada, não apenas estudada.\n\nOs clientes descrevem suas sessões como cirúrgicas. Profundas. Exatas. O tipo de trabalho que acessa o que outras abordagens simplesmente não alcançam.`,
-      presence: 'Intenso. Preciso. Surpreendentemente calmo para alguém que combate profissionalmente. A contenção é parte do talento.',
+      presence: 'Preciso. Quieto. Surpreendentemente delicado para alguém que compete profissionalmente. A sensibilidade não é apesar da luta. É por causa dela.',
       strengths: [
         'Conhecimento anatômico de combate aplicado ao bodywork',
         'Trabalho preciso de tecido profundo',
@@ -336,9 +336,9 @@ const therapistsData = {
       name: 'Pedro',
       role: 'Practitioner · Professional MMA Fighter · Deep Tissue',
       location: 'São Paulo',
-      philosophy: '"I have fought for years. The body teaches you that there is no shortcut. I learned to read muscles, joints, and tension not on a table, but in combat. When I work with someone, I use the same sensitivity. I know where it hurts, to restore."',
+      philosophy: '"People expect a fighter to be rough.\nThey are surprised when they feel how I work.\n\nI did not develop sensitivity despite fighting. I developed it because of it. Years of combat teach you to read the body at a level no classroom can reach. You feel a muscle resist before it tenses. You know where someone is about to give before they do.\n\nWhat I bring here is that same perception — used in the opposite direction."',
       atmosphere: `Pedro is a professional MMA fighter and therapist. This combination is rare, and what it creates goes beyond technical training alone. His touch is direct, dense, and deeply precise — especially effective for chronic tension and heavily compressed structures.\n\nHe knows the body from within conflict. He understands what happens to a muscle under extreme pressure, how a joint gives way before it breaks, how the dense tension of an athlete differs from any other body. When he works, there is an anatomical precision that comes from years of embodied experience, not merely studied.\n\nClients describe his sessions as surgical. Deep. Exact. The kind of work that accesses what other approaches simply cannot reach.`,
-      presence: 'Intense. Precise. Surprisingly calm for someone who fights professionally. Precision is part of instinct.',
+      presence: 'Precise. Quiet. Surprisingly delicate for someone who competes professionally. The sensitivity is not despite the fighting. It is because of it.',
       strengths: [
         'Anatomical understanding of combat applied to bodywork',
         'Precise deep tissue work',
