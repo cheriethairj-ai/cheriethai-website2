@@ -100,8 +100,8 @@ const translations = {
     contactLink: 'Get in Touch',
     mapsLink: 'View on Google Maps',
 
-    internationalBody: 'International sessions available upon request. CherieThai practitioners travel for private programmes, corporate partnerships, and institutional collaborations.',
-    internationalNote: 'Contact us to enquire about availability in your city.',
+    internationalBody: 'International sessions available upon request. CherieThai practitioners travel for private programs, corporate partnerships, and institutional collaborations.',
+    internationalNote: 'Contact us to consult availability in your city.',
   },
 }
 
