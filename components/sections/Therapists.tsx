@@ -3,80 +3,197 @@
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const SP_WHATSAPP = '5511911135083'
 const RIO_WHATSAPP = '5521996466022'
-const whatsappUrl = (name?: string, number?: string) => {
+const whatsappUrl = (name?: string, number?: string, lang: 'PT' | 'EN' = 'PT') => {
   const num = number ?? SP_WHATSAPP
-  const msg = name
-    ? `Olá, gostaria de receber mais informações sobre sessões com ${name} na CherieThai.`
-    : 'Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.'
+  const msg = lang === 'EN'
+    ? name
+      ? `Hello, I'd like to receive more information about sessions with ${name} at CherieThai.`
+      : `Hello, I'd like to receive more information about sessions, therapeutic options, and availability at CherieThai.`
+    : name
+      ? `Olá, gostaria de receber mais informações sobre sessões com ${name} na CherieThai.`
+      : 'Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.'
   return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// ─── UI Translations ───────────────────────────────────────────────────────────
 
-const founders = [
-  {
-    id: 'cherie',
-    name: 'Cherie T. Charnkul',
-    role: 'Fundadora · O Método CherieThai',
-    location: 'São Paulo · Internacional',
-    bg: 'from-[#2A3329] via-[#3D4A40] to-[#2A3329]',
-    textSide: 'right' as const,
-    philosophy: `"Eu não corrijo o corpo.\nRestauro o seu acesso a si mesmo.\n\nO corpo não está quebrado quando está com dor. Está reorganizado. Adaptou-se em torno de uma restrição, uma antiga compressão, um padrão que aprendeu para continuar se movendo.\n\nMeu trabalho é encontrar esse padrão, e oferecer ao corpo uma opção mais inteligente."`,
-    atmosphere: `Cherie conduz sessões que combinam liberação profunda de tecidos, sequências de alongamentos complexos e reorganização estrutural do corpo, incluindo sua própria criação: uma mobilidade Thai avançada de movimentos autorais que se tornaram sua assinatura clínica.\n\nCada sessão é construída de forma inteiramente personalizada, identificando a origem das tensões e restaurando os padrões naturais de movimento que o corpo perdeu ao longo do tempo.\n\nReconhecida por sua leitura corporal extremamente precisa, ela lê o que outros perdem. Quando o contato é feito, ela já sabe para onde a sessão irá.`,
-    presence: 'Calma. Precisa. Sem pressa. O ritmo de quem não precisa demonstrar o que sabe.',
-    strengths: [
-      'Descompressão estrutural',
-      'Sequenciamento avançado de mobilidade Thai',
-      'Regulação descendente do sistema nervoso',
-      'Leitura somática do corpo',
-      'Precisão em tecidos profundos',
-      'Gestão de casos complexos de dor',
-    ],
-    ideal: 'Procurada especialmente por clientes com dores complexas, tensões antigas ou casos que exigem uma abordagem altamente especializada. Aqueles que passaram por outros tratamentos sem resolução duradoura.',
-    note: 'Lista de espera aplicável.',
-    imageSub: 'Mãos em trabalho estrutural · Luz clínica',
-    image: '/portrait-cherie-2.jpg',
-    imagePosition: 'center 30%' as const,
-    imageZoom: 1.5,
-    imageZoomOrigin: 'center 30%',
-    priceLabel: 'Experiência Recomendada',
-    price: 'R$ 920',
-    supportingTone: null as string | null,
-    consultationNote: 'Disponibilidade reduzida. Além das sessões individuais, Cherie trabalha com diferentes formatos terapêuticos. Fale connosco para descobrir a abordagem certa para si.',
+const uiTranslations = {
+  PT: {
+    specializationsBtn: 'Especializações & Perfil Ideal',
+    close: 'Fechar',
+    requestSession: 'Solicitar uma Sessão',
+    requestSessionSmall: 'Solicitar uma sessão',
+    technicalSpec: 'Especializações Técnicas',
+    idealProfile: 'Perfil Ideal',
+    sectionLabel: 'Os Praticantes',
+    sectionH2Line1: 'As mãos',
+    sectionH2Line2: 'por trás do método.',
+    sectionBody: 'Os praticantes CherieThai não são selecionados pelas horas acumuladas. São selecionados pelo que compreendem.',
+    teamLabel: 'A Equipe de Praticantes',
+    teamBody: 'Cada praticante concluiu formação direta sob orientação de Cherie T. Charnkul. Sem exceções.',
+    specializationsSmall: 'Especializações',
+    availabilityOnRequest: 'Disponibilidade mediante consulta',
+    noteLabel: 'Uma Nota Sobre a Seleção',
+    noteBody1: 'Ao entrar em contato, você não é atribuído a um terapeuta com base na disponibilidade. Você é indicado, com base no que traz, no que precisa e em qual inteligência particular do praticante é mais adequada ao trabalho que seu corpo requer.',
+    noteBody2: 'Em alguns casos, Cherie recomendará um praticante específico. De qualquer forma, a sessão que você receberá terá sido pensada antes de começar.',
+    startConsultation: 'Iniciar uma Consulta',
+    seeResults: 'Ver Resultados',
   },
-  {
-    id: 'karl',
-    name: 'Karl Georges',
-    role: 'Co-Fundador · CherieThai · Linhagem Thai Tradicional',
-    location: 'Rio de Janeiro · Linhagem do Nordeste da Tailândia',
-    bg: 'from-[#3A3028] via-[#4A3C30] to-[#3A3028]',
-    textSide: 'left' as const,
-    philosophy: `"Não escolhi uma profissão.\nEscolhi uma vida.\n\nO que pratico foi transmitido por quem veio antes, e por quem veio antes deles. Não sou a origem disso. Sou apenas quem escolheu carregar.\n\nO silêncio não é ausência. É o que acontece quando a presença é total."`,
-    atmosphere: `As sessões de Karl não começam com uma consulta. Começam com silêncio.\n\nSeu trabalho é praticado no chão, como sempre foi, principalmente sem óleo, usando a inteligência plena das mãos, antebraços, polegares e pés em uma progressão rítmica e meditativa que segue as linhas meridianas do corpo.\n\nO ritmo é ancestral. Não há pressa. Não há protocolo que anule o que o corpo apresenta. Os clientes frequentemente descrevem não lembrar quando pararam de pensar, apenas que pararam.`,
-    presence: 'Enraizado. Meditativo. Profundamente tradicional. A rara qualidade de um praticante que carrega linhagem, não técnica.',
-    strengths: [
-      'Trabalho Thai tradicional de chão',
-      'Alongamento passivo assistido',
-      'Sequências de compressão rítmica',
-      'Mobilização das linhas Sen',
-      'Mobilização rítmica de corpo inteiro',
-      'Protocolo terapêutico Thai tradicional',
-    ],
-    ideal: 'Aqueles que buscam a raiz autêntica do bodywork Thai, sem adaptação ou modernização. Corpos que precisam de profundidade através de pressão sustentada e rítmica, em vez de liberação pontual. Aqueles que querem algo mais antigo do que o que está disponível atualmente.',
-    note: 'Sessões de chão. Sem óleo. Formato tradicional.',
-    imageSub: 'Trabalho tradicional de chão · Luz natural',
-    image: '/portrait-karl.jpg' as string | null,
-    imagePosition: 'center top' as const,
-    priceLabel: 'Sessões com Karl Georges',
-    price: 'R$ 450',
-    supportingTone: 'Terapia Thai tradicional de chão, enraizada nas tradições ancestrais do bodywork tailandês e no movimento assistido rítmico.' as string | null,
-    consultationNote: 'Disponibilidade e formatos adicionais mediante consulta.',
-    whatsapp: RIO_WHATSAPP,
+  EN: {
+    specializationsBtn: 'Specializations & Ideal Profile',
+    close: 'Close',
+    requestSession: 'Request a Session',
+    requestSessionSmall: 'Request a session',
+    technicalSpec: 'Technical Specializations',
+    idealProfile: 'Ideal Profile',
+    sectionLabel: 'The Practitioners',
+    sectionH2Line1: 'The hands',
+    sectionH2Line2: 'behind the method.',
+    sectionBody: 'CherieThai practitioners are not selected by accumulated hours. They are selected by what they understand.',
+    teamLabel: 'The Practitioner Team',
+    teamBody: 'Every practitioner completed direct training under the guidance of Cherie T. Charnkul. Without exception.',
+    specializationsSmall: 'Specializations',
+    availabilityOnRequest: 'Availability upon request',
+    noteLabel: 'A Note on Selection',
+    noteBody1: 'When you reach out, you are not assigned to a therapist based on availability. You are matched based on what you bring, what you need, and which particular intelligence of each practitioner is best suited to the work your body requires.',
+    noteBody2: 'In some cases, Cherie will recommend a specific practitioner. Either way, the session you receive will have been considered before it begins.',
+    startConsultation: 'Start a Consultation',
+    seeResults: 'See Results',
   },
-]
+}
+
+// ─── Founders Data ─────────────────────────────────────────────────────────────
+
+const foundersData = {
+  PT: [
+    {
+      id: 'cherie',
+      name: 'Cherie T. Charnkul',
+      role: 'Fundadora · O Método CherieThai',
+      location: 'São Paulo · Internacional',
+      bg: 'from-[#2A3329] via-[#3D4A40] to-[#2A3329]',
+      textSide: 'right' as const,
+      philosophy: `"Eu não corrijo o corpo.\nRestauro o seu acesso a si mesmo.\n\nO corpo não está quebrado quando está com dor. Está reorganizado. Adaptou-se em torno de uma restrição, uma antiga compressão, um padrão que aprendeu para continuar se movendo.\n\nMeu trabalho é encontrar esse padrão, e oferecer ao corpo uma opção mais inteligente."`,
+      atmosphere: `Cherie conduz sessões que combinam bodywork de óleo ultrassensível, trabalho preciso nas fibras musculares, sequências de alongamentos complexos e reorganização estrutural do corpo, incluindo sua própria criação: um sistema avançado de mobilidade Thai de movimentos autorais que se tornaram sua assinatura clínica.\n\nCada sessão é construída de forma inteiramente personalizada, identificando a origem dos padrões de tensão e restaurando os caminhos naturais de movimento do corpo ao longo do tempo.\n\nReconhecida por sua leitura corporal extremamente precisa, ela percebe o que outros frequentemente perdem. Uma vez feito o contato, ela já sabe para onde a sessão precisa ir.`,
+      presence: 'Calma. Precisa. Sem pressa. O ritmo de quem não precisa demonstrar o que sabe.',
+      strengths: [
+        'Descompressão estrutural',
+        'Sequenciamento avançado de mobilidade Thai',
+        'Regulação descendente do sistema nervoso',
+        'Leitura somática do corpo',
+        'Precisão em tecidos profundos',
+        'Gestão de casos complexos de dor',
+      ],
+      ideal: 'Procurada especialmente por clientes com dores complexas, tensões antigas ou casos que exigem uma abordagem altamente especializada. Aqueles que passaram por outros tratamentos sem resolução duradoura.',
+      note: 'Lista de espera aplicável.',
+      imageSub: 'Mãos em trabalho estrutural · Luz clínica',
+      image: '/portrait-cherie-2.jpg',
+      imagePosition: 'center 30%' as const,
+      imageZoom: 1.5,
+      imageZoomOrigin: 'center 30%',
+      priceLabel: 'Experiência Recomendada',
+      price: 'R$ 920',
+      supportingTone: null as string | null,
+      consultationNote: 'Disponibilidade reduzida. Além das sessões individuais, Cherie trabalha com diferentes formatos terapêuticos. Fale conosco para descobrir a abordagem certa para si.',
+    },
+    {
+      id: 'karl',
+      name: 'Karl Georges',
+      role: 'Co-Fundador · CherieThai · Linhagem Thai Tradicional',
+      location: 'Rio de Janeiro · Linhagem do Nordeste da Tailândia',
+      bg: 'from-[#3A3028] via-[#4A3C30] to-[#3A3028]',
+      textSide: 'left' as const,
+      philosophy: `"Não escolhi uma profissão.\nEscolhi uma vida.\n\nO que pratico foi transmitido por quem veio antes, e por quem veio antes deles. Não sou a origem disso. Sou apenas quem escolheu carregar.\n\nO silêncio não é ausência. É o que acontece quando a presença é total."`,
+      atmosphere: `As sessões de Karl não começam com uma consulta. Começam com silêncio.\n\nSeu trabalho é praticado no chão, como sempre foi, principalmente sem óleo, usando a inteligência plena das mãos, antebraços, polegares e pés em uma progressão rítmica e meditativa que segue as linhas meridianas do corpo.\n\nO ritmo é ancestral. Não há pressa. Não há protocolo que anule o que o corpo apresenta. Os clientes frequentemente descrevem não lembrar quando pararam de pensar, apenas que pararam.`,
+      presence: 'Enraizado. Meditativo. Profundamente tradicional. A rara qualidade de um praticante que carrega linhagem, não técnica.',
+      strengths: [
+        'Trabalho Thai tradicional de chão',
+        'Alongamento passivo assistido',
+        'Sequências de compressão rítmica',
+        'Mobilização das linhas Sen',
+        'Mobilização rítmica de corpo inteiro',
+        'Protocolo terapêutico Thai tradicional',
+      ],
+      ideal: 'Aqueles que buscam a raiz autêntica do bodywork Thai, sem adaptação ou modernização. Corpos que precisam de profundidade através de pressão sustentada e rítmica, em vez de liberação pontual. Aqueles que querem algo mais antigo do que o que está disponível atualmente.',
+      note: 'Sessões de chão. Sem óleo. Formato tradicional.',
+      imageSub: 'Trabalho tradicional de chão · Luz natural',
+      image: '/portrait-karl.jpg' as string | null,
+      imagePosition: 'center top' as const,
+      priceLabel: 'Sessões com Karl Georges',
+      price: 'R$ 450',
+      supportingTone: 'Terapia Thai tradicional de chão, enraizada nas tradições ancestrais do bodywork tailandês e no movimento assistido rítmico.' as string | null,
+      consultationNote: 'Disponibilidade e formatos adicionais mediante consulta.',
+      whatsapp: RIO_WHATSAPP,
+    },
+  ],
+  EN: [
+    {
+      id: 'cherie',
+      name: 'Cherie T. Charnkul',
+      role: 'Founder · The CherieThai Method',
+      location: 'São Paulo · International',
+      bg: 'from-[#2A3329] via-[#3D4A40] to-[#2A3329]',
+      textSide: 'right' as const,
+      philosophy: `"I do not correct the body.\nI restore its access to itself.\n\nThe body is not broken when it is in pain. It is reorganized around a restriction, an old compression, a pattern it learned in order to keep moving.\n\nMy work is to identify that pattern and offer the body a more intelligent option."`,
+      atmosphere: `Cherie leads sessions that combine ultra sensitive deep oil bodywork, precise work through muscular fibers, complex stretching sequences, and structural reorganization of the body. Her work also includes her own creation: an advanced Thai mobility system of original movement patterns that became her clinical signature.\n\nEach session is built in a fully personalized way, identifying the origin of tension patterns and restoring the body's natural movement pathways over time.\n\nRecognized for her exceptionally precise body reading, she perceives what others often miss. Once contact is made, she already understands where the session needs to go.`,
+      presence: 'Calm. Precise. Without urgency. The rhythm of someone who does not need to prove what she knows.',
+      strengths: [
+        'Structural decompression',
+        'Advanced Thai mobility sequencing',
+        'Nervous system downregulation',
+        'Somatic body reading',
+        'Deep tissue precision',
+        'Complex pain case management',
+      ],
+      ideal: 'Sought especially by clients with complex pain, chronic tension, or cases requiring a highly specialized approach. Those who have been through other treatments without lasting resolution.',
+      note: 'Waitlist may apply.',
+      imageSub: 'Hands in structural work · Clinical light',
+      image: '/portrait-cherie-2.jpg',
+      imagePosition: 'center 30%' as const,
+      imageZoom: 1.5,
+      imageZoomOrigin: 'center 30%',
+      priceLabel: 'Recommended Experience',
+      price: 'R$ 920',
+      supportingTone: null as string | null,
+      consultationNote: 'Limited availability. In addition to individual sessions, Cherie works with different therapeutic formats. Contact us to find the right approach for you.',
+    },
+    {
+      id: 'karl',
+      name: 'Karl Georges',
+      role: 'Co-Founder · CherieThai · Traditional Thai Lineage',
+      location: 'Rio de Janeiro · Northeastern Thailand Lineage',
+      bg: 'from-[#3A3028] via-[#4A3C30] to-[#3A3028]',
+      textSide: 'left' as const,
+      philosophy: `"I did not choose a profession.\nI chose a life.\n\nWhat I practice was passed down by those who came before, and by those who came before them. I am not the origin of this. I am only the one who chose to carry it.\n\nSilence is not absence. It is what happens when presence is total."`,
+      atmosphere: `Karl's sessions do not begin with a consultation. They begin with silence.\n\nHis work is practiced on the floor, as it always has been, primarily without oil, using the full intelligence of hands, forearms, thumbs, and feet in a rhythmic, meditative progression that follows the meridian lines of the body.\n\nThe rhythm is ancestral. There is no hurry. No protocol overrides what the body presents. Clients frequently describe not remembering when they stopped thinking — only that they did.`,
+      presence: 'Grounded. Meditative. Deeply traditional. The rare quality of a practitioner who carries lineage, not technique.',
+      strengths: [
+        'Traditional floor-based Thai work',
+        'Passive assisted stretching',
+        'Rhythmic compression sequences',
+        'Sen line mobilization',
+        'Full-body rhythmic mobilization',
+        'Traditional Thai therapeutic protocol',
+      ],
+      ideal: 'Those seeking the authentic root of Thai bodywork, without adaptation or modernisation. Bodies that need depth through sustained rhythmic pressure, rather than targeted release. Those who want something older than what is currently available.',
+      note: 'Floor sessions. No oil. Traditional format.',
+      imageSub: 'Traditional floor-based Thai work · Natural light',
+      image: '/portrait-karl.jpg' as string | null,
+      imagePosition: 'center top' as const,
+      priceLabel: 'Sessions with Karl Georges',
+      price: 'R$ 450',
+      supportingTone: 'Traditional floor-based Thai therapy, rooted in the ancestral traditions of Thai bodywork and rhythmic assisted movement.' as string | null,
+      consultationNote: 'Availability and additional formats upon request.',
+      whatsapp: RIO_WHATSAPP,
+    },
+  ],
+}
+
+// ─── Therapists Data (PT only for now) ────────────────────────────────────────
 
 const therapists = [
   {
@@ -195,9 +312,15 @@ const inView = (delay = 0) => ({
   transition: { duration: 0.9, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
 
+// ─── Types ─────────────────────────────────────────────────────────────────────
+
+type UiStrings = typeof uiTranslations['PT']
+type FounderType = (typeof foundersData)['PT'][0]
+type TherapistType = (typeof therapists)[0]
+
 // ─── Founder Row ───────────────────────────────────────────────────────────────
 
-function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
+function FounderRow({ founder, ui, lang }: { founder: FounderType; ui: UiStrings; lang: 'PT' | 'EN' }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
@@ -306,7 +429,7 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
             onClick={() => setExpanded(!expanded)}
             className="label-text text-sand/50 hover:text-sand transition-colors duration-300 flex items-center gap-3 mb-6"
           >
-            <span>{expanded ? 'Fechar' : 'Especializações & Perfil Ideal'}</span>
+            <span>{expanded ? ui.close : ui.specializationsBtn}</span>
             <motion.span
               animate={{ rotate: expanded ? 90 : 0 }}
               transition={{ duration: 0.3 }}
@@ -327,7 +450,7 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
               >
                 <div className="pb-8 space-y-6">
                   <div>
-                    <p className="label-text text-sage/50 mb-3">Especializações Técnicas</p>
+                    <p className="label-text text-sage/50 mb-3">{ui.technicalSpec}</p>
                     <ul className="space-y-1.5">
                       {founder.strengths.map((s) => (
                         <li key={s} className="body-text text-sage/60 text-sm flex items-start gap-2">
@@ -338,7 +461,7 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
                     </ul>
                   </div>
                   <div>
-                    <p className="label-text text-sage/50 mb-3">Perfil Ideal</p>
+                    <p className="label-text text-sage/50 mb-3">{ui.idealProfile}</p>
                     <p className="body-text text-sage/60 text-sm">{founder.ideal}</p>
                   </div>
                   {founder.note && (
@@ -364,12 +487,12 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
               {founder.price}
             </p>
             <a
-              href={whatsappUrl(founder.name, founder.whatsapp)}
+              href={whatsappUrl(founder.name, founder.whatsapp, lang)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-ivory border-ivory/25 inline-flex mb-8"
             >
-              <span>Solicitar uma Sessão</span>
+              <span>{ui.requestSession}</span>
               <span aria-hidden>→</span>
             </a>
             <p className="label-text text-sage/28 text-xs leading-relaxed mb-4">
@@ -381,7 +504,7 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
                 className="label-text text-sand/35 hover:text-sand/60 transition-colors duration-300 flex items-center gap-2 w-fit"
                 style={{ fontSize: '0.6rem', letterSpacing: '0.18em' }}
               >
-                <span>Ver Resultados</span>
+                <span>{ui.seeResults}</span>
                 <span aria-hidden>→</span>
               </a>
             )}
@@ -395,7 +518,7 @@ function FounderRow({ founder }: { founder: (typeof founders)[0] }) {
 
 // ─── Therapist Card ────────────────────────────────────────────────────────────
 
-function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]; index: number }) {
+function TherapistCard({ therapist, index, ui, lang }: { therapist: TherapistType; index: number; ui: UiStrings; lang: 'PT' | 'EN' }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -473,7 +596,7 @@ function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]
           onClick={() => setExpanded(!expanded)}
           className="label-text text-earth/40 hover:text-earth/70 transition-colors duration-300 flex items-center gap-2 text-left mb-4"
         >
-          <span>{expanded ? 'Fechar' : 'Especializações'}</span>
+          <span>{expanded ? ui.close : ui.specializationsSmall}</span>
           <motion.span animate={{ rotate: expanded ? 90 : 0 }} transition={{ duration: 0.3 }} aria-hidden>
             →
           </motion.span>
@@ -498,7 +621,7 @@ function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]
                   ))}
                 </ul>
                 <div>
-                  <p className="label-text text-earth/40 mb-2">Perfil Ideal</p>
+                  <p className="label-text text-earth/40 mb-2">{ui.idealProfile}</p>
                   <p className="body-text text-earth/55 text-sm">{therapist.ideal}</p>
                 </div>
               </div>
@@ -526,17 +649,17 @@ function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]
                 </p>
               </>
             ) : (
-              <p className="label-text text-earth/38 text-xs">Disponibilidade mediante consulta</p>
+              <p className="label-text text-earth/38 text-xs">{ui.availabilityOnRequest}</p>
             )}
           </div>
 
           <a
-            href={whatsappUrl(therapist.name, therapist.whatsapp)}
+            href={whatsappUrl(therapist.name, therapist.whatsapp, lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="label-text text-earth/50 hover:text-earth/80 transition-colors duration-300 flex items-center gap-2 mb-5"
           >
-            Solicitar uma sessão
+            {ui.requestSessionSmall}
             <span aria-hidden>→</span>
           </a>
 
@@ -552,6 +675,10 @@ function TherapistCard({ therapist, index }: { therapist: (typeof therapists)[0]
 // ─── Main Section ──────────────────────────────────────────────────────────────
 
 export default function Therapists() {
+  const { lang } = useLanguage()
+  const founders = foundersData[lang]
+  const ui = uiTranslations[lang]
+
   return (
     <section id="therapists">
 
@@ -564,7 +691,7 @@ export default function Therapists() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Os Praticantes
+            {ui.sectionLabel}
           </motion.p>
 
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -576,7 +703,7 @@ export default function Therapists() {
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              As mãos<br />por trás do método.
+              {ui.sectionH2Line1}<br />{ui.sectionH2Line2}
             </motion.h2>
 
             <motion.p
@@ -586,8 +713,7 @@ export default function Therapists() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Os praticantes CherieThai não são selecionados pelas
-              horas acumuladas. São selecionados pelo que compreendem.
+              {ui.sectionBody}
             </motion.p>
           </div>
         </div>
@@ -596,7 +722,7 @@ export default function Therapists() {
       {/* ── Founders, full-width editorial rows ── */}
       <div className="border-t border-sand/10">
         {founders.map((founder) => (
-          <FounderRow key={founder.id} founder={founder} />
+          <FounderRow key={founder.id} founder={founder} ui={ui} lang={lang} />
         ))}
       </div>
 
@@ -611,16 +737,15 @@ export default function Therapists() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="label-text text-sage">A Equipe de Praticantes</p>
+            <p className="label-text text-sage">{ui.teamLabel}</p>
             <p className="body-text text-earth/50 text-sm max-w-sm text-right">
-              Cada praticante concluiu formação direta<br className="hidden md:block" />
-              sob orientação de Cherie T. Charnkul. Sem exceções.
+              {ui.teamBody}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-6">
             {therapists.map((t, i) => (
-              <TherapistCard key={t.id} therapist={t} index={i} />
+              <TherapistCard key={t.id} therapist={t} index={i} ui={ui} lang={lang} />
             ))}
           </div>
         </div>
@@ -635,7 +760,7 @@ export default function Therapists() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Uma Nota Sobre a Seleção
+            {ui.noteLabel}
           </motion.p>
           <motion.p
             className="body-text text-earth/70 text-base md:text-lg leading-loose"
@@ -644,10 +769,7 @@ export default function Therapists() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Ao entrar em contato, você não é atribuído a um terapeuta
-            com base na disponibilidade. Você é indicado, com base no que traz,
-            no que precisa e em qual inteligência particular do praticante
-            é mais adequada ao trabalho que seu corpo requer.
+            {ui.noteBody1}
           </motion.p>
           <motion.p
             className="body-text text-earth/50 text-sm mt-6"
@@ -656,8 +778,7 @@ export default function Therapists() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
           >
-            Em alguns casos, Cherie recomendará um praticante específico.<br />
-            De qualquer forma, a sessão que você receberá terá sido pensada antes de começar.
+            {ui.noteBody2}
           </motion.p>
           <motion.div
             className="mt-10"
@@ -667,12 +788,12 @@ export default function Therapists() {
             transition={{ duration: 0.7, delay: 0.35 }}
           >
             <a
-              href={whatsappUrl()}
+              href={whatsappUrl(undefined, undefined, lang)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-deep-moss border-deep-moss/30 inline-flex"
             >
-              <span>Iniciar uma Consulta</span>
+              <span>{ui.startConsultation}</span>
               <span aria-hidden>→</span>
             </a>
           </motion.div>
