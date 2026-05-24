@@ -93,10 +93,10 @@ const principlesData = {
     },
     {
       number: '04',
-      name: 'Self-Preservation',
-      nameLabel: 'SELF-PRESERVATION',
+      name: 'Self Preservation',
+      nameLabel: 'SELF PRESERVATION',
       thesis: 'Longevity is part of mastery.',
-      body: `Every movement is performed with awareness, efficiency, and intelligent body mechanics to preserve the therapist while maintaining the highest quality of therapeutic contact.\n\nRecognising limits, adapting technique intelligently, and protecting the practitioner's body are essential to sustaining excellence over time.\n\nAt CherieThai, self-preservation is considered a professional discipline.`,
+      body: `Every movement is executed with awareness, efficiency, and intelligent body mechanics in order to preserve the therapist while maintaining the highest quality of therapeutic contact.\n\nRecognizing limits, adapting technique intelligently, and protecting the practitioner's body are essential to sustaining excellence over time.\n\nAt CherieThai, self preservation is considered a professional discipline.`,
       footerLabel: 'CHERIETHAI PHILOSOPHY',
       accent: '#DCC9A0',
       bg: 'light' as const,
