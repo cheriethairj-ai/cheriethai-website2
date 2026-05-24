@@ -2,10 +2,28 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
+
+const translations = {
+  PT: {
+    label: 'Filosofia',
+    line1: 'O toque como',
+    line2: 'inteligência.',
+    body: 'Cinco princípios que definem como a CherieThai aborda o corpo, e por que essa abordagem importa.',
+  },
+  EN: {
+    label: 'Philosophy',
+    line1: 'Touch as',
+    line2: 'intelligence.',
+    body: 'Five principles that define how CherieThai approaches the body — and why this method matters.',
+  },
+}
 
 export default function PhilosophyHero() {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const { lang } = useLanguage()
+  const t = translations[lang]
 
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '22%'])
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
@@ -64,7 +82,7 @@ export default function PhilosophyHero() {
         className="relative z-10 w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24 lg:pb-28"
       >
         <motion.p {...entry(0.2)} className="label-text text-sage mb-10 md:mb-14">
-          Filosofia
+          {t.label}
         </motion.p>
 
         {/* Main headline, two independent lines for stagger */}
@@ -76,7 +94,7 @@ export default function PhilosophyHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            O toque como
+            {t.line1}
           </motion.h1>
         </div>
         <div className="overflow-hidden mb-10 md:mb-14">
@@ -87,7 +105,7 @@ export default function PhilosophyHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            inteligência.
+            {t.line2}
           </motion.h1>
         </div>
 
@@ -95,8 +113,7 @@ export default function PhilosophyHero() {
           {...entry(0.85)}
           className="body-text text-sand/65 max-w-sm text-base md:text-lg"
         >
-          Cinco princípios que definem como a CherieThai aborda o corpo,
-          e por que essa abordagem importa.
+          {t.body}
         </motion.p>
       </motion.div>
 
