@@ -286,6 +286,21 @@ const cases: Case[] = [
       'Liberação do ombro',
     ],
     video: 'https://www.youtube.com/embed/v_5QA8QqE8E?autoplay=1&mute=1&loop=1&playlist=v_5QA8QqE8E&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcame 2 years of shoulder pain and numbness',
+      complaint: 'Pain and numbness in the right shoulder',
+      symptoms: 'Persistent pain in the right shoulder for two years, accompanied by numbness extending into the fingers. Previous treatment attempts did not produce meaningful results.',
+      treatment: 'The work focused on the cervical region, addressing irritation of the radial nerve with referral into the hand. Techniques included sensory stimulation, decompression between muscle fibers surrounding the nerve pathway, and refined shoulder release to reduce chronic compressive patterns. Neuromodulation-based work supported sensory reorganization, allowing the gradual return of sensitivity and functional comfort.',
+      techniques: [
+        'Cervical decompression',
+        'Radial nerve pathway release',
+        'Ultra-sensitive oil tissue work',
+        'Muscle fiber separation and decompression',
+        'Neuromodulation techniques',
+        'Shoulder structural release',
+        'Sensory reorganization work',
+      ],
+    },
   },
   {
     id: 'flavio',
@@ -305,6 +320,21 @@ const cases: Case[] = [
       'Mobilização articular do joelho',
     ],
     video: 'https://www.youtube.com/embed/6nd3rOV_-G8?autoplay=1&mute=1&loop=1&playlist=6nd3rOV_-G8&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcame 4 years of knee pain',
+      complaint: 'Chronic pain in the right knee',
+      symptoms: 'Persistent right knee pain for four years, with movement limitation and interference in day-to-day activities.',
+      treatment: 'An integrative approach was adopted, considering not only the knee itself but all structures directly influencing its function. The work included specific release of the adductor musculature, joint decompression, mobility restoration, and biomechanical reorganization. Because the condition involved years of training load and age-related wear, the focus was not simply pain elimination, but restoring function and maintaining movement quality so training could continue safely alongside medical supervision.',
+      techniques: [
+        'Adductor release and decompression',
+        'Joint mobility restoration',
+        'Structural lower-body integration',
+        'Myofascial tissue release',
+        'Deep therapeutic bodywork',
+        'Movement reeducation',
+        'Functional load redistribution',
+      ],
+    },
   },
   {
     id: 'vitor',
