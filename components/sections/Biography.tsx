@@ -61,15 +61,15 @@ const translations = {
     journeyP2: 'Esse trabalho culminou na criação da CherieThai Clínica, um instituto terapêutico boutique operando entre São Paulo e Rio de Janeiro, oferecendo tratamentos altamente personalizados para restaurar a mobilidade, melhorar o equilíbrio estrutural e apoiar a saúde física a longo prazo.',
 
     // Karl header
-    karlLabel: 'Co-Fundador  ·  Karl Müller',
-    karlHeroLine1: 'Do mundo académico',
+    karlLabel: 'Co-Fundador  ·  Karl Georges',
+    karlHeroLine1: 'Do mundo acadêmico',
     karlHeroLine2: 'ao caminho monástico.',
 
     // Karl origins
     karlOriginsLabel: 'Trajetória  ·  Rio de Janeiro · Ban Tam Ye',
     karlH3Line1: 'Dez anos de cátedra.',
     karlH3Line2: 'Tudo abandonado.',
-    karlP1: 'Karl foi professor universitário na UFRJ durante dez anos, com formação em design gráfico. No auge de sua carreira académica, tomou a decisão de abandonar tudo para seguir um caminho radicalmente diferente: tornar-se terapeuta de massagem tradicional tailandesa.',
+    karlP1: 'Karl foi professor universitário na UFRJ durante dez anos, com formação em design gráfico. No auge de sua carreira acadêmica, tomou a decisão de abandonar tudo para seguir um caminho radicalmente diferente: tornar-se terapeuta de massagem tradicional tailandesa.',
     karlP2: 'Treinado por Cherie desde o zero absoluto, Karl desenvolveu uma sensibilidade técnica e uma profundidade de compreensão que o levaram naturalmente ao caminho tradicional — além da clínica, em direção às próprias origens da prática.',
     karlPortraitCaption: 'Rio de Janeiro, Brasil  ·  Ban Tam Ye, Tailândia',
 
@@ -144,7 +144,7 @@ const translations = {
     journeyP2: 'This work ultimately led to the creation of CherieThai Clínica — a boutique therapeutic institute operating between São Paulo and Rio de Janeiro, offering highly individualized treatments designed to restore mobility, improve structural balance, and support long-term physical wellbeing.',
 
     // Karl header
-    karlLabel: 'Co-Founder  ·  Karl Müller',
+    karlLabel: 'Co-Founder  ·  Karl Georges',
     karlHeroLine1: 'From the academic world',
     karlHeroLine2: 'to the monastic path.',
 
@@ -532,7 +532,7 @@ export default function Biography() {
         >
           <Image
             src="/portrait-karl-bio.jpg"
-            alt="Karl Müller — Co-Fundador Instituto CherieThai"
+            alt="Karl Georges — Co-Fundador Instituto CherieThai"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover object-center"
