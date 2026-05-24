@@ -125,14 +125,14 @@ const translations = {
     // Training
     trainingLabel: 'Training',
     trainingH3Line1: 'Four years under',
-    trainingH3Line2: 'direct guidance.',
-    trainingP1: 'At sixteen, Cherie entered intensive formal training under Master Chub Bryden, a senior therapist of the Wat Pho Traditional Medicine lineage with over thirty years of experience.',
-    trainingP2: 'Over four years, she lived and trained under her direct guidance, receiving rigorous instruction in traditional Thai therapeutic methods, anatomical precision, clinical assessment, and disciplined treatment practice.',
+    trainingH3Line2: 'direct mentorship.',
+    trainingP1: 'At sixteen, Cherie entered an intensive formal training under Master Chub Bryden, a senior therapist within the Wat Pho lineage of Thai Traditional Medicine, with more than thirty years of experience.',
+    trainingP2: 'Over the course of four years, she lived and trained under his direct guidance, receiving rigorous instruction in traditional Thai therapeutic methods, anatomical precision, clinical assessment, and disciplined therapeutic practice.',
     stat1Unit: 'years',
     stat1Label: 'of experience from Master Chub Bryden',
     stat2Unit: 'years',
     stat2Label: 'of intensive residential training',
-    stat3Label: 'Wat Pho Traditional Thai Medicine Lineage · Bangkok',
+    stat3Label: 'Thai Traditional Medicine Lineage · Bangkok',
 
     // Japan video
     japanLabel: 'Japan  ·  Blindfolded massage',
