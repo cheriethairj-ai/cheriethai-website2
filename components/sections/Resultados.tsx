@@ -72,6 +72,15 @@ type Case = {
   after?: string | null
   cover?: string | null
   video: string | null
+  en?: {
+    headline?: string
+    complaint?: string
+    symptoms?: string
+    treatment?: string
+    techniques?: string[]
+    outcome?: string
+    testimonialText?: string
+  }
 }
 
 const cases: Case[] = [
@@ -94,6 +103,19 @@ const cases: Case[] = [
       'Ampliação progressiva da tolerância',
     ],
     video: 'https://www.youtube.com/embed/swtG3Y3nmyw?autoplay=1&mute=1&loop=1&playlist=swtG3Y3nmyw&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcame 15 years of shoulder and neck pain',
+      complaint: 'Chronic shoulder and neck pain · sleep disturbance',
+      symptoms: 'Chronic and constant shoulder pain and headaches, restricted movement, sharp pain, breathing impact, and sleep disturbance.',
+      treatment: 'Layered tissue work focused on releasing adhesions, creating space between muscle fibers, and reeducating posture and breathing. Tolerance to pain was progressively expanded to restore function during flare-ups.',
+      techniques: [
+        'Layered adhesion release',
+        'Creation of space between muscle fibers',
+        'Postural reeducation',
+        'Respiratory reeducation',
+        'Progressive expansion of tissue tolerance',
+      ],
+    },
   },
   {
     id: 'fisio',
@@ -121,6 +143,21 @@ const cases: Case[] = [
       text: 'Eu tinha uma dor de estimação na região do ombro, que eu sempre ia levando com adesivos para dor e outras medicações. Mas ultimamente a mobilidade do braço direito e da cervical estavam indo cada vez mais para o espaço. Durante a sessão com a Cherrie, eu fui sentindo os pontos dolorosos se desfazendo aos pouquinhos. Ela foi respeitando meus limites e cuidadosamente, liberando toda a tensão. A certeza de cada ação e a paz que ela transmite fez toda a diferença. Sai de lá destravada real. E depois da segunda sessão, percebi que ganhei ainda mais mobilidade de cervical.',
     },
     video: 'https://www.youtube.com/embed/FsbpJW6Mq54?autoplay=1&mute=1&loop=1&playlist=FsbpJW6Mq54&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcame 5 years of chronic shoulder pain',
+      complaint: 'Trapezius pain with severe cervical rotation restriction',
+      symptoms: 'Constant pain with a pinching sensation through the shoulder region and major limitation when rotating the neck. Cervical rotation toward the painful side did not exceed approximately 30 degrees. History of nearly five years of persistent trapezius pain, beginning during the pandemic.',
+      treatment: "The work focused on progressively restoring cervical rotation while increasing the nervous system's tolerance to movement. Deep release was applied to accumulated tension patterns within the trapezius that were compressing the area and contributing to the pinching sensation. Decompression of these structures created more functional space through the shoulder and neck, allowing movement to return without pain.",
+      techniques: [
+        'Deep trapezius decompression',
+        'Progressive cervical mobility restoration',
+        'Structural release of compression patterns',
+        'Nervous system tolerance expansion',
+        'Functional shoulder and neck reorganization',
+      ],
+      outcome: 'After the first session, the client reported approximately 80% pain reduction and a significant improvement in cervical mobility. Rotation was restored to nearly 90 degrees, and the pinching sensation was completely eliminated. The result remained stable one month later.',
+      testimonialText: "I had a constant burning pain through my shoulder and had been relying on medication for years. Over time, even simple arm movements became difficult because of the pain and restriction. During the session with Cherie, I felt the body gradually unlocking. She respected my limits while carefully releasing the tension. The precision of each touch made all the difference. It was the first time I felt real relief. After the second session, I realized I had regained movements I hadn't been able to do for years.",
+    },
   },
   {
     id: 'joelho-nazare',
@@ -171,6 +208,21 @@ const cases: Case[] = [
       text: 'Sempre fui uma pessoa muito ativa. Mas com 20 anos sofri um acidente e perdi um pouco de mobilidade na perna esquerda. Depois de muitos anos compensando essa perda, meu corpo começou a sentir. Uma tarde espirrei e travei. Por esse motivo entrei em contato com a Cherie e desde a hora que cheguei senti confiança. Ela foi muito pontual e sai de lá sem dor, andando bem e destravada. Já voltei outras vezes porque percebi que depois de alguns dias, continuei evoluindo minha condição. Verdadeiramente sou muito grata e pelo menos uma vez por mês quero estar com ela para continuar me sentindo bem.',
     },
     video: 'https://www.youtube.com/embed/0UwufJJtq_0?autoplay=1&mute=1&loop=1&playlist=0UwufJJtq_0&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcame 15 years of chronic lower back pain',
+      complaint: 'Chronic lower back pain originating from an old fracture',
+      symptoms: 'Persistent lower back pain for more than 15 years, associated with progressive overload after a leg fracture at age 20. The body developed compensations through the pelvis and load distribution, generating continuous tension in the sacrolumbar region, muscular rigidity, and pain during physical activity.',
+      treatment: 'We worked through the entire sacrolumbar region and lower kinetic chain with an integrated approach focused on deep tissue release, hip mobility, and biomechanical reorganization. Across three intensive sessions, structural compensation patterns were reduced and muscular elasticity was restored. The process resulted in significant reversal of overload and elimination of pain.',
+      techniques: [
+        'Deep sacrolumbar tissue release',
+        'Hip mobility restoration',
+        'Pelvic and load distribution reorganization',
+        'Biomechanical compensation correction',
+        'Progressive restoration of muscular elasticity',
+      ],
+      outcome: 'Pain eliminated after 3 intensive sessions. Two months after the final session, the client remained pain-free, requiring only periodic maintenance.',
+      testimonialText: "I was always a very active person. But at 20, I suffered an accident and lost part of the mobility in my left leg. After many years compensating for that loss, my body began to feel constantly tense. I tried different treatments, but only temporary relief came from them. With Cherie, from the first contact, I felt there was a deeper understanding of what was happening in my body. She was very attentive and worked carefully, restoring areas I didn't even realize were affecting my pain. After a few sessions, I continued my daily life without limitation. I'm truly very grateful, because after many years, I can finally move without pain again.",
+    },
   },
   {
     id: 'vanessa',
@@ -198,6 +250,22 @@ const cases: Case[] = [
       text: 'Eu cheguei até a Cherie por indicação e foi incrível. O nível de relaxamento, não só mental, mas de todos os músculos, porque ela vai soltando cada fibra muscular. Parece que a Cherie vai te dissolvendo aos poucos. Saio sem dor porque é um tratamento. Tem muita técnica e ela se entrega de corpo e alma, porque entende e ama o que faz. Obrigada por cuidar tão bem de mim!',
     },
     video: 'https://www.youtube.com/embed/dNbG-NJdI2g?autoplay=1&mute=1&loop=1&playlist=dNbG-NJdI2g&controls=1&playsinline=1&rel=0&modestbranding=1',
+    en: {
+      headline: 'Overcoming 5 years of lower back pain',
+      complaint: 'Lower back pain with rigidity and chronic protective patterns',
+      symptoms: "Five years of lower back pain accompanied by movement limitation and constant nervous system activation, resulting in full-body rigidity and excessive protective tension patterns.",
+      treatment: 'We applied advanced Thai stretching methods studied, adapted, and refined within the CherieThai approach: integrating active mobility, myofascial traction, joint manipulation, and deep compressive work. This combination reorganized chronic muscular protection patterns, restored body release, and gradually returned efficient, pain-free movement. Session after session, the body began recovering function, stability, and range.',
+      techniques: [
+        'Advanced Thai mobility integration',
+        'Myofascial traction and decompression',
+        'Deep structural compression work',
+        'Joint mobility restoration',
+        'Nervous system downregulation',
+        'Reorganization of chronic protection patterns',
+      ],
+      outcome: 'Progressive reduction of pain throughout the sessions, with recovery of stability, functional movement, and range of motion.',
+      testimonialText: "I found Cherie through a recommendation and the experience was incredible. The level of release wasn't only mental, but deeply physical, as if every muscle fiber was gradually letting go. It felt like Cherie was dissolving tension layer by layer. I left each session feeling lighter, more open, and more connected to my body. There is immense technique in what she does, but also genuine presence and care. You can feel that she truly loves the work. Thank you for taking care of me the way you did.",
+    },
   },
   {
     id: 'karen',
@@ -421,9 +489,19 @@ const cases: Case[] = [
   },
 ]
 
-function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof uiTranslations['PT'] }) {
+function CaseBlock({ caso, index, ui, lang }: { caso: Case; index: number; ui: typeof uiTranslations['PT']; lang: 'PT' | 'EN' }) {
   const [open, setOpen] = useState(false)
   const isEven = index % 2 === 0
+
+  const headline = (lang === 'EN' && caso.en?.headline) ? caso.en.headline : caso.headline
+  const complaint = (lang === 'EN' && caso.en?.complaint) ? caso.en.complaint : caso.complaint
+  const symptoms = (lang === 'EN' && caso.en?.symptoms) ? caso.en.symptoms : caso.symptoms
+  const treatment = (lang === 'EN' && caso.en?.treatment) ? caso.en.treatment : caso.treatment
+  const techniques = (lang === 'EN' && caso.en?.techniques) ? caso.en.techniques : caso.techniques
+  const outcome = (lang === 'EN' && caso.en?.outcome) ? caso.en.outcome : caso.outcome
+  const testimonialText = (lang === 'EN' && caso.en?.testimonialText && caso.testimonial)
+    ? caso.en.testimonialText
+    : caso.testimonial?.text
 
   return (
     <motion.article
@@ -513,10 +591,10 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
               style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', lineHeight: 1.05 }}
               {...inView(0.1)}
             >
-              {caso.headline}
+              {headline}
             </motion.h2>
             <motion.p {...inView(0.15)} className="label-text text-sage/50">
-              {caso.complaint}
+              {complaint}
             </motion.p>
           </div>
 
@@ -524,7 +602,7 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
           <motion.div {...inView(0.2)} className="mb-8">
             <p className="label-text text-sage/40 mb-3">{ui.symptoms}</p>
             <p className="body-text text-earth/65 text-sm leading-relaxed">
-              {caso.symptoms}
+              {symptoms}
             </p>
           </motion.div>
 
@@ -532,7 +610,7 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
           <motion.div {...inView(0.25)} className="mb-8">
             <p className="label-text text-sage/40 mb-3">{ui.treatment}</p>
             <p className="body-text text-earth/65 text-sm leading-relaxed">
-              {caso.treatment}
+              {treatment}
             </p>
           </motion.div>
 
@@ -562,7 +640,7 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
                   transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
                   className="overflow-hidden space-y-2"
                 >
-                  {caso.techniques.map((t) => (
+                  {techniques.map((t) => (
                     <li key={t} className="body-text text-earth/55 text-sm flex items-start gap-2">
                       <span className="text-sage/35 shrink-0 mt-1">·</span>
                       {t}
@@ -574,11 +652,11 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
           </motion.div>
 
           {/* Outcome */}
-          {caso.outcome && (
+          {outcome && (
             <motion.div {...inView(0.35)} className="border-t border-earth/10 pt-6 mt-8">
               <p className="label-text text-sage/40 mb-3">{ui.outcome}</p>
               <p className="font-cormorant italic text-deep-moss/70 text-lg leading-relaxed">
-                {caso.outcome}
+                {outcome}
               </p>
             </motion.div>
           )}
@@ -588,7 +666,7 @@ function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof 
             <motion.div {...inView(0.4)} className="border-t border-earth/10 pt-6 mt-6">
               <p className="label-text text-sage/40 mb-4">{ui.testimonial}</p>
               <blockquote className="font-cormorant italic text-deep-moss/60 text-base leading-relaxed mb-4">
-                "{caso.testimonial.text}"
+                "{testimonialText}"
               </blockquote>
               <p className="label-text text-sage/40 text-xs">{caso.testimonial.author} · {caso.testimonial.role}</p>
             </motion.div>
@@ -693,7 +771,7 @@ export default function Resultados() {
             transition={{ duration: 0.3 }}
           >
             {filtered.map((caso, i) => (
-              <CaseBlock key={caso.id} caso={caso} index={i} ui={ui} />
+              <CaseBlock key={caso.id} caso={caso} index={i} ui={ui} lang={lang} />
             ))}
           </motion.div>
         </AnimatePresence>
