@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import YouTubeEmbed from '@/components/YouTubeEmbed'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -10,6 +11,47 @@ const inView = (delay = 0) => ({
   viewport: { once: true, margin: '-80px' },
   transition: { duration: 0.9, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
+
+const uiTranslations = {
+  PT: {
+    heroLabel: 'Clínicas  ·  Resultados',
+    heroLine1: 'O trabalho',
+    heroLine2: 'em evidência.',
+    heroBody: 'Casos reais. Dores com histórico. Resultados documentados que permanecem.',
+    editorialNote: 'Cada caso aqui documentado é real. Nenhum foi editado para impressionar. O trabalho fala por si.',
+    filterAll: 'Todos',
+    filterLabel: 'São Paulo  ·  Rio de Janeiro',
+    symptoms: 'Sintomas',
+    treatment: 'Tratamento',
+    techniques: 'Técnicas utilizadas',
+    outcome: 'Resultado',
+    testimonial: 'Depoimento',
+    videoSoon: 'Vídeo em breve',
+    before: 'Antes',
+    after: 'Depois',
+    closingQuote: '"Estes casos não são excepcionais. São o que acontece quando o corpo recebe\no trabalho certo, com a leitura certa, no momento certo."',
+    closingAttribution: 'Cherie T. Charnkul',
+  },
+  EN: {
+    heroLabel: 'Clinics  ·  Results',
+    heroLine1: 'The work,',
+    heroLine2: 'made visible.',
+    heroBody: 'Real cases. Longstanding pain. Documented results that remain.',
+    editorialNote: 'Every case shown here is real. Nothing was edited to impress. The work speaks for itself.',
+    filterAll: 'All',
+    filterLabel: 'São Paulo  ·  Rio de Janeiro',
+    symptoms: 'Symptoms',
+    treatment: 'Treatment',
+    techniques: 'Techniques used',
+    outcome: 'Result',
+    testimonial: 'Testimonial',
+    videoSoon: 'Video coming soon',
+    before: 'Before',
+    after: 'After',
+    closingQuote: '"These cases are not exceptional. They are what happens when the body receives\nthe right work, with the right reading, at the right moment."',
+    closingAttribution: 'Cherie T. Charnkul',
+  },
+}
 
 type Case = {
   id: string
@@ -379,7 +421,7 @@ const cases: Case[] = [
   },
 ]
 
-function CaseBlock({ caso, index }: { caso: Case; index: number }) {
+function CaseBlock({ caso, index, ui }: { caso: Case; index: number; ui: typeof uiTranslations['PT'] }) {
   const [open, setOpen] = useState(false)
   const isEven = index % 2 === 0
 
@@ -425,21 +467,21 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           ) : caso.before && caso.after ? (
             <div className="absolute inset-0 grid grid-cols-2">
               <div className="relative overflow-hidden">
-                <img src={caso.before} alt="Antes" className="w-full h-full object-cover object-top" />
+                <img src={caso.before} alt={ui.before} className="w-full h-full object-cover object-top" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 px-4">
-                  <p className="label-text text-sand/70 text-xs">Antes</p>
+                  <p className="label-text text-sand/70 text-xs">{ui.before}</p>
                 </div>
               </div>
               <div className="relative overflow-hidden border-l border-white/10">
-                <img src={caso.after} alt="Depois" className="w-full h-full object-cover object-top" />
+                <img src={caso.after} alt={ui.after} className="w-full h-full object-cover object-top" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 px-4">
-                  <p className="label-text text-sand/70 text-xs">Depois</p>
+                  <p className="label-text text-sand/70 text-xs">{ui.after}</p>
                 </div>
               </div>
             </div>
           ) : (
             <div className="text-center px-8">
-              <p className="label-text text-sand/15 text-xs mb-3">Vídeo em breve</p>
+              <p className="label-text text-sand/15 text-xs mb-3">{ui.videoSoon}</p>
               <p
                 className="font-cormorant font-light text-ivory/20"
                 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1 }}
@@ -480,7 +522,7 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
 
           {/* Sintomas */}
           <motion.div {...inView(0.2)} className="mb-8">
-            <p className="label-text text-sage/40 mb-3">Sintomas</p>
+            <p className="label-text text-sage/40 mb-3">{ui.symptoms}</p>
             <p className="body-text text-earth/65 text-sm leading-relaxed">
               {caso.symptoms}
             </p>
@@ -488,7 +530,7 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
 
           {/* Tratamento */}
           <motion.div {...inView(0.25)} className="mb-8">
-            <p className="label-text text-sage/40 mb-3">Tratamento</p>
+            <p className="label-text text-sage/40 mb-3">{ui.treatment}</p>
             <p className="body-text text-earth/65 text-sm leading-relaxed">
               {caso.treatment}
             </p>
@@ -498,9 +540,10 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           <motion.div {...inView(0.3)}>
             <button
               onClick={() => setOpen(!open)}
+              aria-label={ui.techniques}
               className="label-text text-earth/35 hover:text-earth/65 transition-colors duration-300 flex items-center gap-2 mb-4"
             >
-              <span>Técnicas utilizadas</span>
+              <span>{ui.techniques}</span>
               <motion.span
                 animate={{ rotate: open ? 90 : 0 }}
                 transition={{ duration: 0.25 }}
@@ -533,7 +576,7 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           {/* Outcome */}
           {caso.outcome && (
             <motion.div {...inView(0.35)} className="border-t border-earth/10 pt-6 mt-8">
-              <p className="label-text text-sage/40 mb-3">Resultado</p>
+              <p className="label-text text-sage/40 mb-3">{ui.outcome}</p>
               <p className="font-cormorant italic text-deep-moss/70 text-lg leading-relaxed">
                 {caso.outcome}
               </p>
@@ -543,7 +586,7 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
           {/* Testimonial */}
           {caso.testimonial && (
             <motion.div {...inView(0.4)} className="border-t border-earth/10 pt-6 mt-6">
-              <p className="label-text text-sage/40 mb-4">Depoimento</p>
+              <p className="label-text text-sage/40 mb-4">{ui.testimonial}</p>
               <blockquote className="font-cormorant italic text-deep-moss/60 text-base leading-relaxed mb-4">
                 "{caso.testimonial.text}"
               </blockquote>
@@ -558,6 +601,8 @@ function CaseBlock({ caso, index }: { caso: Case; index: number }) {
 }
 
 export default function Resultados() {
+  const { lang } = useLanguage()
+  const ui = uiTranslations[lang]
   const [filter, setFilter] = useState<'todos' | 'São Paulo' | 'Rio de Janeiro'>('todos')
   const filtered = filter === 'todos' ? cases : cases.filter((c) => c.location === filter)
 
@@ -584,7 +629,7 @@ export default function Resultados() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
           >
-            Clínicas&nbsp;&nbsp;·&nbsp;&nbsp;Resultados
+            {ui.heroLabel}
           </motion.p>
 
           <motion.h1
@@ -594,8 +639,8 @@ export default function Resultados() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.35 }}
           >
-            O trabalho<br />
-            <span className="text-sand">em evidência.</span>
+            {ui.heroLine1}<br />
+            <span className="text-sand">{ui.heroLine2}</span>
           </motion.h1>
 
           <motion.p
@@ -604,7 +649,7 @@ export default function Resultados() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.6 }}
           >
-            Casos reais. Dores com histórico. Resultados documentados que permanecem.
+            {ui.heroBody}
           </motion.p>
         </div>
       </div>
@@ -613,11 +658,10 @@ export default function Resultados() {
       <div className="bg-dark-moss px-6 md:px-12 lg:px-16 py-10 border-b border-sand/8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="font-cormorant italic text-sand/50 text-lg md:text-xl leading-relaxed max-w-xl">
-            Cada caso aqui documentado é real. Nenhum foi editado para impressionar.
-            O trabalho fala por si.
+            {ui.editorialNote}
           </p>
           <p className="label-text text-sage/30 text-xs shrink-0">
-            São Paulo&nbsp;&nbsp;·&nbsp;&nbsp;Rio de Janeiro
+            {ui.filterLabel}
           </p>
         </div>
       </div>
@@ -632,7 +676,7 @@ export default function Resultados() {
               className="label-text transition-colors duration-300"
               style={{ color: filter === f ? '#3D4A40' : 'rgba(61,74,64,0.28)' }}
             >
-              {f === 'todos' ? 'Todos' : f}
+              {f === 'todos' ? ui.filterAll : f}
             </button>
           ))}
         </div>
@@ -649,7 +693,7 @@ export default function Resultados() {
             transition={{ duration: 0.3 }}
           >
             {filtered.map((caso, i) => (
-              <CaseBlock key={caso.id} caso={caso} index={i} />
+              <CaseBlock key={caso.id} caso={caso} index={i} ui={ui} />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -659,14 +703,13 @@ export default function Resultados() {
       <div className="bg-off-white border-t border-earth/10 px-6 md:px-12 lg:px-16 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
           <motion.p
-            className="font-cormorant italic text-earth/55 text-xl md:text-2xl leading-relaxed"
+            className="font-cormorant italic text-earth/55 text-xl md:text-2xl leading-relaxed whitespace-pre-line"
             {...inView()}
           >
-            "Estes casos não são excepcionais. São o que acontece quando o corpo recebe
-            o trabalho certo, com a leitura certa, no momento certo."
+            {ui.closingQuote}
           </motion.p>
           <motion.p {...inView(0.15)} className="label-text text-sage/35 text-xs mt-6">
-            Cherie T. Charnkul
+            {ui.closingAttribution}
           </motion.p>
         </div>
       </div>
