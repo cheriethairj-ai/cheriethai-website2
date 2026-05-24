@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -11,10 +12,104 @@ const inView = (delay = 0) => ({
   transition: { duration: 0.9, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
 
+// ─── Translations ──────────────────────────────────────────────────────────────
+
+const translations = {
+  PT: {
+    sectionLabel: 'Os Espaços',
+    sectionHeadline: 'São Paulo.\nRio de Janeiro.',
+    sectionBody: 'Dois espaços. Dois caracteres distintos.\nA mesma precisão, em ambientes concebidos para o que o trabalho exige.',
+
+    spLabel: 'Estúdio Principal',
+    spHeadline: 'São Paulo,\nBrasil.',
+    spBody: 'Teto de concreto exposto. Trilhos industriais. E então, uma selva. Pendentes em palha, plantas que crescem sem fronteiras, um mural de floresta tropical que toma a parede inteira. É a sofisticação do Sudeste Asiático reimaginada dentro do caos urbano de São Paulo: modernista, rara, como um pedaço de paraíso que brotou do concreto. Um espaço que não deveria existir aqui, e é exatamente isso que o torna extraordinário.',
+    spAtmosphere: 'Você não espera encontrar isso aqui. E é exatamente esse o ponto.',
+    spNote: 'Sauna integrada ao tratamento · potencializa os resultados · disponível mediante solicitação',
+    spDetails: [
+      { k: 'Endereço', v: 'R. Pedroso Alvarenga, 691\nItaim Bibi · São Paulo' },
+      { k: 'Horário', v: 'Segunda a Domingo\n6h às 20h · conforme terapeuta' },
+      { k: 'Sessões', v: 'Somente com agendamento' },
+      { k: 'Equipe', v: 'Cherie T. Charnkul e equipe completa' },
+    ],
+    spAccentNote: 'ESTÚDIO PRINCIPAL · SÃO PAULO',
+
+    rioSubLabel: 'Clínica · Rio de Janeiro',
+    rioSubHeadline: 'Rio de Janeiro.',
+    rioSubBody: 'Um espaço construído sobre intenção.\nCada detalhe com propósito.',
+    rioLabel: 'CherieThai Rio',
+    rioHeadline: 'Rio de Janeiro,\nBrasil.',
+    rioBody: 'Um espaço de tradição enraizada. Carrega a herança da cultura nordestina, cru, intencional, sem excessos. Muitos dizem que parece o espaço pessoal de um monge: onde ele descansa, onde recebe, onde pratica. Não há separação entre o sagrado e o terapêutico aqui.',
+    rioAtmosphere: 'Como entrar em um retiro que alguém construiu para si mesmo.',
+    rioDetails: [
+      { k: 'Endereço', v: 'R. Visconde de Pirajá, 142\nIpanema · Rio de Janeiro' },
+      { k: 'Horário', v: 'Segunda a Domingo\n8h às 20h · conforme terapeuta' },
+      { k: 'Sessões', v: 'Somente com agendamento' },
+      { k: 'Equipe', v: 'Liderado por Karl e Lucas' },
+    ],
+    rioAccentNote: 'CHERIETHAI RIO · IPANEMA',
+
+    spDetailLabel: 'DETALHE · SÃO PAULO',
+    spDetailCaption: 'A natureza que\ntransborda o concreto.',
+    rioDetailLabel: 'DETALHE · RIO DE JANEIRO',
+    rioDetailCaption: 'Cada objeto chegou\ncom intenção.',
+
+    contactLink: 'Entre em contato',
+    mapsLink: 'Ver no Google Maps',
+
+    internationalBody: 'Sessões internacionais disponíveis mediante solicitação. Os praticantes CherieThai viajam para programas privados, parcerias corporativas e colaborações institucionais.',
+    internationalNote: 'Entre em contato para consultar disponibilidade na sua cidade.',
+  },
+  EN: {
+    sectionLabel: 'The Spaces',
+    sectionHeadline: 'São Paulo.\nRio de Janeiro.',
+    sectionBody: 'Two spaces. Two distinct characters.\nThe same precision, in environments designed for what the work demands.',
+
+    spLabel: 'Main Studio',
+    spHeadline: 'São Paulo,\nBrazil.',
+    spBody: 'Exposed concrete ceilings. Industrial tracks. And then, suddenly, a jungle. Straw pendants, plants growing without boundaries, a tropical forest mural consuming the entire wall. The sophistication of Southeast Asia reimagined within the urban chaos of São Paulo: modernist, rare, as if a hidden sanctuary had emerged from concrete. A space that should not exist here, and that is precisely what makes it extraordinary.',
+    spAtmosphere: 'You do not expect to find this here. That is exactly the point.',
+    spNote: 'Therapeutic sauna integrated into the treatment · enhances results · available upon request',
+    spDetails: [
+      { k: 'Address', v: 'R. Pedroso Alvarenga, 691\nItaim Bibi · São Paulo' },
+      { k: 'Hours', v: 'Monday to Sunday\n6am to 8pm · depending on practitioner' },
+      { k: 'Sessions', v: 'By appointment only' },
+      { k: 'Team', v: 'Cherie T. Charnkul and full team' },
+    ],
+    spAccentNote: 'MAIN STUDIO · SÃO PAULO',
+
+    rioSubLabel: 'Clinic · Rio de Janeiro',
+    rioSubHeadline: 'Rio de Janeiro.',
+    rioSubBody: 'A space built with intention.\nEvery detail with purpose.',
+    rioLabel: 'CherieThai Rio',
+    rioHeadline: 'Rio de Janeiro,\nBrazil.',
+    rioBody: 'A space rooted in tradition. It carries the heritage of northeastern Thai culture: raw, intentional, without excess. Many say it feels like the private space of a monk: where he rests, where he receives, where he practices. There is no separation between the sacred and the therapeutic here.',
+    rioAtmosphere: 'As if entering a retreat someone built for themselves.',
+    rioDetails: [
+      { k: 'Address', v: 'R. Visconde de Pirajá, 142\nIpanema · Rio de Janeiro' },
+      { k: 'Hours', v: 'Monday to Sunday\n8am to 8pm · depending on practitioner' },
+      { k: 'Sessions', v: 'By appointment only' },
+      { k: 'Team', v: 'Led by Karl and Lucas' },
+    ],
+    rioAccentNote: 'CHERIETHAI RIO · IPANEMA',
+
+    spDetailLabel: 'DETAIL · SÃO PAULO',
+    spDetailCaption: 'The nature that\novercomes the concrete.',
+    rioDetailLabel: 'DETAIL · RIO DE JANEIRO',
+    rioDetailCaption: 'Every object arrived\nwith intention.',
+
+    contactLink: 'Get in Touch',
+    mapsLink: 'View on Google Maps',
+
+    internationalBody: 'International sessions available upon request. CherieThai practitioners travel for private programmes, corporate partnerships, and institutional collaborations.',
+    internationalNote: 'Contact us to enquire about availability in your city.',
+  },
+}
+
+// ─── SpaceSection ──────────────────────────────────────────────────────────────
+
 function SpaceSection({
   id,
   city,
-  country,
   district,
   label,
   headline,
@@ -29,10 +124,11 @@ function SpaceSection({
   studioName,
   textSide,
   mapsUrl,
+  contactLink,
+  mapsLink,
 }: {
   id: string
   city: string
-  country: string
   district: string
   label: string
   headline: string
@@ -47,6 +143,8 @@ function SpaceSection({
   studioName?: string
   textSide: 'left' | 'right'
   mapsUrl?: string
+  contactLink: string
+  mapsLink: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -73,7 +171,7 @@ function SpaceSection({
             <>
               <Image
                 src={image}
-                alt={`Espaço CherieThai ${city}`}
+                alt={`CherieThai ${city}`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-cover"
@@ -151,7 +249,7 @@ function SpaceSection({
               href="#contact"
               className="label-text text-sand/45 hover:text-sand/75 transition-colors duration-300 flex items-center gap-2"
             >
-              Entre em contato
+              {contactLink}
               <span aria-hidden>→</span>
             </motion.a>
 
@@ -163,7 +261,7 @@ function SpaceSection({
                 rel="noopener noreferrer"
                 className="label-text text-sage/45 hover:text-sage/80 transition-colors duration-300 flex items-center gap-2"
               >
-                Ver no Google Maps
+                {mapsLink}
                 <span aria-hidden>↗</span>
               </motion.a>
             )}
@@ -175,28 +273,32 @@ function SpaceSection({
   )
 }
 
+// ─── Main Export ───────────────────────────────────────────────────────────────
+
 export default function Locations() {
+  const { lang } = useLanguage()
+  const t = translations[lang]
+
   return (
     <section id="locations" className="overflow-hidden">
 
       {/* ── Header ── */}
       <div className="bg-off-white px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-16 md:pb-20 border-t border-earth/10">
         <motion.p {...inView()} className="label-text text-sage mb-5">
-          Os Espaços
+          {t.sectionLabel}
         </motion.p>
         <motion.h2
-          className="display-section text-deep-moss"
+          className="display-section text-deep-moss whitespace-pre-line"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
           {...inView(0.1)}
         >
-          São Paulo.<br />Rio de Janeiro.
+          {t.sectionHeadline}
         </motion.h2>
         <motion.p
           {...inView(0.2)}
-          className="body-text text-earth/50 max-w-md text-sm md:text-base mt-6 leading-relaxed"
+          className="body-text text-earth/50 max-w-md text-sm md:text-base mt-6 leading-relaxed whitespace-pre-line"
         >
-          Dois espaços. Dois caracteres distintos.
-          A mesma precisão, em ambientes concebidos para o que o trabalho exige.
+          {t.sectionBody}
         </motion.p>
       </div>
 
@@ -205,25 +307,21 @@ export default function Locations() {
         id="location-saopaulo"
         city="São Paulo"
         studioName="Kimberley"
-        country="Brasil"
         district="Itaim Bibi · São Paulo"
-        label="Estúdio Principal"
-        headline={`São Paulo,\nBrasil.`}
-        body="Teto de concreto exposto. Trilhos industriais. E então, uma selva. Pendentes em palha, plantas que crescem sem fronteiras, um mural de floresta tropical que toma a parede inteira. É a sofisticação do Sudeste Asiático reimaginada dentro do caos urbano de São Paulo: modernista, rara, como um pedaço de paraíso que brotou do concreto. Um espaço que não deveria existir aqui, e é exatamente isso que o torna extraordinário."
-        atmosphere="Você não espera encontrar isso aqui. E é exatamente esse o ponto."
-        note="Sauna integrada ao tratamento · potencializa os resultados · disponível mediante solicitação"
-        details={[
-          { k: 'Endereço', v: 'R. Pedroso Alvarenga, 691\nItaim Bibi · São Paulo' },
-          { k: 'Horário', v: 'Segunda a Domingo\n6h às 20h · conforme terapeuta' },
-          { k: 'Sessões', v: 'Somente com agendamento' },
-          { k: 'Equipe', v: 'Cherie T. Charnkul e equipe completa' },
-        ]}
+        label={t.spLabel}
+        headline={t.spHeadline}
+        body={t.spBody}
+        atmosphere={t.spAtmosphere}
+        note={t.spNote}
+        details={t.spDetails}
         image="/clinicsp.jpg"
         imageFallbackGradient="linear-gradient(145deg, #3D4A40 0%, #2A3329 100%)"
         imagePosition="center center"
-        accentNote="ESTÚDIO PRINCIPAL · SÃO PAULO"
+        accentNote={t.spAccentNote}
         textSide="right"
         mapsUrl="https://maps.app.goo.gl/Chwst6qECbztjH4x7"
+        contactLink={t.contactLink}
+        mapsLink={t.mapsLink}
       />
 
       {/* ── São Paulo · Detalhe de musgo ── */}
@@ -242,12 +340,12 @@ export default function Locations() {
           }}
         />
         <div className="absolute bottom-10 left-6 md:left-12 lg:left-16">
-          <p className="label-text text-sand/40 text-xs mb-3">DETALHE · SÃO PAULO</p>
+          <p className="label-text text-sand/40 text-xs mb-3">{t.spDetailLabel}</p>
           <p
-            className="font-cormorant font-light text-ivory/80"
+            className="font-cormorant font-light text-ivory/80 whitespace-pre-line"
             style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)', lineHeight: 1.1 }}
           >
-            A natureza que<br />transborda o concreto.
+            {t.spDetailCaption}
           </p>
         </div>
       </div>
@@ -255,21 +353,20 @@ export default function Locations() {
       {/* ── Rio de Janeiro · Divisor ── */}
       <div className="bg-deep-moss px-6 md:px-12 lg:px-16 pt-20 md:pt-28 pb-14 md:pb-20 border-t border-sand/10">
         <motion.p {...inView()} className="label-text text-sage/50 mb-5">
-          Clínica · Rio de Janeiro
+          {t.rioSubLabel}
         </motion.p>
         <motion.h2
           className="font-cormorant font-light text-ivory"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
           {...inView(0.1)}
         >
-          Rio de Janeiro.
+          {t.rioSubHeadline}
         </motion.h2>
         <motion.p
           {...inView(0.2)}
-          className="body-text text-sage/45 max-w-md text-sm md:text-base mt-6 leading-relaxed"
+          className="body-text text-sage/45 max-w-md text-sm md:text-base mt-6 leading-relaxed whitespace-pre-line"
         >
-          Um espaço construído sobre intenção.<br />
-          Cada detalhe com propósito.
+          {t.rioSubBody}
         </motion.p>
       </div>
 
@@ -278,23 +375,19 @@ export default function Locations() {
         id="location-rio"
         city="Rio de Janeiro"
         studioName="Thanawan"
-        country="Brasil"
         district="Ipanema · Rio de Janeiro"
-        label="CherieThai Rio"
-        headline={`Rio de Janeiro,\nBrasil.`}
-        body="Um espaço de tradição enraizada. Carrega a herança da cultura nordestina, cru, intencional, sem excessos. Muitos dizem que parece o espaço pessoal de um monge: onde ele descansa, onde recebe, onde pratica. Não há separação entre o sagrado e o terapêutico aqui."
-        atmosphere="Como entrar em um retiro que alguém construiu para si mesmo."
-        details={[
-          { k: 'Endereço', v: 'R. Visconde de Pirajá, 142\nIpanema · Rio de Janeiro' },
-          { k: 'Horário', v: 'Segunda a Domingo\n8h às 20h · conforme terapeuta' },
-          { k: 'Sessões', v: 'Somente com agendamento' },
-          { k: 'Equipe', v: 'Liderado por Karl e Lucas' },
-        ]}
+        label={t.rioLabel}
+        headline={t.rioHeadline}
+        body={t.rioBody}
+        atmosphere={t.rioAtmosphere}
+        details={t.rioDetails}
         image="/clinic-rio-entrance.jpg"
         imageFallbackGradient="linear-gradient(145deg, #1A2A1F 0%, #2A3A2F 50%, #1A2A1F 100%)"
         imagePosition="center center"
-        accentNote="CHERIETHAI RIO · IPANEMA"
+        accentNote={t.rioAccentNote}
         textSide="left"
+        contactLink={t.contactLink}
+        mapsLink={t.mapsLink}
       />
 
       {/* ── Rio · Detalhe do altar ── */}
@@ -313,12 +406,12 @@ export default function Locations() {
           }}
         />
         <div className="absolute bottom-10 left-6 md:left-12 lg:left-16">
-          <p className="label-text text-sand/40 text-xs mb-3">DETALHE · RIO DE JANEIRO</p>
+          <p className="label-text text-sand/40 text-xs mb-3">{t.rioDetailLabel}</p>
           <p
-            className="font-cormorant font-light text-ivory/80"
+            className="font-cormorant font-light text-ivory/80 whitespace-pre-line"
             style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)', lineHeight: 1.1 }}
           >
-            Cada objeto chegou<br />com intenção.
+            {t.rioDetailCaption}
           </p>
         </div>
       </div>
@@ -327,12 +420,10 @@ export default function Locations() {
       <div className="bg-ivory px-6 md:px-12 lg:px-16 py-14 md:py-20 border-t border-earth/10">
         <motion.div className="max-w-2xl" {...inView()}>
           <p className="body-text text-earth/55 text-base md:text-lg leading-loose">
-            Sessões internacionais disponíveis mediante solicitação.
-            Os praticantes CherieThai viajam para programas privados,
-            parcerias corporativas e colaborações institucionais.
+            {t.internationalBody}
           </p>
           <p className="body-text text-earth/40 text-sm mt-4">
-            Entre em contato para consultar disponibilidade na sua cidade.
+            {t.internationalNote}
           </p>
         </motion.div>
       </div>
