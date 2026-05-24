@@ -2,9 +2,29 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const YOUTUBE_ID = 'iA-h8_0TVpg' // IMG_3822 — ground session Thailand
 const EMBED_SRC = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&showinfo=0&disablekb=1&enablejsapi=0`
+
+const translations = {
+  PT: {
+    label: 'Nossa História  ·  A Filosofia',
+    line1: 'Nascida em Phimai.',
+    line2: 'Criada entre os campos de arroz.',
+    body1: 'Quatro anos de idade. Uma aldeia no nordeste da Tailândia. Filha de agricultores, aprendeu com quem trabalha o corpo por necessidade, não por protocolo.',
+    body2: 'No Brasil, esse entendimento se traduziu em algo mais raro. Uma clínica construída em silêncio, reconhecida por quem a vive. Cada sessão é uma leitura estrutural. Uma decisão tomada antes de qualquer palavra.',
+    cta: 'Nossa História',
+  },
+  EN: {
+    label: 'Our Story  ·  The Philosophy',
+    line1: 'Born in Phimai.',
+    line2: 'Raised among the rice fields.',
+    body1: 'At four years old, in a village in northeastern Thailand. The daughter of rice farmers, she learned from those who worked with the body out of necessity, not protocol.',
+    body2: 'In Brazil, that understanding evolved into a rare therapeutic approach. Each session guided by structural perception, precision, and an intimate understanding of the body.',
+    cta: 'Our Story',
+  },
+}
 
 export default function CinematicSection() {
   const ref = useRef<HTMLElement>(null)
@@ -12,6 +32,8 @@ export default function CinematicSection() {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   const [src, setSrc] = useState('')
+  const { lang } = useLanguage()
+  const t = translations[lang]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,7 +110,7 @@ export default function CinematicSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Nossa História&nbsp;&nbsp;·&nbsp;&nbsp;A Filosofia
+            {t.label}
           </motion.p>
 
           <motion.h2
@@ -99,8 +121,8 @@ export default function CinematicSection() {
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Nascida em Phimai.<br />
-            <span className="text-sage/70">Criada entre os campos de arroz.</span>
+            {t.line1}<br />
+            <span className="text-sage/70">{t.line2}</span>
           </motion.h2>
 
           <motion.p
@@ -110,12 +132,9 @@ export default function CinematicSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Quatro anos de idade. Uma aldeia no nordeste da Tailândia. Filha de agricultores,
-            aprendeu com quem trabalha o corpo por necessidade, não por protocolo.
+            {t.body1}
             <br /><br />
-            No Brasil, esse entendimento se traduziu em algo mais raro.
-            Uma clínica construída em silêncio, reconhecida por quem a vive.
-            Cada sessão é uma leitura estrutural. Uma decisão tomada antes de qualquer palavra.
+            {t.body2}
           </motion.p>
 
           <motion.a
@@ -127,7 +146,7 @@ export default function CinematicSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Nossa História
+            {t.cta}
             <span aria-hidden>→</span>
           </motion.a>
 
