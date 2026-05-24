@@ -106,7 +106,7 @@ const principlesData = {
       name: 'Flow',
       nameLabel: 'FLOW',
       thesis: 'The elegance of movement within therapeutic work is carefully cultivated.',
-      body: `Smooth transitions, rhythmic variation, and continuous movement create an uninterrupted dialogue with the body, allowing tissues and joints to explore new pathways of release and restoration.\n\nMovement itself is medicine.\n\nAt CherieThai, flow represents the integration of sensitivity, nuance, precision, and presence into a single, continuous therapeutic expression.`,
+      body: `Smooth transitions, rhythmic variation, and continuous movement create an uninterrupted dialogue with the body, allowing tissues and joints to explore new pathways of release and restoration.\n\nMovement itself becomes medicine.\n\nAt CherieThai, flow represents the integration of sensitivity, nuance, precision, and presence into one continuous therapeutic expression.`,
       footerLabel: 'CHERIETHAI PHILOSOPHY',
       accent: '#AAB6A2',
       bg: 'dark' as const,
