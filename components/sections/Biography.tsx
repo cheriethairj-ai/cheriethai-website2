@@ -57,7 +57,7 @@ const translations = {
 
     // Journey
     journeyLabel: 'Trajetória  ·  Tailândia · Reino Unido · Europa · Brasil',
-    journeyP1: 'Com mais de quinze anos de experiência profissional na Tailândia, Europa e Brasil, Cherie desenvolveu uma abordagem clínica que integra a linhagem terapêutica tailandesa tradicional com bodywork estrutural avançado e compreensão terapêutica baseada em movimento.',
+    journeyP1: 'Com mais de treze anos de experiência profissional na Tailândia, Europa e Brasil, Cherie desenvolveu uma abordagem clínica que integra a linhagem terapêutica tailandesa tradicional com bodywork estrutural avançado e compreensão terapêutica baseada em movimento.',
     journeyP2: 'Esse trabalho culminou na criação da CherieThai Clínica, um instituto terapêutico boutique operando entre São Paulo e Rio de Janeiro, oferecendo tratamentos altamente personalizados para restaurar a mobilidade, melhorar o equilíbrio estrutural e apoiar a saúde física a longo prazo.',
 
     // Karl header
@@ -140,7 +140,7 @@ const translations = {
 
     // Journey
     journeyLabel: 'Trajectory  ·  Thailand · United Kingdom · Europe · Brazil',
-    journeyP1: 'With more than fifteen years of professional experience across Thailand, Europe, and Brazil, Cherie developed a clinical approach that integrates the traditional Thai therapeutic lineage with advanced structural bodywork and movement-based therapeutic understanding.',
+    journeyP1: 'With more than thirteen years of professional experience across Thailand, Europe, and Brazil, Cherie developed a clinical approach that integrates the traditional Thai therapeutic lineage with advanced structural bodywork and movement-based therapeutic understanding.',
     journeyP2: 'This work ultimately led to the creation of CherieThai Clínica — a boutique therapeutic institute operating between São Paulo and Rio de Janeiro, offering highly individualized treatments designed to restore mobility, improve structural balance, and support long-term physical wellbeing.',
 
     // Karl header
