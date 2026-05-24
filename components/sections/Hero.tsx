@@ -21,7 +21,7 @@ const translations = {
     line1: 'The body',
     line2: 'is architecture.',
     subline1: 'Clinical Thai bodywork. Structural precision.',
-    subline2: 'Work that holds.',
+    subline2: 'A treatment designed to restore the body at its foundation.',
     cta: 'Discover the Method',
   },
 }
