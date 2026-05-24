@@ -84,14 +84,17 @@ export default function Biography() {
 
             <motion.div {...inView(0.1)} className="body-text text-sand/70 space-y-5 text-base md:text-lg leading-loose mb-10">
               <p>
-                Cherie nasceu em Phimai, Tailândia, e cresceu em uma aldeia rural
-                em uma família de agricultores de arroz, onde o trabalho físico,
-                a resiliência e o cuidado com o corpo faziam parte do cotidiano.
+                Cherie nasceu em Phimai, no Isaan — o nordeste da Tailândia — e cresceu
+                em uma aldeia rural em uma família de agricultores de arroz. O Isaan tem
+                sua própria forma de ler o corpo: crenças ancestrais sobre como a tensão
+                se instala, como a dor se manifesta, como o movimento liberta. Uma visão
+                de mundo passada de geração em geração, não ensinada em livros.
               </p>
               <p>
-                Aos quatro anos, começou a praticar massagem dentro da família,
-                desenvolvendo uma sensibilidade tátil precoce que mais tarde
-                evoluiu para seu caminho profissional.
+                Aos quatro anos, começou a praticar massagem dentro da família.
+                Anos de artes marciais e dança aprofundaram essa compreensão —
+                uma relação com o corpo que é ao mesmo tempo estrutural, intuitiva
+                e profundamente física.
               </p>
               <p>
                 Parte da sua formação aconteceu no Reino Unido, onde cresceu
