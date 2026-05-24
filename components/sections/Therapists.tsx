@@ -229,7 +229,7 @@ const therapistsData = {
       name: 'Pedro',
       role: 'Praticante · Lutador Profissional de MMA · Tecido Profundo',
       location: 'São Paulo',
-      philosophy: '"Lutar e restaurar são mais próximos do que as pessoas pensam.\n\nOs dois exigem ler um corpo antes de tocá-lo. Os dois exigem saber exatamente onde a pressão faz algo e onde ela destrói. Os dois são sobre encontrar onde alguém está se segurando — e escolher o que fazer com isso.\n\nNo octógono, usei isso para vencer.\nAqui, uso para devolver o corpo a si mesmo."',
+      philosophy: '"Todo mundo acha que um lutador só sabe destruir coisas.\nLutar ensina o contrário.\nEnsina a ler — a tensão que alguém carrega, onde está se protegendo, o que não quer sentir.\n\nAprendi isso no ringue.\nUso a mesma coisa aqui."',
       atmosphere: `Pedro é lutador profissional de MMA, e terapeuta. Essa combinação é rara, e o que ela produz é algo que a formação clínica sozinha não consegue replicar.\n\nEle conhece o corpo de dentro do conflito. Sabe o que acontece com um músculo sob pressão extrema, como uma articulação cede antes de lesionar, como a tensão densa de um atleta difere de qualquer outro corpo. Quando ele trabalha, há uma precisão anatômica que vem de anos de experiência corporificada, não apenas estudada.\n\nOs clientes descrevem suas sessões como cirúrgicas. Profundas. Exatas. O tipo de trabalho que acessa o que outras abordagens simplesmente não alcançam.`,
       presence: 'Preciso. Quieto. Surpreendentemente delicado para alguém que compete profissionalmente. A sensibilidade não é apesar da luta. É por causa dela.',
       strengths: [
@@ -336,7 +336,7 @@ const therapistsData = {
       name: 'Pedro',
       role: 'Practitioner · Professional MMA Fighter · Deep Tissue',
       location: 'São Paulo',
-      philosophy: '"Fighting and restoration are closer than people think.\n\nBoth require reading a body before touching it. Both require knowing exactly where pressure does something and where it destroys. Both are about finding where someone is holding — and choosing what to do with that.\n\nIn the octagon, I used that to win.\nHere, I use it to give the body back to itself."',
+      philosophy: '"Everyone assumes a fighter only knows how to break things down.\nFighting teaches you the opposite.\nIt teaches you to read — the tension someone carries, where they\'re protecting, what they won\'t feel.\n\nI learned that in the ring.\nI use the same thing here."',
       atmosphere: `Pedro is a professional MMA fighter and therapist. This combination is rare, and what it creates goes beyond technical training alone. His touch is direct, dense, and deeply precise — especially effective for chronic tension and heavily compressed structures.\n\nHe knows the body from within conflict. He understands what happens to a muscle under extreme pressure, how a joint gives way before it breaks, how the dense tension of an athlete differs from any other body. When he works, there is an anatomical precision that comes from years of embodied experience, not merely studied.\n\nClients describe his sessions as surgical. Deep. Exact. The kind of work that accesses what other approaches simply cannot reach.`,
       presence: 'Precise. Quiet. Surprisingly delicate for someone who competes professionally. The sensitivity is not despite the fighting. It is because of it.',
       strengths: [
