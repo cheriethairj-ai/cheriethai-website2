@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const YOUTUBE_ID = 'ry3oVS1W2W0'
 const EMBED_SRC = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&playsinline=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1`
@@ -13,12 +14,31 @@ const inView = (delay = 0) => ({
   transition: { duration: 1.0, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
 
+const translations = {
+  PT: {
+    label: 'Corpo  ·  Geometria',
+    line1: 'Cada linha',
+    line2: 'existe com propósito.',
+    body: `O corpo humano obedece a uma geometria precisa e o trabalho Thai navega essa geometria com elegância e intenção. As linhas que definem cada posição não são apenas estruturais. São também estéticas. A forma como o corpo é conduzido, a curvatura de um alongamento, o ângulo de uma pressão: tudo isso tem uma beleza que é inseparável da sua eficácia.\n\nNo trabalho Thai, essas linhas têm nome: Sen. Canais de energia que percorrem o corpo e guardam onde a tensão se acumula, onde a dor persiste, onde a libertação é possível.\n\nCada pressão é uma leitura. Cada trajeto, uma intenção. A forma serve à função. A função serve à libertação.`,
+    footnote: 'SEN  ·  AS LINHAS ENERGÉTICAS DO CORPO TAILANDÊS',
+  },
+  EN: {
+    label: 'Body  ·  Geometry',
+    line1: 'Every line',
+    line2: 'exists with purpose.',
+    body: `The human body follows a precise geometry and Thai bodywork navigates that geometry with elegance and intention. The lines that define each position are not only structural. They are also aesthetic. The way the body is guided, the curve of a stretch, the angle of a pressure: all of it carries a beauty that is inseparable from its effect.\n\nIn Thai bodywork, these lines have a name: Sen. Energy channels that run through the body and hold where tension accumulates, where pain persists, where release becomes possible.\n\nEvery pressure is a reading. Every movement, an intention. Form serves function. Function serves release.`,
+    footnote: 'SEN  ·  THE ENERGY LINES OF THE THAI BODY',
+  },
+}
+
 export default function ArchitectureSection() {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
   const [src, setSrc] = useState('')
+  const { lang } = useLanguage()
+  const t = translations[lang]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,7 +66,6 @@ export default function ArchitectureSection() {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            /* Portrait 9:16 video covering both landscape & portrait viewports */
             width: 'max(100%, 56.25vh)',
             height: 'max(100%, 177.78vw)',
             border: 'none',
@@ -87,7 +106,7 @@ export default function ArchitectureSection() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
             style={{ fontSize: '0.6rem', letterSpacing: '0.28em' }}
           >
-            Corpo&nbsp;&nbsp;·&nbsp;&nbsp;Geometria
+            {t.label}
           </motion.p>
 
           <motion.h2
@@ -98,27 +117,22 @@ export default function ArchitectureSection() {
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.18, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            Cada linha<br />
-            <span className="text-sage/65">existe com propósito.</span>
+            {t.line1}<br />
+            <span className="text-sage/65">{t.line2}</span>
           </motion.h2>
 
-          <motion.p
-            className="font-cormorant italic text-sand/60 max-w-lg mb-10"
+          <motion.div
+            className="font-cormorant italic text-sand/60 max-w-lg mb-10 space-y-5"
             style={{ fontSize: 'clamp(1.05rem, 2vw, 1.35rem)', lineHeight: 1.7 }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
-            O corpo humano obedece a uma geometria precisa.
-            Linhas que correm da sole do pé ao topo da cabeça.
-            Ângulos que determinam onde o peso se acumula.
-            Diagonais que guardam o que não foi resolvido.
-            <br /><br />
-            O trabalho Thai navega essas linhas — não contra elas.
-            Cada pressão é uma leitura. Cada trajeto, uma intenção.
-            Tudo serve à liberação.
-          </motion.p>
+            {t.body.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </motion.div>
 
           <motion.p
             className="label-text text-sage/25"
@@ -128,7 +142,7 @@ export default function ArchitectureSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.45 }}
           >
-            SEN&nbsp;&nbsp;·&nbsp;&nbsp;AS LINHAS ENERGÉTICAS DO CORPO TAILANDÊS
+            {t.footnote}
           </motion.p>
 
         </div>
