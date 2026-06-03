@@ -504,7 +504,7 @@ export default function Biography() {
       </div>
 
       {/* ── Karl: section header ── */}
-      <div className="px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-16 md:pb-20 border-t border-sand/10 border-b border-sand/10">
+      <div id="about-karl" className="px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-16 md:pb-20 border-t border-sand/10 border-b border-sand/10">
         <motion.p {...inView()} className="label-text text-sage mb-10">
           {t.karlLabel}
         </motion.p>

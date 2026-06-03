@@ -13,6 +13,8 @@ const navItemsPT = [
     dropdown: [
       { label: 'Filosofia', href: '/philosophy' },
       { label: 'Nossa História', href: '/#about' },
+      { label: 'Sobre Cherie', href: '/#about' },
+      { label: 'Sobre Karl', href: '/#about-karl' },
     ],
   },
   {
@@ -46,6 +48,8 @@ const navItemsEN = [
     dropdown: [
       { label: 'Philosophy', href: '/philosophy' },
       { label: 'Our Story', href: '/#about' },
+      { label: 'About Cherie', href: '/#about' },
+      { label: 'About Karl', href: '/#about-karl' },
     ],
   },
   {
