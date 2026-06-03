@@ -66,30 +66,30 @@ const translations = {
     karlHeroLine2: 'ao caminho monástico.',
 
     // Karl origins
-    karlOriginsLabel: 'Trajetória  ·  Rio de Janeiro · Ban Tam Ye',
+    karlOriginsLabel: 'Trajetória  ·  Rio de Janeiro · Tam Yae',
     karlH3Line1: 'Dez anos de cátedra.',
     karlH3Line2: 'Tudo abandonado.',
     karlP1: 'Karl foi professor universitário na UFRJ durante dez anos, com formação em design gráfico. No auge de sua carreira acadêmica, tomou a decisão de abandonar tudo para seguir um caminho radicalmente diferente: tornar-se terapeuta de massagem tradicional tailandesa.',
     karlP2: 'Treinado por Cherie desde o zero absoluto, Karl desenvolveu uma sensibilidade técnica e uma profundidade de compreensão que o levaram naturalmente ao caminho tradicional — além da clínica, em direção às próprias origens da prática.',
-    karlPortraitCaption: 'Rio de Janeiro, Brasil  ·  Ban Tam Ye, Tailândia',
+    karlPortraitCaption: 'Rio de Janeiro, Brasil  ·  Tam Yae, Tailândia',
 
     // Karl quote
-    karlQuote: '"O primeiro estrangeiro a ser pessoalmente convidado pelo Grande Mestre Ajarn Torng para se tornar monge no templo Ban Tam Ye."',
-    karlQuoteAttrib: 'Ban Tam Ye  ·  Tailândia',
+    karlQuote: '"O primeiro estrangeiro a ser pessoalmente convidado pelo Grande Mestre Ajarn Torng para se tornar monge no templo Tam Yae."',
+    karlQuoteAttrib: 'Tam Yae  ·  Tailândia',
 
     // Karl monastic
-    karlMonasticLabel: 'Caminho Monástico  ·  Ban Tam Ye',
+    karlMonasticLabel: 'Caminho Monástico  ·  Tam Yae',
     karlMonasticH3Line1: 'Três meses no templo.',
     karlMonasticH3Line2: '410 quilómetros de peregrinação.',
-    karlMonasticP1: 'Karl foi convidado pessoalmente pelo Grande Mestre Ajarn Torng para se ordenar monge no templo Ban Tam Ye — tornando-se o primeiro estrangeiro a receber essa honra. Durante três meses, viveu o quotidiano monástico, documentando a vida dentro do templo e a prática em sua forma mais pura.',
+    karlMonasticP1: 'Karl foi convidado pessoalmente pelo Grande Mestre Ajarn Torng para se ordenar monge no templo Tam Yae — tornando-se o primeiro estrangeiro a receber essa honra. Durante três meses, viveu o quotidiano monástico, documentando a vida dentro do templo e a prática em sua forma mais pura.',
     karlMonasticP2: 'Integrou uma peregrinação de 410 quilómetros com trinta outros monges, tornando-se o primeiro estrangeiro a realizar esse percurso. Uma jornada que moldou definitivamente a sua compreensão da tradição terapêutica tailandesa como prática espiritual e corporal indissociáveis.',
     karlStat1Unit: 'anos',
     karlStat1Label: 'como professor na UFRJ em design gráfico',
     karlStat2Unit: 'meses',
-    karlStat2Label: 'em residência monástica no templo Ban Tam Ye',
+    karlStat2Label: 'em residência monástica no templo Tam Yae',
     karlStat3Unit: 'km',
     karlStat3Label: 'de peregrinação com 30 monges — o primeiro estrangeiro',
-    karlStat4Label: 'Grande Mestre · Ban Tam Ye · Tailândia',
+    karlStat4Label: 'Grande Mestre · Tam Yae · Tailândia',
 
     // Institute closing
     instituteLabel: 'Instituto  ·  Educação',
@@ -149,30 +149,30 @@ const translations = {
     karlHeroLine2: 'to the monastic path.',
 
     // Karl origins
-    karlOriginsLabel: 'Journey  ·  Rio de Janeiro · Ban Tam Ye',
+    karlOriginsLabel: 'Journey  ·  Rio de Janeiro · Tam Yae',
     karlH3Line1: 'Ten years in academia.',
     karlH3Line2: 'All of it left behind.',
     karlP1: 'Karl was a university professor at UFRJ for ten years, with a background in graphic design. At the height of his academic career, he made the decision to leave everything behind and follow a radically different path: to become a traditional Thai massage therapist.',
     karlP2: 'Trained by Cherie from the very beginning, Karl developed a technical sensitivity and depth of understanding that naturally led him toward the traditional path — beyond the clinic, toward the very origins of the practice.',
-    karlPortraitCaption: 'Rio de Janeiro, Brazil  ·  Ban Tam Ye, Thailand',
+    karlPortraitCaption: 'Rio de Janeiro, Brazil  ·  Tam Yae, Thailand',
 
     // Karl quote
-    karlQuote: '"The first foreigner to be personally invited by Grand Master Ajarn Torng to become a monk at the Ban Tam Ye temple."',
-    karlQuoteAttrib: 'Ban Tam Ye  ·  Thailand',
+    karlQuote: '"The first foreigner to be personally invited by Grand Master Ajarn Torng to become a monk at the Tam Yae temple."',
+    karlQuoteAttrib: 'Tam Yae  ·  Thailand',
 
     // Karl monastic
-    karlMonasticLabel: 'Monastic Path  ·  Ban Tam Ye',
+    karlMonasticLabel: 'Monastic Path  ·  Tam Yae',
     karlMonasticH3Line1: 'Three months in the temple.',
     karlMonasticH3Line2: '410 kilometres of pilgrimage.',
-    karlMonasticP1: 'Karl was personally invited by Grand Master Ajarn Torng to be ordained as a monk at the Ban Tam Ye temple — becoming the first foreigner to receive that honour. For three months, he lived the monastic daily life, documenting life within the temple and the practice in its purest form.',
+    karlMonasticP1: 'Karl was personally invited by Grand Master Ajarn Torng to be ordained as a monk at the Tam Yae temple — becoming the first foreigner to receive that honour. For three months, he lived the monastic daily life, documenting life within the temple and the practice in its purest form.',
     karlMonasticP2: 'He joined a 410-kilometre pilgrimage alongside thirty other monks, becoming the first foreigner to complete the journey. An experience that definitively shaped his understanding of the Thai therapeutic tradition as an inseparable spiritual and physical practice.',
     karlStat1Unit: 'years',
     karlStat1Label: 'as professor at UFRJ in graphic design',
     karlStat2Unit: 'months',
-    karlStat2Label: 'in monastic residency at the Ban Tam Ye temple',
+    karlStat2Label: 'in monastic residency at the Tam Yae temple',
     karlStat3Unit: 'km',
     karlStat3Label: 'of pilgrimage with 30 monks — the first foreigner',
-    karlStat4Label: 'Grand Master · Ban Tam Ye · Thailand',
+    karlStat4Label: 'Grand Master · Tam Yae · Thailand',
 
     // Institute closing
     instituteLabel: 'Institute  ·  Education',
