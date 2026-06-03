@@ -89,7 +89,7 @@ const translations = {
     karlStat2Label: 'em residência monástica no templo Tam Yae',
     karlStat3Unit: 'km',
     karlStat3Label: 'de peregrinação com 30 monges — o primeiro estrangeiro',
-    karlStat4Label: 'Grande Mestre · Tam Yae · Tailândia',
+    karlStat4Label: 'Workshop · Formação · Certificação Internacional · Lanna Amphoemuang Traditional Medicine Association · Tailândia',
 
     // Institute closing
     instituteLabel: 'Instituto  ·  Educação',
@@ -172,7 +172,7 @@ const translations = {
     karlStat2Label: 'in monastic residency at the Tam Yae temple',
     karlStat3Unit: 'km',
     karlStat3Label: 'of pilgrimage with 30 monks — the first foreigner',
-    karlStat4Label: 'Grand Master · Tam Yae · Thailand',
+    karlStat4Label: 'Workshop · Training · International Certification · Lanna Amphoemuang Traditional Medicine Association · Thailand',
 
     // Institute closing
     instituteLabel: 'Institute  ·  Education',
@@ -622,7 +622,7 @@ export default function Biography() {
                 { figure: '10', unit: t.karlStat1Unit, label: t.karlStat1Label },
                 { figure: '3', unit: t.karlStat2Unit, label: t.karlStat2Label },
                 { figure: '410', unit: t.karlStat3Unit, label: t.karlStat3Label },
-                { figure: 'Ajarn Torng', unit: null, label: t.karlStat4Label },
+                { figure: '15h', unit: null, label: t.karlStat4Label },
               ].map((item, i) => (
                 <motion.div
                   key={i}
