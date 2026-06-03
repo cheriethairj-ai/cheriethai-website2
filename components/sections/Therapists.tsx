@@ -603,14 +603,13 @@ function FounderRow({ founder, ui, lang }: { founder: FounderType; ui: UiStrings
               <span>{ui.requestSession}</span>
               <span aria-hidden>→</span>
             </a>
-            <p className="label-text text-sage/28 text-xs leading-relaxed mb-4">
+            <p className="label-text text-sage/28 text-xs leading-relaxed mb-6">
               {founder.consultationNote}
             </p>
             {founder.id === 'cherie' && (
               <a
                 href="/resultados"
-                className="label-text text-sand/35 hover:text-sand/60 transition-colors duration-300 flex items-center gap-2 w-fit"
-                style={{ fontSize: '0.6rem', letterSpacing: '0.18em' }}
+                className="btn-ghost text-sand/60 border-sand/20 inline-flex"
               >
                 <span>{ui.seeResults}</span>
                 <span aria-hidden>→</span>
