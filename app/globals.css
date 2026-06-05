@@ -34,7 +34,7 @@ body {
   background-color: var(--color-ivory);
   color: var(--color-earth);
   cursor: none;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Hide cursor on touch devices */
