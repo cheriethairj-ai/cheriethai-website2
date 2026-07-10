@@ -32,24 +32,38 @@ export default function LondonStory() {
               style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)' }}
               {...inView(0.1)}
             >
-              Building presence,<br />city by city.
+              New chapter.
             </motion.h2>
 
             <motion.div {...inView(0.2)} className="space-y-5 body-text text-earth/80 text-base md:text-lg mb-10">
               <p>
-                CherieThai was founded on a simple belief:
+                Rooted in Thai heritage and shaped through years of clinical
+                practice, CherieThai has developed into an internationally
+                taught approach to bodywork defined by structural precision,
+                movement and attention to detail.
               </p>
               <p>
-                The body is architecture, and bodywork performed with
-                structural precision can restore movement, comfort and ease.
+                Influenced by the relationship between movement, structure
+                and form, the work combines technical precision with a
+                refined understanding of how the body organises itself
+                through space.
               </p>
               <p>
-                After establishing clinics and teaching internationally, we
-                are now preparing for our next chapter in London.
+                Established across two clinics and shaped through
+                international education, the next chapter now looks
+                towards London.
               </p>
               <p>
-                Join the waitlist to follow the journey and be among the
-                first to experience the work when it arrives.
+                For now, our focus is on building awareness ahead of
+                opening, introducing the philosophy, technique and approach
+                behind the work while developing relationships within the
+                city we hope to serve in the years ahead.
+              </p>
+              <p>
+                Joining the waitlist offers an opportunity to follow the
+                journey from the beginning and receive early access to
+                appointments, events and future developments as they
+                unfold.
               </p>
             </motion.div>
 
