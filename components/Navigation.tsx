@@ -23,6 +23,7 @@ const navItemsPT = [
     dropdown: [
       { label: 'São Paulo', href: '/#location-saopaulo' },
       { label: 'Rio de Janeiro', href: '/#location-rio' },
+      { label: 'Londres', href: '/london', isLarge: true },
       { label: 'Resultados', href: '/resultados', isLarge: true },
     ],
   },
@@ -58,6 +59,7 @@ const navItemsEN = [
     dropdown: [
       { label: 'São Paulo', href: '/#location-saopaulo' },
       { label: 'Rio de Janeiro', href: '/#location-rio' },
+      { label: 'London', href: '/london', isLarge: true },
       { label: 'Results', href: '/resultados', isLarge: true },
     ],
   },
