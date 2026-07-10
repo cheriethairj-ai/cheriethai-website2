@@ -37,20 +37,19 @@ export default function LondonStory() {
 
             <motion.div {...inView(0.2)} className="space-y-5 body-text text-earth/80 text-base md:text-lg mb-10">
               <p>
-                CherieThai was founded by Cherie T. Charnkul on a simple premise:
-                the body is architecture, and bodywork done with structural
-                precision can restore it. That work is now established across
-                two clinics in Brazil — São Paulo and Rio de Janeiro.
+                CherieThai was founded on a simple belief:
               </p>
               <p>
-                We're bringing that same discipline to London. Right now, we're
-                building awareness ahead of opening — introducing the technique,
-                the philosophy behind it, and the people who practise it, to a
-                city that hasn't experienced it yet.
+                The body is architecture, and bodywork performed with
+                structural precision can restore movement, comfort and ease.
               </p>
               <p>
-                This is an invitation to be early. To follow the journey, and to
-                be among the first in London to feel the technique for yourself.
+                After establishing clinics and teaching internationally, we
+                are now preparing for our next chapter in London.
+              </p>
+              <p>
+                Join the waitlist to follow the journey and be among the
+                first to experience the work when it arrives.
               </p>
             </motion.div>
 
