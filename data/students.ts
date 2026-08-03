@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'gustavo',
+    name: 'Gustavo',
+    city: 'São Paulo',
+    country: 'Brasil',
+    descriptors: ['Welcoming', 'Somatic', 'Serene'],
+    descriptorsPT: ['Acolhedor', 'Somático', 'Sereno'],
+    bio: 'Based in São Paulo, Gustavo brings his background in Tantra and Somatic Therapy into dialogue with the CherieThai Method, creating a calm, deeply embodied approach to manual therapy.',
+    bioPoints: [
+      'Although this was his first formal training in hands-on bodywork, he demonstrated remarkable sensitivity, curiosity and dedication throughout the programme',
+      'His treatments are characterised by gentle presence, attentive touch and an intuitive understanding of how the body responds to safety, movement and awareness',
+      'His work reflects a practitioner who values connection, stillness and thoughtful care, creating experiences that feel both grounding and restorative',
+    ],
+    bioPT: 'Baseado em São Paulo, Gustavo integra sua experiência em Tantra e Terapia Somática ao Método CherieThai, desenvolvendo uma abordagem calma e profundamente consciente da terapia manual.',
+    bioPTPoints: [
+      'Embora esta tenha sido sua primeira formação em técnicas manuais, destacou-se pela sensibilidade, curiosidade e dedicação ao longo de todo o curso',
+      'Seus atendimentos são marcados por uma presença acolhedora, um toque atento e uma compreensão intuitiva de como o corpo responde à segurança, ao movimento e à consciência corporal',
+      'Seu trabalho reflete um terapeuta que valoriza a conexão humana, a tranquilidade e o cuidado genuíno, proporcionando experiências profundamente restauradoras',
+    ],
+    youtubeId: 'yIK02KY2Yt0',
+    coordinates: [-46.633, -23.550], // São Paulo
+    instagram: 'gustavopatti',
+  },
+  {
     id: 'tati',
     name: 'Tati Dantas',
     city: 'São Sebastião',
