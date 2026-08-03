@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'anderson',
+    name: 'Anderson',
+    city: 'Ribeirão Preto',
+    country: 'Brasil',
+    descriptors: ['Serene', 'Perceptive', 'Sensitive'],
+    descriptorsPT: ['Sereno', 'Perceptivo', 'Sensível'],
+    bio: 'Based in Ribeirão Preto, São Paulo, Anderson expresses the CherieThai Method through serenity, perception and genuine sensitivity.',
+    bioPoints: [
+      'His calm presence allows him to observe subtle changes in movement and tissue quality',
+      'His commitment to mastering every detail results in treatments that are both thoughtful and highly effective',
+      'His refined oil work reflects a practitioner who believes that precision, patience and attentive touch can achieve profound results without relying on force',
+    ],
+    bioPT: 'Baseado em Ribeirão Preto, São Paulo, Anderson expressa o Método CherieThai por meio da serenidade, da empatia e de uma atenção excepcional aos detalhes.',
+    bioPTPoints: [
+      'Sua forma de trabalhar é marcada pela paciência e pelo compromisso de dominar cada movimento antes de avançar, resultando em atendimentos precisos e profundamente conscientes',
+      'Embora seu toque seja extremamente delicado, sua técnica revela uma eficácia surpreendente, especialmente no trabalho refinado com óleo, onde sensibilidade e controle caminham juntos',
+      'Seu trabalho reflete a convicção de que resultados significativos nascem da presença, da precisão e do cuidado, e não da força',
+    ],
+    youtubeId: 'IUMPdtsyr9o',
+    coordinates: [-47.812, -21.177], // Ribeirão Preto, São Paulo
+    instagram: 'andersoncastalditerapias',
+  },
+  {
     id: 'ruthgon',
     name: 'Ruth Gonçalves',
     city: 'São Paulo',
