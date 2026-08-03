@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'isasheim',
+    name: 'Isabela Sheimberg',
+    city: 'Rio de Janeiro',
+    country: 'Brasil',
+    descriptors: ['Dexterous', 'Versatile', 'Coordinated'],
+    descriptorsPT: ['Destreza', 'Versátil', 'Controlada'],
+    bio: 'Based in Rio de Janeiro, Isabela brings a distinctive perspective to the CherieThai Method through her background in rock climbing.',
+    bioPoints: [
+      'The strength, precision and exceptional finger control developed through climbing translate naturally into her manual therapy, allowing her to work with remarkable sensitivity and accuracy',
+      'Her treatments combine elegant movement with confident, effective pressure, creating an approach that feels both refined and powerful',
+      'Adaptable across a wide range of techniques, she expresses the CherieThai Method with technical excellence, fluidity and thoughtful attention to detail',
+    ],
+    bioPT: 'Baseada no Rio de Janeiro, Isabela traz ao Método CherieThai uma perspectiva singular por meio de sua experiência na escalada esportiva.',
+    bioPTPoints: [
+      'A força, a precisão e o extraordinário controle dos dedos desenvolvidos na escalada se refletem naturalmente em sua terapia manual, permitindo um toque extremamente sensível e preciso',
+      'Seus atendimentos combinam movimentos elegantes com uma pressão segura e eficaz, resultando em uma abordagem ao mesmo tempo refinada e potente',
+      'Adaptando-se com facilidade a diferentes técnicas, expressa o Método CherieThai com excelência técnica, fluidez e atenção aos detalhes',
+    ],
+    youtubeId: 'bBSpAf-C_nE',
+    coordinates: [-43.182, -22.971], // Rio de Janeiro
+    instagram: 'isasheim.massage',
+  },
+  {
     id: 'hellen',
     name: 'Hellen Martins',
     city: 'Belo Horizonte',
