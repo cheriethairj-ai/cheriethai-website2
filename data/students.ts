@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'sofia',
+    name: 'Sofia',
+    city: 'London',
+    country: 'United Kingdom',
+    descriptors: ['Expansive', 'Fluid', 'Athletic'],
+    descriptorsPT: ['Expansiva', 'Fluida', 'Atlética'],
+    bio: 'Originally from Uruguay and now based in London, Sofia brings together her background in yoga and the CherieThai Method through movement that is fluid, expansive and beautifully coordinated.',
+    bioPoints: [
+      'Treatments are characterised by seamless transitions, whole-body mechanics and an athletic quality that allows every technique to feel both effortless and precise',
+      'Approaches manual therapy with elegance, adaptability and a deep appreciation for movement as an integrated expression of the body',
+      'Creates treatments that are dynamic, balanced and highly engaging',
+    ],
+    bioPT: 'Natural do Uruguai e atualmente baseada em Londres, Sofia integra sua experiência em yoga ao Método CherieThai por meio de um movimento fluido, expansivo e extremamente coordenado.',
+    bioPTPoints: [
+      'Seus atendimentos são marcados por transições suaves, uso inteligente de todo o corpo e uma qualidade atlética que torna cada técnica precisa e natural',
+      'Sua abordagem une elegância, adaptação e uma profunda compreensão do movimento como uma expressão integrada do corpo',
+      'Resultando em tratamentos dinâmicos, equilibrados e envolventes',
+    ],
+    youtubeId: 'N1eqqQN-ucA',
+    coordinates: [-0.127, 51.507], // London
+    instagram: 'sofisansberro_',
+  },
+  {
     id: 'claudio',
     name: 'Claudio',
     city: 'Barra da Tijuca',
