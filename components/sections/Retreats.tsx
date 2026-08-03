@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const retreats = [
   {
@@ -42,6 +43,7 @@ const inView = (delay = 0) => ({
 
 export default function Retreats() {
   const heroRef = useRef<HTMLDivElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start end', 'end start'] })
   const bgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%'])
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
@@ -50,7 +52,7 @@ export default function Retreats() {
     <section id="retreats" className="overflow-hidden">
 
       {/* ── Hero ── */}
-      <div ref={heroRef} className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
+      <div ref={heroRef} className="relative h-screen min-h-[600px] flex items-end [overflow:clip]">
 
         {/* Video background — luxury retreat Thailand */}
         {/* Replace YOUTUBE_RETREAT_ID with your YouTube video ID once uploaded */}

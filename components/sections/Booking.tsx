@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const WA_MESSAGE = encodeURIComponent(
   'Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.'
@@ -20,17 +21,18 @@ const inView = (delay = 0) => ({
 
 export default function Booking() {
   const ref = useRef<HTMLElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-7%', '7%'])
 
   return (
     <section id="contact" ref={ref} className="overflow-hidden bg-near-black">
 
-      <div className="flex flex-col lg:flex-row min-h-[88vh]">
+      <div className="flex flex-col lg:flex-row min-h-[88svh]">
 
         {/* ── Image column ── */}
         <motion.div
-          className="lg:w-[44%] relative h-[60vh] md:h-[50vh] lg:h-auto overflow-hidden"
+          className="lg:w-[44%] relative h-[60svh] md:h-[50svh] lg:h-auto [overflow:clip]"
           initial={{ opacity: 0, x: -32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}

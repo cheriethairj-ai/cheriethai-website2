@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      height: {
+        // Use svh (small viewport) — stable on iOS, unaffected by address bar
+        'screen': '100svh',
+      },
+      minHeight: {
+        'screen': '100svh',
+      },
       colors: {
         moss: '#4B5A4F',
         'deep-moss': '#3D4A40',

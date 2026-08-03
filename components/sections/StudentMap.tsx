@@ -1,218 +1,371 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 import {
   ComposableMap,
   Geographies,
   Geography,
+  Marker,
   ZoomableGroup,
 } from 'react-simple-maps'
+import { students, type Student } from '@/data/students'
 
-// ── Data — fill in real numbers when ready ──────────────────────
-const brazilData: Record<string, { count: number | null; label?: string }> = {
-  'São Paulo':        { count: null },
-  'Rio de Janeiro':   { count: null },
-  'Minas Gerais':     { count: null },
-  'Bahia':            { count: null },
-  'Paraná':           { count: null },
-  'Rio Grande do Sul':{ count: null },
-  'Santa Catarina':   { count: null },
-  'Goiás':            { count: null },
-  'Pernambuco':       { count: null },
-  'Ceará':            { count: null },
-  'Pará':             { count: null },
-  'Amazonas':         { count: null },
-  'Mato Grosso':      { count: null },
-  'Mato Grosso do Sul':{ count: null },
-  'Maranhão':         { count: null },
-  'Espírito Santo':   { count: null },
-  'Rio Grande do Norte':{ count: null },
-  'Alagoas':          { count: null },
-  'Piauí':            { count: null },
-  'Paraíba':          { count: null },
-  'Sergipe':          { count: null },
-  'Rondônia':         { count: null },
-  'Tocantins':        { count: null },
-  'Acre':             { count: null },
-  'Amapá':            { count: null },
-  'Roraima':          { count: null },
-  'Distrito Federal': { count: null },
-}
-
-const worldData: Record<string, { count: number | null }> = {
-  'Thailand':   { count: null },
-  'Portugal':   { count: null },
-  'United States of America': { count: null },
-  'Japan':      { count: null },
-  'Germany':    { count: null },
-  'France':     { count: null },
-  'Argentina':  { count: null },
-  'Colombia':   { count: null },
-}
-
-// TopoJSON sources (public CDN)
 const BRAZIL_GEO = 'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson'
 const WORLD_GEO  = 'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson'
 
-type Tooltip = { name: string; count: number | null; x: number; y: number }
+// ─── Group students by city ────────────────────────────────────────────────────
+
+type CityGroup = {
+  city: string
+  country: string
+  coordinates: [number, number]
+  students: Student[]
+}
+
+function groupByCity(list: Student[]): CityGroup[] {
+  const map: Record<string, CityGroup> = {}
+  for (const s of list) {
+    if (!map[s.city]) {
+      map[s.city] = { city: s.city, country: s.country, coordinates: s.coordinates, students: [] }
+    }
+    map[s.city].students.push(s)
+  }
+  return Object.values(map)
+}
+
+// ─── Dropdown ──────────────────────────────────────────────────────────────────
+
+type DropdownState = { group: CityGroup; x: number; y: number } | null
+
+// ─── Map ───────────────────────────────────────────────────────────────────────
 
 export default function StudentMap() {
-  const [tooltip, setTooltip] = useState<Tooltip | null>(null)
+  const router = useRouter()
+  const { lang } = useLanguage()
   const [view, setView] = useState<'brazil' | 'world'>('brazil')
+  const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
+    coordinates: [-52, -14],
+    zoom: 3.2,
+  })
+  const [dropdown, setDropdown] = useState<DropdownState>(null)
 
-  const handleMove = (geo: any, evt: any) => {
-    const name = geo.properties.name || geo.properties.NAME || ''
-    const data = view === 'brazil' ? brazilData[name] : worldData[name]
-    setTooltip({
-      name,
-      count: data?.count ?? null,
-      x: evt.clientX,
-      y: evt.clientY,
-    })
+  const brazilStudents = students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
+  const worldStudents  = students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
+  const visibleStudents = view === 'brazil' ? brazilStudents : worldStudents
+  const cityGroups = groupByCity(visibleStudents)
+
+  // Close dropdown when clicking elsewhere
+  useEffect(() => {
+    if (!dropdown) return
+    const close = () => setDropdown(null)
+    document.addEventListener('mousedown', close)
+    return () => document.removeEventListener('mousedown', close)
+  }, [dropdown])
+
+  // Reset map position when switching view
+  useEffect(() => {
+    setDropdown(null)
+    setPosition(
+      view === 'brazil'
+        ? { coordinates: [-52, -14], zoom: 3.2 }
+        : { coordinates: [10, 20],  zoom: 1 }
+    )
+  }, [view])
+
+  const handlePinClick = (group: CityGroup, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setDropdown({ group, x: e.clientX, y: e.clientY })
   }
 
-  const handleLeave = () => setTooltip(null)
-
-  const getColor = (name: string) => {
-    const data = view === 'brazil' ? brazilData[name] : worldData[name]
-    if (!data) return 'rgba(61,74,64,0.15)'
-    if (data.count === null) return 'rgba(61,74,64,0.25)'
-    if (data.count === 0) return 'rgba(61,74,64,0.2)'
-    if (data.count < 5) return 'rgba(138,162,120,0.5)'
-    if (data.count < 15) return 'rgba(138,162,120,0.75)'
-    return 'rgba(138,162,120,1)'
-  }
+  const pinR   = view === 'brazil' ? 2.8 : 1.8
+  const zoomIn  = () => setPosition(p => ({ ...p, zoom: Math.min(p.zoom * 1.5, 16) }))
+  const zoomOut = () => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.5, view === 'brazil' ? 2 : 0.7) }))
 
   return (
     <div className="relative w-full">
 
-      {/* Tab toggle */}
-      <div className="flex items-center gap-6 mb-8">
-        {(['brazil', 'world'] as const).map((v) => (
-          <button
-            key={v}
-            onClick={() => setView(v)}
-            className="label-text transition-colors duration-300"
-            style={{
-              fontSize: '0.6rem',
-              letterSpacing: '0.22em',
-              color: view === v ? 'rgba(245,240,232,0.85)' : 'rgba(245,240,232,0.25)',
-              borderBottom: view === v ? '1px solid rgba(138,162,120,0.5)' : '1px solid transparent',
-              paddingBottom: '4px',
-            }}
-          >
-            {v === 'brazil' ? 'BRASIL' : 'MUNDO'}
-          </button>
-        ))}
+      {/* ── Controls row ─────────────────────────────────────────────────── */}
+      <div className="flex items-center justify-between mb-6">
+        {/* Tab toggle */}
+        <div className="flex items-center gap-6">
+          {(['brazil', 'world'] as const).map((v) => (
+            <button
+              key={v}
+              onClick={() => setView(v)}
+              className="label-text transition-colors duration-300"
+              style={{
+                fontSize: '0.6rem',
+                letterSpacing: '0.22em',
+                color: view === v ? 'rgba(245,240,232,0.85)' : 'rgba(245,240,232,0.25)',
+                borderBottom: view === v ? '1px solid rgba(138,162,120,0.5)' : '1px solid transparent',
+                paddingBottom: '4px',
+                cursor: 'none',
+              }}
+            >
+              {v === 'brazil'
+                ? `${lang === 'EN' ? 'BRAZIL' : 'BRASIL'} · ${brazilStudents.length}`
+                : `${lang === 'EN' ? 'WORLD' : 'MUNDO'} · ${worldStudents.length}`}
+            </button>
+          ))}
+        </div>
+
+        {/* Zoom buttons */}
+        <div className="flex items-center gap-1">
+          {[{ label: '+', fn: zoomIn }, { label: '−', fn: zoomOut }].map(({ label, fn }) => (
+            <button
+              key={label}
+              onClick={fn}
+              className="label-text text-sand/35 hover:text-sand/75 transition-colors duration-200 flex items-center justify-center border border-sand/10 hover:border-sand/22"
+              style={{ width: '28px', height: '28px', fontSize: '1rem', cursor: 'none' }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Coming soon badge */}
-      <div className="absolute top-0 right-0 z-10">
-        <span
-          className="label-text text-sage/50 border border-sage/20 px-3 py-1"
-          style={{ fontSize: '0.55rem', letterSpacing: '0.2em' }}
-        >
-          EM BREVE
-        </span>
-      </div>
-
-      {/* Map */}
+      {/* ── Map ──────────────────────────────────────────────────────────── */}
       <motion.div
         key={view}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="w-full rounded-sm overflow-hidden"
-        style={{ background: 'rgba(13,17,14,0.6)', aspectRatio: view === 'brazil' ? '4/3' : '16/7' }}
+        style={{ background: 'rgba(13,17,14,0.6)', height: 'clamp(460px, 62svh, 700px)' }}
+        onClick={() => setDropdown(null)}
       >
         <ComposableMap
           projection={view === 'brazil' ? 'geoMercator' : 'geoNaturalEarth1'}
           style={{ width: '100%', height: '100%' }}
         >
           <ZoomableGroup
-            center={view === 'brazil' ? [-52, -14] : [10, 20]}
-            zoom={view === 'brazil' ? 3.2 : 1}
+            center={position.coordinates}
+            zoom={position.zoom}
+            onMoveEnd={(pos: any) =>
+              setPosition({ coordinates: pos.coordinates as [number, number], zoom: pos.zoom })
+            }
           >
+            {/* Geography */}
             <Geographies geography={view === 'brazil' ? BRAZIL_GEO : WORLD_GEO}>
               {({ geographies }: { geographies: any[] }) =>
-                geographies.map((geo: any) => {
-                  const name = geo.properties.name || geo.properties.NAME || ''
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      onMouseMove={(evt: any) => handleMove(geo, evt)}
-                      onMouseLeave={handleLeave}
-                      style={{
-                        default: {
-                          fill: getColor(name),
-                          stroke: 'rgba(245,240,232,0.06)',
-                          strokeWidth: 0.5,
-                          outline: 'none',
-                        },
-                        hover: {
-                          fill: 'rgba(180,200,160,0.65)',
-                          stroke: 'rgba(245,240,232,0.2)',
-                          strokeWidth: 0.8,
-                          outline: 'none',
-                          cursor: 'pointer',
-                        },
-                        pressed: {
-                          fill: 'rgba(138,162,120,0.8)',
-                          outline: 'none',
-                        },
-                      }}
-                    />
-                  )
-                })
+                geographies.map((geo: any) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    style={{
+                      default: { fill: 'rgba(61,74,64,0.25)', stroke: 'rgba(245,240,232,0.06)', strokeWidth: 0.5, outline: 'none' },
+                      hover:   { fill: 'rgba(61,74,64,0.35)', stroke: 'rgba(245,240,232,0.1)',  strokeWidth: 0.5, outline: 'none' },
+                      pressed: { fill: 'rgba(61,74,64,0.35)', outline: 'none' },
+                    }}
+                  />
+                ))
               }
             </Geographies>
+
+            {/* City pins */}
+            {cityGroups.map((group) => {
+              const isMulti = group.students.length > 1
+              return (
+                <Marker key={group.city} coordinates={group.coordinates}>
+                  {/* Outer ring for multi-student cities */}
+                  {isMulti && (
+                    <circle
+                      r={pinR * 2.4}
+                      fill="rgba(220,201,160,0.06)"
+                      stroke="rgba(220,201,160,0.18)"
+                      strokeWidth={0.5}
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  )}
+
+                  {/* Main dot */}
+                  <circle
+                    r={pinR}
+                    fill={isMulti ? 'rgba(220,201,160,1)' : 'rgba(220,201,160,0.85)'}
+                    stroke="rgba(220,201,160,0.35)"
+                    strokeWidth={1.6}
+                    style={{ cursor: 'pointer' }}
+                    onClick={(e) => handlePinClick(group, e)}
+                  />
+
+                  {/* Count badge for multi */}
+                  {isMulti && (
+                    <text
+                      textAnchor="middle"
+                      y={-pinR * 2.6}
+                      style={{
+                        fontFamily: 'system-ui, sans-serif',
+                        fontSize: `${pinR * 1.4}px`,
+                        fill: 'rgba(220,201,160,0.55)',
+                        pointerEvents: 'none',
+                        userSelect: 'none',
+                      }}
+                    >
+                      {group.students.length}
+                    </text>
+                  )}
+                </Marker>
+              )
+            })}
           </ZoomableGroup>
         </ComposableMap>
       </motion.div>
 
-      {/* Legend */}
-      <div className="flex items-center gap-4 mt-4">
-        <span className="label-text text-sand/25" style={{ fontSize: '0.55rem', letterSpacing: '0.18em' }}>
-          CONCENTRAÇÃO DE ALUNOS
-        </span>
-        <div className="flex items-center gap-1">
-          {['rgba(61,74,64,0.25)', 'rgba(138,162,120,0.4)', 'rgba(138,162,120,0.65)', 'rgba(138,162,120,1)'].map((c, i) => (
-            <div key={i} className="w-4 h-2 rounded-sm" style={{ background: c }} />
-          ))}
-        </div>
-      </div>
-
-      {/* Tooltip */}
+      {/* ── City dropdown ─────────────────────────────────────────────────── */}
       <AnimatePresence>
-        {tooltip && (
+        {dropdown && (
           <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            className="fixed z-50 pointer-events-none"
-            style={{ left: tooltip.x + 12, top: tooltip.y - 40 }}
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1.0] }}
+            onMouseDown={(e) => e.stopPropagation()}
+            style={{
+              position: 'fixed',
+              top: dropdown.y + 14,
+              left: dropdown.x,
+              transform: 'translateX(-50%)',
+              zIndex: 200,
+              background: '#1A1F1B',
+              border: '1px solid rgba(220,201,160,0.12)',
+              minWidth: '240px',
+              maxWidth: '300px',
+            }}
           >
-            <div
-              className="px-3 py-2"
-              style={{
-                background: 'rgba(26,31,27,0.95)',
-                border: '1px solid rgba(138,162,120,0.2)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <p className="label-text text-ivory/80" style={{ fontSize: '0.6rem', letterSpacing: '0.15em' }}>
-                {tooltip.name}
-              </p>
-              <p className="label-text text-sage/60 mt-0.5" style={{ fontSize: '0.55rem', letterSpacing: '0.18em' }}>
-                {tooltip.count !== null ? `${tooltip.count} alunos` : 'EM BREVE'}
+            {/* City header */}
+            <div className="px-5 py-4 border-b border-sand/8">
+              <p className="label-text text-sage/40" style={{ fontSize: '0.47rem', letterSpacing: '0.24em' }}>
+                {dropdown.group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{dropdown.group.students.length} {lang === 'EN' ? 'GRADUATES' : 'FORMADOS'}
               </p>
             </div>
+
+            {/* Student list */}
+            {dropdown.group.students.map((student, i) => (
+              <button
+                key={student.id}
+                onClick={() => { setDropdown(null); router.push(`/instituto/${student.id}`) }}
+                className="w-full flex items-center justify-between px-5 py-4 hover:bg-sand/[0.04] transition-colors duration-200 text-left group border-b border-sand/5 last:border-b-0"
+                style={{ cursor: 'none' }}
+              >
+                <div>
+                  <p
+                    className="font-cormorant font-light text-ivory/75 group-hover:text-ivory transition-colors duration-200"
+                    style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.1 }}
+                  >
+                    {student.name}
+                  </p>
+                  {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
+                    <p className="label-text text-sage/28 mt-1 group-hover:text-sage/45 transition-colors duration-200"
+                      style={{ fontSize: '0.44rem', letterSpacing: '0.16em' }}>
+                      {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
+                    </p>
+                  )}
+                </div>
+                <span
+                  className="text-sand/20 group-hover:text-sand/55 transition-colors duration-200 ml-4 shrink-0"
+                  style={{ fontSize: '0.75rem' }}
+                >
+                  →
+                </span>
+              </button>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ── Legend ────────────────────────────────────────────────────────── */}
+      <div className="flex items-center justify-between mt-4 mb-16">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(220,201,160,0.85)' }} />
+          <span className="label-text text-sand/28" style={{ fontSize: '0.52rem', letterSpacing: '0.18em' }}>
+            {lang === 'EN' ? 'CLICK PIN TO VIEW PROFILE' : 'CLIQUE NO PIN PARA VER O PERFIL'}
+          </span>
+        </div>
+        <span className="label-text text-sage/18" style={{ fontSize: '0.46rem', letterSpacing: '0.14em' }}>
+          {lang === 'EN' ? 'USE + / − OR SCROLL TO ZOOM' : 'USE + / − OU SCROLL PARA ZOOM'}
+        </span>
+      </div>
+
+      {/* ── Student directory list ─────────────────────────────────────── */}
+      <StudentDirectory view={view} />
+    </div>
+  )
+}
+
+// ─── Student Directory (below map) ────────────────────────────────────────────
+
+function StudentDirectory({ view }: { view: 'brazil' | 'world' }) {
+  const router = useRouter()
+  const { lang } = useLanguage()
+
+  const visibleStudents = view === 'brazil'
+    ? students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
+    : students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
+
+  const cityGroups = groupByCity(visibleStudents)
+
+  if (visibleStudents.length === 0) return null
+
+  return (
+    <div>
+      <div className="flex items-center gap-4 mb-8">
+        <p className="label-text text-sage/30" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+          {lang === 'EN' ? 'ALL GRADUATES' : 'TODOS OS FORMADOS'}
+        </p>
+        <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.06)' }} />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
+        {cityGroups.map((group) => (
+          <div key={group.city} className="border-b border-sand/6 pb-6 mb-6 pr-0 sm:pr-8">
+            {/* City label */}
+            <p
+              className="label-text text-sage/30 mb-4"
+              style={{ fontSize: '0.46rem', letterSpacing: '0.24em' }}
+            >
+              {group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{group.country.toUpperCase()}
+            </p>
+
+            {/* Students in this city */}
+            <div className="flex flex-col gap-0">
+              {group.students.map((student) => (
+                <button
+                  key={student.id}
+                  onClick={() => router.push(`/instituto/${student.id}`)}
+                  className="group flex items-center justify-between py-3 border-b border-sand/5 last:border-b-0 text-left hover:bg-sand/[0.02] transition-colors duration-200"
+                  style={{ cursor: 'none' }}
+                >
+                  <div>
+                    <p
+                      className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
+                      style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', lineHeight: 1.1 }}
+                    >
+                      {student.name}
+                    </p>
+                    {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
+                      <p
+                        className="label-text text-sage/22 group-hover:text-sage/40 transition-colors duration-200 mt-1"
+                        style={{ fontSize: '0.42rem', letterSpacing: '0.15em' }}
+                      >
+                        {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
+                      </p>
+                    )}
+                  </div>
+                  <span
+                    className="text-sand/15 group-hover:text-sand/45 transition-colors duration-200 ml-4 shrink-0"
+                    style={{ fontSize: '0.7rem' }}
+                  >
+                    →
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

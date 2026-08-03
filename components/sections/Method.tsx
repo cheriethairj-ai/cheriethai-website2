@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -37,6 +38,7 @@ const translations = {
 
 export default function Method() {
   const ref = useRef<HTMLElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%'])
   const { lang } = useLanguage()
@@ -52,7 +54,7 @@ export default function Method() {
 
         {/* Image column */}
         <motion.div
-          className="relative lg:w-[55%] h-[62vh] md:h-[55vh] lg:h-auto overflow-hidden"
+          className="relative lg:w-[55%] h-[62svh] md:h-[55svh] lg:h-auto [overflow:clip]"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-100px' }}

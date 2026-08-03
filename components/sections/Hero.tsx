@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const translations = {
   PT: {
@@ -40,6 +41,7 @@ export default function Hero() {
   const { lang } = useLanguage()
   const t = translations[lang]
 
+  const isTouch = useIsTouch()
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
@@ -87,7 +89,7 @@ export default function Hero() {
 
       {/* Superlabel — floats near top, below nav */}
       <motion.div
-        style={{ opacity }}
+        style={isTouch ? {} : { opacity }}
         className="absolute z-10 top-20 md:top-24 left-6 md:left-12 lg:left-16 right-6 md:right-12 lg:right-16 flex items-center justify-between"
       >
         <motion.p
@@ -108,7 +110,7 @@ export default function Hero() {
 
       {/* Text content — bottom of hero */}
       <motion.div
-        style={{ y: textY, opacity }}
+        style={isTouch ? {} : { y: textY, opacity }}
         className="relative z-10 w-full px-6 md:px-12 lg:px-16 pb-8 md:pb-12 lg:pb-14"
       >
         {/* Hero headline */}

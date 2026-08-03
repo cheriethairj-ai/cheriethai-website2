@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -147,6 +148,7 @@ function SpaceSection({
   mapsLink: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
 
@@ -156,11 +158,11 @@ function SpaceSection({
     <div
       id={id}
       ref={ref}
-      className={`relative flex flex-col lg:flex-row ${isLeft ? 'lg:flex-row-reverse' : ''} min-h-[90vh] overflow-hidden`}
+      className={`relative flex flex-col lg:flex-row ${isLeft ? 'lg:flex-row-reverse' : ''} min-h-[90svh] overflow-hidden`}
     >
       {/* Image column */}
       <motion.div
-        className="relative lg:w-[55%] h-[70vh] md:h-[60vh] lg:h-auto overflow-hidden"
+        className="relative lg:w-[55%] h-[70svh] md:h-[60svh] lg:h-auto [overflow:clip]"
         initial={{ opacity: 0, x: isLeft ? 40 : -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -325,7 +327,7 @@ export default function Locations() {
       />
 
       {/* ── São Paulo · Detalhe de musgo ── */}
-      <div className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+      <div className="relative h-[70svh] md:h-[80svh] [overflow:clip]">
         <Image
           src="/clinic-saopaulo-moss.jpg"
           alt="Detalhe de musgo vivo, Estúdio CherieThai São Paulo"
@@ -391,7 +393,7 @@ export default function Locations() {
       />
 
       {/* ── Rio · Detalhe do altar ── */}
-      <div className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+      <div className="relative h-[70svh] md:h-[80svh] [overflow:clip]">
         <Image
           src="/clinic-rio-altar.jpg"
           alt="Altar CherieThai Rio de Janeiro"

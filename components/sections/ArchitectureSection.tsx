@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const YOUTUBE_ID = 'ry3oVS1W2W0'
 const EMBED_SRC = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&playsinline=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1`
@@ -33,6 +34,7 @@ const translations = {
 
 export default function ArchitectureSection() {
   const ref = useRef<HTMLElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
@@ -52,7 +54,7 @@ export default function ArchitectureSection() {
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[600px] flex items-center overflow-hidden"
+      className="relative h-screen min-h-[600px] flex items-center [overflow:clip]"
     >
 
       {/* ── Video background ── */}

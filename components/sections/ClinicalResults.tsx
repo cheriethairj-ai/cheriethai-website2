@@ -140,7 +140,7 @@ export default function ClinicalResults() {
       </div>
 
       {/* Session image break */}
-      <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <div className="relative h-[60svh] md:h-[70svh] [overflow:clip]">
         <Image
           src="/session-seated.jpg"
           alt="Sessão CherieThai, trabalho de mobilidade"
@@ -304,10 +304,12 @@ export default function ClinicalResults() {
             Os Depoimentos
           </motion.p>
 
-          <div className="relative min-h-[220px] md:min-h-[180px]">
-            <AnimatePresence mode="wait">
+          {/* Fixed height prevents layout shifts when quotes of different lengths rotate */}
+          <div className="relative h-[260px] sm:h-[220px] md:h-[200px] overflow-hidden">
+            <AnimatePresence mode="sync">
               <motion.div
                 key={activeTestimonial}
+                className="absolute inset-0"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}

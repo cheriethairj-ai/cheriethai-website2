@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import LazyYouTubeShort from '@/components/LazyYouTubeShort'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -183,6 +184,7 @@ const translations = {
 
 export default function Biography() {
   const portraitRef = useRef<HTMLDivElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress: portraitScroll } = useScroll({
     target: portraitRef,
     offset: ['start end', 'end start'],
@@ -215,13 +217,13 @@ export default function Biography() {
 
         {/* Portrait column */}
         <motion.div
-          className="relative lg:w-[45%] h-[72vh] md:h-[65vh] lg:h-auto overflow-hidden"
+          className="relative lg:w-[45%] h-[72svh] md:h-[65svh] lg:h-auto [overflow:clip]"
           initial={{ opacity: 0, x: -32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1.0] }}
         >
-          <motion.div className="absolute inset-0" style={{ y: portraitY }}>
+          <motion.div className="absolute inset-0" style={isTouch ? {} : { y: portraitY }}>
             <Image
               src="/portrait-cherie.jpg"
               alt="Cherie T. Charnkul, fundadora da CherieThai"
@@ -523,7 +525,7 @@ export default function Biography() {
 
         {/* Portrait */}
         <motion.div
-          className="relative lg:w-[45%] h-[72vh] md:h-[65vh] lg:h-auto overflow-hidden"
+          className="relative lg:w-[45%] h-[72svh] md:h-[65svh] lg:h-auto [overflow:clip]"
           initial={{ opacity: 0, x: -32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}

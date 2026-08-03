@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useIsTouch } from '@/hooks/useIsTouch'
 import dynamic from 'next/dynamic'
 import LazyYouTubeShort from '@/components/LazyYouTubeShort'
 
@@ -82,6 +83,7 @@ const graduates: Graduate[] = [
 
 export default function Institute() {
   const heroRef = useRef<HTMLDivElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start end', 'end start'] })
   const heroScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.0])
 
@@ -89,7 +91,7 @@ export default function Institute() {
     <section id="institute" className="overflow-hidden">
 
       {/* ── Hero ── */}
-      <div ref={heroRef} className="relative h-[80vh] min-h-[500px] flex items-center overflow-hidden">
+      <div ref={heroRef} className="relative h-[80svh] min-h-[500px] flex items-center [overflow:clip]">
         <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
           {/* DJI background video */}
           <video
@@ -672,12 +674,20 @@ export default function Institute() {
 
               <div>
                 <motion.h3
-                  className="font-cormorant font-light text-deep-moss mb-8"
+                  className="font-cormorant font-light text-deep-moss mb-4"
                   style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 1.05 }}
                   {...inView()}
                 >
                   Workshop<br />Rio de Janeiro.
                 </motion.h3>
+
+                <motion.p
+                  className="label-text text-earth/40 mb-8"
+                  style={{ letterSpacing: '0.2em', fontSize: '0.58rem' }}
+                  {...inView(0.05)}
+                >
+                  Com Karl · exclusivamente
+                </motion.p>
 
                 <motion.p
                   className="font-cormorant font-light text-deep-moss/40 mb-12"

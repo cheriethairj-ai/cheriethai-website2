@@ -34,6 +34,11 @@ body {
   color: var(--color-earth);
   cursor: none;
   overflow-x: clip;
+  /* Disable browser scroll-anchoring corrections — prevents position jumps
+     when off-screen elements animate or change size */
+  overflow-anchor: none;
+  /* Prevent horizontal rubber-banding on touch */
+  overscroll-behavior-x: none;
 }
 
 /* Hide cursor on touch devices */
@@ -333,8 +338,9 @@ body {
   /* Hide scrollbar — cleaner on mobile */
   ::-webkit-scrollbar { display: none; }
 
-  /* Prevent horizontal overflow from animated elements */
-  section { overflow-x: hidden; }
+  /* Prevent horizontal overflow from animated elements — use clip not hidden
+     to avoid creating new scroll containers which cause scroll jumping on iOS */
+  section { overflow-x: clip; }
 }
 
 /* ─── Reduced Motion ─────────────────────────────────── */

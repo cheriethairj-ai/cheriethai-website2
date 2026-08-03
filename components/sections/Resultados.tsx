@@ -719,7 +719,7 @@ export default function Resultados() {
 
       {/* ── Hero ── */}
       <div
-        className="relative flex items-end min-h-[70vh] overflow-hidden noise-overlay"
+        className="relative flex items-end min-h-[70svh] overflow-hidden noise-overlay"
         style={{
           background: 'linear-gradient(155deg, #1A1F1B 0%, #2A3329 35%, #3D4A40 65%, #1A1F1B 100%)',
         }}

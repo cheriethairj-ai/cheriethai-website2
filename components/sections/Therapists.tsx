@@ -1,9 +1,10 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useIsTouch } from '@/hooks/useIsTouch'
 
 const SP_WHATSAPP = '5511911135083'
 const RIO_WHATSAPP = '5521996466022'
@@ -42,6 +43,7 @@ const uiTranslations = {
     noteBody2: 'Em alguns casos, Cherie recomendará um praticante específico. De qualquer forma, a sessão que você receberá terá sido pensada antes de começar.',
     startConsultation: 'Iniciar uma Consulta',
     seeResults: 'Ver Resultados',
+    navLabel: 'Praticantes',
   },
   EN: {
     specializationsBtn: 'Specializations & Ideal Profile',
@@ -63,6 +65,7 @@ const uiTranslations = {
     noteBody2: 'In some cases, Cherie herself may recommend a specific practitioner. Either way, the session you receive will have been considered long before it begins.',
     startConsultation: 'Begin a Consultation',
     seeResults: 'See Results',
+    navLabel: 'Practitioners',
   },
 }
 
@@ -428,8 +431,9 @@ type TherapistType = (typeof therapistsData)['PT'][0]
 
 // ─── Founder Row ───────────────────────────────────────────────────────────────
 
-function FounderRow({ founder, ui, lang }: { founder: FounderType; ui: UiStrings; lang: 'PT' | 'EN' }) {
+function FounderRow({ founder, ui, lang, scrollId }: { founder: FounderType; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
   const ref = useRef<HTMLDivElement>(null)
+  const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
   const [expanded, setExpanded] = useState(false)
@@ -439,17 +443,18 @@ function FounderRow({ founder, ui, lang }: { founder: FounderType; ui: UiStrings
   return (
     <div
       ref={ref}
-      className={`relative flex flex-col lg:flex-row ${isLeft ? 'lg:flex-row-reverse' : ''} min-h-[85vh] overflow-hidden`}
+      id={scrollId}
+      className={`relative flex flex-col lg:flex-row ${isLeft ? 'lg:flex-row-reverse' : ''} min-h-[85svh] overflow-hidden`}
     >
       {/* Portrait column */}
       <motion.div
-        className="relative lg:w-[52%] h-[65vh] md:h-[55vh] lg:h-auto overflow-hidden"
+        className="relative lg:w-[52%] h-[65svh] md:h-[55svh] lg:h-auto [overflow:clip]"
         initial={{ opacity: 0, x: isLeft ? 40 : -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1.0] }}
       >
-        <motion.div className="absolute inset-0" style={{ y: imageY }}>
+        <motion.div className="absolute inset-0" style={isTouch ? {} : { y: imageY }}>
           {founder.image ? (
             <>
               <Image
@@ -625,11 +630,12 @@ function FounderRow({ founder, ui, lang }: { founder: FounderType; ui: UiStrings
 
 // ─── Therapist Card ────────────────────────────────────────────────────────────
 
-function TherapistCard({ therapist, index, ui, lang }: { therapist: TherapistType; index: number; ui: UiStrings; lang: 'PT' | 'EN' }) {
+function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: TherapistType; index: number; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
     <motion.article
+      id={scrollId}
       className="flex flex-col"
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -637,7 +643,7 @@ function TherapistCard({ therapist, index, ui, lang }: { therapist: TherapistTyp
       transition={{ duration: 0.9, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
     >
       {/* Portrait */}
-      <div className="relative h-[70vw] sm:aspect-[3/4] sm:h-auto overflow-hidden mb-8 bg-image-placeholder group">
+      <div className="relative h-[70vw] sm:aspect-[3/4] sm:h-auto [overflow:clip] mb-8 bg-image-placeholder group">
         {therapist.image ? (
           <Image
             src={therapist.image}
@@ -779,6 +785,77 @@ function TherapistCard({ therapist, index, ui, lang }: { therapist: TherapistTyp
   )
 }
 
+// ─── Therapist Nav Dropdown ────────────────────────────────────────────────────
+
+const NAV_ITEMS = [
+  { label: 'Cherie T. Charnkul', id: 'therapist-cherie' },
+  { label: 'Karl', id: 'therapist-karl' },
+  { label: 'Pedro', id: 'therapist-pedro' },
+  { label: 'Grace-Kelly', id: 'therapist-grace-kelly' },
+  { label: 'Ricardo', id: 'therapist-ricardo' },
+  { label: 'Lucas', id: 'therapist-lucas' },
+]
+
+function TherapistNav({ navLabel }: { navLabel: string }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    setOpen(false)
+  }
+
+  return (
+    <div ref={ref} className="relative inline-block">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2 label-text text-earth/40 hover:text-earth/70 transition-colors"
+      >
+        <span>{navLabel}</span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="inline-block"
+          style={{ fontSize: '0.65rem' }}
+        >
+          ↓
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 mt-2 bg-ivory border border-sand/25 shadow-sm z-20 min-w-[200px]"
+          >
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="w-full text-left px-5 py-3 label-text text-earth/55 hover:text-earth hover:bg-sand/10 transition-colors border-b border-sand/10 last:border-b-0"
+              >
+                {item.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 // ─── Main Section ──────────────────────────────────────────────────────────────
 
 export default function Therapists() {
@@ -793,14 +870,24 @@ export default function Therapists() {
       {/* ── Section header ── */}
       <div className="bg-ivory px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-16 md:pb-20">
         <div className="max-w-6xl mx-auto">
-          <motion.p
-            className="label-text text-sage mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {ui.sectionLabel}
-          </motion.p>
+          <div className="flex items-center justify-between mb-6">
+            <motion.p
+              className="label-text text-sage"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              {ui.sectionLabel}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <TherapistNav navLabel={ui.navLabel} />
+            </motion.div>
+          </div>
 
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <motion.h2
@@ -830,7 +917,13 @@ export default function Therapists() {
       {/* ── Founders, full-width editorial rows ── */}
       <div className="border-t border-sand/10">
         {founders.map((founder) => (
-          <FounderRow key={founder.id} founder={founder} ui={ui} lang={lang} />
+          <FounderRow
+            key={founder.id}
+            founder={founder}
+            ui={ui}
+            lang={lang}
+            scrollId={`therapist-${founder.id}`}
+          />
         ))}
       </div>
 
@@ -853,7 +946,14 @@ export default function Therapists() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-6">
             {therapists.map((t, i) => (
-              <TherapistCard key={t.id} therapist={t} index={i} ui={ui} lang={lang} />
+              <TherapistCard
+                key={t.id}
+                therapist={t}
+                index={i}
+                ui={ui}
+                lang={lang}
+                scrollId={`therapist-${t.id}`}
+              />
             ))}
           </div>
         </div>
