@@ -18,14 +18,16 @@ const t = {
     back: '← INSTITUTO',
     label: 'INSTITUTO CHERIETHAI',
     title: 'Alunos Formados',
-    subtitle: 'Cada praticante aqui apresentado foi pessoalmente observado e compreendido por Cherie ao longo da formação. Cada perfil inclui uma apresentação final em vídeo, na qual o praticante executa uma sequência coreografada para refletir seu estilo individual, além de sua biografia, localização e informações de contato.',
+    subtitle: 'Cada praticante aqui apresentado foi pessoalmente observado e compreendido por Cherie ao longo da formação.',
+    subtitle2: 'Cada perfil inclui uma apresentação final em vídeo, na qual o praticante executa uma sequência coreografada para refletir seu estilo individual, além de sua biografia, localização e informações de contato.',
     footer: 'CHERIETHAI INSTITUTO · SÃO PAULO · RIO DE JANEIRO',
   },
   EN: {
     back: '← INSTITUTE',
     label: 'CHERIETHAI INSTITUTE',
     title: 'Graduate Practitioners',
-    subtitle: 'Each practitioner featured here has been personally observed and understood by Cherie throughout their training. Each profile includes a final video presentation in which the practitioner performs a routine choreographed to reflect their individual style, alongside their biography, location and contact details.',
+    subtitle: 'Each practitioner featured here has been personally observed and understood by Cherie throughout their training.',
+    subtitle2: 'Each profile includes a final video presentation in which the practitioner performs a routine choreographed to reflect their individual style, alongside their biography, location and contact details.',
     footer: 'CHERIETHAI INSTITUTE · SÃO PAULO · RIO DE JANEIRO',
   },
 }
@@ -84,9 +86,16 @@ export default function AlunosPage() {
           <motion.p
             {...fadeUp(0.25)}
             className="body-text text-sand/45"
-            style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', maxWidth: '48ch' }}
+            style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', maxWidth: '48ch', marginBottom: '1rem' }}
           >
             {tx.subtitle}
+          </motion.p>
+          <motion.p
+            {...fadeUp(0.3)}
+            className="body-text text-sand/45"
+            style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', maxWidth: '48ch' }}
+          >
+            {tx.subtitle2}
           </motion.p>
         </div>
 
