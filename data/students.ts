@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'tati',
+    name: 'Tati Dantas',
+    city: 'São Sebastião',
+    country: 'Brasil',
+    descriptors: ['Vibrant', 'Courageous', 'Present'],
+    descriptorsPT: ['Vibrante', 'Corajosa', 'Presente'],
+    nonPracticing: true,
+    bio: 'Based in São Sebastião, São Paulo, Tati completed the CherieThai Method as part of a personal journey of exploration and growth rather than professional practice.',
+    bioPoints: [
+      'Throughout the training, she approached every experience with openness, curiosity and remarkable presence, embracing each technique with confidence and genuine enthusiasm',
+      'Her expressive movement and natural ability to connect with touch brought a distinctive quality to her Thai bodywork',
+      'Demonstrating how meaningful learning can emerge from a willingness to explore the body with attention, courage and authenticity',
+    ],
+    bioPT: 'Baseada em São Sebastião, São Paulo, Tati realizou a formação no Método CherieThai como parte de uma jornada pessoal de descoberta e desenvolvimento, e não para atuar profissionalmente com terapia manual.',
+    bioPTPoints: [
+      'Ao longo do curso, aproximou-se de cada experiência com abertura, curiosidade e uma presença marcante, acolhendo cada técnica com confiança e entusiasmo genuíno',
+      'Seus movimentos expressivos e sua capacidade natural de se conectar por meio do toque trouxeram uma qualidade única ao seu trabalho com a massagem tailandesa',
+      'Demonstrando como um aprendizado profundo nasce da coragem de explorar o corpo com atenção e autenticidade',
+    ],
+    youtubeId: 'HAynPtkRHs8',
+    coordinates: [-45.414, -23.805], // São Sebastião, São Paulo
+  },
+  {
     id: 'gracekelly',
     name: 'Grace Kelly',
     city: 'São Paulo',
