@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'thaisfas',
+    name: 'Thaís Fassina',
+    city: 'Nova Esperança',
+    country: 'Brasil',
+    descriptors: ['Intuitive', 'Assertive', 'Inspiring'],
+    descriptorsPT: ['Intuitiva', 'Convicta', 'Inspiradora'],
+    bio: 'Based in Nova Esperança, Paraná, Thaís is the founder of Movimente, a school dedicated to exploring the relationship between body, mind and emotional wellbeing.',
+    bioPoints: [
+      'She expresses the CherieThai Method through intuitive observation, purposeful movement and a genuine commitment to continuous learning',
+      'Her exceptional finger strength, combined with refined control, allows her to deliver treatments that are both highly effective and thoughtfully adapted to each individual',
+      'As both a movement educator and therapist, she brings confidence, clarity and a strong sense of direction to every session, helping people reconnect with their bodies through skillful and attentive care',
+    ],
+    bioPT: 'Baseada em Nova Esperança, Paraná, Thaís é fundadora da escola Movimente, dedicada ao estudo da relação entre corpo, mente e bem-estar emocional.',
+    bioPTPoints: [
+      'Ela expressa o Método CherieThai por meio de uma observação intuitiva, movimentos intencionais e um compromisso constante com o aprendizado',
+      'Sua notável força nos dedos, aliada a um controle refinado, permite realizar atendimentos altamente eficazes e cuidadosamente adaptados às necessidades de cada pessoa',
+      'Como professora de movimento e terapeuta, conduz cada sessão com clareza, segurança e propósito, ajudando seus pacientes a se reconectarem com o corpo por meio de um cuidado atento e consciente',
+    ],
+    youtubeId: 'fPtCYW4-tE8',
+    coordinates: [-52.201, -23.182], // Nova Esperança, Paraná
+    instagram: 'thais_fassina',
+  },
+  {
     id: 'gustavo',
     name: 'Gustavo',
     city: 'São Paulo',
