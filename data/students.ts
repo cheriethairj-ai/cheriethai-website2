@@ -301,7 +301,7 @@ export const students: Student[] = [
     city: 'São Paulo',
     country: 'Brasil',
     descriptors: ['Welcoming', 'Somatic', 'Serene'],
-    descriptorsPT: ['Acolhedor', 'Somático', 'Sereno'],
+    descriptorsPT: ['Acolhedor', 'Corpóreo', 'Sereno'],
     bio: 'Based in São Paulo, Gustavo brings his background in Tantra and Somatic Therapy into dialogue with the CherieThai Method, creating a calm, deeply embodied approach to manual therapy.',
     bioPoints: [
       'Although this was his first formal training in hands-on bodywork, he demonstrated remarkable sensitivity, curiosity and dedication throughout the programme',
