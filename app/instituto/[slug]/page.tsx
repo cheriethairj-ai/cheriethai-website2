@@ -180,13 +180,22 @@ export default function StudentProfilePage({
 
               {/* Non-practicing label */}
               {student.nonPracticing && (
-                <motion.p
+                <motion.div
                   {...fadeUp(0.33)}
-                  className="label-text text-sage/30 mb-4"
-                  style={{ fontSize: '0.48rem', letterSpacing: '0.24em' }}
+                  className="mb-6"
+                  style={{
+                    display: 'inline-block',
+                    border: '1px solid rgba(170,182,162,0.25)',
+                    padding: '6px 14px',
+                  }}
                 >
-                  {lang === 'PT' ? 'FORMADA · NÃO ATUA PROFISSIONALMENTE' : 'GRADUATE · NON-PRACTICING'}
-                </motion.p>
+                  <p
+                    className="label-text text-sage/55"
+                    style={{ fontSize: '0.52rem', letterSpacing: '0.22em' }}
+                  >
+                    {lang === 'PT' ? 'FORMADA · NÃO ATUA PROFISSIONALMENTE' : 'GRADUATE · NON-PRACTICING'}
+                  </p>
+                </motion.div>
               )}
 
               {/* City & country */}
