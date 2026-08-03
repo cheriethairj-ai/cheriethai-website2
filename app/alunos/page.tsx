@@ -18,14 +18,14 @@ const t = {
     back: '← INSTITUTO',
     label: 'INSTITUTO CHERIETHAI',
     title: 'Alunos Formados',
-    subtitle: 'Conheça os praticantes formados pelo Instituto CherieThai. Cada um foi observado e compreendido por Cherie ao longo da formação e recebeu três palavras que capturam a essência da sua prática. Clique em qualquer praticante para descobrir sua biografia, onde está baseado, como entrar em contato e sua apresentação final em vídeo.',
+    subtitle: 'Cada praticante aqui apresentado foi pessoalmente observado e compreendido por Cherie ao longo da formação. Cada perfil inclui uma apresentação final em vídeo, na qual o praticante executa uma sequência coreografada para refletir seu estilo individual, além de sua biografia, localização e informações de contato.',
     footer: 'CHERIETHAI INSTITUTO · SÃO PAULO · RIO DE JANEIRO',
   },
   EN: {
     back: '← INSTITUTE',
     label: 'CHERIETHAI INSTITUTE',
     title: 'Graduate Practitioners',
-    subtitle: 'Meet the practitioners who have graduated from the CherieThai Institute. Each one has been personally observed and understood by Cherie throughout their training and given three words that capture the essence of their practice. Click on any practitioner to discover their biography, where they are based, how to get in contact with them and their final video presentation.',
+    subtitle: 'Each practitioner featured here has been personally observed and understood by Cherie throughout their training. Each profile includes a final video presentation in which the practitioner performs a routine choreographed to reflect their individual style, alongside their biography, location and contact details.',
     footer: 'CHERIETHAI INSTITUTE · SÃO PAULO · RIO DE JANEIRO',
   },
 }
