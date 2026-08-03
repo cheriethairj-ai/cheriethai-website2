@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'claudio',
+    name: 'Claudio',
+    city: 'Barra da Tijuca',
+    country: 'Brasil',
+    descriptors: ['Reliable', 'Determined', 'Protective'],
+    descriptorsPT: ['Confiável', 'Determinado', 'Protetor'],
+    nonPracticing: true,
+    bio: 'Although Claudio does not practice manual therapy professionally, he joined the CherieThai Institute with the goal of learning how to care for someone close to him.',
+    bioPoints: [
+      'Throughout the programme, he demonstrated an impressive ability to understand and execute the Method\'s techniques with confidence',
+      'Quickly developing precise movement and effective pressure',
+      'His calm, dependable nature and genuine commitment to learning reflect the idea that thoughtful touch can be a meaningful expression of care, even outside professional practice',
+    ],
+    bioPT: 'Embora Claudio não atue profissionalmente com terapia manual, ingressou no Instituto CherieThai com o propósito de aprender a cuidar de alguém importante em sua vida.',
+    bioPTPoints: [
+      'Ao longo da formação, demonstrou uma impressionante facilidade para compreender e executar as técnicas do Método',
+      'Desenvolvendo rapidamente movimentos precisos e uma aplicação de pressão segura e eficaz',
+      'Sua postura tranquila, confiável e seu compromisso genuíno com o aprendizado refletem a ideia de que o toque consciente também pode ser uma poderosa forma de cuidado fora da prática profissional',
+    ],
+    youtubeId: 'kdZ5T5f062E',
+    coordinates: [-43.365, -23.001], // Barra da Tijuca, Rio de Janeiro
+  },
+  {
     id: 'marcia',
     name: 'Márcia',
     city: 'Rio de Janeiro',
