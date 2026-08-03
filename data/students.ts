@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'karen',
+    name: 'Karen',
+    city: 'Porto Alegre',
+    country: 'Brasil',
+    descriptors: ['Methodical', 'Observant', 'Confident'],
+    descriptorsPT: ['Metódica', 'Observadora', 'Confiante'],
+    nonPracticing: true,
+    bio: 'Although Karen does not practice manual therapy professionally, she joined the CherieThai Institute with the goal of learning how to better support her husband\'s wellbeing.',
+    bioPoints: [
+      'Based in Rio Grande do Sul and working in aesthetics, she approached the CherieThai Method with a thoughtful and methodical mindset, carefully analysing each case before applying techniques',
+      'Throughout the training, her confidence grew steadily as she developed precise movement, refined observation skills and a structured approach to understanding the body',
+      'Her journey reflects how dedicated learning can empower people to provide meaningful care beyond professional practice',
+    ],
+    bioPT: 'Embora Karen não atue profissionalmente com terapia manual, ingressou no Instituto CherieThai com o objetivo de aprender a cuidar melhor do bem-estar do seu marido.',
+    bioPTPoints: [
+      'Atuando na área da estética e baseada no Rio Grande do Sul, aproximou-se do Método CherieThai com uma postura metódica e investigativa, buscando compreender cada caso antes de aplicar as técnicas',
+      'Ao longo da formação, desenvolveu cada vez mais confiança, refinando seus movimentos, sua capacidade de observação e sua forma estruturada de compreender o corpo',
+      'Sua trajetória demonstra como o aprendizado dedicado pode transformar a maneira de cuidar das pessoas, mesmo fora da prática profissional',
+    ],
+    youtubeId: '8tmeD3y_xsk',
+    coordinates: [-51.217, -30.027], // Porto Alegre, Rio Grande do Sul
+  },
+  {
     id: 'anderson',
     name: 'Anderson',
     city: 'Ribeirão Preto',
