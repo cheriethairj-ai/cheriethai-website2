@@ -298,25 +298,25 @@ export const students: Student[] = [
   {
     id: 'marcia',
     name: 'Márcia',
-    city: 'São Paulo',
+    city: 'Rio de Janeiro',
     country: 'Brasil',
     descriptors: ['Spontaneous', 'Receptive', 'Light-hearted'],
     descriptorsPT: ['Espontânea', 'Receptiva', 'Leve'],
     nonPracticing: true,
-    bio: 'Although Márcia does not practice manual therapy professionally, she joined the CherieThai Institute with a deeply personal goal: to better understand the body and support her son\'s wellbeing.',
+    bio: 'Based in Jardim Botânico, Rio de Janeiro, Márcia joined the CherieThai Institute with a deeply personal goal: to better understand the body and support her son\'s wellbeing.',
     bioPoints: [
       'Throughout the training, she demonstrated a remarkable ability to absorb and apply the principles of the CherieThai Method with confidence and precision',
       'Her natural curiosity, light-hearted personality and genuine enthusiasm made her a joy to learn alongside',
       'Proving that meaningful learning is driven by openness, dedication and a sincere desire to help others',
     ],
-    bioPT: 'Embora Márcia não atue profissionalmente com terapia manual, ingressou no Instituto CherieThai com um objetivo muito pessoal: compreender melhor o corpo para cuidar do bem-estar do seu filho.',
+    bioPT: 'Baseada no Jardim Botânico, Rio de Janeiro, Márcia ingressou no Instituto CherieThai com um objetivo muito pessoal: compreender melhor o corpo para cuidar do bem-estar do seu filho.',
     bioPTPoints: [
       'Ao longo da formação, demonstrou uma notável capacidade de compreender e aplicar os princípios do Método CherieThai com naturalidade e precisão',
       'Sua curiosidade, seu jeito leve e seu entusiasmo genuíno tornaram sua trajetória inspiradora',
       'Mostrando que o aprendizado mais significativo nasce da abertura, da dedicação e do desejo sincero de cuidar das pessoas',
     ],
     youtubeId: '0LWmnJa7AUk',
-    coordinates: [-46.633, -23.550], // São Paulo
+    coordinates: [-43.223, -22.966], // Jardim Botânico, Rio de Janeiro
   },
   {
     id: 'edilene',
