@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'ruthgon',
+    name: 'Ruth Gonçalves',
+    city: 'São Paulo',
+    country: 'Brasil',
+    descriptors: ['Flowing', 'Integrated', 'Rhythmic'],
+    descriptorsPT: ['Fluente', 'Integrada', 'Rítmica'],
+    bio: 'Based in São Paulo, Ruth brings extensive experience in manual therapy to the CherieThai Method, expressing it through exceptional continuity of movement.',
+    bioPoints: [
+      'Drawing from a diverse therapeutic background, she integrates different techniques into a seamless and highly coordinated treatment style',
+      'Her work is distinguished by fluid oil techniques, graceful transitions and an intuitive understanding of how one movement naturally evolves into the next',
+      'Combining movement intelligence with refined manual skills, she creates treatments that feel cohesive, immersive and deeply restorative',
+    ],
+    bioPT: 'Baseada em São Paulo, Ruth une sua experiência em terapia manual ao Método CherieThai por meio de uma impressionante continuidade de movimento.',
+    bioPTPoints: [
+      'Com uma trajetória enriquecida por diferentes abordagens terapêuticas, integra essas experiências de forma natural e harmoniosa em seus atendimentos',
+      'Seu trabalho se destaca pelo óleo fluido, pelas transições elegantes e por uma compreensão intuitiva de como cada movimento conduz naturalmente ao próximo',
+      'Ao combinar inteligência corporal e técnicas manuais refinadas, cria tratamentos coesos, envolventes e profundamente restauradores',
+    ],
+    youtubeId: 'oBUjw3UowAw',
+    coordinates: [-46.633, -23.550], // São Paulo
+    instagram: 'massorootsz',
+  },
+  {
     id: 'sofia',
     name: 'Sofia',
     city: 'London',
