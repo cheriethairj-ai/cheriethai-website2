@@ -296,6 +296,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'hellen',
+    name: 'Hellen Martins',
+    city: 'Belo Horizonte',
+    country: 'Brasil',
+    descriptors: ['Precise', 'Confident', 'Assertive'],
+    descriptorsPT: ['Precisa', 'Assertiva', 'Segura'],
+    bio: 'Based in Belo Horizonte, Minas Gerais, Hellen expresses the CherieThai Method through precision, confidence and purposeful movement.',
+    bioPoints: [
+      'Throughout her training, she developed a remarkable ability to internalise the Method\'s principles, translating them into treatments that are direct, technically refined and highly effective',
+      'Her confident application of pressure, combined with careful execution and quiet presence, creates a style that is both powerful and composed',
+      'Today, she continues to build her own practice, reflecting the lasting impact that dedicated training and consistent application can have on a professional career',
+    ],
+    bioPT: 'Baseada em Belo Horizonte, Minas Gerais, Hellen expressa o Método CherieThai por meio da precisão, da confiança e de movimentos intencionais.',
+    bioPTPoints: [
+      'Durante sua formação, demonstrou uma notável capacidade de assimilar profundamente os princípios do Método, traduzindo-os em atendimentos diretos, tecnicamente refinados e altamente eficazes',
+      'Sua aplicação segura da pressão, aliada a uma execução cuidadosa e a uma presença tranquila, resulta em um estilo ao mesmo tempo potente e elegante',
+      'Hoje, segue consolidando sua própria trajetória profissional, refletindo o impacto que uma formação consistente pode ter na construção de uma carreira sólida',
+    ],
+    youtubeId: '6RMMgkR65pI',
+    coordinates: [-43.937, -19.920], // Belo Horizonte, Minas Gerais
+    instagram: 'espaco.hellenmartins',
+  },
+  {
     id: 'karen',
     name: 'Karen',
     city: 'Porto Alegre',
