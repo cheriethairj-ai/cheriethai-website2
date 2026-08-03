@@ -296,6 +296,28 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
   },
   {
+    id: 'gracekelly',
+    name: 'Grace Kelly',
+    city: 'São Paulo',
+    country: 'Brasil',
+    descriptors: ['Elegant', 'Restorative', 'Harmonious'],
+    descriptorsPT: ['Elegante', 'Restauradora', 'Harmoniosa'],
+    bio: 'Based in São Paulo, Grace Kelly expresses the CherieThai Method through elegance, continuity and deep nervous system regulation.',
+    bioPoints: [
+      'Now practicing as part of the CherieThai team, she has developed a treatment style defined by graceful movement, refined oil techniques and an exceptional ability to create a profound sense of calm',
+      'Her sessions naturally combine therapeutic intention with restorative care, allowing each treatment to unfold with fluidity, precision and thoughtful attention to the individual',
+      'Grace\'s work reflects the evolution of a practitioner who has transformed rigorous training into a distinctive and highly personalised clinical approach',
+    ],
+    bioPT: 'Baseada em São Paulo, Grace Kelly expressa o Método CherieThai por meio da elegância, da fluidez e da regulação profunda do sistema nervoso.',
+    bioPTPoints: [
+      'Integrante da equipe CherieThai, desenvolveu uma forma de atender marcada por movimentos graciosos, técnicas refinadas com óleo e uma capacidade excepcional de promover relaxamento profundo sem perder o propósito terapêutico',
+      'Seus atendimentos unem intenção clínica e cuidado restaurador, conduzindo cada sessão com harmonia, presença e atenção às necessidades individuais',
+      'Seu trabalho reflete a evolução de uma terapeuta que transformou uma formação exigente em uma abordagem própria, refinada e profundamente humana',
+    ],
+    youtubeId: 'Ya7K636MEYM',
+    coordinates: [-46.633, -23.550], // São Paulo
+  },
+  {
     id: 'isasheim',
     name: 'Isabela Sheimberg',
     city: 'Rio de Janeiro',
