@@ -71,6 +71,9 @@ type RoomData = typeof rooms[0]
 function RoomCard({ room }: { room: RoomData }) {
   const [activePhoto, setActivePhoto] = useState(0)
 
+  const prev = () => setActivePhoto((p) => (p - 1 + room.photos.length) % room.photos.length)
+  const next = () => setActivePhoto((p) => (p + 1) % room.photos.length)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -90,21 +93,63 @@ function RoomCard({ room }: { room: RoomData }) {
           style={{ objectFit: 'cover', objectPosition: 'center' }}
           className="transition-all duration-700"
         />
+
+        {/* Prev / Next arrows */}
         {room.photos.length > 1 && (
-          <div className="absolute bottom-4 left-4 flex gap-2">
-            {room.photos.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActivePhoto(i)}
-                style={{
-                  width: '6px', height: '6px', borderRadius: '50%', cursor: 'none',
-                  background: i === activePhoto ? 'rgba(220,201,160,0.9)' : 'rgba(220,201,160,0.3)',
-                  border: 'none', padding: 0, transition: 'background 0.3s',
-                }}
-              />
-            ))}
-          </div>
+          <>
+            <button
+              onClick={prev}
+              aria-label="Previous photo"
+              style={{
+                position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)',
+                width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
+                background: 'rgba(13,17,14,0.55)', border: '1px solid rgba(220,201,160,0.18)',
+                backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'rgba(220,201,160,0.85)', fontSize: '0.75rem', lineHeight: 1,
+                transition: 'background 0.25s, border-color 0.25s',
+                zIndex: 10,
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(13,17,14,0.85)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(13,17,14,0.55)')}
+            >
+              ←
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next photo"
+              style={{
+                position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)',
+                width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
+                background: 'rgba(13,17,14,0.55)', border: '1px solid rgba(220,201,160,0.18)',
+                backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'rgba(220,201,160,0.85)', fontSize: '0.75rem', lineHeight: 1,
+                transition: 'background 0.25s, border-color 0.25s',
+                zIndex: 10,
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(13,17,14,0.85)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(13,17,14,0.55)')}
+            >
+              →
+            </button>
+
+            {/* Dot indicators */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              {room.photos.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActivePhoto(i)}
+                  aria-label={`Photo ${i + 1}`}
+                  style={{
+                    width: '20px', height: '4px', borderRadius: '2px', cursor: 'pointer',
+                    background: i === activePhoto ? 'rgba(220,201,160,0.9)' : 'rgba(220,201,160,0.3)',
+                    border: 'none', padding: 0, transition: 'background 0.3s',
+                  }}
+                />
+              ))}
+            </div>
+          </>
         )}
+
         <div className="absolute top-4 left-4">
           <span
             className="label-text"
