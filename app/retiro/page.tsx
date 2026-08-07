@@ -291,10 +291,6 @@ export default function RetiroPage() {
               <span className="label-text text-sand/60" style={{ fontSize: '0.52rem', letterSpacing: '0.22em' }}>
                 KRABI · {lang === 'PT' ? 'SUL DA TAILÂNDIA' : 'SOUTHERN THAILAND'}
               </span>
-              <span className="text-sage/25" style={{ fontSize: '0.4rem' }}>◆</span>
-              <span className="label-text text-sand/60" style={{ fontSize: '0.52rem', letterSpacing: '0.22em' }}>
-                30 {lang === 'PT' ? 'VAGAS' : 'SPACES'}
-              </span>
             </motion.div>
           </div>
         </div>
@@ -507,8 +503,8 @@ export default function RetiroPage() {
           </h2>
           <p className="body-text text-sand/45 mb-10" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.85, maxWidth: '50ch' }}>
             {lang === 'PT'
-              ? 'Com apenas 30 vagas disponíveis, este retiro é limitado por design. Entre em contato para confirmar disponibilidade e garantir a sua acomodação.'
-              : 'With only 30 spaces available, this retreat is limited by design. Get in touch to confirm availability and secure your accommodation.'}
+              ? 'Este retiro é intimista por escolha. Entre em contato para confirmar disponibilidade e garantir a sua acomodação.'
+              : 'This retreat is intimate by design. Get in touch to confirm availability and secure your accommodation.'}
           </p>
           <a
             href="https://www.instagram.com/cheriethai/"
