@@ -436,7 +436,12 @@ export default function RetiroPage() {
               <p className="label-text text-sage/35 mb-5" style={{ fontSize: '0.46rem', letterSpacing: '0.26em' }}>
                 NOT INCLUDED
               </p>
-              {['Food and beverages', 'Flights', 'Transfers', 'Excursions and extra activities'].map((item, i) => (
+              {[
+                'Food and beverages (available at the resort at your own cost)',
+                'Flights',
+                'Transfers',
+                'Excursions and extra activities',
+              ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 mb-3">
                   <span className="text-sage/20 shrink-0" style={{ fontSize: '0.35rem', marginTop: '0.4em' }}>◇</span>
                   <p className="body-text text-sand/35" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>{item}</p>
