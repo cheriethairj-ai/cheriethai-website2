@@ -410,31 +410,58 @@ export default function RetiroPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
+          <div className="max-w-3xl">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="font-cormorant font-light text-ivory/75"
-              style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', lineHeight: 1.45 }}
+              className="label-text text-sage/30 mb-8"
+              style={{ fontSize: '0.46rem', letterSpacing: '0.28em' }}
             >
-              {lang === 'PT'
-                ? 'Um resort rústico e luxuoso encravado entre formações de calcário cobertas de selva virgem, no sul da Tailândia.'
-                : 'A rustic luxury resort nestled among limestone formations covered in virgin jungle, in the south of Thailand.'}
+              VOASIS VALLEY · KRABI
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.1 }}
-              className="body-text text-sand/45"
-              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9 }}
+              transition={{ duration: 0.9, delay: 0.05 }}
+              className="font-cormorant font-light text-ivory/80"
+              style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', lineHeight: 1.45, marginBottom: '2.5rem' }}
             >
               {lang === 'PT'
-                ? 'Krabi é uma das regiões mais impressionantes da Tailândia, com falésias de calcário que se elevam diretamente da selva, praias protegidas e uma natureza de rara beleza. O resort onde acontecerá o retiro combina o conforto de uma hospedagem cuidada com a imersão total em um ambiente natural extraordinário.'
-                : 'Krabi is one of Thailand\'s most breathtaking regions, with limestone cliffs rising directly from the jungle, sheltered beaches and a landscape of rare beauty. The resort where the retreat will take place combines the comfort of thoughtful accommodation with total immersion in an extraordinary natural environment.'}
+                ? 'O Voasis Valley é um retiro de luxo isolado, encravado entre as falésias de calcário e a floresta tropical de Krabi, na Tailândia.'
+                : 'Voasis Valley is a secluded luxury retreat nestled between the limestone cliffs and tropical rainforest of Krabi, Thailand.'}
             </motion.p>
+            {(lang === 'PT' ? [
+              'Longe das multidões, o lugar oferece uma atmosfera de quietude onde a natureza se torna parte da experiência de aprendizado. As manhãs começam com o canto dos pássaros e a neblina das montanhas, enquanto as tardes se encerram no ritmo tranquilo da selva.',
+              'A propriedade foi projetada com materiais naturais, espaços abertos e vilas cuidadosamente construídas que se integram harmoniosamente à paisagem. Cada detalhe convida a um ritmo mais lento — um ambiente ideal para estudar, restaurar e reconectar-se com o corpo.',
+              'Ao longo do retiro, este lugar se tornará muito mais do que simplesmente o local onde dormimos. Será a nossa casa durante a semana — um espaço para aprender, praticar, compartilhar refeições, recuperar entre as sessões de treino e vivenciar a cultura tailandesa no ambiente onde essas tradições nasceram.',
+              'Para muitos alunos, o próprio cenário se torna parte da transformação.',
+            ] : [
+              'Far from the crowds, it offers an atmosphere of stillness where nature becomes part of the learning experience. Mornings begin with birdsong and mountain mist, while evenings settle into the quiet rhythm of the jungle.',
+              'The property has been thoughtfully designed with natural materials, open spaces and beautifully crafted villas that blend seamlessly into the landscape. Every detail encourages a slower pace, making it an ideal environment to study, restore and reconnect with the body.',
+              'Throughout the retreat, this will become more than simply the place where we sleep. It will be our home for the week — a space to learn, practise, share meals, recover between training sessions and experience Thai culture in the environment where these traditions were born.',
+              'For many students, the setting itself becomes part of the transformation.',
+            ]).map((para, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, delay: 0.1 + i * 0.07 }}
+                className="body-text text-sand/50"
+                style={{
+                  fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
+                  lineHeight: 1.9,
+                  marginBottom: i < 3 ? '1.5rem' : 0,
+                  maxWidth: '60ch',
+                  fontStyle: i === 3 ? 'italic' : 'normal',
+                }}
+              >
+                {para}
+              </motion.p>
+            ))}
           </div>
         </div>
 
