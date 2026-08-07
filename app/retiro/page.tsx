@@ -26,8 +26,12 @@ const rooms = {
       id: 'earth',
       name: 'Earth Lodge',
       tag: 'SUÍTE PRIVATIVA',
-      description: 'Uma suíte privativa de madeira sobre pilotis, com banheiro exclusivo e banheira clawfoot na varanda com vista para as montanhas. A acomodação mais imersiva do retiro.',
-      features: ['Suíte privativa', 'Banheiro exclusivo', 'Banheira clawfoot na varanda', 'Vista para as montanhas de calcário', 'Ar-condicionado'],
+      description: [
+        'Discretamente encravado na paisagem tropical, o Earth Lodge oferece um retiro mais privativo, mantendo uma profunda conexão com o ambiente natural.',
+        'Com seus interiores espaçosos, cama de casal, varanda privativa e banheira de imersão ao ar livre, cada detalhe foi pensado para convidar ao descanso entre as sessões. Cercado pela selva e pelos sons da natureza, oferece um ritmo mais lento onde corpo e mente podem se recuperar plenamente após cada dia de aprendizado.',
+        'Para os hóspedes que buscam maior privacidade sem perder a essência do retiro, o Earth Lodge proporciona uma experiência de conforto, quietude e imersão em perfeito equilíbrio.',
+      ],
+      features: ['Suíte privativa', 'Cama de casal', 'Banheira de imersão ao ar livre', 'Varanda privativa', 'Vista para a selva', 'Ar-condicionado'],
       individual: 'R$ 11.400',
       couple: 'R$ 18.200',
       perPerson: 'R$ 9.100 por pessoa',
@@ -37,8 +41,12 @@ const rooms = {
       id: 'hill',
       name: 'Hill Haven',
       tag: 'SUÍTE COM VISTA',
-      description: 'Suíte privativa com janelas do piso ao teto emolduradas pela vegetação tropical e pelas formações rochosas de Krabi. Vista para o jardim e para as montanhas.',
-      features: ['Suíte privativa', 'Banheiro exclusivo', 'Vista jardim e montanha', 'Janelas panorâmicas', 'Ar-condicionado'],
+      description: [
+        'Instalado acima do vale, o Hill Haven abraça a beleza dramática de Krabi por meio de grandes janelas e vistas sem obstáculos para jardins exuberantes e falésias de calcário majestosas.',
+        'Seu design contemporâneo e luminoso permite que a natureza se torne parte do espaço, com cada amanhecer e a luz em transformação renovando o ambiente ao longo do dia. Uma varanda privativa oferece o lugar perfeito para ler, refletir ou simplesmente pausar entre as sessões enquanto se contempla o vale lá embaixo.',
+        'O Hill Haven oferece uma atmosfera tranquila onde o luxo não está no excesso, mas no espaço, na luz e em uma conexão extraordinária com a paisagem.',
+      ],
+      features: ['Suíte privativa', 'Banheiro exclusivo', 'Varanda com vista para o vale', 'Janelas panorâmicas', 'Vista para as falésias', 'Ar-condicionado'],
       individual: 'R$ 9.600',
       couple: 'R$ 14.500',
       perPerson: 'R$ 7.250 por pessoa',
@@ -48,8 +56,13 @@ const rooms = {
       id: 'harmony',
       name: 'Harmony House',
       tag: 'CASA COMPARTILHADA',
-      description: 'Uma casa espaçosa com oito camas e dois banheiros compartilhados. Mista, com espírito colaborativo e comunidade, ideal para quem busca conexão com outros participantes.',
-      features: ['8 camas individuais', '2 banheiros compartilhados', 'Misto', 'Vista para o jardim', 'Ar-condicionado'],
+      description: [
+        'Projetada para quem aprecia o espírito comunitário da vida em retiro, a Harmony House oferece um espaço compartilhado acolhedor onde a conexão acontece naturalmente.',
+        'Com capacidade para até oito hóspedes em um dormitório misto cuidadosamente planejado, a casa conta com beliches confortáveis, dois banheiros compartilhados, luz natural abundante e vistas para os jardins tropicais e as falésias ao redor.',
+        'É onde as manhãs começam tomando café, as tardes se abrem em conversas, e amizades se formam com pessoas que viajaram de todo o mundo com o mesmo propósito — aprender, crescer e se imergir na experiência do retiro.',
+        'Para muitos alunos, a Harmony House se torna muito mais do que uma acomodação compartilhada. Ela se torna parte da própria jornada.',
+      ],
+      features: ['8 camas individuais', '2 banheiros compartilhados', 'Misto', 'Vista para os jardins tropicais', 'Luz natural abundante', 'Ar-condicionado'],
       individual: 'R$ 6.600',
       couple: null,
       perPerson: null,
@@ -61,8 +74,12 @@ const rooms = {
       id: 'earth',
       name: 'Earth Lodge',
       tag: 'PRIVATE SUITE',
-      description: 'A private wooden suite elevated on stilts, with an en-suite bathroom and a clawfoot bathtub on the open deck overlooking the mountains. The most immersive accommodation at the retreat.',
-      features: ['Private suite', 'En-suite bathroom', 'Clawfoot bathtub on deck', 'Limestone mountain view', 'Air conditioning'],
+      description: [
+        'Tucked quietly within the tropical landscape, Earth Lodge offers a more private retreat while remaining deeply connected to the natural surroundings.',
+        'With its spacious interiors, queen bed, private terrace and outdoor soaking tub, every detail has been designed to invite rest between training sessions. Surrounded by jungle and the sounds of nature, it offers a slower rhythm where body and mind can fully recover after each day of learning.',
+        'For guests seeking greater privacy without losing the essence of the retreat, Earth Lodge provides a beautifully balanced experience of comfort, stillness and immersion.',
+      ],
+      features: ['Private suite', 'Queen bed', 'Outdoor soaking tub', 'Private terrace', 'Jungle view', 'Air conditioning'],
       individual: 'R$ 11,400',
       couple: 'R$ 18,200',
       perPerson: 'R$ 9,100 per person',
@@ -71,9 +88,13 @@ const rooms = {
     {
       id: 'hill',
       name: 'Hill Haven',
-      tag: 'GARDEN & MOUNTAIN VIEW',
-      description: 'A private suite with floor-to-ceiling windows framed by tropical jungle and the limestone formations of Krabi. Garden and mountain views throughout.',
-      features: ['Private suite', 'En-suite bathroom', 'Garden & mountain view', 'Panoramic windows', 'Air conditioning'],
+      tag: 'VALLEY VIEW SUITE',
+      description: [
+        'Perched above the valley, Hill Haven embraces the dramatic beauty of Krabi through expansive windows and uninterrupted views of lush gardens and towering limestone cliffs.',
+        'Its bright, contemporary design allows nature to become part of the living space, with every sunrise and shifting light transforming the room throughout the day. A private balcony provides the perfect place to read, reflect or simply pause between training sessions while overlooking the valley below.',
+        'Hill Haven offers a peaceful atmosphere where luxury is found not in excess, but in space, light and an extraordinary connection with the landscape.',
+      ],
+      features: ['Private suite', 'En-suite bathroom', 'Private balcony with valley view', 'Panoramic windows', 'Limestone cliff views', 'Air conditioning'],
       individual: 'R$ 9,600',
       couple: 'R$ 14,500',
       perPerson: 'R$ 7,250 per person',
@@ -83,8 +104,13 @@ const rooms = {
       id: 'harmony',
       name: 'Harmony House',
       tag: 'SHARED HOUSE',
-      description: 'A spacious shared house with eight beds and two bathrooms. Mixed gender, with a collaborative spirit and sense of community — ideal for those seeking connection with fellow participants.',
-      features: ['8 individual beds', '2 shared bathrooms', 'Mixed gender', 'Garden view', 'Air conditioning'],
+      description: [
+        'Designed for those who enjoy the communal spirit of retreat life, Harmony House offers a welcoming shared space where connection happens naturally.',
+        'Accommodating up to eight guests in a thoughtfully designed mixed dormitory, the house features comfortable bunk beds, two shared bathrooms, abundant natural light and views across the tropical gardens and surrounding limestone cliffs.',
+        'It\'s where mornings begin over coffee, evenings unfold through shared conversations, and friendships are formed with people who have travelled from around the world for the same purpose — to learn, grow and immerse themselves in the retreat experience.',
+        'For many students, Harmony House becomes far more than shared accommodation. It becomes part of the journey itself.',
+      ],
+      features: ['8 individual beds', '2 shared bathrooms', 'Mixed gender', 'Tropical garden views', 'Abundant natural light', 'Air conditioning'],
       individual: 'R$ 6,600',
       couple: null,
       perPerson: null,
@@ -93,7 +119,8 @@ const rooms = {
   ],
 }
 
-function RoomCard({ room, lang }: { room: typeof rooms.PT[0]; lang: 'PT' | 'EN' }) {
+type RoomData = Omit<typeof rooms.PT[0], 'description'> & { description: string | string[] }
+function RoomCard({ room, lang }: { room: RoomData; lang: 'PT' | 'EN' }) {
   const [activePhoto, setActivePhoto] = useState(0)
 
   return (
@@ -160,12 +187,23 @@ function RoomCard({ room, lang }: { room: typeof rooms.PT[0]; lang: 'PT' | 'EN' 
           >
             {room.name}
           </h3>
-          <p
-            className="body-text text-sand/55"
-            style={{ fontSize: 'clamp(0.85rem, 1.3vw, 0.95rem)', lineHeight: 1.85, marginBottom: '2rem' }}
-          >
-            {room.description}
-          </p>
+          <div style={{ marginBottom: '2rem' }}>
+            {(Array.isArray(room.description) ? room.description : [room.description]).map((para, i, arr) => (
+              <p
+                key={i}
+                className="body-text text-sand/55"
+                style={{
+                  fontSize: 'clamp(0.825rem, 1.2vw, 0.9rem)',
+                  lineHeight: 1.85,
+                  marginBottom: i < arr.length - 1 ? '1rem' : 0,
+                  fontStyle: i === arr.length - 1 ? 'italic' : 'normal',
+                  color: i === arr.length - 1 ? 'rgba(220,201,160,0.35)' : undefined,
+                }}
+              >
+                {para}
+              </p>
+            ))}
+          </div>
 
           {/* Features */}
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2.5rem 0' }}>
