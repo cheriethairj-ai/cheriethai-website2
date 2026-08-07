@@ -347,23 +347,53 @@ export default function RetiroPage() {
               The CherieThai International Retreat is a 30-hour immersive training experience held at Voasis Valley, a secluded luxury retreat nestled within the limestone mountains of Krabi, southern Thailand.
             </motion.p>
 
-            {[
-              'Over four intensive days, participants will live, learn and train together in an environment designed for complete immersion. Surrounded by tropical rainforest and dramatic limestone cliffs, the retreat offers the rare opportunity to step away from everyday distractions and dedicate yourself entirely to the study of the CherieThai Method.',
-              'Designed around direct mentorship, the retreat offers four uninterrupted days of complete immersion. Living and training together creates an environment where learning becomes continuous, allowing me to guide, challenge and refine each student\'s practice with a level of attention that extends far beyond formal training sessions.',
-              'Teaching in Thailand holds deep personal significance. The CherieThai Method was born from the traditions of my homeland before being refined through modern anatomy, biomechanics and years of clinical practice. Learning here allows students to experience the method in the country where its foundations were born, while gaining a deeper appreciation for the culture that continues to shape my work today.',
-            ].map((para, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.9, delay: 0.12 + i * 0.07 }}
-                className="body-text text-sand/50"
-                style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem' }}
-              >
-                {para}
-              </motion.p>
-            ))}
+            {/* Para 1 — immersion */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.12 }}
+              className="body-text text-sand/50"
+              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem' }}
+            >
+              Over four intensive days, participants will live, learn and train together in an environment designed for complete immersion. Surrounded by tropical rainforest and dramatic limestone cliffs, the retreat offers the rare opportunity to step away from everyday distractions and dedicate yourself entirely to the study of the CherieThai Method.
+            </motion.p>
+
+            {/* Para 2 — bed & floor */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.18 }}
+              className="body-text text-sand/50"
+              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem' }}
+            >
+              Training is integrative — working both on the bed and on the floor — allowing students to explore a wide range of techniques across both modalities and develop a more complete understanding of the method.
+            </motion.p>
+
+            {/* Para 3 — mentorship, bold */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.24 }}
+              className="body-text text-sand/80"
+              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem', fontWeight: 500 }}
+            >
+              Designed around direct mentorship, the retreat offers four uninterrupted days of complete immersion. Living and training together creates an environment where learning becomes continuous, allowing me to guide, challenge and refine each student's practice with a level of attention that extends far beyond formal training sessions.
+            </motion.p>
+
+            {/* Para 4 — Thailand significance */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.30 }}
+              className="body-text text-sand/50"
+              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem' }}
+            >
+              Teaching in Thailand holds deep personal significance. The CherieThai Method was born from the traditions of my homeland before being refined through modern anatomy, biomechanics and years of clinical practice. Learning here allows students to experience the method in the country where its foundations were born, while gaining a deeper appreciation for the culture that continues to shape my work today.
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 15 }}
