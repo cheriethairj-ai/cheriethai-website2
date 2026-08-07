@@ -349,30 +349,66 @@ export default function RetiroPage() {
             >
               {lang === 'PT' ? 'SOBRE O RETIRO' : 'ABOUT THE RETREAT'}
             </motion.p>
+
+            {/* Opening — large display paragraph */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.1 }}
-              className="font-cormorant font-light text-ivory/85"
-              style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', lineHeight: 1.4, marginBottom: '2.5rem' }}
+              transition={{ duration: 0.9, delay: 0.08 }}
+              className="font-cormorant font-light text-ivory/80"
+              style={{ fontSize: 'clamp(1.4rem, 2.8vw, 2rem)', lineHeight: 1.45, marginBottom: '2.5rem', maxWidth: '58ch' }}
             >
               {lang === 'PT'
-                ? 'Quatro dias imersos nas montanhas de calcário de Krabi, no sul da Tailândia — onde o Método CherieThai encontra a terra de suas raízes.'
-                : 'Four days immersed in the limestone mountains of Krabi, in southern Thailand — where the CherieThai Method meets the land of its roots.'}
+                ? 'O CherieThai International Retreat é uma experiência de treinamento imersivo de 30 horas realizada no Voasis Valley, um retiro de luxo isolado encravado nas montanhas de calcário de Krabi, no sul da Tailândia.'
+                : 'The CherieThai International Retreat is a 30-hour immersive training experience held at Voasis Valley, a secluded luxury retreat nestled within the limestone mountains of Krabi, southern Thailand.'}
             </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+
+            {/* Body paragraphs */}
+            {(lang === 'PT' ? [
+              'Ao longo de quatro dias intensivos, os participantes viverão, aprenderão e treinarão juntos em um ambiente projetado para a imersão completa. Cercados pela floresta tropical e pelas dramáticas falésias de calcário, o retiro oferece a rara oportunidade de se afastar das distrações cotidianas e se dedicar inteiramente ao estudo do Método CherieThai.',
+              'Estruturado em torno da mentoria direta, o retiro oferece quatro dias ininterruptos de imersão total. Viver e treinar juntos cria um ambiente onde o aprendizado se torna contínuo, permitindo-me guiar, desafiar e aprimorar a prática de cada aluno com um nível de atenção que vai muito além das sessões de treinamento formais.',
+              'Ensinar na Tailândia tem um significado profundamente pessoal. O Método CherieThai nasceu das tradições da minha terra natal antes de ser refinado através da anatomia moderna, da biomecânica e de anos de prática clínica. Aprender aqui permite que os alunos vivenciem o método no país onde suas fundações nasceram, ao mesmo tempo em que desenvolvem uma compreensão mais profunda da cultura que continua a moldar o meu trabalho.',
+            ] : [
+              'Over four intensive days, participants will live, learn and train together in an environment designed for complete immersion. Surrounded by tropical rainforest and dramatic limestone cliffs, the retreat offers the rare opportunity to step away from everyday distractions and dedicate yourself entirely to the study of the CherieThai Method.',
+              'Designed around direct mentorship, the retreat offers four uninterrupted days of complete immersion. Living and training together creates an environment where learning becomes continuous, allowing me to guide, challenge and refine each student\'s practice with a level of attention that extends far beyond formal training sessions.',
+              'Teaching in Thailand holds deep personal significance. The CherieThai Method was born from the traditions of my homeland before being refined through modern anatomy, biomechanics and years of clinical practice. Learning here allows students to experience the method in the country where its foundations were born, while gaining a deeper appreciation for the culture that continues to shape my work today.',
+            ]).map((para, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, delay: 0.12 + i * 0.07 }}
+                className="body-text text-sand/50"
+                style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch', marginBottom: '1.5rem' }}
+              >
+                {para}
+              </motion.p>
+            ))}
+
+            {/* Certificate credential */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.2 }}
-              className="body-text text-sand/50"
-              style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)', lineHeight: 1.9, maxWidth: '60ch' }}
+              transition={{ duration: 0.9, delay: 0.35 }}
+              className="mt-8"
+              style={{
+                borderLeft: '1px solid rgba(170,182,162,0.25)',
+                paddingLeft: '1.25rem',
+              }}
             >
-              {lang === 'PT'
-                ? 'Um retiro íntimo em um resort rústico e luxuoso encravado entre montanhas cobertas de selva tropical. Com apenas 30 vagas disponíveis, este é um convite a desacelerar, aprofundar a prática e vivenciar a Tailândia de uma forma verdadeiramente especial.'
-                : 'An intimate retreat at a rustic luxury resort nestled between jungle-covered mountains. With only 30 spaces available, this is an invitation to slow down, deepen your practice and experience Thailand in a truly special way.'}
-            </motion.p>
+              <p
+                className="body-text text-sand/40"
+                style={{ fontSize: 'clamp(0.825rem, 1.2vw, 0.9rem)', lineHeight: 1.8, maxWidth: '52ch' }}
+              >
+                {lang === 'PT'
+                  ? 'Os participantes aprovados receberão o Certificado Internacional UTTMS (30 Horas), uma qualificação oficialmente reconhecida pelo governo tailandês.'
+                  : 'Successful participants will be awarded the International UTTMS Certificate (30 Hours), a qualification officially recognised by the Thai government.'}
+              </p>
+            </motion.div>
+
           </div>
 
           {/* What's included */}
