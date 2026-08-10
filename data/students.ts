@@ -880,6 +880,29 @@ export const students: Student[] = [
     coordinates: [-43.938, -19.921], // Belo Horizonte
     instagram: 'massoterapeuta_mary',
   },
+  {
+    id: 'juliovillanueva',
+    name: 'Julio Villanueva',
+    city: 'Salvador',
+    country: 'Brasil',
+    descriptors: ['Accomplished', 'Kinaesthetic', 'Inquisitive'],
+    descriptorsPT: ['Exímio', 'Cinestésico', 'Investigativo'],
+    bio: 'Based in Salvador, Bahia, Julio is a sports-focused therapist whose work within the CherieThai Method is distinguished by technical depth, curiosity and a strong capacity for complex therapeutic care.',
+    bioPoints: [
+      'A highly kinaesthetic learner, he seeks to experience techniques in his own body before reproducing them — understanding not only how a movement is performed, but how it should be perceived by the person receiving it',
+      'Throughout his training, his constant desire to revisit, question and refine each technique revealed an exceptional commitment to quality',
+      'His work is particularly suited to active bodies and complex presentations, combining confident manual skills with an investigative approach to treatment',
+    ],
+    bioPT: 'Baseado em Salvador, Bahia, Julio é um terapeuta voltado ao universo esportivo, cuja expressão do Método CherieThai se destaca pela profundidade técnica, curiosidade e capacidade de trabalhar casos complexos.',
+    bioPTPoints: [
+      'Com uma forma de aprendizado fortemente cinestésica, busca sentir as técnicas no próprio corpo antes de reproduzi-las, compreendendo não apenas como cada movimento é executado, mas também como deve ser percebido por quem o recebe',
+      'Durante a formação, seu desejo constante de repetir, questionar e aperfeiçoar cada técnica revelou um compromisso excepcional com a qualidade',
+      'Seu trabalho se destaca especialmente em corpos ativos e demandas complexas, combinando habilidade manual e uma abordagem investigativa ao tratamento',
+    ],
+    youtubeId: '6tnB6lB66v8',
+    coordinates: [-38.501, -12.971], // Salvador, Bahia
+    instagram: 'afroterapeuta',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
