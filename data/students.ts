@@ -857,6 +857,29 @@ export const students: Student[] = [
     coordinates: [2.349, 48.864], // France — update city when known
     instagram: 'adrilira_massagem',
   },
+  {
+    id: 'mary',
+    name: 'Mary',
+    city: 'Belo Horizonte',
+    country: 'Brasil',
+    descriptors: ['Maternal', 'Therapeutic', 'Capable'],
+    descriptorsPT: ['Maternal', 'Terapêutica', 'Resolutiva'],
+    bio: 'Based in Belo Horizonte, Minas Gerais, Mary brings a deeply nurturing presence to the CherieThai Method, combined with a particularly strong ability to work with pain and physically demanding bodies.',
+    bioPoints: [
+      'Her gentle, reassuring nature allows people to feel at ease in her care, while beneath that softness lies a highly capable therapeutic approach',
+      'She works particularly well with active and athletic bodies, adapting her touch and techniques to address tension, restriction and discomfort with confidence',
+      "Mary's work is defined by a beautiful contrast: comforting in presence, yet purposeful and highly effective in treatment",
+    ],
+    bioPT: 'Baseada em Belo Horizonte, Minas Gerais, Mary traz ao Método CherieThai uma presença profundamente acolhedora, combinada com uma habilidade marcante no trabalho com dor e corpos fisicamente exigidos.',
+    bioPTPoints: [
+      'Seu jeito gentil e tranquilizador faz com que as pessoas se sintam naturalmente à vontade em seus cuidados, enquanto por trás dessa suavidade existe uma abordagem terapêutica extremamente capaz',
+      'Tem especial facilidade com corpos ativos e atléticos, adaptando seu toque e suas técnicas para trabalhar tensões, restrições e desconfortos com segurança',
+      'O trabalho de Mary é marcado por um contraste muito particular: acolhedor na presença, mas direcionado e eficaz no tratamento',
+    ],
+    youtubeId: 'NHDKqp8XWSA',
+    coordinates: [-43.938, -19.921], // Belo Horizonte
+    instagram: 'massoterapeuta_mary',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
