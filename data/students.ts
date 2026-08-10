@@ -809,6 +809,7 @@ export const students: Student[] = [
     ],
     youtubeId: 'T0DEF-q4jdA',
     coordinates: [-48.549, -27.595], // Florianópolis, SC
+    instagram: 'tati.alok',
   },
 ]
 
