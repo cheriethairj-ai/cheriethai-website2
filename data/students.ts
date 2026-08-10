@@ -811,6 +811,29 @@ export const students: Student[] = [
     coordinates: [-48.549, -27.595], // Florianópolis, SC
     instagram: 'tati.alok',
   },
+  {
+    id: 'yurimussury',
+    name: 'Yuri Mussury',
+    city: 'Caraíva',
+    country: 'Brasil',
+    descriptors: ['Complete', 'Masterful', 'Insightful'],
+    descriptorsPT: ['Completo', 'Magistral', 'Perspicaz'],
+    bio: 'Based between Caraíva, Bahia, and São Paulo, Yuri represents one of the most complete expressions of the CherieThai Method to emerge from the Institute.',
+    bioPoints: [
+      'Demonstrated an exceptional understanding of movement, touch, transitions and the reasoning that connects them',
+      'His work is beautifully composed, technically accomplished and remarkably natural — reflecting not simply an ability to reproduce techniques, but to truly understand and embody the Method',
+      'Equally generous with his knowledge, he became a valuable presence among his peers, often helping others refine their own understanding throughout the training',
+    ],
+    bioPT: 'Dividindo sua atuação entre Caraíva, Bahia, e São Paulo, Yuri representa uma das expressões mais completas do Método CherieThai formadas pelo Instituto.',
+    bioPTPoints: [
+      'Demonstrou uma compreensão excepcional do movimento, do toque, das transições e do raciocínio que conecta cada elemento',
+      'Seu trabalho é harmonioso, tecnicamente desenvolvido e extremamente natural, revelando não apenas a capacidade de executar as técnicas, mas de realmente compreender e incorporar o Método',
+      'Generoso com seu conhecimento, tornou-se uma presença valiosa entre os colegas, contribuindo espontaneamente para o desenvolvimento dos demais durante a formação',
+    ],
+    youtubeId: 'cUrBv8NLx1I',
+    coordinates: [-39.197, -16.998], // Caraíva, Bahia
+    instagram: 'yurimussury',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
