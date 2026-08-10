@@ -788,6 +788,28 @@ export const students: Student[] = [
     coordinates: [-43.937, -19.920], // Belo Horizonte, Minas Gerais
     instagram: 'cris.jes',
   },
+  {
+    id: 'alok',
+    name: 'Tati Alok',
+    city: 'Florianópolis',
+    country: 'Brasil',
+    descriptors: ['Enigmatic', 'Ritualistic', 'Experienced'],
+    descriptorsPT: ['Enigmática', 'Ritualística', 'Experiente'],
+    bio: 'Based in Florianópolis, Tati Alok brings many years of experience in bodywork, Tantra and spiritual practices into her expression of the CherieThai Method.',
+    bioPoints: [
+      'Her work carries an almost ritualistic quality, shaped by an established sensitivity to touch, atmosphere and the subtleties of human presence',
+      'During her training, she stood out for the way she transformed technique into something deeply personal — moving with intention, intuition and a quiet sense of mystery',
+      'Rather than simply adding another modality to an already extensive practice, she absorbed the CherieThai Method into a body of work that has been developing over many years',
+    ],
+    bioPT: 'Baseada em Florianópolis, Tati Alok traz muitos anos de experiência em terapias corporais, Tantra e práticas de desenvolvimento espiritual para sua expressão do Método CherieThai.',
+    bioPTPoints: [
+      'Seu trabalho possui uma qualidade quase ritualística, construída a partir de uma sensibilidade já amadurecida para o toque, a atmosfera e as sutilezas da presença humana',
+      'Durante a formação, destacou-se pela maneira como transformava técnica em algo profundamente pessoal, movendo-se com intenção, intuição e uma presença silenciosamente enigmática',
+      'Mais do que acrescentar uma nova modalidade à sua trajetória, incorporou o Método CherieThai a um trabalho corporal que vem sendo desenvolvido e aprofundado ao longo de muitos anos',
+    ],
+    youtubeId: 'T0DEF-q4jdA',
+    coordinates: [-48.549, -27.595], // Florianópolis, SC
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
