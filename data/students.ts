@@ -834,6 +834,28 @@ export const students: Student[] = [
     coordinates: [-39.197, -16.998], // Caraíva, Bahia
     instagram: 'yurimussury',
   },
+  {
+    id: 'adrilira',
+    name: 'Adri Lira',
+    city: 'France',
+    country: 'France',
+    descriptors: ['Tactile', 'Intuitive', 'Potent'],
+    descriptorsPT: ['Tátil', 'Intuitiva', 'Potente'],
+    bio: 'Based in France, Adri Lira brings an exceptionally tactile and intuitive sensitivity to the CherieThai Method.',
+    bioPoints: [
+      'As a visually impaired practitioner, she has developed an attentive relationship with touch — using her hands to explore subtle differences in tissue, tension and response throughout the body',
+      'Her work carries a beautiful contrast: remarkably gentle in its approach, yet surprisingly potent in its effect',
+      'Naturally curious and deeply engaged with learning, Adri continually seeks to understand beyond the technique itself, approaching the body with sensitivity, exploration and genuine fascination',
+    ],
+    bioPT: 'Baseada na França, Adri Lira traz ao Método CherieThai uma sensibilidade tátil e intuitiva muito particular.',
+    bioPTPoints: [
+      'Como terapeuta com deficiência visual, desenvolveu uma relação extremamente atenta com o toque, utilizando as mãos para perceber diferenças sutis nos tecidos, nas tensões e nas respostas do corpo',
+      'Seu trabalho carrega um contraste marcante: extremamente gentil na abordagem e, ao mesmo tempo, surpreendentemente potente',
+      'Naturalmente curiosa e profundamente envolvida com o aprendizado, Adri busca constantemente compreender além da técnica, explorando o corpo com sensibilidade, interesse e uma genuína vontade de aprofundar',
+    ],
+    youtubeId: 'IZh4iLUfvCk',
+    coordinates: [2.349, 48.864], // France — update city when known
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
