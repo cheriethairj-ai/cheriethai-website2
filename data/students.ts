@@ -855,6 +855,7 @@ export const students: Student[] = [
     ],
     youtubeId: 'IZh4iLUfvCk',
     coordinates: [2.349, 48.864], // France — update city when known
+    instagram: 'adrilira_massagem',
   },
 ]
 
