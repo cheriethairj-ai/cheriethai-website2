@@ -950,7 +950,7 @@ export const students: Student[] = [
     instagram: 'tudoaflordapele',
   },
   {
-    id: 'melissagiovana',
+    id: 'melissa',
     name: 'Melissa Giovana',
     city: 'Goiânia',
     country: 'Brasil',
