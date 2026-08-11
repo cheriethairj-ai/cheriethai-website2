@@ -926,6 +926,29 @@ export const students: Student[] = [
     coordinates: [-47.670, -14.062], // Chapada dos Veadeiros, Goiás
     instagram: 'bryzateles',
   },
+  {
+    id: 'isabelazaya',
+    name: 'Isabela Zaya',
+    city: 'São Paulo',
+    country: 'Brasil',
+    descriptors: ['Subtle', 'Somatic', 'Restorative'],
+    descriptorsPT: ['Sutil', 'Somática', 'Restauradora'],
+    bio: 'Coming from a background in somatic therapy, Isabela Zaya entered the CherieThai Method with the intention of expanding her understanding of the body through manual therapy, particularly in relation to pain.',
+    bioPoints: [
+      'Her naturally gentle and soft-spoken presence translates into an exceptionally subtle quality of touch, allowing her to approach the body with patience, sensitivity and careful observation',
+      'Throughout her training, she expanded this softness into more substantial therapeutic work, developing the ability to move between subtle listening and deeper intervention when the body requires it',
+      'Her work brings together somatic awareness and manual therapy in a way that feels restorative, thoughtful and deeply individual',
+    ],
+    bioPT: 'Com uma trajetória na terapia somática, Isabela Zaya chegou ao Método CherieThai com o propósito de ampliar sua compreensão do corpo através da terapia manual, especialmente no trabalho com a dor.',
+    bioPTPoints: [
+      'Sua presença naturalmente gentil e tranquila se traduz em um toque extremamente sutil, permitindo que observe e trabalhe o corpo com paciência, sensibilidade e atenção',
+      'Ao longo da formação, expandiu essa suavidade para um trabalho terapêutico mais profundo, desenvolvendo a capacidade de transitar entre a escuta sutil e intervenções mais intensas quando o corpo necessita',
+      'Seu trabalho une consciência somática e terapia manual de forma restauradora, cuidadosa e profundamente individual',
+    ],
+    youtubeId: 'NfdlpH12ZKE',
+    coordinates: [-46.633, -23.550], // São Paulo
+    instagram: 'tudoaflordapele',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
