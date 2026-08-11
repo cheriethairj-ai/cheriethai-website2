@@ -903,6 +903,29 @@ export const students: Student[] = [
     coordinates: [-38.501, -12.971], // Salvador, Bahia
     instagram: 'afroterapeuta',
   },
+  {
+    id: 'bryzateles',
+    name: 'Bryza Teles',
+    city: 'Chapada dos Veadeiros',
+    country: 'Brasil',
+    descriptors: ['Magnetic', 'Fluid', 'Expansive'],
+    descriptorsPT: ['Magnética', 'Fluida', 'Expansiva'],
+    bio: 'Based in Chapada dos Veadeiros, Goiás, Bryza Teles brings an established and expansive background in bodywork to the CherieThai Method.',
+    bioPoints: [
+      'Founder of her own institute, teacher and longtime traveller, she has returned to Thailand numerous times throughout her professional journey, continually exploring different expressions of movement, touch and therapeutic practice',
+      'Within CherieThai, her work is characterised by fluidity, elegance and a naturally magnetic presence',
+      'Curious despite her extensive experience, Bryza approaches learning with humility and openness, integrating new perspectives into a body of work that is expressive, intuitive and unmistakably her own',
+    ],
+    bioPT: 'Baseada na Chapada dos Veadeiros, Goiás, Bryza Teles traz ao Método CherieThai uma trajetória ampla e já consolidada no universo das terapias corporais.',
+    bioPTPoints: [
+      'Fundadora de seu próprio instituto, professora e viajante, esteve diversas vezes na Tailândia ao longo de sua trajetória profissional, explorando continuamente diferentes expressões do movimento, do toque e da prática terapêutica',
+      'Dentro do CherieThai, seu trabalho se destaca pela fluidez, elegância e uma presença naturalmente magnética',
+      'Mesmo com sua ampla experiência, Bryza mantém uma curiosidade genuína e uma postura humilde diante do aprendizado, incorporando novas perspectivas a um trabalho expressivo, intuitivo e profundamente autoral',
+    ],
+    youtubeId: 'lh-Tvt9nfJU',
+    coordinates: [-47.670, -14.062], // Chapada dos Veadeiros, Goiás
+    instagram: 'bryzateles',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
