@@ -949,6 +949,29 @@ export const students: Student[] = [
     coordinates: [-46.633, -23.550], // São Paulo
     instagram: 'tudoaflordapele',
   },
+  {
+    id: 'melissagiovana',
+    name: 'Melissa Giovana',
+    city: 'Goiânia',
+    country: 'Brasil',
+    descriptors: ['Ethereal', 'Restorative', 'Adaptive'],
+    descriptorsPT: ['Etérea', 'Restauradora', 'Adaptável'],
+    bio: 'Based in Goiânia, Goiás, Melissa brings an optimistic and deeply reassuring presence to her expression of the CherieThai Method.',
+    bioPoints: [
+      'Her work is particularly oriented toward pain, combining substantial therapeutic depth with an instinctive ability to make people feel comfortable in her care',
+      'Throughout her training, she demonstrated an impressive capacity to adapt technique to her own body, transforming individual movement characteristics into something purposeful rather than restrictive',
+      'Her approach is restorative and attentive, seeking not simply to work where discomfort appears, but to help the body reorganise, regain function and return to a greater sense of balance',
+    ],
+    bioPT: 'Baseada em Goiânia, Goiás, Melissa traz uma presença otimista e profundamente acolhedora à sua expressão do Método CherieThai.',
+    bioPTPoints: [
+      'Seu trabalho é especialmente direcionado à dor, combinando profundidade terapêutica com uma capacidade natural de fazer com que as pessoas se sintam confortáveis sob seus cuidados',
+      'Durante a formação, demonstrou uma habilidade impressionante de adaptar a técnica ao próprio corpo, transformando características individuais do movimento em recursos, e não em limitações',
+      'Sua abordagem é restauradora e atenta, buscando não apenas trabalhar onde o desconforto se manifesta, mas ajudar o corpo a se reorganizar, recuperar função e retornar a um estado maior de equilíbrio',
+    ],
+    youtubeId: 'f0XPy1qScuY',
+    coordinates: [-49.253, -16.679], // Goiânia, Goiás
+    instagram: '_melterapeuta',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
