@@ -1118,6 +1118,31 @@ export const students: Student[] = [
     coordinates: [-58.381, -34.603], // Buenos Aires, Argentina
     instagram: 'nanai__masoterapia',
   },
+  {
+    id: 'anaclara',
+    name: 'Ana Clara',
+    city: 'Mairiporã',
+    country: 'Brasil',
+    descriptors: ['Instinctive', 'Alchemical', 'Catalytic'],
+    descriptorsPT: ['Instintiva', 'Alquímica', 'Catalisadora'],
+    bio: 'Based in Mairiporã, São Paulo, Ana Clara brings a rich background in somatic practice, feminine health and self-knowledge into her expression of the CherieThai approach.',
+    bioPoints: [
+      'Her work explores the relationship between body, vital energy and creativity, guiding people through processes of deeper connection with themselves',
+      'Her entry into manual therapy represents a natural expansion of this work: a desire to balance emotional and psychological exploration with something tangible, physical and directly experienced through the body',
+      'Although relatively new to hands-on therapy, Ana Clara demonstrated a remarkable instinct for understanding the deeper intention behind each technique, quickly translating what she learned into her own field of practice',
+      'Her approach is distinctly alchemical — bringing different forms of knowledge together and allowing them to become something new, with touch acting as a catalyst for greater awareness, possibility and change',
+    ],
+    bioPT: 'Baseada em Mairiporã, São Paulo, Ana Clara traz uma trajetória rica em práticas somáticas, saúde feminina e autoconhecimento para sua expressão da abordagem CherieThai.',
+    bioPTPoints: [
+      'Seu trabalho explora as relações entre corpo, energia vital e criatividade, conduzindo pessoas por processos de maior conexão consigo mesmas',
+      'Sua entrada na terapia manual representa uma expansão natural desse trabalho: o desejo de equilibrar a exploração emocional e psicológica com algo tangível, físico e diretamente experienciado através do corpo',
+      'Embora esteja no início de sua trajetória com a terapia manual, Ana Clara demonstrou um instinto marcante para compreender a intenção mais profunda por trás de cada técnica, traduzindo rapidamente o aprendizado para seu próprio campo de atuação',
+      'Sua abordagem é essencialmente alquímica — reúne diferentes formas de conhecimento e permite que algo novo surja desse encontro, utilizando o toque como catalisador para ampliar consciência, possibilidades e mudança',
+    ],
+    youtubeId: 'YXMWcdVbc2M',
+    coordinates: [-46.585, -23.318], // Mairiporã, São Paulo
+    instagram: 'anaclaragarcia.tsh',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
