@@ -138,17 +138,17 @@ export default function StudentProfilePage({
             {/* Text content */}
             <div className="flex flex-col" style={{ paddingTop: hasPhoto ? 'clamp(0rem, 3vw, 2rem)' : 0 }}>
 
-              {/* Descriptors — inline, dot-separated */}
+              {/* Descriptors */}
               {descriptors && (
                 <motion.p
                   {...fadeUp(0.24)}
-                  className="label-text text-sage/35 mb-10"
-                  style={{ fontSize: '0.5rem', letterSpacing: '0.26em' }}
+                  className="font-cormorant font-light text-sage/60 mb-8"
+                  style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', letterSpacing: '0.12em' }}
                 >
                   {descriptors.map((d, i) => (
                     <span key={i}>
-                      {i > 0 && <span className="mx-2 text-sage/20">·</span>}
-                      {d.toUpperCase()}
+                      {i > 0 && <span className="mx-3 text-sage/25">·</span>}
+                      {d}
                     </span>
                   ))}
                 </motion.p>
