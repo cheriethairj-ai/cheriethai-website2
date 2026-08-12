@@ -995,6 +995,29 @@ export const students: Student[] = [
     coordinates: [-43.938, -19.921], // Belo Horizonte
     instagram: 'crislacerdac',
   },
+  {
+    id: 'lilianmiranda',
+    name: 'Lilian Miranda',
+    city: 'Riviera de São Lourenço',
+    country: 'Brasil',
+    descriptors: ['Contemplative', 'Receptive', 'Explorative'],
+    descriptorsPT: ['Contemplativa', 'Receptiva', 'Exploradora'],
+    bio: 'Lilian brings a contemplative presence and a deep openness to learning into the CherieThai Method.',
+    bioPoints: [
+      'Her experiences in India and Thailand have broadened her relationship with different traditions of care, movement and touch, which she approaches with curiosity and respect',
+      'Throughout her training, she stood out for the attention with which she listened, questioned and reflected on each teaching, seeking to understand not only the execution of a technique but the thinking behind it',
+      'Her practice reflects a sensitive and receptive therapist who continues to explore new ways of understanding the body and the nature of care',
+    ],
+    bioPT: 'Lilian traz ao Método CherieThai uma presença contemplativa e uma profunda abertura ao aprendizado.',
+    bioPTPoints: [
+      'Suas experiências na Índia e na Tailândia ampliaram sua relação com diferentes tradições de cuidado, movimento e toque, que observa com curiosidade e respeito',
+      'Durante a formação, destacou-se pela forma atenta como escutava, questionava e refletia sobre cada ensinamento, buscando compreender não apenas a execução das técnicas, mas o significado por trás delas',
+      'Sua prática reflete uma terapeuta sensível e receptiva, em constante exploração de novas formas de compreender o corpo e o cuidado',
+    ],
+    youtubeId: 'U6oyjr4gXgc',
+    coordinates: [-46.138, -23.854], // Bertioga / Riviera de São Lourenço, SP
+    instagram: 'lilian.mirandatc',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
