@@ -1070,6 +1070,31 @@ export const students: Student[] = [
     coordinates: [-45.155, -23.793], // Juquehy, Litoral Norte, São Paulo
     instagram: 'terapeuta_agni',
   },
+  {
+    id: 'brunomarinho',
+    name: 'Bruno Marinho',
+    city: 'Brasília',
+    country: 'Brasil',
+    descriptors: ['Devoted', 'Intuitive', 'Eloquent'],
+    descriptorsPT: ['Devotado', 'Intuitivo', 'Eloquente'],
+    bio: 'Based in Brasília, Bruno Marinho brings an intuitive and deeply embodied understanding of movement to the CherieThai approach.',
+    bioPoints: [
+      'As a movement artist, he has an exceptional ability to translate technique through his entire body, creating work that feels fluid, eloquent and naturally connected from one movement to the next',
+      'His dedication throughout the training was remarkable, approaching each detail with genuine commitment and a desire to understand beyond the technique itself',
+      'Particularly drawn to pain and the movement patterns that contribute to it, Bruno combines sensitivity, body awareness and instinct to adapt his work to the individual in front of him',
+      'His natural ability, humility and devotion to caring for others reveal a practitioner with an exceptionally promising path ahead',
+    ],
+    bioPT: 'Baseado em Brasília, Bruno Marinho traz à abordagem CherieThai uma compreensão intuitiva e profundamente corporal do movimento.',
+    bioPTPoints: [
+      'Como artista do movimento, possui uma capacidade excepcional de traduzir a técnica através de todo o corpo, criando um trabalho fluido, eloquente e naturalmente conectado de um movimento ao próximo',
+      'Sua dedicação ao longo da formação foi marcante, aproximando-se de cada detalhe com verdadeiro comprometimento e o desejo de compreender além da própria técnica',
+      'Especialmente interessado na dor e nos padrões de movimento que podem contribuir para ela, Bruno combina sensibilidade, consciência corporal e instinto para adaptar seu trabalho à pessoa à sua frente',
+      'Sua habilidade natural, humildade e profunda dedicação ao cuidado revelam um terapeuta com um caminho extremamente promissor pela frente',
+    ],
+    youtubeId: 'Xu5V8q0d-XU',
+    coordinates: [-47.929, -15.780], // Brasília, DF
+    instagram: 'marinhomassoterapia',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
