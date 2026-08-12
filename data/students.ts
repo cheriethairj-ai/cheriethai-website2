@@ -1018,6 +1018,29 @@ export const students: Student[] = [
     coordinates: [-46.138, -23.854], // Bertioga / Riviera de São Lourenço, SP
     instagram: 'lilian.mirandatc',
   },
+  {
+    id: 'luciano',
+    name: 'Luciano Jorge',
+    city: 'Uberlândia',
+    country: 'Brasil',
+    descriptors: ['Adaptive', 'Grounded', 'Transformative'],
+    descriptorsPT: ['Adaptável', 'Centrado', 'Transformador'],
+    bio: 'Based in Uberlândia, Minas Gerais, Luciano Jorge came to the CherieThai Method as a complete beginner in manual therapy, bringing with him a background in yoga and a previous career as a successful vegan chef and entrepreneur.',
+    bioPoints: [
+      'His willingness to begin again revealed a natural adaptability to bodywork and a thoughtful ability to understand different presentations of pain',
+      'Throughout his training, he developed a calm and attentive approach, learning to adapt techniques to the individual rather than simply reproduce movement',
+      'His journey reflects curiosity, transformation and the courage to enter a completely new field with openness and genuine commitment',
+    ],
+    bioPT: 'Baseado em Uberlândia, Minas Gerais, Luciano Jorge chegou ao Método CherieThai como iniciante na terapia manual, trazendo uma trajetória anterior no yoga e uma carreira de sucesso como chef vegano e empreendedor.',
+    bioPTPoints: [
+      'Sua disposição para começar novamente revelou uma capacidade natural de adaptação ao trabalho corporal e uma compreensão cuidadosa de diferentes manifestações da dor',
+      'Ao longo da formação, desenvolveu uma abordagem calma e atenta, aprendendo a adaptar as técnicas a cada pessoa em vez de simplesmente reproduzir movimentos',
+      'Sua trajetória reflete curiosidade, transformação e a coragem de entrar em um universo completamente novo com abertura e compromisso genuíno',
+    ],
+    youtubeId: 'UqV19C_lvGs',
+    coordinates: [-48.277, -18.918], // Uberlândia, Minas Gerais
+    instagram: 'lucianorespira',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
