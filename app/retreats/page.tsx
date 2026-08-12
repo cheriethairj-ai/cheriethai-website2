@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Retreats',
     description: 'Immersive CherieThai training retreats. Small groups, direct mentorship, extraordinary settings.',
     url: 'https://cheriethai.com.br/retreats',
-    images: [{ url: '/retreat/resort-1.jpg', width: 1200, height: 630, alt: 'CherieThai Retreats' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Retreats' }],
   },
 }
 

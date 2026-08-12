@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'About CherieThai',
     description: 'Clinical Thai bodywork practice and professional education institute. Founded by Cherie T. Charnkul.',
     url: 'https://cheriethai.com.br/about',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'Cherie T. Charnkul — CherieThai' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Cherie T. Charnkul — CherieThai' }],
   },
 }
 

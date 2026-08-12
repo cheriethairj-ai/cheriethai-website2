@@ -29,7 +29,7 @@ export async function generateMetadata({
       url: `https://cheriethai.com.br/instituto/${student.id}`,
       images: student.photo
         ? [{ url: `/students/${student.photo}`, width: 800, height: 1067, alt: student.name }]
-        : [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: `${student.name} — CherieThai Institute` }],
+        : [{ url: '/og-image.jpg', width: 1200, height: 630, alt: `${student.name} — CherieThai Institute` }],
     },
   }
 }

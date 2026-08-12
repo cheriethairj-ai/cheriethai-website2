@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Our Story — CherieThai',
     description: 'From northeast Thailand to São Paulo. The origin of the CherieThai Method.',
     url: 'https://cheriethai.com.br/story',
-    images: [{ url: '/bio-hometown.jpg', width: 1200, height: 630, alt: 'CherieThai — Our Story' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai — Our Story' }],
   },
 }
 

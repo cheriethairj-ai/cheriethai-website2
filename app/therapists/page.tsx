@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Practitioners',
     description: 'Certified practitioners in São Paulo and Rio de Janeiro, trained in the CherieThai Method.',
     url: 'https://cheriethai.com.br/therapists',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'CherieThai Practitioners' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Practitioners' }],
   },
 }
 

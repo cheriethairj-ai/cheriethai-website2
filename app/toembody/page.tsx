@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'To Embody — CherieThai',
     description: 'Premium clothing for practitioners. Designed for therapeutic practice, worn beyond it.',
     url: 'https://cheriethai.com.br/toembody',
-    images: [{ url: '/toembody-portrait.jpg', width: 1200, height: 630, alt: 'To Embody — CherieThai' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'To Embody — CherieThai' }],
   },
 }
 

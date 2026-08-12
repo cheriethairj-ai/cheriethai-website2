@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'CherieThai São Paulo — Clinical Thai Bodywork',
     description: 'Clinical Thai bodywork in Itaim Bibi, São Paulo. R. Pedroso Alvarenga, 691. By appointment.',
     url: 'https://cheriethai.com.br/saopaulo',
-    images: [{ url: '/clinic-saopaulo-hero.png', width: 1200, height: 630, alt: 'CherieThai São Paulo Studio' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai São Paulo Studio' }],
   },
 }
 

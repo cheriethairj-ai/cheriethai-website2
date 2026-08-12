@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Cherie T. Charnkul — Founder of CherieThai',
     description: 'Born in Phimai, Thailand. Trained from age four. Founder of the CherieThai Method.',
     url: 'https://cheriethai.com.br/cherie',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'Cherie T. Charnkul' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Cherie T. Charnkul' }],
   },
 }
 

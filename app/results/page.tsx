@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Results — Clinical Documentation',
     description: 'Documented clinical results: pain relief, structural improvement and restored mobility.',
     url: 'https://cheriethai.com.br/results',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'CherieThai Clinical Results' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Clinical Results' }],
   },
 }
 

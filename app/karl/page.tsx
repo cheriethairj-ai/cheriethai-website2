@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Karl Georges — Co-Founder of CherieThai',
     description: 'Former UFRJ lecturer. Trained by Cherie. First foreigner invited to become a monk at Tam Yae.',
     url: 'https://cheriethai.com.br/karl',
-    images: [{ url: '/portrait-karl.jpg', width: 1200, height: 630, alt: 'Karl Georges — CherieThai Co-Founder' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Karl Georges — CherieThai Co-Founder' }],
   },
 }
 

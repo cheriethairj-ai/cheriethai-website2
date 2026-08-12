@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Students — Certified Practitioners',
     description: 'Graduates of the CherieThai Institute, trained in clinical Thai bodywork.',
     url: 'https://cheriethai.com.br/alunos',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'CherieThai Institute Students' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Institute Students' }],
   },
 }
 

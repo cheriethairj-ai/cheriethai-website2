@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Thailand Retreat 2027',
     description: 'Four days of immersive CherieThai training in Thailand. Clinical bodywork under direct mentorship.',
     url: 'https://cheriethai.com.br/thailand2027',
-    images: [{ url: '/retreat/resort-1.jpg', width: 1200, height: 630, alt: 'CherieThai Thailand Retreat 2027' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Thailand Retreat 2027' }],
   },
 }
 

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'CherieThai',
     images: [
       {
-        url: '/portrait-cherie.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'CherieThai — Clinical Thai Bodywork by Cherie T. Charnkul',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CherieThai — Clinical Thai Bodywork',
     description: 'The body is architecture. Advanced Thai bodywork by Cherie T. Charnkul.',
-    images: ['/portrait-cherie.jpg'],
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

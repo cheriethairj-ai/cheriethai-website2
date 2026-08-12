@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Institute — Professional Training',
     description: 'Professional training in clinical Thai bodywork. Courses, retreats and workshops.',
     url: 'https://cheriethai.com.br/institute',
-    images: [{ url: '/session-formacao.jpg', width: 1200, height: 630, alt: 'CherieThai Institute' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Institute' }],
   },
 }
 

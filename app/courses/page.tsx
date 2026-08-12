@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Courses — Professional Training',
     description: 'Certification in clinical Thai bodywork under the direct instruction of Cherie T. Charnkul.',
     url: 'https://cheriethai.com.br/courses',
-    images: [{ url: '/session-formacao.jpg', width: 1200, height: 630, alt: 'CherieThai Training Courses' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Training Courses' }],
   },
 }
 

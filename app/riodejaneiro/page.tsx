@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Rio de Janeiro — Clinical Thai Bodywork',
     description: 'Clinical Thai bodywork in Ipanema, Rio de Janeiro. R. Visconde de Pirajá, 142. By appointment.',
     url: 'https://cheriethai.com.br/riodejaneiro',
-    images: [{ url: '/clinic-rio-entrance.jpg', width: 1200, height: 630, alt: 'CherieThai Rio de Janeiro' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Rio de Janeiro' }],
   },
 }
 

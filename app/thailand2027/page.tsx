@@ -47,7 +47,7 @@ const rooms = [
     individual: '$1,700',
     couple: '$2,500',
     perPerson: '$1,250 per person',
-    photos: ['/retreat/resort-2.jpg', '/retreat/resort-1.jpg'],
+    photos: ['/retreat/resort-2.jpg', '/og-image.jpg'],
   },
   {
     id: 'harmony',
@@ -273,7 +273,7 @@ export default function RetiroPage() {
         {/* ── Hero ───────────────────────────────────────────────────────── */}
         <div className="relative w-full" style={{ height: '100svh', maxHeight: '900px' }}>
           <Image
-            src="/retreat/resort-1.jpg"
+            src="/og-image.jpg"
             alt="CherieThai Retreat Krabi"
             fill
             priority

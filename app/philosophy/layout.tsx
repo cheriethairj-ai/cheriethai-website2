@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Philosophy — CherieThai',
     description: 'The body is architecture. Explore the principles that guide every CherieThai session.',
     url: 'https://cheriethai.com.br/philosophy',
-    images: [{ url: '/portrait-cherie.jpg', width: 1200, height: 630, alt: 'CherieThai Philosophy' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Philosophy' }],
   },
 }
 

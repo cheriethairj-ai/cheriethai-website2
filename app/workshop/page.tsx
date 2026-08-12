@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'CherieThai Workshops',
     description: 'Focused intensive workshops in clinical Thai bodywork techniques.',
     url: 'https://cheriethai.com.br/workshop',
-    images: [{ url: '/session-formacao.jpg', width: 1200, height: 630, alt: 'CherieThai Workshops' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CherieThai Workshops' }],
   },
 }
 
