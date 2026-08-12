@@ -972,6 +972,29 @@ export const students: Student[] = [
     coordinates: [-49.253, -16.679], // Goiânia, Goiás
     instagram: '_melterapeuta',
   },
+  {
+    id: 'crislacerda',
+    name: 'Cris Lacerda',
+    city: 'Belo Horizonte',
+    country: 'Brasil',
+    descriptors: ['Systematic', 'Profound', 'Masterful'],
+    descriptorsPT: ['Sistemática', 'Profunda', 'Magistral'],
+    bio: 'Based in Belo Horizonte, Minas Gerais, Christiana is a physiotherapist, movement practitioner and educator whose expression of the CherieThai Method is grounded in an exceptionally deep understanding of the body.',
+    bioPoints: [
+      'Her background in body awareness and movement culture gives her a highly systematic way of observing function, recognising relationships between different regions and translating that understanding into sophisticated manual work',
+      'Her treatments combine confident technique, movement intelligence and mature clinical reasoning, allowing her to approach complex bodies with clarity and depth',
+      'As both a practitioner and teacher, she brings an established body of knowledge into CherieThai while expressing the Method with remarkable technical maturity',
+    ],
+    bioPT: 'Baseada em Belo Horizonte, Minas Gerais, Christiana é fisioterapeuta, praticante de movimento e educadora, trazendo ao Método CherieThai uma compreensão excepcionalmente profunda do corpo.',
+    bioPTPoints: [
+      'Sua trajetória em consciência corporal e cultura do movimento proporciona uma forma sistemática de observar a função, reconhecer relações entre diferentes regiões e traduzir esse entendimento em um trabalho manual sofisticado',
+      'Seus atendimentos combinam técnica segura, inteligência de movimento e raciocínio clínico maduro, permitindo abordar corpos e demandas complexas com clareza e profundidade',
+      'Como terapeuta e professora, integra ao CherieThai uma trajetória já consolidada de conhecimento, expressando o Método com notável maturidade técnica',
+    ],
+    youtubeId: 'CWeEfV7HTLE',
+    coordinates: [-43.938, -19.921], // Belo Horizonte
+    instagram: 'crislacerdac',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
