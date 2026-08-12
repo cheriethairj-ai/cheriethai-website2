@@ -1095,6 +1095,29 @@ export const students: Student[] = [
     coordinates: [-47.929, -15.780], // Brasília, DF
     instagram: 'marinhomassoterapia',
   },
+  {
+    id: 'agustina',
+    name: 'Agustina',
+    city: 'Buenos Aires',
+    country: 'Argentina',
+    descriptors: ['Attuned', 'Compassionate', 'Conscientious'],
+    descriptorsPT: ['Sintonizada', 'Compassiva', 'Conscienciosa'],
+    bio: 'Based in Buenos Aires, Argentina, Agustina is a family physician who brings her medical understanding of the human body into the CherieThai approach with exceptional sensitivity and compassion.',
+    bioPoints: [
+      'Her clinical background is complemented by a deeply attuned way of listening, observing and caring for the person in front of her',
+      'Throughout her training, she approached every movement with curiosity, intention and a remarkable sense of responsibility, reflecting a genuine desire to understand not only the body, but the individual experiencing it',
+      'Her journey into manual therapy has expanded the way she cares for others, bringing together medicine, therapeutic touch and a profoundly conscientious approach to human wellbeing',
+    ],
+    bioPT: 'Baseada em Buenos Aires, Argentina, Agustina é médica de família e traz sua compreensão médica do corpo humano para a abordagem CherieThai com uma sensibilidade e compaixão excepcionais.',
+    bioPTPoints: [
+      'Sua formação clínica se une a uma maneira profundamente sintonizada de escutar, observar e cuidar da pessoa à sua frente',
+      'Ao longo da formação, aproximou-se de cada movimento com curiosidade, intenção e um marcante senso de responsabilidade, refletindo um desejo genuíno de compreender não apenas o corpo, mas o indivíduo que o habita',
+      'Sua entrada na terapia manual ampliou sua forma de cuidar, aproximando medicina, toque terapêutico e uma abordagem profundamente conscienciosa ao bem-estar humano',
+    ],
+    youtubeId: 'XVpmseD8H9o',
+    coordinates: [-58.381, -34.603], // Buenos Aires, Argentina
+    instagram: 'nanai__masoterapia',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
