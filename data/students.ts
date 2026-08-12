@@ -1143,6 +1143,33 @@ export const students: Student[] = [
     coordinates: [-46.585, -23.318], // Mairiporã, São Paulo
     instagram: 'anaclaragarcia.tsh',
   },
+  {
+    id: 'laisanascimento',
+    name: 'Laisa Nascimento',
+    city: 'Uberlândia',
+    country: 'Brasil',
+    descriptors: ['Meticulous', 'Commanding', 'Ingenious'],
+    descriptorsPT: ['Meticulosa', 'Dinâmica', 'Engenhosa'],
+    bio: 'Based in Uberlândia, Minas Gerais, Laisa Nascimento brings an advanced background in body therapy to her expression of the CherieThai approach.',
+    bioPoints: [
+      'Founder of Spa Emório, her own body therapy clinic in Uberlândia',
+      'Her work is meticulous, firm and deeply therapeutic, with a particular ability to enter into the finer details of tissue and understand what each body requires',
+      'She takes the time necessary to fully comprehend a movement, but once it is integrated, her execution becomes remarkably assured, fluid and effective',
+      'Throughout her training, Laisa also demonstrated the confidence to develop deliberate variations of techniques based on the principles she had learned, revealing a strong and independent therapeutic intelligence',
+      'Elegant in movement and potent in touch, she approaches pain and complex presentations with depth, intention and a clear understanding of what she is doing and why',
+    ],
+    bioPT: 'Baseada em Uberlândia, Minas Gerais, Laisa Nascimento traz uma trajetória avançada em terapia corporal para sua expressão da abordagem CherieThai.',
+    bioPTPoints: [
+      'Fundadora do Spa Emório, sua própria clínica de terapia corporal em Uberlândia',
+      'Seu trabalho é meticuloso, firme e profundamente terapêutico, com uma capacidade particular de entrar nos detalhes dos tecidos e compreender o que cada corpo necessita',
+      'Dedica o tempo necessário para compreender plenamente um movimento, mas, uma vez integrado, sua execução se torna extremamente segura, fluida e eficaz',
+      'Durante a formação, Laisa também demonstrou confiança para desenvolver variações intencionais das técnicas a partir dos princípios que havia aprendido, revelando uma inteligência terapêutica forte e independente',
+      'Elegante no movimento e potente no toque, aborda a dor e demandas complexas com profundidade, intenção e uma compreensão clara do que está fazendo e por quê',
+    ],
+    youtubeId: 'BF_AYQQ85wc',
+    coordinates: [-48.277, -18.918], // Uberlândia, Minas Gerais
+    instagram: 'laisa_massoterapeuta_',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
