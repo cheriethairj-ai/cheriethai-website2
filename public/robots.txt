@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cheriethai.com.br/sitemap.xml
