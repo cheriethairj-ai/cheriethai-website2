@@ -1047,6 +1047,29 @@ export const students: Student[] = [
     coordinates: [-48.277, -18.918], // Uberlândia, Minas Gerais
     instagram: 'lucianorespira',
   },
+  {
+    id: 'amandaagni',
+    name: 'Amanda Agni',
+    city: 'Juquehy',
+    country: 'Brasil',
+    descriptors: ['Grounded', 'Graceful', 'Powerful'],
+    descriptorsPT: ['Ancorada', 'Graciosa', 'Potente'],
+    bio: 'Amanda brings a deeply grounded and instinctive quality to her expression of the CherieThai Method.',
+    bioPoints: [
+      'A practicing body therapist with a strong connection to movement, she combines graceful stretching and elegant Thai techniques with remarkably firm and effective manual work',
+      'Her treatments are particularly suited to active and athletic bodies, where her natural strength allows her to work with considerable depth while maintaining fluidity and control',
+      'Throughout her training, she developed a strikingly natural understanding of the CherieThai approach, expressing its movements with confidence while allowing her own vibrant character and connection to the body to remain unmistakably present',
+    ],
+    bioPT: 'Amanda traz uma qualidade profundamente ancorada e instintiva à sua expressão do Método CherieThai.',
+    bioPTPoints: [
+      'Terapeuta corporal, com uma forte relação com o movimento, combina alongamentos graciosos e técnicas tailandesas elegantes com um trabalho manual firme e extremamente potente',
+      'Seus atendimentos se destacam especialmente em corpos ativos e atléticos, nos quais sua força natural permite trabalhar com profundidade sem perder fluidez e controle',
+      'Ao longo da formação, desenvolveu uma compreensão muito natural da abordagem CherieThai, incorporando seus movimentos com segurança sem perder a própria identidade, presença e conexão com o corpo',
+    ],
+    youtubeId: '5Pb-qgRcj0I',
+    coordinates: [-45.155, -23.793], // Juquehy, Litoral Norte, São Paulo
+    instagram: 'terapeuta_agni',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
