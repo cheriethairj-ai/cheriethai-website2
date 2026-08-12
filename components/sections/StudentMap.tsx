@@ -36,16 +36,18 @@ function groupByCity(list: Student[]): CityGroup[] {
   return Object.values(map)
 }
 
-// Build secondary-location groups (e.g. Brazilian students with a city2 abroad)
-function getSecondaryGroups(all: Student[]): CityGroup[] {
+// Build secondary-location groups filtered by view
+function getSecondaryGroups(all: Student[], view: 'brazil' | 'world'): CityGroup[] {
   const map: Record<string, CityGroup> = {}
   for (const s of all) {
-    if (s.coordinates2 && s.city2 && s.country2) {
-      if (!map[s.city2]) {
-        map[s.city2] = { city: s.city2, country: s.country2, coordinates: s.coordinates2, students: [] }
-      }
-      map[s.city2].students.push(s)
+    if (!s.coordinates2 || !s.city2 || !s.country2) continue
+    const isBrazil2 = s.country2 === 'Brasil' || s.country2 === 'Brazil'
+    if (view === 'brazil' && !isBrazil2) continue
+    if (view === 'world' && isBrazil2) continue
+    if (!map[s.city2]) {
+      map[s.city2] = { city: s.city2, country: s.country2, coordinates: s.coordinates2, students: [] }
     }
+    map[s.city2].students.push(s)
   }
   return Object.values(map)
 }
@@ -71,9 +73,9 @@ export default function StudentMap() {
   const visibleStudents = view === 'brazil' ? brazilStudents : worldStudents
   const cityGroups = groupByCity(visibleStudents)
 
-  // Secondary pins: e.g. Anna in Hungary shown on world map
-  const secondaryGroups = view === 'world' ? getSecondaryGroups(students) : []
-  const allWorldGroups = [...cityGroups, ...secondaryGroups]
+  // Secondary pins: e.g. Yuri in SP on Brazil map, Anna in Hungary on world map
+  const secondaryGroups = getSecondaryGroups(students, view)
+  const allGroups = [...cityGroups, ...secondaryGroups]
 
   // Close dropdown when clicking elsewhere
   useEffect(() => {
@@ -184,7 +186,7 @@ export default function StudentMap() {
             </Geographies>
 
             {/* City pins */}
-            {(view === 'world' ? allWorldGroups : cityGroups).map((group) => {
+            {allGroups.map((group) => {
               const isMulti = group.students.length > 1
               return (
                 <Marker key={group.city} coordinates={group.coordinates}>

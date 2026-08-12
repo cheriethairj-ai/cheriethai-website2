@@ -841,6 +841,9 @@ export const students: Student[] = [
     ],
     youtubeId: 'cUrBv8NLx1I',
     coordinates: [-39.197, -16.998], // Caraíva, Bahia
+    coordinates2: [-46.633, -23.550], // São Paulo
+    city2: 'São Paulo',
+    country2: 'Brasil',
     instagram: 'yurimussury',
   },
   {
