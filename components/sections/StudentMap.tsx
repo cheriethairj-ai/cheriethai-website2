@@ -36,6 +36,20 @@ function groupByCity(list: Student[]): CityGroup[] {
   return Object.values(map)
 }
 
+// Build secondary-location groups (e.g. Brazilian students with a city2 abroad)
+function getSecondaryGroups(all: Student[]): CityGroup[] {
+  const map: Record<string, CityGroup> = {}
+  for (const s of all) {
+    if (s.coordinates2 && s.city2 && s.country2) {
+      if (!map[s.city2]) {
+        map[s.city2] = { city: s.city2, country: s.country2, coordinates: s.coordinates2, students: [] }
+      }
+      map[s.city2].students.push(s)
+    }
+  }
+  return Object.values(map)
+}
+
 // ─── Dropdown ──────────────────────────────────────────────────────────────────
 
 type DropdownState = { group: CityGroup; x: number; y: number } | null
@@ -56,6 +70,10 @@ export default function StudentMap() {
   const worldStudents  = students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
   const visibleStudents = view === 'brazil' ? brazilStudents : worldStudents
   const cityGroups = groupByCity(visibleStudents)
+
+  // Secondary pins: e.g. Anna in Hungary shown on world map
+  const secondaryGroups = view === 'world' ? getSecondaryGroups(students) : []
+  const allWorldGroups = [...cityGroups, ...secondaryGroups]
 
   // Close dropdown when clicking elsewhere
   useEffect(() => {
@@ -166,7 +184,7 @@ export default function StudentMap() {
             </Geographies>
 
             {/* City pins */}
-            {cityGroups.map((group) => {
+            {(view === 'world' ? allWorldGroups : cityGroups).map((group) => {
               const isMulti = group.students.length > 1
               return (
                 <Marker key={group.city} coordinates={group.coordinates}>

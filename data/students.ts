@@ -17,6 +17,9 @@ export type Student = {
   photo?: string           // filename in /public/students/ e.g. 'ricardo.jpg'
   youtubeId: string
   coordinates: [number, number] // [longitude, latitude]
+  coordinates2?: [number, number] // second location pin (e.g. country of origin)
+  city2?: string
+  country2?: string
   instagram?: string
 }
 
@@ -239,6 +242,9 @@ export const students: Student[] = [
     ],
     youtubeId: 'ozB2VCdcJlA',
     coordinates: [-41.389, -12.561], // Lençóis, Chapada Diamantina, Bahia
+    coordinates2: [19.040, 47.498], // Budapest, Hungary
+    city2: 'Budapest',
+    country2: 'Hungary',
     instagram: 'terapiasarte',
   },
   {
