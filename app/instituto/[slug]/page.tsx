@@ -28,6 +28,8 @@ export default function StudentProfilePage({
   const bioPoints   = lang === 'PT' && student.bioPTPoints   ? student.bioPTPoints   : student.bioPoints
   const descriptors = lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors
 
+  const hasPhoto = !!student.photo
+
   return (
     <>
       <CustomCursor />
@@ -111,13 +113,16 @@ export default function StudentProfilePage({
           style={{ paddingTop: 'clamp(2.5rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
         >
           <div
-            className="mx-auto grid grid-cols-1 md:grid-cols-2 items-start"
-            style={{ maxWidth: '1080px', gap: 'clamp(3rem, 8vw, 8rem)' }}
+            className={`mx-auto ${hasPhoto ? 'grid grid-cols-1 md:grid-cols-2' : 'flex flex-col'} items-start`}
+            style={{
+              maxWidth: hasPhoto ? '1080px' : '720px',
+              gap: hasPhoto ? 'clamp(3rem, 8vw, 8rem)' : undefined,
+            }}
           >
 
-            {/* Left — portrait photo */}
-            <motion.div {...fadeUp(0.18)} className="w-full">
-              {student.photo ? (
+            {/* Left — portrait photo (only when available) */}
+            {hasPhoto && (
+              <motion.div {...fadeUp(0.18)} className="w-full">
                 <div className="relative w-full" style={{ aspectRatio: '3/4' }}>
                   <Image
                     src={`/students/${student.photo}`}
@@ -127,27 +132,11 @@ export default function StudentProfilePage({
                     style={{ objectFit: 'cover', objectPosition: 'center top' }}
                   />
                 </div>
-              ) : (
-                <div
-                  className="w-full flex items-center justify-center"
-                  style={{
-                    aspectRatio: '3/4',
-                    background: 'rgba(61,74,64,0.10)',
-                    border: '1px solid rgba(220,201,160,0.05)',
-                  }}
-                >
-                  <p
-                    className="label-text text-sage/12"
-                    style={{ fontSize: '0.48rem', letterSpacing: '0.22em' }}
-                  >
-                    FOTO EM BREVE
-                  </p>
-                </div>
-              )}
-            </motion.div>
+              </motion.div>
+            )}
 
-            {/* Right — text content */}
-            <div className="flex flex-col" style={{ paddingTop: 'clamp(0rem, 3vw, 2rem)' }}>
+            {/* Text content */}
+            <div className="flex flex-col" style={{ paddingTop: hasPhoto ? 'clamp(0rem, 3vw, 2rem)' : 0 }}>
 
               {/* Descriptors — inline, dot-separated */}
               {descriptors && (
@@ -218,54 +207,37 @@ export default function StudentProfilePage({
                 style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
               />
 
-              {/* Biography */}
+              {/* Biography — flowing prose */}
               <motion.div
                 {...fadeUp(0.43)}
-                style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)', maxWidth: '52ch' }}
+                style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}
               >
-                {/* Opening sentence */}
                 {bio && (
                   <p
-                    className="body-text text-sand/65"
+                    className="body-text text-sand/70"
                     style={{
-                      fontSize: 'clamp(0.9rem, 1.45vw, 1rem)',
-                      lineHeight: 1.85,
-                      marginBottom: bioPoints ? '1.75rem' : 0,
+                      fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)',
+                      lineHeight: 1.9,
+                      marginBottom: bioPoints && bioPoints.length > 0 ? '1.5rem' : 0,
                     }}
                   >
                     {bio}
                   </p>
                 )}
 
-                {/* Bullet points */}
-                {bioPoints && (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {bioPoints.map((point, i) => (
-                      <li
-                        key={i}
-                        className="body-text text-sand/50 flex items-start gap-3"
-                        style={{
-                          fontSize: 'clamp(0.825rem, 1.3vw, 0.9rem)',
-                          lineHeight: 1.75,
-                          paddingTop: '0.6rem',
-                          paddingBottom: '0.6rem',
-                          borderBottom: i < bioPoints.length - 1
-                            ? '1px solid rgba(220,201,160,0.06)'
-                            : 'none',
-                        }}
-                      >
-                        <span
-                          className="text-sage/30 shrink-0"
-                          style={{ marginTop: '0.35em', fontSize: '0.4rem' }}
-                          aria-hidden
-                        >
-                          ◆
-                        </span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {bioPoints && bioPoints.map((point, i) => (
+                  <p
+                    key={i}
+                    className="body-text text-sand/58"
+                    style={{
+                      fontSize: 'clamp(0.9rem, 1.4vw, 1rem)',
+                      lineHeight: 1.9,
+                      marginBottom: i < bioPoints.length - 1 ? '1.1rem' : 0,
+                    }}
+                  >
+                    {point}
+                  </p>
+                ))}
               </motion.div>
 
               {/* Actions — hidden for non-practicing graduates */}
