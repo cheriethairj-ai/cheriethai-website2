@@ -94,7 +94,6 @@ function LondonHero() {
       className="relative flex items-end overflow-hidden noise-overlay"
       style={{ minHeight: '100svh' }}
     >
-      {/* Background */}
       <div className="absolute inset-0" style={{ backgroundColor: '#1A1F1B' }}>
         <Image
           src="/london-hero-2.jpg"
@@ -107,7 +106,6 @@ function LondonHero() {
         />
       </div>
 
-      {/* Overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -126,7 +124,6 @@ function LondonHero() {
         style={{ background: 'linear-gradient(to right, rgba(26,31,27,0.65) 0%, transparent 70%)' }}
       />
 
-      {/* Superlabel */}
       <motion.p
         {...fadeUp(0.5)}
         className="absolute z-10 label-text text-sage/50"
@@ -140,7 +137,6 @@ function LondonHero() {
         CHERIETHAI · LONDON FOUNDER RESIDENCY
       </motion.p>
 
-      {/* Text content */}
       <motion.div
         style={{ y: textY, opacity }}
         className="relative z-10 w-full px-6 md:px-12 lg:px-16 pb-12 md:pb-16 lg:pb-20"
@@ -162,8 +158,8 @@ function LondonHero() {
           className="body-text text-sand/65 max-w-sm md:max-w-md mb-8 md:mb-10"
           style={{ fontSize: 'clamp(0.85rem, 1.6vw, 0.975rem)' }}
         >
-          Chérie will be bringing CherieThai to London for a limited residency,
-          with a small number of private appointments available during her stay.
+          For a limited period, CherieThai will be available in London through
+          a small number of private founder appointments.
         </motion.p>
 
         <motion.div
@@ -178,7 +174,7 @@ function LondonHero() {
             <span aria-hidden>→</span>
           </button>
           <button
-            onClick={() => scrollTo('the-approach')}
+            onClick={() => scrollTo('what-is-cheriethai')}
             className="btn-ghost text-sand/45 border-sand/15 justify-between sm:justify-start"
           >
             <span>About the work</span>
@@ -187,7 +183,6 @@ function LondonHero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         {...fadeUp(1.6)}
         className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3"
@@ -206,17 +201,97 @@ function LondonHero() {
   )
 }
 
+// ─── Intro Bridge ──────────────────────────────────────────────────────────────
+
+function IntroBridge() {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <section
+      id="what-is-cheriethai"
+      className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-b border-sand/8"
+      style={{ background: '#111614' }}
+    >
+      <div className="max-w-2xl">
+        <motion.p
+          {...revealInView(0)}
+          className="label-text text-sage/30 mb-8"
+          style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
+        >
+          A CONTEMPORARY EVOLUTION OF THAI BODYWORK
+        </motion.p>
+
+        <motion.div
+          {...revealInView(0.08)}
+          className="body-text text-sand/55 space-y-5 leading-loose"
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}
+        >
+          <p>
+            CherieThai is an approach to therapeutic Thai bodywork developed through
+            years of practice, study and teaching across Thailand, the United Kingdom
+            and Brazil. Its foundation remains distinctly Thai, while the way the work
+            is interpreted has evolved through anatomy, biomechanics, modern manual
+            therapy and a detailed understanding of movement.
+          </p>
+          <p>
+            A session can move between stillness and movement, advanced deep tissue work
+            and assisted mobility, traditional Thai pressure and{' '}
+            <strong className="text-sand/75 font-normal">complex assisted stretching
+            designed to create highly specific muscular and joint emphasis</strong>.
+            These positions allow individual structures and ranges of movement to be
+            explored with a level of precision that is difficult to achieve through
+            conventional stretching alone.
+          </p>
+          <p>
+            Positions connect rather than functioning as isolated techniques, creating a
+            treatment that can be highly technical while retaining the rhythm, physicality
+            and continuity characteristic of Thai bodywork.
+          </p>
+          <p>
+            There is no standard sequence. The treatment develops according to the
+            individual body, what can be observed and felt through touch, and how that
+            body responds as the session progresses.
+          </p>
+          <p>
+            CherieThai can be particularly relevant for persistent muscular tension,
+            restricted mobility, physical overload, recurring areas of stiffness and
+            bodies that require more detailed work than conventional massage. It is equally
+            used by people who value movement, mobility and technically sophisticated
+            bodywork as part of how they maintain their bodies.
+          </p>
+        </motion.div>
+
+        <motion.div {...revealInView(0.2)} className="mt-10">
+          <button
+            onClick={() => scrollTo('london-waitlist')}
+            className="btn-ghost text-sand/60 border-sand/20 justify-between sm:justify-start"
+            style={{ cursor: 'none' }}
+          >
+            <span>Join the London priority list</span>
+            <span aria-hidden>→</span>
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 // ─── Section Index ─────────────────────────────────────────────────────────────
 
 const indexItems = [
   { label: 'The CherieThai approach', id: 'the-approach', num: '01' },
-  { label: 'Looking beyond the area', id: 'beyond-the-area', num: '02' },
+  { label: 'More than the site of discomfort', id: 'more-than-the-site', num: '02' },
   { label: 'Within the details', id: 'within-the-details', num: '03' },
-  { label: 'Who comes to CherieThai?', id: 'who-comes', num: '04' },
-  { label: 'A session with Chérie', id: 'a-session', num: '05' },
-  { label: 'About Chérie', id: 'about-cherie', num: '06' },
-  { label: 'CherieThai in London', id: 'london-residency', num: '07' },
-  { label: 'Priority waiting list', id: 'london-waitlist', num: '08' },
+  { label: 'Movement as part of the treatment', id: 'movement', num: '04' },
+  { label: 'Depth without aggression', id: 'depth-without-aggression', num: '05' },
+  { label: 'Who comes to CherieThai?', id: 'who-comes', num: '06' },
+  { label: 'A CherieThai session', id: 'a-session', num: '07' },
+  { label: 'About Chérie', id: 'about-cherie', num: '08' },
+  { label: 'CherieThai in London', id: 'london-residency', num: '09' },
+  { label: 'Priority waiting list', id: 'london-waitlist', num: '10' },
 ]
 
 function SectionIndex() {
@@ -240,7 +315,7 @@ function SectionIndex() {
           {indexItems.map((item, i) => (
             <motion.button
               key={item.id}
-              {...revealInView(i * 0.06)}
+              {...revealInView(i * 0.05)}
               onClick={() => scrollTo(item.id)}
               className="group flex items-start gap-6 py-5 md:py-6 border-b border-sand/8 text-left hover:bg-sand/[0.02] transition-colors duration-300 px-0 md:pr-8"
               style={{ cursor: 'none' }}
@@ -426,7 +501,7 @@ function ResidencySection() {
             className="label-text text-sage/30 mb-10"
             style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
           >
-            07 · CHERIETHAI IN LONDON
+            09 · CHERIETHAI IN LONDON
           </motion.p>
 
           <motion.h2
@@ -444,18 +519,19 @@ function ResidencySection() {
             style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}
           >
             <p>
-              Chérie will be in London for approximately three weeks and will accept a
-              limited number of private clients during this period.
+              CherieThai will be available in London for an approximately three-week
+              founder residency, with a limited number of private appointments.
             </p>
             <p>
-              This first London residency is an opportunity to work directly with the
-              founder of CherieThai before the brand develops a permanent presence in
-              the city. Availability will intentionally remain limited so that Chérie
-              can maintain the length and individual nature of each appointment.
+              This first residency offers the opportunity to work directly with its
+              founder as CherieThai begins establishing a presence in the UK.
+              Availability will intentionally remain limited to preserve the length,
+              detail and individual nature of each treatment.
             </p>
             <p>
-              People on the London priority list will receive the dates and booking
-              access first. Any remaining appointments will then be released publicly.
+              The London priority list will receive booking access before appointments
+              are released publicly. Joining the list does not require payment or commit
+              you to booking; it simply provides first access when the London diary opens.
             </p>
           </motion.div>
         </div>
@@ -502,7 +578,6 @@ function ResidencySection() {
           ))}
         </div>
 
-        {/* CTA */}
         <motion.div {...revealInView(0.2)} className="mt-16 md:mt-20">
           <button
             onClick={() => scrollTo('london-waitlist')}
@@ -590,7 +665,7 @@ function WaitlistForm() {
           className="label-text text-sage/30 mb-8"
           style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
         >
-          08 · PRIORITY WAITING LIST
+          10 · PRIORITY WAITING LIST
         </motion.p>
 
         <motion.h2
@@ -640,7 +715,6 @@ function WaitlistForm() {
               noValidate
               className="space-y-0"
             >
-              {/* Name row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-sand/10 py-6">
                 <div>
                   <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
@@ -680,7 +754,6 @@ function WaitlistForm() {
                 </div>
               </div>
 
-              {/* Email */}
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
                   EMAIL
@@ -700,7 +773,6 @@ function WaitlistForm() {
                 )}
               </div>
 
-              {/* London area */}
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
                   LONDON AREA / POSTCODE
@@ -719,7 +791,6 @@ function WaitlistForm() {
                 )}
               </div>
 
-              {/* Primary interest */}
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-5" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
                   PRIMARY INTEREST
@@ -751,7 +822,6 @@ function WaitlistForm() {
                 )}
               </div>
 
-              {/* Optional message */}
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
                   OPTIONAL MESSAGE
@@ -770,7 +840,6 @@ function WaitlistForm() {
                 />
               </div>
 
-              {/* Submit */}
               <div className="border-t border-sand/10 pt-8 pb-2">
                 {formState === 'error' && (
                   <p className="label-text text-earth/70 mb-4" style={{ fontSize: '0.52rem', letterSpacing: '0.15em' }}>
@@ -868,6 +937,7 @@ export default function LondonPage() {
       <main style={{ background: '#111614' }}>
         <LondonNav />
         <LondonHero />
+        <IntroBridge />
         <SectionIndex />
 
         {/* 01 — The CherieThai Approach */}
@@ -879,70 +949,73 @@ export default function LondonPage() {
           body={
             <>
               <p>
-                CherieThai is an approach to therapeutic Thai bodywork developed by Chérie
-                through years of practice, study and teaching across Thailand, the United
-                Kingdom and Brazil. Rooted in traditional Thai bodywork, it incorporates
-                anatomy, biomechanics, modern manual therapy, tissue work, joint mobilisation
-                and therapeutic movement to create treatments that are highly individual
-                rather than based on a standard sequence.
+                CherieThai sits between the traditional language of Thai bodywork and
+                a contemporary understanding of the body.
               </p>
               <p>
-                The work is designed for bodies that require more than a conventional massage.
-                This may include persistent muscular tension, restricted mobility, physical
-                overload from training or work, recurring areas of stiffness, or patterns
-                that continue to return despite repeatedly working on the same area.
+                Traditional Thai techniques remain an important foundation: pressure,
+                compression, assisted stretching, rhythmic movement and the use of the
+                practitioner's own body as part of the treatment. These are combined with
+                advanced deep tissue work, joint mobilisation, therapeutic mobility and
+                original movement sequences, many of which extend considerably beyond the
+                stretches commonly associated with conventional Thai massage.
               </p>
               <p>
-                A CherieThai session does not begin with a predetermined sequence of
-                techniques. Chérie observes how the body moves, where mobility appears
-                reduced, how tension is distributed and which areas may be contributing
-                to the pattern being experienced. The treatment develops from what is
-                found during the session.
+                Movement is central to the approach. Rather than repeatedly stopping and
+                repositioning the body, one position can develop into another. A stretch
+                may become a mobilisation; a mobilisation may create access to deeper
+                tissue; pressure may be maintained while a joint moves through a range.
+                The treatment develops continuously rather than as a collection of
+                separate techniques.
               </p>
               <p>
-                Relaxation is often part of the response to the work, but it is not
-                necessarily the primary objective. The focus is on creating a treatment
-                that makes sense for the individual body.
+                This creates an opportunity to understand the body through movement as
+                well as touch. Range, resistance, tension, breathing and tissue response
+                provide information throughout the session and influence what happens next.
+              </p>
+              <p>
+                CherieThai is neither traditional Thai massage reproduced exactly as it
+                has always been practised nor Western manual therapy presented under a
+                Thai name. It has developed from the meeting point between traditional
+                Thai practice, movement and contemporary anatomical understanding while
+                maintaining a recognisably Thai foundation.
               </p>
             </>
           }
         />
 
-        {/* 02 — Looking Beyond the Area of Tension */}
+        {/* 02 — More Than the Site of Discomfort */}
         <ProseSection
-          id="beyond-the-area"
+          id="more-than-the-site"
           num="02"
-          title="Looking beyond the area of tension."
+          title="More than the site of discomfort."
           body={
             <>
               <p>
-                Where someone feels tension is important, but it is not the only
-                information considered.
+                Pain and tension are important information, but they do not have to
+                determine the boundaries of a treatment.
               </p>
               <p>
-                A painful or restricted area does not necessarily exist in isolation.
-                The way we move is influenced by multiple structures working together,
-                and when one area becomes limited, other areas may begin contributing
-                differently to maintain movement.
+                The area being felt is considered alongside the way the body moves
+                around it. Sometimes concentrated tissue work is appropriate. At other
+                times, changing the position of a joint, introducing movement, following
+                a traditional Thai line or moving into an assisted stretch can completely
+                alter what becomes accessible.
               </p>
               <p>
-                A person experiencing persistent shoulder tension, for example, may
-                also have restrictions through the thoracic spine, chest or neck that
-                influence how the shoulder is moving. Hip restriction can change how
-                load is distributed through the pelvis and lower body. Long periods of
-                sitting, repetitive movement, training and previous injuries can all
-                influence the strategies a body develops over time.
+                The Thai foundation creates an unusually broad vocabulary for doing this.
+                The body can be supported, folded, lengthened, compressed and rotated,
+                allowing the same region to be approached from different positions and
+                directions. Hands, forearms, elbows, knees, feet and body weight can all
+                become part of the work where appropriate, creating forms of leverage that
+                are difficult to reproduce through conventional table massage alone.
               </p>
               <p>
-                This does not mean that every symptom has a hidden cause somewhere else.
-                It means that the body is assessed more broadly before deciding where
-                attention is most useful.
-              </p>
-              <p>
-                During a session, Chérie may therefore work directly on the area that
-                feels restricted while also addressing surrounding or related structures.
-                The intention is not to chase individual points of tension, but to
-                understand them within a larger mechanical picture.
+                Rather than searching for one theoretical cause behind every area of
+                discomfort, the approach creates multiple ways of exploring and working
+                with what is present. The treatment can move from a very local area into
+                a much larger movement and then return to that area from an entirely
+                different position, direction or depth.
               </p>
             </>
           }
@@ -958,172 +1031,256 @@ export default function LondonPage() {
           body={
             <>
               <p>
-                CherieThai is built around the idea that the quality of bodywork often
-                lies in details that can easily be overlooked.
+                The closer the work becomes, the more detail becomes available.
               </p>
               <p>
-                The angle of pressure, direction of force, position of a joint, amount
-                of leverage and the way the practitioner's own body weight is transferred
-                can significantly change how a technique feels and how much force is
-                required. Two techniques that appear almost identical can therefore
-                produce very different results.
+                A broad area of tension can contain much smaller variations in texture,
+                density and resistance. Within muscle and connective tissue, narrow bands
+                of tension, minute areas of density and subtle changes in tissue direction
+                can often be distinguished through careful palpation. Instead of approaching
+                an entire muscle or region as though every part of it were the same, the
+                work can progressively become more specific.
               </p>
               <p>
-                The same attention is given to transitions. Rather than treating
-                stretching, pressure, mobilisation and tissue work as separate events,
-                they can be connected so that information gained from one part of the
-                treatment influences what happens next.
+                This is{' '}
+                <strong className="text-sand/75 font-normal">detail within detail</strong>:
+                moving from the whole body, to a region, to a layer of tissue, and then
+                into the smaller variations that exist within it.
               </p>
               <p>
-                This is also why CherieThai does not rely on a catalogue of increasingly
-                complicated techniques. Precision in a relatively simple movement can
-                often be more valuable than complexity for its own sake.
+                At this scale, greater force is rarely the answer. Precision becomes more
+                important. A small change in the direction of pressure, the angle of a
+                joint, the position of the body or the placement of a hand can change what
+                becomes accessible beneath it.
+              </p>
+              <p>
+                The same principle exists within stretching. A stretch is not simply taken
+                further. Small adjustments in rotation, support, leverage, breathing and
+                direction can shift the emphasis considerably, revealing different sensations
+                and ranges within what externally appears to be the same position.
+              </p>
+              <p>
+                This creates one of the central contrasts within CherieThai:{' '}
+                <strong className="text-sand/75 font-normal">minute attention to tissue
+                alongside expansive movement of the whole body</strong>. A session can move
+                from working within a very small area of density into a large assisted
+                movement involving several regions, and then return to precise tissue work
+                with new information.
+              </p>
+              <p>
+                The details are not separate from the whole. They continually inform
+                one another.
               </p>
             </>
           }
         />
 
-        {/* 04 — Depth Without Aggression */}
+        {/* 04 — Movement as Part of the Treatment */}
+        <ProseSection
+          id="movement"
+          num="04"
+          title="Movement as part of the treatment."
+          body={
+            <>
+              <p>
+                Movement in CherieThai is not something added at the end of a massage.
+                It is one of the principal ways the work is delivered.
+              </p>
+              <p>
+                The approach contains a broad vocabulary of assisted stretches, rotations,
+                joint movements and transitions. Some originate directly from traditional
+                Thai bodywork, while others have evolved into more complex forms of
+                positioning designed to work with specific muscles, joints and ranges
+                of movement.
+              </p>
+              <p>
+                Rather than stretching an entire region as one unit, subtle changes in
+                rotation, leverage, support and joint position can shift the emphasis
+                considerably. A position may place greater emphasis on a particular
+                muscular line, explore a specific joint movement or allow an area to be
+                approached from an angle that conventional stretching rarely reaches.
+              </p>
+              <p>
+                At times, these positions may look unfamiliar even to someone who regularly
+                receives Thai massage. Their complexity is not used for spectacle. Each
+                position has a mechanical purpose, and the body is not taken further simply
+                for the sake of creating a deeper or more impressive stretch.
+              </p>
+              <p>
+                Breathing also becomes part of these movements. A position can be held or
+                subtly adjusted through several respiratory cycles, allowing movement through
+                the ribs, trunk and surrounding structures to become part of how the stretch
+                develops. At other times, larger movements can be used to encourage expansion
+                through areas that have become rigid or guarded.
+              </p>
+              <p>
+                The result is a treatment capable of moving between highly concentrated work
+                on a very small area and large, three-dimensional movement involving several
+                parts of the body simultaneously.
+              </p>
+              <p>
+                It is this contrast between{' '}
+                <strong className="text-sand/75 font-normal">precision and expansion</strong>{' '}
+                that gives CherieThai much of its character.
+              </p>
+            </>
+          }
+        />
+
+        {/* 05 — Depth Without Aggression */}
         <ProseSection
           id="depth-without-aggression"
-          num="04"
+          num="05"
           title="Depth without aggression."
           body={
             <>
               <p>
-                Deep work is frequently associated with stronger pressure, but these
-                are not necessarily the same thing.
+                Deep work does not require the practitioner to overpower the body.
               </p>
               <p>
-                Working effectively with deeper or heavily loaded tissues requires
-                appropriate positioning, patience and an understanding of how force
-                is transferred through the practitioner's body. Increasing pressure
-                without considering these factors can simply cause the body to resist.
+                Traditional Thai bodywork already offers a sophisticated vocabulary of
+                leverage, body weight, positioning and compression. CherieThai develops
+                these principles further, using the practitioner's entire body to control
+                direction and depth rather than relying predominantly on muscular force.
               </p>
               <p>
-                CherieThai uses leverage, body weight, movement and positioning to
-                access tissue with greater control. Pressure may be substantial when
-                appropriate, but it should have a reason.
+                Pressure can be substantial when appropriate, particularly when working
+                with dense or heavily loaded tissue, but intensity alone is never the
+                objective. The question is not simply how much pressure can be applied,
+                but where it is directed, how the body is positioned to receive it and
+                what happens in response.
               </p>
               <p>
-                This principle is particularly important when working with people who
-                train heavily or carry significant muscular tension. A strong body does
-                not automatically require an aggressive treatment.
+                This allows the work to move between strength and subtlety. A session may
+                contain powerful assisted movements and deep compression alongside extremely
+                small, precise tissue work. Neither is considered inherently more effective
+                than the other; the value lies in knowing when each is appropriate.
               </p>
             </>
           }
         />
 
-        {/* 05 — Who Comes to CherieThai? */}
+        {/* 06 — Who Comes to CherieThai? */}
         <TextSection
           id="who-comes"
-          num="05"
+          num="06"
           title="Who comes to CherieThai?"
           imageSlot="PHOTO PLACEHOLDER — CLIENT / SETTING"
           body={
             <>
               <p>
-                CherieThai works with a wide range of bodies. Some clients come because
-                they experience persistent muscular tension or recurring stiffness. Others
-                notice that their mobility has reduced, train frequently and feel physically
-                overloaded, spend many hours sitting, or simply want bodywork that is more
-                detailed and individualised than a conventional massage.
+                CherieThai works with very different bodies, and there does not need to
+                be a specific injury or complaint to book a session.
               </p>
               <p>
-                Sessions may be particularly suited to people experiencing muscular
-                rigidity, restricted movement, training-related tension, repetitive
-                physical demands or areas that repeatedly feel overloaded.
+                Some clients come with persistent muscular tension, recurring stiffness
+                or restrictions they notice during training or everyday movement. Others
+                place significant physical demands on their bodies through sport, strength
+                training, dance or work. Some simply find conventional massage too general
+                and are looking for a practitioner who works with greater specificity and
+                a much broader vocabulary of movement.
               </p>
               <p>
-                It is equally possible to come without a specific complaint. Some clients
-                use the work as part of how they maintain mobility, understand their bodies
-                and manage the physical demands of training, work and everyday life.
+                The approach can therefore sit somewhere between focused bodywork and
+                physical maintenance. A session may concentrate heavily on a particular
+                area or work more globally through mobility, tissue quality, breathing
+                and movement.
               </p>
               <p>
                 CherieThai does not replace medical assessment, physiotherapy or other
-                healthcare where these are required. When something falls outside the
-                appropriate scope of bodywork, clients should be referred to the relevant
-                healthcare professional.
+                healthcare when these are required and remains within the professional
+                scope of bodywork.
               </p>
             </>
           }
         />
 
-        {/* 06 — A Session with Chérie */}
+        {/* 07 — A CherieThai Session */}
         <TextSection
           id="a-session"
-          num="06"
-          title="A session with Chérie."
+          num="07"
+          title="A CherieThai session."
           imageSlot="PHOTO PLACEHOLDER — SESSION DETAIL"
           reverse
           body={
             <>
               <p>
-                No two sessions need to look the same because the treatment is not
-                organised around a fixed protocol.
+                Every session begins with a conversation about what the client is
+                experiencing, relevant history, physical activity and what they would
+                like from the appointment. From there, movement is observed and the
+                hands-on work begins.
               </p>
               <p>
-                A session begins with a brief conversation about what the client is
-                experiencing, relevant history and what they would like from the
-                appointment. Chérie then uses observation, movement and hands-on
-                assessment to decide how to approach the session.
+                There is no routine that has to be completed. A session may involve
+                lying, sitting, side-lying or moving through supported positions while
+                the practitioner works with hands, forearms, elbows, knees, feet and
+                body weight where appropriate. Traditional Thai pressure and compression
+                can sit alongside oil-based tissue work, joint mobilisation, complex
+                assisted stretching and original movement sequences.
               </p>
               <p>
-                The work can combine traditional Thai pressure techniques, compression,
-                deep tissue work, assisted stretching, joint mobilisation, therapeutic
-                mobility and changes in positioning. Some techniques are static and
-                precise; others use movement to work through a greater range. Pressure
-                and depth are adjusted continuously according to the tissue, the area
-                being worked on and the response of the individual.
+                The treatment changes as information emerges. An area that initially
+                appears to require deep pressure may respond differently once movement
+                or breathing is introduced. A stretch may reveal a smaller restriction
+                that then receives detailed tissue work before the body returns to movement.
               </p>
               <p>
-                The intention is not to use as many techniques as possible. It is to
-                choose and adapt them according to what is being found throughout
-                the appointment.
+                Observation, touch, movement and response continually influence one another
+                throughout the session. This is what allows each appointment to remain
+                individual rather than becoming a sequence that is reproduced from one
+                body to the next.
               </p>
             </>
           }
         />
 
-        {/* 07 — About Chérie */}
+        {/* 08 — About Chérie */}
         <TextSection
           id="about-cherie"
-          num="07"
+          num="08"
           title="About Chérie."
           imageSlot="PHOTO PLACEHOLDER — PORTRAIT CHÉRIE"
           body={
             <>
               <p>
-                Chérie is the founder of CherieThai and the practitioner and educator
-                responsible for developing the approach.
+                Chérie is the founder of CherieThai and the practitioner and international
+                educator responsible for developing the approach.
               </p>
               <p>
                 Born in Thailand and educated in the United Kingdom, she later established
-                her professional practice in Brazil. Her background in traditional Thai
-                bodywork has been developed alongside continued study of anatomy,
-                biomechanics, movement and modern approaches to manual therapy.
+                her professional practice in Brazil. Her understanding of Thai bodywork
+                began within the culture from which the practice originates and has
+                continued to develop through formal training, years of hands-on practice
+                and ongoing study of anatomy, biomechanics, movement and manual therapy.
               </p>
               <p>
-                Years of treating different bodies have shaped the way CherieThai is
-                practised today. Rather than separating traditional techniques from
-                contemporary knowledge of the body, Chérie's work examines how they
-                can inform one another while preserving the characteristics that make
-                Thai bodywork distinct.
+                Rather than moving away from traditional Thai practice as her anatomical
+                knowledge developed, her work became increasingly focused on examining the
+                two together: understanding traditional positions through biomechanics,
+                exploring how small changes in leverage alter a technique, and using
+                contemporary anatomical knowledge without removing the rhythm, creativity
+                and physical intelligence of Thai bodywork.
               </p>
               <p>
-                Alongside her practice, Chérie teaches practitioners internationally.
-                Her professional trainings focus not only on techniques but also on body
-                mechanics, therapeutic reasoning, transitions, positioning and the
-                practitioner's ability to adapt the work to different bodies.
+                Alongside her practice, she teaches practitioners internationally, with
+                education focused on technique, practitioner biomechanics, therapeutic
+                reasoning, movement, transitions and the ability to adapt bodywork rather
+                than reproduce fixed sequences.
+              </p>
+              <p>
+                She is currently undertaking{' '}
+                <strong className="text-sand/75 font-normal">undergraduate studies in
+                biomedical sciences</strong>, continuing a scientific education that
+                increasingly informs the development and understanding of the work.
               </p>
             </>
           }
         />
 
-        {/* 08 — CherieThai in London */}
+        {/* 09 — CherieThai in London */}
         <ResidencySection />
 
-        {/* 09 — Priority Waiting List */}
+        {/* 10 — Priority Waiting List */}
         <WaitlistForm />
 
         <LondonFooter />
