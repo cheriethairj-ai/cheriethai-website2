@@ -67,6 +67,7 @@ export default function StudentMap() {
     zoom: 3.2,
   })
   const [dropdown, setDropdown] = useState<DropdownState>(null)
+  const [search, setSearch] = useState('')
 
   const brazilStudents = students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
   const worldStudents  = students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
@@ -310,82 +311,137 @@ export default function StudentMap() {
       </div>
 
       {/* ── Student directory list ─────────────────────────────────────── */}
-      <StudentDirectory view={view} />
+      <StudentDirectory view={view} search={search} onSearchChange={setSearch} />
     </div>
   )
 }
 
 // ─── Student Directory (below map) ────────────────────────────────────────────
 
-function StudentDirectory({ view }: { view: 'brazil' | 'world' }) {
+function StudentDirectory({
+  view,
+  search,
+  onSearchChange,
+}: {
+  view: 'brazil' | 'world'
+  search: string
+  onSearchChange: (v: string) => void
+}) {
   const router = useRouter()
   const { lang } = useLanguage()
 
-  const visibleStudents = view === 'brazil'
-    ? students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
-    : students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
+  const query = search.trim().toLowerCase()
 
-  const cityGroups = groupByCity(visibleStudents)
+  // When searching: scan all students; otherwise filter by current view tab
+  const isSearching = query.length > 0
+  const baseStudents = isSearching
+    ? students
+    : view === 'brazil'
+      ? students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
+      : students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
 
-  if (visibleStudents.length === 0) return null
+  const filteredStudents = isSearching
+    ? baseStudents.filter(s => s.name.toLowerCase().includes(query))
+    : baseStudents
+
+  const cityGroups = groupByCity(filteredStudents)
 
   return (
     <div>
+      {/* ── Header row with title + search ── */}
       <div className="flex items-center gap-4 mb-8">
-        <p className="label-text text-sage/30" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
+        <p className="label-text text-sage/30 shrink-0" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
           {lang === 'EN' ? 'ALL GRADUATES' : 'TODOS OS FORMADOS'}
         </p>
         <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.06)' }} />
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
-        {cityGroups.map((group) => (
-          <div key={group.city} className="border-b border-sand/6 pb-6 mb-6 pr-0 sm:pr-8">
-            {/* City label */}
-            <p
-              className="label-text text-sage/30 mb-4"
-              style={{ fontSize: '0.46rem', letterSpacing: '0.24em' }}
+        {/* Search input */}
+        <div className="relative shrink-0">
+          <input
+            type="text"
+            value={search}
+            onChange={e => onSearchChange(e.target.value)}
+            placeholder={lang === 'EN' ? 'Search by name…' : 'Buscar por nome…'}
+            className="label-text bg-transparent outline-none placeholder-sage/20 text-ivory/60 focus:text-ivory/85 transition-colors duration-200"
+            style={{
+              fontSize: '0.48rem',
+              letterSpacing: '0.18em',
+              borderBottom: '1px solid rgba(220,201,160,0.12)',
+              paddingBottom: '3px',
+              width: '130px',
+              cursor: 'text',
+            }}
+          />
+          {search && (
+            <button
+              onClick={() => onSearchChange('')}
+              className="absolute right-0 top-0 text-sand/25 hover:text-sand/60 transition-colors duration-200"
+              style={{ fontSize: '0.6rem', cursor: 'none' }}
             >
-              {group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{group.country.toUpperCase()}
-            </p>
-
-            {/* Students in this city */}
-            <div className="flex flex-col gap-0">
-              {group.students.map((student) => (
-                <button
-                  key={student.id}
-                  onClick={() => router.push(`/instituto/${student.id}`)}
-                  className="group flex items-center justify-between py-3 border-b border-sand/5 last:border-b-0 text-left hover:bg-sand/[0.02] transition-colors duration-200"
-                  style={{ cursor: 'none' }}
-                >
-                  <div>
-                    <p
-                      className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
-                      style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', lineHeight: 1.1 }}
-                    >
-                      {student.name}
-                    </p>
-                    {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
-                      <p
-                        className="label-text text-sage/22 group-hover:text-sage/40 transition-colors duration-200 mt-1"
-                        style={{ fontSize: '0.42rem', letterSpacing: '0.15em' }}
-                      >
-                        {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
-                      </p>
-                    )}
-                  </div>
-                  <span
-                    className="text-sand/15 group-hover:text-sand/45 transition-colors duration-200 ml-4 shrink-0"
-                    style={{ fontSize: '0.7rem' }}
-                  >
-                    →
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
+              ✕
+            </button>
+          )}
+        </div>
       </div>
+
+      {/* No results */}
+      {isSearching && filteredStudents.length === 0 && (
+        <p className="label-text text-sage/25" style={{ fontSize: '0.48rem', letterSpacing: '0.2em' }}>
+          {lang === 'EN' ? 'NO RESULTS' : 'SEM RESULTADOS'}
+        </p>
+      )}
+
+      {/* Grouped by city */}
+      {(!isSearching || filteredStudents.length > 0) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
+          {cityGroups.map((group) => (
+            <div key={group.city} className="border-b border-sand/6 pb-6 mb-6 pr-0 sm:pr-8">
+              {/* City label */}
+              <p
+                className="label-text text-sage/30 mb-4"
+                style={{ fontSize: '0.46rem', letterSpacing: '0.24em' }}
+              >
+                {group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{group.country.toUpperCase()}
+              </p>
+
+              {/* Students in this city */}
+              <div className="flex flex-col gap-0">
+                {group.students.map((student) => (
+                  <button
+                    key={student.id}
+                    onClick={() => router.push(`/instituto/${student.id}`)}
+                    className="group flex items-center justify-between py-3 border-b border-sand/5 last:border-b-0 text-left hover:bg-sand/[0.02] transition-colors duration-200"
+                    style={{ cursor: 'none' }}
+                  >
+                    <div>
+                      <p
+                        className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
+                        style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', lineHeight: 1.1 }}
+                      >
+                        {student.name}
+                      </p>
+                      {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
+                        <p
+                          className="label-text text-sage/22 group-hover:text-sage/40 transition-colors duration-200 mt-1"
+                          style={{ fontSize: '0.42rem', letterSpacing: '0.15em' }}
+                        >
+                          {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
+                        </p>
+                      )}
+                    </div>
+                    <span
+                      className="text-sand/15 group-hover:text-sand/45 transition-colors duration-200 ml-4 shrink-0"
+                      style={{ fontSize: '0.7rem' }}
+                    >
+                      →
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

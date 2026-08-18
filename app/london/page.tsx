@@ -50,14 +50,11 @@ function LondonNav() {
       {...fadeIn(0.3)}
       className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12 lg:px-16 py-5 transition-all duration-500"
       style={{
-        background: scrolled
-          ? 'rgba(26,31,27,0.92)'
-          : 'transparent',
+        background: scrolled ? 'rgba(26,31,27,0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(220,201,160,0.06)' : '1px solid transparent',
       }}
     >
-      {/* Logo / wordmark */}
       <Link
         href="/"
         className="label-text text-sand/70 hover:text-sand transition-colors duration-300"
@@ -66,13 +63,12 @@ function LondonNav() {
         CHERIETHAI
       </Link>
 
-      {/* Right — waitlist button */}
       <button
         onClick={() => scrollTo('london-waitlist')}
         className="label-text text-sand/50 hover:text-sand/90 transition-colors duration-300 border border-sand/20 hover:border-sand/40 px-4 py-2"
         style={{ fontSize: '0.55rem', letterSpacing: '0.22em' }}
       >
-        JOIN THE WAITLIST
+        PRIORITY LIST
       </button>
     </motion.header>
   )
@@ -98,11 +94,11 @@ function LondonHero() {
       className="relative flex items-end overflow-hidden noise-overlay"
       style={{ minHeight: '100svh' }}
     >
-      {/* Background — London chapter hero photo */}
+      {/* Background */}
       <div className="absolute inset-0" style={{ backgroundColor: '#1A1F1B' }}>
         <Image
           src="/london-hero-2.jpg"
-          alt="CherieThai London — clinical Thai bodywork"
+          alt="CherieThai London — Thai bodywork"
           fill
           priority
           quality={92}
@@ -111,7 +107,7 @@ function LondonHero() {
         />
       </div>
 
-      {/* Atmospheric overlay */}
+      {/* Overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -125,8 +121,6 @@ function LondonHero() {
           `,
         }}
       />
-
-      {/* Left vignette */}
       <div
         className="absolute inset-0"
         style={{ background: 'linear-gradient(to right, rgba(26,31,27,0.65) 0%, transparent 70%)' }}
@@ -143,7 +137,7 @@ function LondonHero() {
           letterSpacing: '0.28em',
         }}
       >
-        CHERIETHAI · LONDON CHAPTER
+        CHERIETHAI · LONDON FOUNDER RESIDENCY
       </motion.p>
 
       {/* Text content */}
@@ -156,10 +150,10 @@ function LondonHero() {
           style={{ fontSize: 'clamp(3.2rem, 9vw, 8.5rem)' }}
         >
           <motion.span className="block" {...fadeUp(0.7)}>
-            A new chapter
+            CherieThai
           </motion.span>
           <motion.span className="block" {...fadeUp(0.9)}>
-            takes shape in London.
+            comes to London.
           </motion.span>
         </motion.h1>
 
@@ -168,10 +162,8 @@ function LondonHero() {
           className="body-text text-sand/65 max-w-sm md:max-w-md mb-8 md:mb-10"
           style={{ fontSize: 'clamp(0.85rem, 1.6vw, 0.975rem)' }}
         >
-          Rooted in Thai heritage and shaped by an enduring interest in movement,
-          structure and form, CherieThai has evolved through years of clinical
-          practice into an internationally taught approach to bodywork.
-          The next chapter now takes shape in London.
+          Chérie will be bringing CherieThai to London for a limited residency,
+          with a small number of private appointments available during her stay.
         </motion.p>
 
         <motion.div
@@ -182,16 +174,16 @@ function LondonHero() {
             onClick={() => scrollTo('london-waitlist')}
             className="btn-ghost text-ivory border-ivory/20 justify-between sm:justify-start"
           >
-            <span>Join the London Waitlist</span>
+            <span>Join the Priority List</span>
             <span aria-hidden>→</span>
           </button>
-          <Link
-            href="/"
+          <button
+            onClick={() => scrollTo('the-approach')}
             className="btn-ghost text-sand/45 border-sand/15 justify-between sm:justify-start"
           >
-            <span>Understand the work</span>
-            <span aria-hidden>↗</span>
-          </Link>
+            <span>About the work</span>
+            <span aria-hidden>↓</span>
+          </button>
         </motion.div>
       </motion.div>
 
@@ -217,10 +209,14 @@ function LondonHero() {
 // ─── Section Index ─────────────────────────────────────────────────────────────
 
 const indexItems = [
-  { label: 'What is CherieThai?', id: 'what-is-cheriethai', num: '01' },
-  { label: 'Within the details', id: 'within-the-details', num: '02' },
-  { label: 'The CherieThai approach', id: 'the-approach', num: '03' },
-  { label: 'London waitlist', id: 'london-waitlist', num: '04' },
+  { label: 'The CherieThai approach', id: 'the-approach', num: '01' },
+  { label: 'Looking beyond the area', id: 'beyond-the-area', num: '02' },
+  { label: 'Within the details', id: 'within-the-details', num: '03' },
+  { label: 'Who comes to CherieThai?', id: 'who-comes', num: '04' },
+  { label: 'A session with Chérie', id: 'a-session', num: '05' },
+  { label: 'About Chérie', id: 'about-cherie', num: '06' },
+  { label: 'CherieThai in London', id: 'london-residency', num: '07' },
+  { label: 'Priority waiting list', id: 'london-waitlist', num: '08' },
 ]
 
 function SectionIndex() {
@@ -244,7 +240,7 @@ function SectionIndex() {
           {indexItems.map((item, i) => (
             <motion.button
               key={item.id}
-              {...revealInView(i * 0.08)}
+              {...revealInView(i * 0.06)}
               onClick={() => scrollTo(item.id)}
               className="group flex items-start gap-6 py-5 md:py-6 border-b border-sand/8 text-left hover:bg-sand/[0.02] transition-colors duration-300 px-0 md:pr-8"
               style={{ cursor: 'none' }}
@@ -272,7 +268,7 @@ function SectionIndex() {
   )
 }
 
-// ─── Text Section (reusable) ────────────────────────────────────────────────────
+// ─── Text Section (two-column with image placeholder) ─────────────────────────
 
 function TextSection({
   id,
@@ -286,7 +282,7 @@ function TextSection({
   num: string
   title: string
   body: React.ReactNode
-  imageSlot?: string // placeholder label text
+  imageSlot?: string
   reverse?: boolean
 }) {
   return (
@@ -297,7 +293,6 @@ function TextSection({
     >
       <div className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 lg:gap-28 items-start ${reverse ? 'md:[&>*:first-child]:order-last' : ''}`}>
 
-        {/* Text column */}
         <div>
           <motion.p
             {...revealInView(0)}
@@ -324,7 +319,6 @@ function TextSection({
           </motion.div>
         </div>
 
-        {/* Image column */}
         {imageSlot && (
           <motion.div
             {...revealInView(0.12)}
@@ -352,15 +346,68 @@ function TextSection({
   )
 }
 
-// ─── London Positioning ────────────────────────────────────────────────────────
+// ─── Prose Section (single-column, editorial) ──────────────────────────────────
 
-function LondonPositioning() {
+function ProseSection({
+  id,
+  num,
+  title,
+  body,
+}: {
+  id: string
+  num: string
+  title: string
+  body: React.ReactNode
+}) {
   return (
     <section
+      id={id}
+      className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-b border-sand/8"
+      style={{ background: '#111614' }}
+    >
+      <div className="max-w-2xl">
+        <motion.p
+          {...revealInView(0)}
+          className="label-text text-sage/30 mb-8"
+          style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
+        >
+          {num}&nbsp;&nbsp;·&nbsp;&nbsp;{title.toUpperCase()}
+        </motion.p>
+
+        <motion.h2
+          {...revealInView(0.08)}
+          className="display-section text-ivory mb-8"
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}
+        >
+          {title}
+        </motion.h2>
+
+        <motion.div
+          {...revealInView(0.16)}
+          className="body-text text-sand/55 space-y-5 leading-loose"
+          style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}
+        >
+          {body}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Residency Section ─────────────────────────────────────────────────────────
+
+function ResidencySection() {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <section
+      id="london-residency"
       className="relative overflow-hidden noise-overlay"
       style={{ background: '#0D110E' }}
     >
-      {/* Atmospheric gradient */}
       <div
         className="absolute inset-0"
         style={{
@@ -373,23 +420,22 @@ function LondonPositioning() {
 
       <div className="relative z-10 px-6 md:px-12 lg:px-16 py-24 md:py-32 lg:py-40">
 
-        {/* Pull headline */}
         <div className="max-w-4xl mb-20 md:mb-28">
           <motion.p
             {...revealInView(0)}
             className="label-text text-sage/30 mb-10"
             style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
           >
-            LONDON · EAST LONDON CHAPTER
+            07 · CHERIETHAI IN LONDON
           </motion.p>
 
           <motion.h2
             {...revealInView(0.06)}
-            className="display-hero text-ivory/90 mb-8"
+            className="display-hero text-ivory/90 mb-10"
             style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', lineHeight: 0.96 }}
           >
-            Building presence<br />
-            <em className="font-light not-italic text-sand/60">before</em> opening.
+            A limited time<br />
+            <em className="font-light not-italic text-sand/60">in</em> London.
           </motion.h2>
 
           <motion.div
@@ -398,38 +444,39 @@ function LondonPositioning() {
             style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)' }}
           >
             <p>
-              CherieThai London is currently in development.
+              Chérie will be in London for approximately three weeks and will accept a
+              limited number of private clients during this period.
             </p>
             <p>
-              Before establishing a permanent presence, our focus is on introducing the
-              philosophy, technique and visual language of the work to the city while
-              building awareness and understanding around the future London chapter.
+              This first London residency is an opportunity to work directly with the
+              founder of CherieThai before the brand develops a permanent presence in
+              the city. Availability will intentionally remain limited so that Chérie
+              can maintain the length and individual nature of each appointment.
             </p>
             <p>
-              The London waitlist allows us to understand where interest is forming and
-              offers early access to future appointments, private residencies, collaborations
-              and announcements as the project develops.
+              People on the London priority list will receive the dates and booking
+              access first. Any remaining appointments will then be released publicly.
             </p>
           </motion.div>
         </div>
 
-        {/* Location details */}
+        {/* Details grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 border-t border-sand/8 pt-14 md:pt-20">
           {[
             {
-              label: 'NEIGHBOURHOOD',
-              value: 'Spitalfields',
-              detail: 'Shoreditch · Hoxton · Bethnal Green',
+              label: 'APPOINTMENT LENGTH',
+              value: '100 minutes',
+              detail: 'One session per visit recommended',
             },
             {
-              label: 'FOCUS',
-              value: 'Private sessions',
-              detail: 'Professional training · Residency & event collaboration',
+              label: 'RATE',
+              value: '£250',
+              detail: 'Payment confirmed at booking',
             },
             {
-              label: 'OPENING',
-              value: 'By invitation',
-              detail: 'Waitlist members receive priority access',
+              label: 'AVAILABILITY',
+              value: 'Priority list first',
+              detail: 'Remaining appointments released publicly',
             },
           ].map((item, i) => (
             <motion.div key={item.label} {...revealInView(i * 0.1)}>
@@ -455,26 +502,16 @@ function LondonPositioning() {
           ))}
         </div>
 
-        {/* Wide image placeholder */}
-        <motion.div
-          {...revealInView(0.1)}
-          className="mt-20 md:mt-24 w-full"
-          style={{ aspectRatio: '21/9' }}
-        >
-          <div
-            className="w-full h-full flex items-center justify-center"
-            style={{
-              background: 'rgba(61,74,64,0.08)',
-              border: '1px solid rgba(220,201,160,0.05)',
-            }}
+        {/* CTA */}
+        <motion.div {...revealInView(0.2)} className="mt-16 md:mt-20">
+          <button
+            onClick={() => scrollTo('london-waitlist')}
+            className="btn-ghost text-ivory/70 border-ivory/15 justify-between sm:justify-start"
+            style={{ cursor: 'none' }}
           >
-            <p
-              className="label-text text-sage/12 text-center"
-              style={{ fontSize: '0.5rem', letterSpacing: '0.25em' }}
-            >
-              PHOTO PLACEHOLDER — SPITALFIELDS / SHOREDITCH
-            </p>
-          </div>
+            <span>Join the London priority list</span>
+            <span aria-hidden>→</span>
+          </button>
         </motion.div>
       </div>
     </section>
@@ -484,11 +521,10 @@ function LondonPositioning() {
 // ─── Waitlist Form ─────────────────────────────────────────────────────────────
 
 const interestOptions = [
-  'Future appointments',
-  'Private residency or event',
-  'Partnership enquiry',
-  'Collaborations',
-  'Following the London journey',
+  'Private appointment',
+  'Corporate or private event',
+  'Partnership or collaboration',
+  'Press enquiry',
 ]
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
@@ -503,7 +539,6 @@ function WaitlistForm() {
     const form = e.currentTarget
     const data = new FormData(form)
 
-    // Basic validation
     const newErrors: Record<string, string> = {}
     if (!data.get('firstName')) newErrors.firstName = 'Required'
     if (!data.get('lastName')) newErrors.lastName = 'Required'
@@ -520,7 +555,6 @@ function WaitlistForm() {
     setFormState('submitting')
 
     try {
-      // Netlify Forms / Formspree / or replace with your own endpoint
       const res = await fetch('/api/london-waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -551,13 +585,12 @@ function WaitlistForm() {
     >
       <div className="max-w-2xl">
 
-        {/* Header */}
         <motion.p
           {...revealInView(0)}
           className="label-text text-sage/30 mb-8"
           style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
         >
-          04 · LONDON WAITLIST
+          08 · PRIORITY WAITING LIST
         </motion.p>
 
         <motion.h2
@@ -565,7 +598,7 @@ function WaitlistForm() {
           className="display-section text-ivory mb-5"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)' }}
         >
-          Join the London waitlist.
+          Join the London priority list.
         </motion.h2>
 
         <motion.p
@@ -573,8 +606,8 @@ function WaitlistForm() {
           className="body-text text-sand/45 mb-14"
           style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)', maxWidth: '38rem' }}
         >
-          Follow the development of CherieThai London and receive early access to
-          future appointments, private residencies, collaborations and future announcements.
+          Joining the priority list does not require payment or commit you to an
+          appointment. It gives you first access to the London diary when booking opens.
         </motion.p>
 
         <AnimatePresence mode="wait">
@@ -590,11 +623,11 @@ function WaitlistForm() {
                 className="font-cormorant font-light text-ivory/80 mb-4"
                 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
               >
-                You are on the list.
+                You are on the priority list.
               </p>
               <p className="body-text text-sand/45 text-sm">
-                We will be in touch personally when CherieThai London is ready
-                to receive you.
+                We will be in touch personally to confirm availability and
+                session details before the residency opens.
               </p>
             </motion.div>
           ) : (
@@ -750,7 +783,7 @@ function WaitlistForm() {
                   className="btn-ghost text-sand/70 border-sand/25 justify-between w-full sm:w-auto sm:min-w-[260px]"
                 >
                   <span>
-                    {formState === 'submitting' ? 'Sending…' : 'Join the waitlist'}
+                    {formState === 'submitting' ? 'Sending…' : 'Join the priority list'}
                   </span>
                   <span aria-hidden>→</span>
                 </button>
@@ -758,9 +791,9 @@ function WaitlistForm() {
                   className="body-text text-sage/25 mt-6 leading-relaxed"
                   style={{ fontSize: '0.75rem', maxWidth: '36rem' }}
                 >
-                  Joining the waitlist does not create a booking or financial commitment.
-                  Details regarding locations, availability and pricing will be shared
-                  once confirmed.
+                  Joining the priority list does not require payment or commit you to
+                  an appointment. Session availability and location details will be
+                  shared directly with priority list members.
                 </p>
               </div>
             </motion.form>
@@ -779,17 +812,15 @@ function LondonFooter() {
       <div className="px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
 
-          {/* Left */}
           <div>
             <p className="font-cormorant font-light text-ivory/40 mb-3" style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
               CherieThai
             </p>
             <p className="label-text text-sage/25" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-              SÃO PAULO · RIO DE JANEIRO · LONDON (COMING SOON)
+              SÃO PAULO · RIO DE JANEIRO · LONDON
             </p>
           </div>
 
-          {/* Right */}
           <div className="flex flex-col items-start md:items-end gap-3">
             <a
               href="https://instagram.com/cheriethai"
@@ -839,181 +870,262 @@ export default function LondonPage() {
         <LondonHero />
         <SectionIndex />
 
-        {/* A New Chapter — intro bridge */}
-        <section
-          className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-b border-sand/8"
-          style={{ background: '#111614' }}
-        >
-          <div className="max-w-2xl">
-            <motion.p
-              {...revealInView(0)}
-              className="label-text text-sage/30 mb-8"
-              style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
-            >
-              A NEW CHAPTER
-            </motion.p>
-            <motion.div
-              {...revealInView(0.08)}
-              className="body-text text-sand/55 space-y-5 leading-loose"
-              style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}
-            >
-              <p>
-                Rooted in Thai heritage and shaped through years of clinical practice, CherieThai
-                has developed into an internationally taught approach to bodywork defined by
-                structural precision, continuity and attention to detail.
-              </p>
-              <p>
-                Established across two clinics and shaped through international education,
-                the next chapter now looks towards London.
-              </p>
-              <p>
-                For now, our focus is on building awareness ahead of opening, introducing the
-                philosophy and approach behind the work while developing relationships within
-                the city we hope to serve in the years ahead.
-              </p>
-              <p>
-                Joining the waitlist offers an opportunity to follow the journey from the
-                beginning and receive early access to appointments, private residencies,
-                collaborations and future developments as they unfold.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
+        {/* 01 — The CherieThai Approach */}
         <TextSection
-          id="what-is-cheriethai"
+          id="the-approach"
           num="01"
-          title="What is CherieThai?"
+          title="The CherieThai approach."
           imageSlot="PHOTO PLACEHOLDER — SESSION / BODYWORK DETAIL"
           body={
             <>
               <p>
-                Rooted in Thai heritage and shaped through years of clinical practice, CherieThai
-                exists at the intersection of bodywork, structural precision and movement.
+                CherieThai is an approach to therapeutic Thai bodywork developed by Chérie
+                through years of practice, study and teaching across Thailand, the United
+                Kingdom and Brazil. Rooted in traditional Thai bodywork, it incorporates
+                anatomy, biomechanics, modern manual therapy, tissue work, joint mobilisation
+                and therapeutic movement to create treatments that are highly individual
+                rather than based on a standard sequence.
               </p>
               <p>
-                The experience is often sought by those looking not simply for relaxation,
-                but for decompression and a different relationship with their body itself.
+                The work is designed for bodies that require more than a conventional massage.
+                This may include persistent muscular tension, restricted mobility, physical
+                overload from training or work, recurring areas of stiffness, or patterns
+                that continue to return despite repeatedly working on the same area.
               </p>
               <p>
-                For many, it is not the techniques that remain memorable, but the feeling they
-                create: a sense of space where there was previously compression, a sense of
-                fluidity where there was resistance, and a sense of possibility where the body
-                had gradually become smaller, more guarded or more predictable.
+                A CherieThai session does not begin with a predetermined sequence of
+                techniques. Chérie observes how the body moves, where mobility appears
+                reduced, how tension is distributed and which areas may be contributing
+                to the pattern being experienced. The treatment develops from what is
+                found during the session.
               </p>
               <p>
-                Relaxation is often a consequence.
-              </p>
-              <p>
-                The focus is understanding how the body compensates, where protection is held,
-                how patterns have adapted over time and how breathing strategies influence the
-                body as a whole.
-              </p>
-              <p>
-                Only then does the work begin.
+                Relaxation is often part of the response to the work, but it is not
+                necessarily the primary objective. The focus is on creating a treatment
+                that makes sense for the individual body.
               </p>
             </>
           }
         />
 
+        {/* 02 — Looking Beyond the Area of Tension */}
+        <ProseSection
+          id="beyond-the-area"
+          num="02"
+          title="Looking beyond the area of tension."
+          body={
+            <>
+              <p>
+                Where someone feels tension is important, but it is not the only
+                information considered.
+              </p>
+              <p>
+                A painful or restricted area does not necessarily exist in isolation.
+                The way we move is influenced by multiple structures working together,
+                and when one area becomes limited, other areas may begin contributing
+                differently to maintain movement.
+              </p>
+              <p>
+                A person experiencing persistent shoulder tension, for example, may
+                also have restrictions through the thoracic spine, chest or neck that
+                influence how the shoulder is moving. Hip restriction can change how
+                load is distributed through the pelvis and lower body. Long periods of
+                sitting, repetitive movement, training and previous injuries can all
+                influence the strategies a body develops over time.
+              </p>
+              <p>
+                This does not mean that every symptom has a hidden cause somewhere else.
+                It means that the body is assessed more broadly before deciding where
+                attention is most useful.
+              </p>
+              <p>
+                During a session, Chérie may therefore work directly on the area that
+                feels restricted while also addressing surrounding or related structures.
+                The intention is not to chase individual points of tension, but to
+                understand them within a larger mechanical picture.
+              </p>
+            </>
+          }
+        />
+
+        {/* 03 — Within the Details */}
         <TextSection
           id="within-the-details"
-          num="02"
+          num="03"
           title="Within the details."
           imageSlot="PHOTO PLACEHOLDER — HANDS / PRECISION DETAIL"
           reverse
           body={
             <>
               <p>
-                CherieThai was built on the understanding that within the body,
-                details exist within details.
+                CherieThai is built around the idea that the quality of bodywork often
+                lies in details that can easily be overlooked.
               </p>
               <p>
-                The work is based on the belief that seemingly insignificant differences
-                in angle, timing, direction, rhythm and sequencing can create profoundly
-                different experiences within the body.
+                The angle of pressure, direction of force, position of a joint, amount
+                of leverage and the way the practitioner's own body weight is transferred
+                can significantly change how a technique feels and how much force is
+                required. Two techniques that appear almost identical can therefore
+                produce very different results.
               </p>
               <p>
-                Over time, this attention to detail has developed into an approach that
-                places equal importance not only on individual techniques, but on the
-                transitions between them. The body rarely experiences movement as isolated
-                events. It experiences continuity.
+                The same attention is given to transitions. Rather than treating
+                stretching, pressure, mobilisation and tissue work as separate events,
+                they can be connected so that information gained from one part of the
+                treatment influences what happens next.
               </p>
               <p>
-                For this reason, techniques are connected through uninterrupted flow,
-                allowing pressure, mobility, rhythm and movement to blend into what many
-                describe as a continuous conversation rather than a series of separate
-                interventions.
-              </p>
-              <p>
-                The work is supported by established routines and treatment frameworks that
-                serve as foundations rather than limitations. Movement correction, mobility
-                work and manual techniques are continually adjusted in response to what
-                the body presents in real time.
-              </p>
-              <p>
-                Particular attention is given to compensation strategies, protective
-                patterns, breathing behaviours and the way different regions of the body
-                influence one another mechanically.
-              </p>
-              <p>
-                Some positions remain familiar. Others introduce sensations, relationships
-                and possibilities that the body may not have experienced for many years,
-                not because they are extraordinary, but because they have gradually become
-                inaccessible through years of adaptation, protection or reduced variability.
-              </p>
-              <p>
-                Much of the work takes place at a level that is almost imperceptible to
-                the observer. Small changes in hand position, rotational angle, pressure
-                distribution, timing or direction can significantly alter how sensation is
-                received and how the body chooses to organise itself in response.
-              </p>
-              <p>
-                The intention is not complexity for its own sake.
-              </p>
-              <p>
-                It is simply where the work lives.
+                This is also why CherieThai does not rely on a catalogue of increasingly
+                complicated techniques. Precision in a relatively simple movement can
+                often be more valuable than complexity for its own sake.
               </p>
             </>
           }
         />
 
-        <TextSection
-          id="the-approach"
-          num="03"
-          title="The CherieThai approach."
-          imageSlot="PHOTO PLACEHOLDER — PORTRAIT / CHERIE OR STUDIO"
+        {/* 04 — Depth Without Aggression */}
+        <ProseSection
+          id="depth-without-aggression"
+          num="04"
+          title="Depth without aggression."
           body={
             <>
               <p>
-                Influenced by the relationship between movement, structure and form, the work
-                combines technical precision with a refined understanding of how the body
-                organises itself through space.
+                Deep work is frequently associated with stronger pressure, but these
+                are not necessarily the same thing.
               </p>
               <p>
-                Each session is built upon established movement sequences and therapeutic
-                frameworks which provide structure, continuity and a recognisable language
-                within the work, while allowing pressure, pace, mobility, range and direction
-                to evolve continuously throughout the treatment.
+                Working effectively with deeper or heavily loaded tissues requires
+                appropriate positioning, patience and an understanding of how force
+                is transferred through the practitioner's body. Increasing pressure
+                without considering these factors can simply cause the body to resist.
               </p>
               <p>
-                Transitions are given the same importance as the techniques themselves. The
-                objective is to create a sense of uninterrupted flow, where one movement
-                develops naturally into the next and the body is not repeatedly taken in and
-                out of the experience.
+                CherieThai uses leverage, body weight, movement and positioning to
+                access tissue with greater control. Pressure may be substantial when
+                appropriate, but it should have a reason.
               </p>
               <p>
-                Some movements may feel familiar. Others introduce positions, sensations and
-                relationships that the body may not have experienced for many years. Often,
-                the significance lies not in the movement itself, but in what that movement
-                allows the individual to feel.
+                This principle is particularly important when working with people who
+                train heavily or carry significant muscular tension. A strong body does
+                not automatically require an aggressive treatment.
               </p>
             </>
           }
         />
 
-        <LondonPositioning />
+        {/* 05 — Who Comes to CherieThai? */}
+        <TextSection
+          id="who-comes"
+          num="05"
+          title="Who comes to CherieThai?"
+          imageSlot="PHOTO PLACEHOLDER — CLIENT / SETTING"
+          body={
+            <>
+              <p>
+                CherieThai works with a wide range of bodies. Some clients come because
+                they experience persistent muscular tension or recurring stiffness. Others
+                notice that their mobility has reduced, train frequently and feel physically
+                overloaded, spend many hours sitting, or simply want bodywork that is more
+                detailed and individualised than a conventional massage.
+              </p>
+              <p>
+                Sessions may be particularly suited to people experiencing muscular
+                rigidity, restricted movement, training-related tension, repetitive
+                physical demands or areas that repeatedly feel overloaded.
+              </p>
+              <p>
+                It is equally possible to come without a specific complaint. Some clients
+                use the work as part of how they maintain mobility, understand their bodies
+                and manage the physical demands of training, work and everyday life.
+              </p>
+              <p>
+                CherieThai does not replace medical assessment, physiotherapy or other
+                healthcare where these are required. When something falls outside the
+                appropriate scope of bodywork, clients should be referred to the relevant
+                healthcare professional.
+              </p>
+            </>
+          }
+        />
+
+        {/* 06 — A Session with Chérie */}
+        <TextSection
+          id="a-session"
+          num="06"
+          title="A session with Chérie."
+          imageSlot="PHOTO PLACEHOLDER — SESSION DETAIL"
+          reverse
+          body={
+            <>
+              <p>
+                No two sessions need to look the same because the treatment is not
+                organised around a fixed protocol.
+              </p>
+              <p>
+                A session begins with a brief conversation about what the client is
+                experiencing, relevant history and what they would like from the
+                appointment. Chérie then uses observation, movement and hands-on
+                assessment to decide how to approach the session.
+              </p>
+              <p>
+                The work can combine traditional Thai pressure techniques, compression,
+                deep tissue work, assisted stretching, joint mobilisation, therapeutic
+                mobility and changes in positioning. Some techniques are static and
+                precise; others use movement to work through a greater range. Pressure
+                and depth are adjusted continuously according to the tissue, the area
+                being worked on and the response of the individual.
+              </p>
+              <p>
+                The intention is not to use as many techniques as possible. It is to
+                choose and adapt them according to what is being found throughout
+                the appointment.
+              </p>
+            </>
+          }
+        />
+
+        {/* 07 — About Chérie */}
+        <TextSection
+          id="about-cherie"
+          num="07"
+          title="About Chérie."
+          imageSlot="PHOTO PLACEHOLDER — PORTRAIT CHÉRIE"
+          body={
+            <>
+              <p>
+                Chérie is the founder of CherieThai and the practitioner and educator
+                responsible for developing the approach.
+              </p>
+              <p>
+                Born in Thailand and educated in the United Kingdom, she later established
+                her professional practice in Brazil. Her background in traditional Thai
+                bodywork has been developed alongside continued study of anatomy,
+                biomechanics, movement and modern approaches to manual therapy.
+              </p>
+              <p>
+                Years of treating different bodies have shaped the way CherieThai is
+                practised today. Rather than separating traditional techniques from
+                contemporary knowledge of the body, Chérie's work examines how they
+                can inform one another while preserving the characteristics that make
+                Thai bodywork distinct.
+              </p>
+              <p>
+                Alongside her practice, Chérie teaches practitioners internationally.
+                Her professional trainings focus not only on techniques but also on body
+                mechanics, therapeutic reasoning, transitions, positioning and the
+                practitioner's ability to adapt the work to different bodies.
+              </p>
+            </>
+          }
+        />
+
+        {/* 08 — CherieThai in London */}
+        <ResidencySection />
+
+        {/* 09 — Priority Waiting List */}
         <WaitlistForm />
+
         <LondonFooter />
       </main>
     </>
