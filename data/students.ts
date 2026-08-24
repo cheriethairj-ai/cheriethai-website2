@@ -1278,6 +1278,7 @@ export const students: Student[] = [
     ],
     youtubeId: '',
     coordinates: [-4.421, 36.720], // Málaga, Spain
+    instagram: 'felipeluzmassage',
   },
 ]
 
