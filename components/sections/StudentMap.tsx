@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import {
@@ -331,8 +330,6 @@ function StudentDirectory({
 }) {
   const router = useRouter()
   const { lang } = useLanguage()
-  const [expandedInstitution, setExpandedInstitution] = useState<string | null>(null)
-
   const query = search.trim().toLowerCase()
 
   // When searching: scan all students; otherwise filter by current view tab
@@ -387,10 +384,9 @@ function StudentDirectory({
         </div>
       </div>
 
-      {/* ── Institutions accordion (only when not searching) ── */}
+      {/* ── Institutions (only when not searching) ── */}
       {!isSearching && (
         <div className="mb-10">
-          {/* Institutions label */}
           <div className="flex items-center gap-4 mb-0">
             <p
               className="label-text text-sage/25 shrink-0"
@@ -401,163 +397,45 @@ function StudentDirectory({
             <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.05)' }} />
           </div>
 
-          {institutions.map((inst) => {
-            const isOpen = expandedInstitution === inst.id
-            const description = lang === 'PT' ? inst.descriptionPT : inst.descriptionEN
-            const impact = lang === 'PT' ? inst.impactPT : inst.impactEN
-
-            return (
-              <div key={inst.id}>
-                {/* Clickable institution row */}
-                <button
-                  onClick={() => setExpandedInstitution(isOpen ? null : inst.id)}
-                  className="group w-full flex items-center justify-between py-5 border-b text-left hover:bg-sand/[0.02] transition-colors duration-200"
-                  style={{ borderColor: 'rgba(220,201,160,0.07)', cursor: 'none' }}
+          {institutions.map((inst) => (
+            <button
+              key={inst.id}
+              onClick={() => router.push(`/${inst.id.replace('shambhala-spa-paraty', 'shambhalaspa')}`)}
+              className="group w-full flex items-center justify-between py-5 border-b text-left hover:bg-sand/[0.02] transition-colors duration-200"
+              style={{ borderColor: 'rgba(220,201,160,0.07)', cursor: 'none' }}
+            >
+              <div className="flex items-start gap-6">
+                <span
+                  className="label-text text-sage/20 group-hover:text-sage/40 transition-colors duration-200 shrink-0 mt-0.5"
+                  style={{ fontSize: '0.46rem', letterSpacing: '0.2em' }}
                 >
-                  <div className="flex items-center gap-6">
-                    <span
-                      className="label-text text-sage/20 group-hover:text-sage/40 transition-colors duration-200 shrink-0"
-                      style={{ fontSize: '0.46rem', letterSpacing: '0.2em' }}
-                    >
-                      {inst.location.toUpperCase()}
-                    </span>
-                    <span
-                      className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
-                      style={{ fontSize: 'clamp(1.05rem, 2vw, 1.3rem)', lineHeight: 1.1 }}
-                    >
-                      {inst.name}
-                    </span>
-                    <span
-                      className="label-text text-sage/20 group-hover:text-sage/35 transition-colors duration-200"
-                      style={{ fontSize: '0.42rem', letterSpacing: '0.16em' }}
-                    >
-                      {lang === 'PT' ? inst.trainingTypePT : inst.trainingTypeEN}
-                    </span>
-                  </div>
-                  <span
-                    className="text-sand/20 group-hover:text-sand/50 transition-all duration-300 ml-4 shrink-0"
-                    style={{
-                      fontSize: '0.75rem',
-                      transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                      display: 'inline-block',
-                      transition: 'transform 0.3s ease, color 0.2s ease',
-                    }}
+                  {inst.location.toUpperCase()}
+                </span>
+                <div>
+                  <p
+                    className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
+                    style={{ fontSize: 'clamp(1.05rem, 2vw, 1.3rem)', lineHeight: 1.1 }}
                   >
-                    →
-                  </span>
-                </button>
-
-                {/* Expanded panel */}
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      key="panel"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1.0] }}
-                      style={{ overflow: 'hidden' }}
-                    >
-                      <div className="py-10 border-b" style={{ borderColor: 'rgba(220,201,160,0.07)' }}>
-
-                        {/* Description + students */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-10">
-
-                          {/* Description */}
-                          <div
-                            className="body-text text-sand/45 space-y-4 leading-loose"
-                            style={{ fontSize: 'clamp(0.85rem, 1.3vw, 0.9rem)' }}
-                          >
-                            {description.map((para, i) => <p key={i}>{para}</p>)}
-                          </div>
-
-                          {/* Students */}
-                          <div>
-                            <p
-                              className="label-text text-sage/22 mb-5"
-                              style={{ fontSize: '0.44rem', letterSpacing: '0.22em' }}
-                            >
-                              {lang === 'PT'
-                                ? `EQUIPE FORMADA · ${inst.students.length} TERAPEUTAS`
-                                : `PRACTITIONERS TRAINED · ${inst.students.length}`}
-                            </p>
-                            <div className="flex flex-col">
-                              {inst.students.map((name, i) => (
-                                <div
-                                  key={name}
-                                  className="flex items-center py-2.5 border-b"
-                                  style={{ borderColor: 'rgba(220,201,160,0.05)' }}
-                                >
-                                  <span
-                                    className="label-text text-sage/15 mr-4 shrink-0"
-                                    style={{ fontSize: '0.4rem', letterSpacing: '0.14em' }}
-                                  >
-                                    {String(i + 1).padStart(2, '0')}
-                                  </span>
-                                  <p
-                                    className="font-cormorant font-light text-ivory/55"
-                                    style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)', lineHeight: 1.2 }}
-                                  >
-                                    {name}
-                                  </p>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Photo grid */}
-                        {inst.photos && inst.photos.length > 0 && (
-                          <div className="mb-10">
-                            <p
-                              className="label-text text-sage/22 mb-4"
-                              style={{ fontSize: '0.44rem', letterSpacing: '0.22em' }}
-                            >
-                              {lang === 'PT' ? 'IMAGENS DA FORMAÇÃO' : 'TRAINING IMAGES'}
-                            </p>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-                              {inst.photos.map((src, i) => (
-                                <div
-                                  key={src}
-                                  className="relative overflow-hidden"
-                                  style={{ aspectRatio: '3/4' }}
-                                >
-                                  <Image
-                                    src={src}
-                                    alt={`${inst.name} — ${i + 1}`}
-                                    fill
-                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Impact */}
-                        <div>
-                          <p
-                            className="label-text text-sage/22 mb-4"
-                            style={{ fontSize: '0.44rem', letterSpacing: '0.22em' }}
-                          >
-                            {lang === 'PT' ? 'O IMPACTO APÓS A FORMAÇÃO' : 'IMPACT AFTER TRAINING'}
-                          </p>
-                          <div
-                            className="body-text text-sand/40 space-y-4 leading-loose max-w-2xl"
-                            style={{ fontSize: 'clamp(0.85rem, 1.3vw, 0.9rem)' }}
-                          >
-                            {impact.map((para, i) => <p key={i}>{para}</p>)}
-                          </div>
-                        </div>
-
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    {inst.name}
+                  </p>
+                  <p
+                    className="label-text text-sage/20 group-hover:text-sage/35 transition-colors duration-200 mt-1"
+                    style={{ fontSize: '0.42rem', letterSpacing: '0.16em' }}
+                  >
+                    {lang === 'PT' ? inst.trainingTypePT : inst.trainingTypeEN}
+                    &nbsp;&nbsp;·&nbsp;&nbsp;
+                    {inst.students.length} {lang === 'PT' ? 'TERAPEUTAS' : 'PRACTITIONERS'}
+                  </p>
+                </div>
               </div>
-            )
-          })}
+              <span
+                className="text-sand/20 group-hover:text-sand/50 transition-colors duration-200 ml-4 shrink-0"
+                style={{ fontSize: '0.75rem' }}
+              >
+                →
+              </span>
+            </button>
+          ))}
 
           {/* Divider before certified graduates */}
           <div className="flex items-center gap-4 mt-10 mb-8">
