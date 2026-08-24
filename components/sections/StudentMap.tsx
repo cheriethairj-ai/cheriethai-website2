@@ -389,8 +389,8 @@ function StudentDirectory({
         <div className="mb-10">
           <div className="flex items-center gap-4 mb-0">
             <p
-              className="label-text text-sage/25 shrink-0"
-              style={{ fontSize: '0.46rem', letterSpacing: '0.26em' }}
+              className="label-text text-sage/35 shrink-0"
+              style={{ fontSize: '0.58rem', letterSpacing: '0.22em' }}
             >
               {lang === 'PT' ? 'FORMAÇÕES INSTITUCIONAIS' : 'INSTITUTIONAL TRAINING'}
             </p>
@@ -406,21 +406,21 @@ function StudentDirectory({
             >
               <div className="flex items-start gap-6">
                 <span
-                  className="label-text text-sage/20 group-hover:text-sage/40 transition-colors duration-200 shrink-0 mt-0.5"
-                  style={{ fontSize: '0.46rem', letterSpacing: '0.2em' }}
+                  className="label-text text-sage/30 group-hover:text-sage/50 transition-colors duration-200 shrink-0 mt-0.5"
+                  style={{ fontSize: '0.58rem', letterSpacing: '0.18em' }}
                 >
                   {inst.location.toUpperCase()}
                 </span>
                 <div>
                   <p
                     className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
-                    style={{ fontSize: 'clamp(1.05rem, 2vw, 1.3rem)', lineHeight: 1.1 }}
+                    style={{ fontSize: 'clamp(1.4rem, 2vw, 1.55rem)', lineHeight: 1.1 }}
                   >
                     {inst.name}
                   </p>
                   <p
-                    className="label-text text-sage/20 group-hover:text-sage/35 transition-colors duration-200 mt-1"
-                    style={{ fontSize: '0.42rem', letterSpacing: '0.16em' }}
+                    className="label-text text-sage/30 group-hover:text-sage/50 transition-colors duration-200 mt-1"
+                    style={{ fontSize: '0.58rem', letterSpacing: '0.14em' }}
                   >
                     {lang === 'PT' ? inst.trainingTypePT : inst.trainingTypeEN}
                     &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -440,8 +440,8 @@ function StudentDirectory({
           {/* Divider before certified graduates */}
           <div className="flex items-center gap-4 mt-10 mb-8">
             <p
-              className="label-text text-sage/25 shrink-0"
-              style={{ fontSize: '0.46rem', letterSpacing: '0.26em' }}
+              className="label-text text-sage/35 shrink-0"
+              style={{ fontSize: '0.58rem', letterSpacing: '0.22em' }}
             >
               {lang === 'PT' ? 'GRADUADOS CERTIFICADOS' : 'CERTIFIED GRADUATES'}
             </p>
