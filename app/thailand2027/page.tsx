@@ -195,7 +195,7 @@ export default function Thailand2027Page() {
               Thailand<br />Retreat.
             </motion.h1>
             <motion.div {...fadeUp(0.5)} className="flex flex-wrap items-center gap-4">
-              <span className="label-text text-sand/55" style={{ fontSize: '0.52rem', letterSpacing: '0.24em' }}>JANUARY 2027</span>
+              <span className="label-text text-sand/55" style={{ fontSize: '0.52rem', letterSpacing: '0.24em' }}>11–14 JANUARY 2027</span>
               <span className="text-sage/25" style={{ fontSize: '0.4rem' }}>◆</span>
               <span className="label-text text-sand/55" style={{ fontSize: '0.52rem', letterSpacing: '0.24em' }}>KRABI · SOUTHERN THAILAND</span>
             </motion.div>
