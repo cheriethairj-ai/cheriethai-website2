@@ -488,7 +488,7 @@ function StudentDirectory({
                       </p>
                       {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
                         <p
-                          className="label-text text-sage/35 group-hover:text-sage/55 transition-colors duration-200 mt-1"
+                          className="label-text text-sand/35 group-hover:text-sand/55 transition-colors duration-200 mt-1"
                           style={{ fontSize: '0.65rem', letterSpacing: '0.12em' }}
                         >
                           {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
