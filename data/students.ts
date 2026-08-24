@@ -1326,6 +1326,29 @@ export const students: Student[] = [
     youtubeId: '',
     coordinates: [-0.127, 51.507], // London / UK
   },
+  {
+    id: 'alana',
+    name: 'Alana',
+    city: 'Singapore',
+    country: 'Singapore',
+    descriptors: ['Fluid', 'Feminine', 'Expressive'],
+    descriptorsPT: ['Fluida', 'Feminina', 'Expressiva'],
+    bio: 'Coming from a professional dance background rather than massage, Alana brought an entirely different kind of physical intelligence into the training. Years of working through movement gave her an immediate understanding of flexibility, positioning, rhythm and how to organise her own body around another person.',
+    bioPoints: [
+      'Her greatest strength is flow. There is an effortless continuity to the way she transitions between movements, with a softness and ease that makes her work feel almost choreographic. Rather than relying on force, she naturally works through movement, leverage and positioning, creating a quality of touch that feels gentle, spacious and deeply relaxing.',
+      'Her presence reflects much of the same character: feminine, expressive and wonderfully light. She has a bubbly warmth that makes her incredibly easy to be around, while becoming noticeably calmer and more focused once she begins to work.',
+      'Although massage is not currently her profession, her natural movement ability translated beautifully into bodywork. Watching her dancer\'s understanding of the body find a completely new expression through touch was one of the pleasures of having her in the training.',
+    ],
+    bioPT: 'Vinda de uma formação profissional em dança, e não em massagem, Alana trouxe para a formação um tipo completamente diferente de inteligência física. Anos trabalhando através do movimento lhe deram uma compreensão imediata de flexibilidade, posicionamento, ritmo e de como organizar o próprio corpo em torno de outra pessoa.',
+    bioPTPoints: [
+      'Seu maior ponto forte é o fluxo. Há uma continuidade sem esforço na maneira como ela transita entre os movimentos, com uma suavidade e leveza que fazem seu trabalho parecer quase coreográfico. Em vez de depender da força, ela trabalha naturalmente através do movimento, alavancagem e posicionamento, criando uma qualidade de toque que parece gentil, espaçosa e profundamente relaxante.',
+      'Sua presença reflete muito do mesmo caráter: feminina, expressiva e maravilhosamente leve. Ela tem um calor efervescente que a torna incrivelmente fácil de estar por perto, ao mesmo tempo em que se torna visivelmente mais calma e focada quando começa a trabalhar.',
+      'Embora a massagem não seja atualmente sua profissão, sua habilidade natural de movimento se traduziu lindamente no trabalho corporal. Ver a compreensão do corpo de uma dançarina encontrar uma expressão completamente nova através do toque foi um dos prazeres de tê-la na formação.',
+    ],
+    nonPracticing: true,
+    youtubeId: '',
+    coordinates: [103.820, 1.352], // Singapore
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
