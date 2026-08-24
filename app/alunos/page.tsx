@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import CustomCursor from '@/components/CustomCursor'
 import LanguageToggle from '@/components/LanguageToggle'
 import StudentMap from '@/components/sections/StudentMap'
-import InstitutionsSection from '@/components/sections/InstitutionsSection'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const fadeUp = (delay = 0) => ({
@@ -106,7 +105,6 @@ export default function AlunosPage() {
           className="px-6 md:px-12 lg:px-16 pb-24"
         >
           <StudentMap />
-          <InstitutionsSection />
         </motion.div>
 
         {/* ── Footer ─────────────────────────────────────────────────────── */}
