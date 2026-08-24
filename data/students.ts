@@ -1257,6 +1257,28 @@ export const students: Student[] = [
     coordinates: [-0.127, 51.507], // London
     instagram: 'sacredmouna',
   },
+  {
+    id: 'felipe-luz',
+    name: 'Felipe Luz',
+    city: 'Málaga',
+    country: 'Spain',
+    descriptors: ['Grounded', 'Experienced', 'Generous'],
+    descriptorsPT: ['Enraizado', 'Experiente', 'Generoso'],
+    bio: 'Felipe came to the training with many years of experience not only as a bodyworker, but as an established instructor with his own school and community of students. His depth of experience is immediately apparent: his work is confident, grounded and strongly connected to traditional practice, while incorporating strategies and ways of working that he has developed through years of teaching and treating.',
+    bioPoints: [
+      'Despite his experience, Felipe entered the course with the openness of a student — curious, receptive and genuinely interested in exchanging perspectives. His presence is remarkably easygoing; warm, humorous and outgoing, with an energy that makes both learning and working alongside him feel natural.',
+      'There is a maturity to his touch and an assurance in the way he moves around the body that can only come from years of practice.',
+      'It was a particular pleasure to teach someone who has already dedicated so much of his own career to teaching others and developing capable practitioners. Having Felipe choose to study with me was something I valued enormously, and an honour in its own right.',
+    ],
+    bioPT: 'Felipe chegou à formação com muitos anos de experiência não apenas como terapeuta corporal, mas como um instrutor estabelecido com sua própria escola e comunidade de alunos. A profundidade de sua experiência é imediatamente perceptível: seu trabalho é confiante, enraizado e fortemente conectado à prática tradicional, incorporando estratégias e formas de trabalhar que ele desenvolveu ao longo de anos de ensino e atendimento.',
+    bioPTPoints: [
+      'Apesar de sua experiência, Felipe entrou no curso com a abertura de um aluno — curioso, receptivo e genuinamente interessado em trocar perspectivas. Sua presença é notavelmente tranquila; calorosa, bem-humorada e extrovertida, com uma energia que torna tanto o aprendizado quanto o trabalho ao seu lado algo natural.',
+      'Há uma maturidade em seu toque e uma segurança na forma como ele se move ao redor do corpo que só pode vir de anos de prática.',
+      'Foi um prazer especial ensinar alguém que já dedicou tanto de sua própria carreira a ensinar outros e a desenvolver terapeutas capazes. Ter Felipe como aluno foi algo que valorizo imensamente, e uma honra por si só.',
+    ],
+    youtubeId: '',
+    coordinates: [-4.421, 36.720], // Málaga, Spain
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
