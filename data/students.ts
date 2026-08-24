@@ -1232,7 +1232,7 @@ export const students: Student[] = [
     ],
     youtubeId: '',
     coordinates: [-2.706, 53.763], // Preston, UK
-    instagram: 'keeran',
+    instagram: 'keystretch_',
   },
   {
     id: 'dorina',
@@ -1255,7 +1255,7 @@ export const students: Student[] = [
     ],
     youtubeId: '',
     coordinates: [-0.127, 51.507], // London
-    instagram: 'dorci',
+    instagram: 'sacredmouna',
   },
 ]
 
