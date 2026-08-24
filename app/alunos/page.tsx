@@ -86,14 +86,14 @@ export default function AlunosPage() {
           <motion.p
             {...fadeUp(0.25)}
             className="body-text text-sand/45"
-            style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', maxWidth: '48ch', marginBottom: '1rem' }}
+            style={{ fontSize: 'clamp(0.975rem, 1.6vw, 1.075rem)', maxWidth: '48ch', marginBottom: '1rem' }}
           >
             {tx.subtitle}
           </motion.p>
           <motion.p
             {...fadeUp(0.3)}
             className="body-text text-sand/45"
-            style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', maxWidth: '48ch' }}
+            style={{ fontSize: 'clamp(0.975rem, 1.6vw, 1.075rem)', maxWidth: '48ch' }}
           >
             {tx.subtitle2}
           </motion.p>
