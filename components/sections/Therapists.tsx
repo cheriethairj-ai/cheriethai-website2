@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useIsTouch } from '@/hooks/useIsTouch'
@@ -788,17 +789,18 @@ function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: Th
 // ─── Therapist Nav Dropdown ────────────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { label: 'Cherie T. Charnkul', id: 'therapist-cherie' },
-  { label: 'Karl', id: 'therapist-karl' },
-  { label: 'Pedro', id: 'therapist-pedro' },
-  { label: 'Grace-Kelly', id: 'therapist-grace-kelly' },
-  { label: 'Ricardo', id: 'therapist-ricardo' },
-  { label: 'Lucas', id: 'therapist-lucas' },
+  { label: 'Cherie T. Charnkul', href: '/cherie' },
+  { label: 'Karl', href: '/karl' },
+  { label: 'Pedro', href: '/pedro' },
+  { label: 'Grace-Kelly', href: '/gracekelly' },
+  { label: 'Ricardo', href: '/ricardo' },
+  { label: 'Lucas', href: '/lucas' },
 ]
 
 function TherapistNav({ navLabel }: { navLabel: string }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -807,12 +809,6 @@ function TherapistNav({ navLabel }: { navLabel: string }) {
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
-
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    setOpen(false)
-  }
 
   return (
     <div ref={ref} className="relative inline-block">
@@ -843,8 +839,8 @@ function TherapistNav({ navLabel }: { navLabel: string }) {
           >
             {NAV_ITEMS.map((item) => (
               <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
+                key={item.href}
+                onClick={() => { setOpen(false); router.push(item.href) }}
                 className="w-full text-left px-5 py-3.5 label-text text-earth/60 hover:text-earth hover:bg-sand/10 transition-colors border-b border-sand/10 last:border-b-0"
                 style={{ fontSize: '0.68rem', letterSpacing: '0.16em' }}
               >
