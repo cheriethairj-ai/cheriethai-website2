@@ -1209,6 +1209,30 @@ export const students: Student[] = [
     coordinates: [-48.277, -18.918], // Uberlândia, Minas Gerais
     instagram: 'laisa_massoterapeuta_',
   },
+  {
+    id: 'keeran',
+    name: 'Keeran',
+    city: 'Preston',
+    country: 'United Kingdom',
+    descriptors: ['Curious', 'Dynamic', 'Exploratory'],
+    descriptorsPT: ['Curioso', 'Dinâmico', 'Exploratório'],
+    bio: 'Based in Preston, UK, Keeran brings a curious and exploratory approach to bodywork, with a particular interest in working with active and sporting bodies. His sessions lean towards stretch-based work, using longer, sustained holds and changes in rhythm to create space, mobility and a different quality of movement.',
+    bioPoints: [
+      'His work is characterised by an attentiveness to how the body moves under load — a sensibility shaped by his interest in sport and physical performance, and one that gives his sessions a quality of intelligence that goes beyond technique alone.',
+      'He uses sustained holds, rhythmic variation and deliberate pacing to create conditions in which the body can genuinely release, rather than simply respond to pressure — a distinction that becomes immediately apparent to those who receive his work.',
+      'Constantly studying and expanding his practice, he draws from a wide range of training and influences, integrating what he learns with a discernment that prevents eclecticism from becoming confusion. What emerges is a practice that feels coherent, considered and continuously developing.',
+      'He has a natural ability to adapt to the body in front of him — adjusting not just the techniques he uses but the entire rhythm and register of the session — making his work feel genuinely tailored rather than applied from a fixed template.',
+    ],
+    bioPT: 'Baseado em Preston, Reino Unido, Keeran traz uma abordagem curiosa e exploratória ao trabalho corporal, com um interesse particular em atuar com corpos ativos e esportivos. Suas sessões tendem para o trabalho de alongamento, utilizando sustentações prolongadas e mudanças de ritmo para criar espaço, mobilidade e uma qualidade de movimento diferenciada.',
+    bioPTPoints: [
+      'Seu trabalho é caracterizado por uma atenção à forma como o corpo se move sob carga — uma sensibilidade moldada pelo seu interesse no esporte e na performance física, que confere às suas sessões uma qualidade de inteligência que vai além da técnica isolada.',
+      'Ele utiliza sustentações prolongadas, variação rítmica e cadência intencional para criar condições nas quais o corpo pode genuinamente se soltar, em vez de simplesmente responder à pressão — uma distinção que se torna imediatamente perceptível para quem recebe seu trabalho.',
+      'Em constante estudo e expansão de sua prática, ele se inspira em uma ampla gama de formações e referências, integrando o que aprende com uma discernimento que impede que o ecletismo se torne confusão. O que emerge é uma prática coerente, refletida e em contínuo desenvolvimento.',
+      'Tem uma habilidade natural de se adaptar ao corpo que está à sua frente — ajustando não apenas as técnicas que utiliza, mas todo o ritmo e registro da sessão — fazendo com que seu trabalho pareça genuinamente personalizado em vez de aplicado a partir de um modelo fixo.',
+    ],
+    youtubeId: '',
+    coordinates: [-2.706, 53.763], // Preston, UK
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
