@@ -818,14 +818,15 @@ function TherapistNav({ navLabel }: { navLabel: string }) {
     <div ref={ref} className="relative inline-block">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 label-text text-earth/40 hover:text-earth/70 transition-colors"
+        className="flex items-center gap-2 label-text text-earth/50 hover:text-earth/80 transition-colors"
+        style={{ fontSize: '0.72rem', letterSpacing: '0.18em' }}
       >
         <span>{navLabel}</span>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.25 }}
           className="inline-block"
-          style={{ fontSize: '0.65rem' }}
+          style={{ fontSize: '0.75rem' }}
         >
           ↓
         </motion.span>
@@ -844,7 +845,8 @@ function TherapistNav({ navLabel }: { navLabel: string }) {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="w-full text-left px-5 py-3 label-text text-earth/55 hover:text-earth hover:bg-sand/10 transition-colors border-b border-sand/10 last:border-b-0"
+                className="w-full text-left px-5 py-3.5 label-text text-earth/60 hover:text-earth hover:bg-sand/10 transition-colors border-b border-sand/10 last:border-b-0"
+                style={{ fontSize: '0.68rem', letterSpacing: '0.16em' }}
               >
                 {item.label}
               </button>
