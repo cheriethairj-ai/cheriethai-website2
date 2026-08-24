@@ -17,6 +17,7 @@ export type InstitutionEntry = {
   impactPT: string[]
   impactEN: string[]
   students: string[]
+  photos: string[]       // paths relative to /public
 }
 
 export const institutions: InstitutionEntry[] = [
@@ -62,6 +63,18 @@ export const institutions: InstitutionEntry[] = [
       'Marianella Casa',
       'Maria Florencin Ceballos',
       'Felype Perreira',
+    ],
+    photos: [
+      '/institutions/shambhala/IMG_0536.PNG',
+      '/institutions/shambhala/IMG_0537.PNG',
+      '/institutions/shambhala/IMG_0538.PNG',
+      '/institutions/shambhala/IMG_0539.PNG',
+      '/institutions/shambhala/IMG_0540.PNG',
+      '/institutions/shambhala/IMG_0541.PNG',
+      '/institutions/shambhala/IMG_0542.PNG',
+      '/institutions/shambhala/IMG_0543.PNG',
+      '/institutions/shambhala/IMG_0545.PNG',
+      '/institutions/shambhala/IMG_0546.PNG',
     ],
   },
 ]

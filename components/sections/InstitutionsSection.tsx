@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { institutions } from '@/data/institutions'
@@ -112,6 +113,43 @@ export default function InstitutionsSection() {
                   </div>
                 </motion.div>
               </div>
+
+              {/* Photo gallery */}
+              {inst.photos && inst.photos.length > 0 && (
+                <motion.div
+                  {...revealInView(0.06)}
+                  className="mb-14 md:mb-16"
+                >
+                  <p
+                    className="label-text text-sage/25 mb-6"
+                    style={{ fontSize: '0.46rem', letterSpacing: '0.24em' }}
+                  >
+                    {lang === 'PT' ? 'IMAGENS DA FORMAÇÃO' : 'TRAINING IMAGES'}
+                  </p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                    {inst.photos.map((src, i) => (
+                      <motion.div
+                        key={src}
+                        {...revealInView(0.04 + i * 0.03)}
+                        className="relative overflow-hidden"
+                        style={{ aspectRatio: '3/4' }}
+                      >
+                        <Image
+                          src={src}
+                          alt={`${inst.name} — training image ${i + 1}`}
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{ background: 'rgba(17,22,20,0.12)' }}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Impact */}
               <motion.div
