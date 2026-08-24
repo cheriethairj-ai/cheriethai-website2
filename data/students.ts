@@ -1303,6 +1303,29 @@ export const students: Student[] = [
     coordinates: [19.945, 50.064], // Kraków, Poland
     instagram: 'spa_centrum_mocy',
   },
+  {
+    id: 'cassia',
+    name: 'Cassia O\'Reilly',
+    city: 'United Kingdom',
+    country: 'United Kingdom',
+    descriptors: ['Instinctive', 'Fluid', 'Attentive'],
+    descriptorsPT: ['Instintiva', 'Fluida', 'Atenta'],
+    bio: 'Cassia\'s introduction to bodywork began from the receiving side. During a visit to Brazil, she came for a session with me and later described it as the best massage she had ever experienced. That experience stayed with her, eventually turning curiosity into a desire to understand some of the work for herself.',
+    bioPoints: [
+      'Unlike many students on the course, Cassia had no professional background in massage and no intention of becoming a therapist. She chose to learn so that she could bring elements of the work into the care she gives to her partner and family.',
+      'What emerged during the training was a remarkable natural ability. Her touch was potent yet controlled, and she developed an unexpectedly smooth quality in her oil work — moving with fluidity and an instinctive understanding of pressure and continuity that can take much longer to develop.',
+      'Watching someone encounter this work almost entirely from the beginning and find such ease within it was genuinely beautiful. Cassia was a reminder that technical experience is not the only thing that shapes good touch; sensitivity, attention and an ability to listen through the hands can be just as important.',
+    ],
+    bioPT: 'A introdução de Cassia ao trabalho corporal começou pelo lado de quem recebe. Durante uma visita ao Brasil, ela veio fazer uma sessão comigo e depois descreveu como a melhor massagem que já havia experienciado. Essa experiência ficou com ela, transformando gradualmente a curiosidade em um desejo de compreender parte desse trabalho por si mesma.',
+    bioPTPoints: [
+      'Ao contrário de muitos alunos do curso, Cassia não tinha formação profissional em massagem e não tinha intenção de se tornar terapeuta. Ela escolheu aprender para trazer elementos do trabalho para o cuidado que oferece ao seu companheiro e à família.',
+      'O que emergiu durante a formação foi uma notável habilidade natural. Seu toque era potente mas controlado, e ela desenvolveu uma qualidade surpreendentemente suave no trabalho com óleo — movendo-se com fluidez e uma compreensão instintiva de pressão e continuidade que pode levar muito mais tempo para se desenvolver.',
+      'Ver alguém encontrar esse trabalho quase inteiramente do começo e encontrar tal facilidade nele foi genuinamente belo. Cassia foi um lembrete de que a experiência técnica não é a única coisa que molda um bom toque; sensibilidade, atenção e a capacidade de escutar pelas mãos podem ser igualmente importantes.',
+    ],
+    nonPracticing: true,
+    youtubeId: '',
+    coordinates: [-0.127, 51.507], // London / UK
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
