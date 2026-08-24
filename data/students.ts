@@ -1280,6 +1280,28 @@ export const students: Student[] = [
     coordinates: [-4.421, 36.720], // Málaga, Spain
     instagram: 'felipeluzmassage',
   },
+  {
+    id: 'ewelina',
+    name: 'Ewelina',
+    city: 'Kraków',
+    country: 'Poland',
+    descriptors: ['Nurturing', 'Potent', 'Devoted'],
+    descriptorsPT: ['Acolhedora', 'Potente', 'Dedicada'],
+    bio: 'Ewelina has an extraordinarily nurturing presence. Gentle, warm and naturally caring, she brings a sense of ease to the people around her — yet the quality of her bodywork is remarkably potent. There is strength beneath the softness, and a depth to her touch that can be unexpected when you first experience her work.',
+    bioPoints: [
+      'She is deeply curious and exceptionally dedicated to learning, approaching techniques not simply as movements to reproduce, but as something to understand, feel and refine. Her work has a quiet confidence to it: attentive, deliberate and powerful without ever needing to appear forceful.',
+      'That dedication was evident before the course even began. Ewelina made the journey from Kraków to train in the UK at very short notice, committing fully to the experience. I was incredibly grateful to have her there.',
+      'She is one of those practitioners whose warmth is immediately felt, but whose ability becomes even more apparent once she begins to work.',
+    ],
+    bioPT: 'Ewelina tem uma presença extraordinariamente acolhedora. Gentil, calorosa e naturalmente cuidadosa, ela traz uma sensação de leveza às pessoas ao seu redor — mas a qualidade do seu trabalho corporal é notavelmente potente. Há força por baixo da suavidade, e uma profundidade em seu toque que pode ser inesperada na primeira vez que se experiencia seu trabalho.',
+    bioPTPoints: [
+      'Ela é profundamente curiosa e excepcionalmente dedicada ao aprendizado, abordando técnicas não apenas como movimentos a serem reproduzidos, mas como algo a ser compreendido, sentido e refinado. Seu trabalho tem uma confiança tranquila: atento, deliberado e poderoso sem nunca precisar parecer forçado.',
+      'Essa dedicação foi evidente antes mesmo do curso começar. Ewelina fez a viagem de Cracóvia para treinar no Reino Unido com muito pouca antecedência, comprometendo-se inteiramente com a experiência. Fiquei imensamente grata por tê-la lá.',
+      'Ela é uma daquelas terapeutas cuja calor é sentido imediatamente, mas cuja habilidade se torna ainda mais aparente assim que ela começa a trabalhar.',
+    ],
+    youtubeId: '',
+    coordinates: [19.945, 50.064], // Kraków, Poland
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
