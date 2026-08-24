@@ -1233,6 +1233,28 @@ export const students: Student[] = [
     youtubeId: '',
     coordinates: [-2.706, 53.763], // Preston, UK
   },
+  {
+    id: 'dorina',
+    name: 'Dorina Sucz',
+    city: 'London',
+    country: 'United Kingdom',
+    descriptors: ['Expressive', 'Powerful', 'Intuitive'],
+    descriptorsPT: ['Expressiva', 'Poderosa', 'Intuitiva'],
+    bio: 'Dorina brings an unusual combination of softness and strength to her work. Exceptionally attentive and receptive as a student, she adapts quickly, absorbs detail with precision and has a very clear sense of what she wants to communicate through movement and touch.',
+    bioPoints: [
+      'Her bodywork is firm and powerful, but never rigid. There is an expressive quality to the way she moves — confident, illustrative and full of intention — allowing techniques to feel both strong and fluid.',
+      'She has a natural ability to translate what she learns into something that already feels distinctly her own.',
+      'Teaching Dorina was particularly rewarding. There is something in the conviction of her movement, her adaptability and the way she approaches the body that feels very familiar to me — qualities I was especially excited to help her develop further.',
+    ],
+    bioPT: 'Dorina traz uma combinação incomum de suavidade e força ao seu trabalho. Excepcionalmente atenta e receptiva como aluna, adapta-se rapidamente, absorve detalhes com precisão e tem um senso muito claro do que quer comunicar através do movimento e do toque.',
+    bioPTPoints: [
+      'Seu trabalho corporal é firme e poderoso, mas nunca rígido. Há uma qualidade expressiva na maneira como ela se move — confiante, ilustrativa e cheia de intenção — permitindo que as técnicas se sintam ao mesmo tempo fortes e fluidas.',
+      'Ela tem uma habilidade natural de traduzir o que aprende em algo que já parece distintamente seu.',
+      'Ensinar Dorina foi particularmente gratificante. Há algo na convicção do seu movimento, na sua adaptabilidade e na forma como ela se aproxima do corpo que me parece muito familiar — qualidades que fiquei especialmente entusiasmada em ajudá-la a desenvolver ainda mais.',
+    ],
+    youtubeId: '',
+    coordinates: [-0.127, 51.507], // London
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
