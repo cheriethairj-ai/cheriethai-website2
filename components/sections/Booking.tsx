@@ -4,12 +4,14 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useIsTouch } from '@/hooks/useIsTouch'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const WA_MESSAGE = encodeURIComponent(
-  'Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.'
-)
-const WHATSAPP_SP = `https://wa.me/5511911135083?text=${WA_MESSAGE}`
-const WHATSAPP_RJ = `https://wa.me/5521996466022?text=${WA_MESSAGE}`
+const WA_MESSAGE_PT = encodeURIComponent('Olá, gostaria de receber mais informações sobre sessões, opções terapêuticas e disponibilidade na CherieThai.')
+const WA_MESSAGE_EN = encodeURIComponent("Hello, I'd like to receive more information about sessions, therapeutic options and availability at CherieThai.")
+const WHATSAPP_SP_PT = `https://wa.me/5511911135083?text=${WA_MESSAGE_PT}`
+const WHATSAPP_SP_EN = `https://wa.me/5511911135083?text=${WA_MESSAGE_EN}`
+const WHATSAPP_RJ_PT = `https://wa.me/5521996466022?text=${WA_MESSAGE_PT}`
+const WHATSAPP_RJ_EN = `https://wa.me/5521996466022?text=${WA_MESSAGE_EN}`
 const EMAIL = 'cheriethairj@gmail.com'
 
 const inView = (delay = 0) => ({
@@ -22,8 +24,12 @@ const inView = (delay = 0) => ({
 export default function Booking() {
   const ref = useRef<HTMLElement>(null)
   const isTouch = useIsTouch()
+  const { lang } = useLanguage()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-7%', '7%'])
+
+  const WHATSAPP_SP = lang === 'PT' ? WHATSAPP_SP_PT : WHATSAPP_SP_EN
+  const WHATSAPP_RJ = lang === 'PT' ? WHATSAPP_RJ_PT : WHATSAPP_RJ_EN
 
   return (
     <section id="contact" ref={ref} className="overflow-hidden bg-near-black">
@@ -41,7 +47,7 @@ export default function Booking() {
           <motion.div className="absolute inset-0" style={{ y: imageY }}>
             <Image
               src="/clinic-bodywork.jpg"
-              alt="CherieThai, sessão em andamento"
+              alt="CherieThai — session in progress"
               fill
               sizes="(max-width: 1024px) 100vw, 44vw"
               className="object-cover object-center"
@@ -62,7 +68,7 @@ export default function Booking() {
 
             {/* Label */}
             <motion.p {...inView()} className="label-text text-sage mb-10">
-              Reservas&nbsp;&nbsp;·&nbsp;&nbsp;Sessões
+              {lang === 'PT' ? 'Reservas  ·  Sessões' : 'Bookings  ·  Sessions'}
             </motion.p>
 
             {/* Headline */}
@@ -71,14 +77,11 @@ export default function Booking() {
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
               {...inView(0.1)}
             >
-              Uma sessão.<br />
-              Pensada<br />
-              para você.
+              {lang === 'PT' ? <>Uma sessão.<br />Pensada<br />para você.</> : <>A session.<br />Considered<br />for you.</>}
             </motion.h2>
 
             <motion.p {...inView(0.2)} className="body-text text-sand/50 text-sm mb-14 leading-loose">
-              Toda sessão começa com uma conversa.<br />
-              Escutamos antes de recomendar.
+              {lang === 'PT' ? <>Toda sessão começa com uma conversa.<br />Escutamos antes de recomendar.</> : <>Every session begins with a conversation.<br />We listen before we recommend.</>}
             </motion.p>
 
             {/* ── Contact info ── */}
@@ -132,7 +135,7 @@ export default function Booking() {
                 rel="noopener noreferrer"
                 className="btn-ghost text-ivory border-ivory/25 inline-flex"
               >
-                <span>Solicitar uma Sessão</span>
+                <span>{lang === 'PT' ? 'Solicitar uma Sessão' : 'Request a Session'}</span>
                 <span aria-hidden>→</span>
               </a>
             </motion.div>
@@ -140,16 +143,17 @@ export default function Booking() {
             {/* ── Consultation note ── */}
             <motion.div {...inView(0.4)} className="border-t border-sand/10 pt-8 mb-10">
               <p className="body-text text-sand/38 text-sm leading-loose">
-                Outros formatos terapêuticos, estruturas de sessão
-                e recomendações de terapeuta estão disponíveis
-                mediante consulta direta com nossa equipe.
+                {lang === 'PT'
+                  ? 'Outros formatos terapêuticos, estruturas de sessão e recomendações de terapeuta estão disponíveis mediante consulta direta com nossa equipe.'
+                  : 'Other therapeutic formats, session structures and practitioner recommendations are available through direct consultation with our team.'}
               </p>
             </motion.div>
 
             {/* ── Payment note ── */}
             <motion.p {...inView(0.5)} className="label-text text-sage/25 text-xs leading-relaxed">
-              O pagamento é coordenado após a confirmação —
-              via Pix ou cartão de crédito.
+              {lang === 'PT'
+                ? 'O pagamento é coordenado após a confirmação — via Pix ou cartão de crédito.'
+                : 'Payment is coordinated after confirmation — via Pix or credit card.'}
             </motion.p>
 
           </div>
@@ -166,10 +170,10 @@ export default function Booking() {
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="label-text text-sage/28 text-xs">
-            Sessões somente com agendamento&nbsp;&nbsp;·&nbsp;&nbsp;São Paulo &amp; Rio de Janeiro
+            {lang === 'PT' ? 'Sessões somente com agendamento' : 'Sessions by appointment only'}&nbsp;&nbsp;·&nbsp;&nbsp;São Paulo &amp; Rio de Janeiro
           </p>
           <p className="label-text text-sage/28 text-xs">
-            A discrição é padrão.
+            {lang === 'PT' ? 'A discrição é padrão.' : 'Discretion is standard.'}
           </p>
         </div>
       </motion.div>
