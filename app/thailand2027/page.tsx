@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import CustomCursor from '@/components/CustomCursor'
 
-const KARL_WA = `https://wa.me/5521996466022?text=${encodeURIComponent("Hello, I'd like to enquire about the CherieThai Thailand Retreat 2027 and reserve a space.")}`
+const KARL_WA = `https://wa.me/5521996466022?text=${encodeURIComponent("Hello Karl, I'd like to enquire about the CherieThai Thailand Retreat 2027.")}`
 
 const reveal = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -21,6 +21,10 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 1.0, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
 
+const KARL_BASE = '5521996466022'
+
+const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponent(msg)}`
+
 const rooms = [
   {
     id: 'earth',
@@ -31,6 +35,7 @@ const rooms = [
     couple: '$3,200',
     note: '$1,600 per person',
     photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/resort-5.jpg'],
+    waLink: wa("Hello Karl, I'd like to reserve a place at the CherieThai Thailand Retreat 2027 in the Earth Lodge (Private Suite). Could you please confirm availability?"),
   },
   {
     id: 'hill',
@@ -41,6 +46,7 @@ const rooms = [
     couple: '$2,500',
     note: '$1,250 per person',
     photos: ['/retreat/resort-2.jpg', '/retreat/resort-5.jpg'],
+    waLink: wa("Hello Karl, I'd like to reserve a place at the CherieThai Thailand Retreat 2027 in Hill Haven (Valley View Suite). Could you please confirm availability?"),
   },
   {
     id: 'harmony',
@@ -51,6 +57,7 @@ const rooms = [
     couple: null,
     note: null,
     photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
+    waLink: wa("Hello Karl, I'd like to reserve a place at the CherieThai Thailand Retreat 2027 in Harmony House (Shared House). Could you please confirm availability?"),
   },
 ]
 
@@ -129,6 +136,16 @@ function RoomCard({ room }: { room: Room }) {
           <p className="label-text text-sage/20 mt-3" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
             * FOOD NOT INCLUDED
           </p>
+
+          <a
+            href={room.waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost text-sand/70 border-sand/25 inline-flex mt-8"
+          >
+            <span>Reserve this space</span>
+            <span aria-hidden>→</span>
+          </a>
         </div>
       </div>
     </motion.div>
