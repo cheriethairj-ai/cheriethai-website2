@@ -1301,6 +1301,7 @@ export const students: Student[] = [
     ],
     youtubeId: '',
     coordinates: [19.945, 50.064], // Kraków, Poland
+    instagram: 'spa_centrum_mocy',
   },
 ]
 
