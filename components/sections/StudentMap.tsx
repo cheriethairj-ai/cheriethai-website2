@@ -465,7 +465,7 @@ function StudentDirectory({
               {/* City label */}
               <p
                 className="label-text text-sage/30 mb-4"
-                style={{ fontSize: '0.46rem', letterSpacing: '0.24em' }}
+                style={{ fontSize: '0.52rem', letterSpacing: '0.22em' }}
               >
                 {group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{group.country.toUpperCase()}
               </p>
@@ -482,14 +482,14 @@ function StudentDirectory({
                     <div>
                       <p
                         className="font-cormorant font-light text-ivory/65 group-hover:text-ivory/90 transition-colors duration-200"
-                        style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', lineHeight: 1.1 }}
+                        style={{ fontSize: 'clamp(1.2rem, 2vw, 1.35rem)', lineHeight: 1.1 }}
                       >
                         {student.name}
                       </p>
                       {(lang === 'PT' ? student.descriptorsPT : student.descriptors) && (
                         <p
-                          className="label-text text-sage/22 group-hover:text-sage/40 transition-colors duration-200 mt-1"
-                          style={{ fontSize: '0.42rem', letterSpacing: '0.15em' }}
+                          className="label-text text-sage/35 group-hover:text-sage/55 transition-colors duration-200 mt-1"
+                          style={{ fontSize: '0.54rem', letterSpacing: '0.14em' }}
                         >
                           {(lang === 'PT' && student.descriptorsPT ? student.descriptorsPT : student.descriptors ?? []).join(' · ').toUpperCase()}
                         </p>
