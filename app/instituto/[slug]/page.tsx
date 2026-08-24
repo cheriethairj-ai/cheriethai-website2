@@ -62,50 +62,54 @@ export default function StudentProfilePage({
         </motion.header>
 
         {/* ── Video ──────────────────────────────────────────────────────── */}
-        <motion.div
-          {...fadeUp(0.08)}
-          className="w-full flex flex-col items-center"
-          style={{ paddingTop: '5.5rem', paddingBottom: '0' }}
-        >
-          {/* Label above video */}
-          <p
-            className="label-text text-sage/25 mb-3"
-            style={{ fontSize: '0.48rem', letterSpacing: '0.3em' }}
+        {student.youtubeId ? (
+          <motion.div
+            {...fadeUp(0.08)}
+            className="w-full flex flex-col items-center"
+            style={{ paddingTop: '5.5rem', paddingBottom: '0' }}
           >
-            INSTITUTO CHERIETHAI
-          </p>
-          <h2
-            className="font-cormorant font-light text-ivory/70 mb-1"
-            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', lineHeight: 1, letterSpacing: '-0.01em' }}
-          >
-            {student.name}
-          </h2>
-          <p
-            className="font-cormorant font-light text-sand/30 mb-6"
-            style={{ fontSize: 'clamp(0.85rem, 1.4vw, 1rem)', letterSpacing: '0.04em' }}
-          >
-            {lang === 'PT' ? 'Vídeo de apresentação final' : 'Final presentation video'}
-          </p>
+            {/* Label above video */}
+            <p
+              className="label-text text-sage/25 mb-3"
+              style={{ fontSize: '0.48rem', letterSpacing: '0.3em' }}
+            >
+              INSTITUTO CHERIETHAI
+            </p>
+            <h2
+              className="font-cormorant font-light text-ivory/70 mb-1"
+              style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', lineHeight: 1, letterSpacing: '-0.01em' }}
+            >
+              {student.name}
+            </h2>
+            <p
+              className="font-cormorant font-light text-sand/30 mb-6"
+              style={{ fontSize: 'clamp(0.85rem, 1.4vw, 1rem)', letterSpacing: '0.04em' }}
+            >
+              {lang === 'PT' ? 'Vídeo de apresentação final' : 'Final presentation video'}
+            </p>
 
-          {/* Video container — constrained for cinematic presence */}
-          <div
-            style={{
-              width: '100%',
-              maxWidth: '420px',
-              aspectRatio: '9/16',
-              position: 'relative',
-            }}
-          >
-            <iframe
-              src={`https://www.youtube.com/embed/${student.youtubeId}?rel=0&modestbranding=1&color=white&autoplay=0`}
-              className="w-full h-full"
-              style={{ border: 'none', display: 'block' }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`${student.name} — CherieThai Instituto`}
-            />
-          </div>
-        </motion.div>
+            {/* Video container — constrained for cinematic presence */}
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '420px',
+                aspectRatio: '9/16',
+                position: 'relative',
+              }}
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${student.youtubeId}?rel=0&modestbranding=1&color=white&autoplay=0`}
+                className="w-full h-full"
+                style={{ border: 'none', display: 'block' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`${student.name} — CherieThai Instituto`}
+              />
+            </div>
+          </motion.div>
+        ) : (
+          <div style={{ paddingTop: '5.5rem' }} />
+        )}
 
         {/* ── Profile ────────────────────────────────────────────────────── */}
         <div
