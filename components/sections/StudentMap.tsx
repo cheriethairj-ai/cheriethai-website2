@@ -128,8 +128,8 @@ export default function StudentMap() {
               }}
             >
               {v === 'brazil'
-                ? `${lang === 'EN' ? 'BRAZIL' : 'BRASIL'} · ${brazilStudents.length}`
-                : `${lang === 'EN' ? 'WORLD' : 'MUNDO'} · ${worldStudents.length}`}
+                ? (lang === 'EN' ? 'BRAZIL' : 'BRASIL')
+                : (lang === 'EN' ? 'WORLD' : 'MUNDO')}
             </button>
           ))}
         </div>
@@ -260,7 +260,7 @@ export default function StudentMap() {
             {/* City header */}
             <div className="px-5 py-4 border-b border-sand/8">
               <p className="label-text text-sage/40" style={{ fontSize: '0.47rem', letterSpacing: '0.24em' }}>
-                {dropdown.group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{dropdown.group.students.length} {lang === 'EN' ? 'GRADUATES' : 'FORMADOS'}
+                {dropdown.group.city.toUpperCase()}&nbsp;&nbsp;·&nbsp;&nbsp;{dropdown.group.students.length} {lang === 'EN' ? 'PRACTITIONERS' : 'PRATICANTES'}
               </p>
             </div>
 
@@ -351,7 +351,7 @@ function StudentDirectory({
       {/* ── Header row with title + search ── */}
       <div className="flex items-center gap-4 mb-8">
         <p className="label-text text-sage/30 shrink-0" style={{ fontSize: '0.5rem', letterSpacing: '0.28em' }}>
-          {lang === 'EN' ? 'ALL GRADUATES' : 'TODOS OS FORMADOS'}
+          {lang === 'EN' ? 'PRACTITIONER DIRECTORY' : 'DIRECTÓRIO DE PRATICANTES'}
         </p>
         <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.06)' }} />
 
@@ -443,7 +443,7 @@ function StudentDirectory({
               className="label-text text-sage/35 shrink-0"
               style={{ fontSize: '0.58rem', letterSpacing: '0.22em' }}
             >
-              {lang === 'PT' ? 'GRADUADOS CERTIFICADOS' : 'CERTIFIED GRADUATES'}
+              {lang === 'PT' ? 'PRATICANTES SELECIONADOS' : 'SELECTED PRACTITIONERS'}
             </p>
             <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.05)' }} />
           </div>

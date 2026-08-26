@@ -17,17 +17,25 @@ const t = {
   PT: {
     back: '← INSTITUTO',
     label: 'INSTITUTO CHERIETHAI',
-    title: 'Alunos Formados',
-    subtitle: 'Cada praticante aqui apresentado foi pessoalmente observado e compreendido por Cherie ao longo da formação.',
-    subtitle2: 'Cada perfil inclui uma apresentação final em vídeo, na qual o praticante executa uma sequência coreografada para refletir seu estilo individual, além de sua biografia, localização e informações de contato.',
+    title: 'Praticantes Formados',
+    intro: 'O CherieThai não forma praticantes em escala.',
+    body: [
+      'As formações são intencionalmente reduzidas, permitindo que Cherie acompanhe de perto o desenvolvimento de cada praticante — sua capacidade técnica e a forma individual como cada um expressa a abordagem CherieThai.',
+      'Os praticantes aqui apresentados formam uma comunidade deliberadamente limitada. Cada um concluiu uma formação com o CherieThai e demonstrou um nível de prática que o Instituto se sente seguro em representar publicamente.',
+      'Cada perfil inclui a descrição do próprio praticante sobre como aplica a abordagem CherieThai — cuidadosamente revisada por Cherie para refletir com precisão seus pontos fortes e estilo individual — além de localização e contacto. Quando disponível, uma apresentação prática final oferece uma visão adicional do trabalho.',
+    ],
     footer: 'CHERIETHAI INSTITUTO · SÃO PAULO · RIO DE JANEIRO',
   },
   EN: {
     back: '← INSTITUTE',
     label: 'CHERIETHAI INSTITUTE',
     title: 'Graduate Practitioners',
-    subtitle: 'Each practitioner featured here has been personally observed and understood by Cherie throughout their training.',
-    subtitle2: 'Each profile includes a final video presentation in which the practitioner performs a routine choreographed to reflect their individual style, alongside their biography, location and contact details.',
+    intro: 'CherieThai does not train practitioners at scale.',
+    body: [
+      'Our trainings are intentionally kept small, allowing Cherie to closely observe each practitioner\'s development, technical ability and individual expression of the CherieThai approach.',
+      'The practitioners featured here form a deliberately limited community. Each has completed training with CherieThai and demonstrated a standard of practice we are confident representing through the Institute.',
+      'Each profile includes the practitioner\'s own description of how they practise within the CherieThai approach, carefully curated by Cherie to accurately reflect their strengths and individual style, alongside their location and contact details. Where available, a final practice presentation offers a further view of their work.',
+    ],
     footer: 'CHERIETHAI INSTITUTE · SÃO PAULO · RIO DE JANEIRO',
   },
 }
@@ -78,25 +86,34 @@ export default function AlunosPage() {
           </motion.p>
           <motion.h1
             {...fadeUp(0.18)}
-            className="display-section text-ivory mb-6"
+            className="display-section text-ivory mb-8"
             style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', lineHeight: 0.95 }}
           >
             {tx.title}
           </motion.h1>
+
+          {/* Intro line — slightly more prominent */}
           <motion.p
-            {...fadeUp(0.25)}
-            className="body-text text-sand/45"
-            style={{ fontSize: 'clamp(0.975rem, 1.6vw, 1.075rem)', maxWidth: '48ch', marginBottom: '1rem' }}
+            {...fadeUp(0.24)}
+            className="body-text text-sand/70"
+            style={{ fontSize: 'clamp(0.975rem, 1.6vw, 1.05rem)', maxWidth: '44ch', marginBottom: '1.25rem' }}
           >
-            {tx.subtitle}
+            {tx.intro}
           </motion.p>
-          <motion.p
-            {...fadeUp(0.3)}
-            className="body-text text-sand/45"
-            style={{ fontSize: 'clamp(0.975rem, 1.6vw, 1.075rem)', maxWidth: '48ch' }}
-          >
-            {tx.subtitle2}
-          </motion.p>
+
+          {/* Body paragraphs */}
+          <div className="flex flex-col gap-4" style={{ maxWidth: '52ch' }}>
+            {tx.body.map((para, i) => (
+              <motion.p
+                key={i}
+                {...fadeUp(0.3 + i * 0.06)}
+                className="body-text text-sand/38"
+                style={{ fontSize: 'clamp(0.875rem, 1.4vw, 0.975rem)', lineHeight: 1.8 }}
+              >
+                {para}
+              </motion.p>
+            ))}
+          </div>
         </div>
 
         {/* ── Map + Directory ─────────────────────────────────────────────── */}
