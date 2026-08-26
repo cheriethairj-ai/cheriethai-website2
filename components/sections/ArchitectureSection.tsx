@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useIsTouch } from '@/hooks/useIsTouch'
 
@@ -22,6 +23,8 @@ const translations = {
     line2: 'existe com propósito.',
     body: `O corpo humano obedece a uma geometria precisa e o trabalho Thai navega essa geometria com elegância e intenção. As linhas que definem cada posição não são apenas estruturais. São também estéticas. A forma como o corpo é conduzido, a curvatura de um alongamento, o ângulo de uma pressão: tudo isso tem uma beleza que é inseparável da sua eficácia.\n\nNo trabalho Thai, essas linhas têm nome: Sen. Canais de energia que percorrem o corpo e guardam onde a tensão se acumula, onde a dor persiste, onde a libertação é possível.\n\nCada pressão é uma leitura. Cada trajeto, uma intenção. A forma serve à função. A função serve à libertação.`,
     footnote: 'SEN  ·  AS LINHAS ENERGÉTICAS DO CORPO TAILANDÊS',
+    cta: 'Descubra nossa Filosofia',
+    ctaHref: '/philosophy',
   },
   EN: {
     label: 'Body  ·  Geometry',
@@ -29,6 +32,8 @@ const translations = {
     line2: 'exists with purpose.',
     body: `The human body follows a precise geometry and Thai bodywork navigates that geometry with elegance and intention. The lines that define each position are not only structural. They are also aesthetic. The way the body is guided, the curve of a stretch, the angle of a pressure: all of it carries a beauty that is inseparable from its effect.\n\nIn Thai bodywork, these lines have a name: Sen. Energy channels that run through the body and hold where tension accumulates, where pain persists, where release becomes possible.\n\nEvery pressure is a reading. Every movement, an intention. Form serves function. Function serves release.`,
     footnote: 'SEN  ·  THE ENERGY LINES OF THE THAI BODY',
+    cta: 'Discover our Philosophy',
+    ctaHref: '/philosophy',
   },
 }
 
@@ -146,6 +151,23 @@ export default function ArchitectureSection() {
           >
             {t.footnote}
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-14"
+          >
+            <Link
+              href={t.ctaHref}
+              className="group inline-flex items-center gap-4 label-text text-sand/40 hover:text-sand/80 transition-colors duration-400"
+              style={{ fontSize: '0.55rem', letterSpacing: '0.28em' }}
+            >
+              <span>{t.cta}</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 inline-block">→</span>
+            </Link>
+          </motion.div>
 
         </div>
       </motion.div>
