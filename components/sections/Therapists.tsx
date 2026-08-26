@@ -2,13 +2,14 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useIsTouch } from '@/hooks/useIsTouch'
 
 const SP_WHATSAPP = '5511911135083'
 const RIO_WHATSAPP = '5521996466022'
-const whatsappUrl = (name?: string, number?: string, lang: 'PT' | 'EN' = 'PT') => {
+export const whatsappUrl = (name?: string, number?: string, lang: 'PT' | 'EN' = 'PT') => {
   const num = number ?? SP_WHATSAPP
   const msg = lang === 'EN'
     ? name
@@ -22,7 +23,7 @@ const whatsappUrl = (name?: string, number?: string, lang: 'PT' | 'EN' = 'PT') =
 
 // ─── UI Translations ───────────────────────────────────────────────────────────
 
-const uiTranslations = {
+export const uiTranslations = {
   PT: {
     specializationsBtn: 'Especializações & Perfil Ideal',
     close: 'Fechar',
@@ -73,7 +74,7 @@ const uiTranslations = {
 
 // ─── Founders Data ─────────────────────────────────────────────────────────────
 
-const foundersData = {
+export const foundersData = {
   PT: [
     {
       id: 'cherie',
@@ -200,7 +201,7 @@ const foundersData = {
 
 // ─── Therapists Data ──────────────────────────────────────────────────────────
 
-const therapistsData = {
+export const therapistsData = {
   PT: [
     {
       id: 'lucas',
@@ -427,13 +428,13 @@ const inView = (delay = 0) => ({
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
-type UiStrings = typeof uiTranslations['PT']
-type FounderType = (typeof foundersData)['PT'][0]
-type TherapistType = (typeof therapistsData)['PT'][0]
+export type UiStrings = typeof uiTranslations['PT']
+export type FounderType = (typeof foundersData)['PT'][0]
+export type TherapistType = (typeof therapistsData)['PT'][0]
 
 // ─── Founder Row ───────────────────────────────────────────────────────────────
 
-function FounderRow({ founder, ui, lang, scrollId }: { founder: FounderType; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
+export function FounderRow({ founder, ui, lang, scrollId }: { founder: FounderType; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isTouch = useIsTouch()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -602,7 +603,7 @@ function FounderRow({ founder, ui, lang, scrollId }: { founder: FounderType; ui:
               {founder.price}
             </p>
             <a
-              href={whatsappUrl(founder.name, founder.whatsapp, lang)}
+              href={whatsappUrl(founder.name, (founder as { whatsapp?: string }).whatsapp, lang)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-ivory border-ivory/25 inline-flex mb-8"
@@ -632,7 +633,7 @@ function FounderRow({ founder, ui, lang, scrollId }: { founder: FounderType; ui:
 
 // ─── Therapist Card ────────────────────────────────────────────────────────────
 
-function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: TherapistType; index: number; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
+export function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: TherapistType; index: number; ui: UiStrings; lang: 'PT' | 'EN'; scrollId?: string }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -769,7 +770,7 @@ function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: Th
           </div>
 
           <a
-            href={whatsappUrl(therapist.name, therapist.whatsapp, lang)}
+            href={whatsappUrl(therapist.name, (therapist as { whatsapp?: string }).whatsapp, lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="label-text text-earth/50 hover:text-earth/80 transition-colors duration-300 flex items-center gap-2 mb-5"
@@ -790,24 +791,22 @@ function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: Th
 // ─── Practitioner Index Card ───────────────────────────────────────────────────
 
 function PractitionerIndexCard({
-  name, location, role, image, imagePosition, anchor, delay, large,
+  name, location, role, image, imagePosition, href, delay, large,
 }: {
   name: string
   location: string
   role: string
   image: string | null
   imagePosition: string
-  anchor: string
+  href: string
   delay: number
   large?: boolean
 }) {
-  const scrollTo = () => {
-    document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const router = useRouter()
 
   return (
     <motion.button
-      onClick={scrollTo}
+      onClick={() => router.push(href)}
       className="group relative overflow-hidden text-left w-full block"
       style={{ aspectRatio: '3/4', cursor: 'none' }}
       initial={{ opacity: 0 }}
@@ -858,13 +857,25 @@ function PractitionerIndexCard({
 
       {/* Hover indicator */}
       <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <span className="label-text text-sand/55" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>↓</span>
+        <span className="label-text text-sand/55" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>→</span>
       </div>
     </motion.button>
   )
 }
 
 // ─── Practitioner Index ────────────────────────────────────────────────────────
+
+const founderHrefs: Record<string, string> = {
+  cherie: '/therapists/cherie',
+  karl: '/therapists/karl',
+}
+
+const therapistHrefs: Record<string, string> = {
+  lucas: '/therapists/lucas',
+  pedro: '/therapists/pedro',
+  'grace-kelly': '/therapists/grace-kelly',
+  ricardo: '/therapists/ricardo',
+}
 
 function PractitionerIndex({ lang }: { lang: 'PT' | 'EN' }) {
   const founders = foundersData[lang]
@@ -886,7 +897,7 @@ function PractitionerIndex({ lang }: { lang: 'PT' | 'EN' }) {
               role={f.role}
               image={f.image}
               imagePosition={f.imagePosition ?? 'center top'}
-              anchor={`therapist-${f.id}`}
+              href={founderHrefs[f.id] ?? `/therapists`}
               delay={i * 0.1}
               large
             />
@@ -910,7 +921,7 @@ function PractitionerIndex({ lang }: { lang: 'PT' | 'EN' }) {
               role={t.role}
               image={t.image}
               imagePosition={t.imagePosition ?? 'center top'}
-              anchor={`therapist-${t.id}`}
+              href={therapistHrefs[t.id] ?? `/therapists`}
               delay={0.2 + i * 0.07}
             />
           </div>
@@ -925,9 +936,7 @@ function PractitionerIndex({ lang }: { lang: 'PT' | 'EN' }) {
 
 export default function Therapists() {
   const { lang } = useLanguage()
-  const founders = foundersData[lang]
   const ui = uiTranslations[lang]
-  const therapists = therapistsData[lang]
 
   return (
     <section id="therapists">
@@ -984,99 +993,6 @@ export default function Therapists() {
       {/* ── Practitioner visual index ── */}
       <PractitionerIndex lang={lang} />
 
-      {/* ── Founders, full-width editorial rows ── */}
-      <div>
-        {founders.map((founder) => (
-          <FounderRow
-            key={founder.id}
-            founder={founder}
-            ui={ui}
-            lang={lang}
-            scrollId={`therapist-${founder.id}`}
-          />
-        ))}
-      </div>
-
-      {/* ── Team Therapists ── */}
-      <div className="bg-ivory px-6 md:px-12 lg:px-16 py-24 md:py-36">
-        <div className="max-w-6xl mx-auto">
-
-          <motion.div
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16 md:mb-20"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="label-text text-sage">{ui.teamLabel}</p>
-            <p className="body-text text-earth/50 text-sm max-w-sm text-right">
-              {ui.teamBody}
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-6">
-            {therapists.map((t, i) => (
-              <TherapistCard
-                key={t.id}
-                therapist={t}
-                index={i}
-                ui={ui}
-                lang={lang}
-                scrollId={`therapist-${t.id}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── Matching note ── */}
-      <div className="bg-off-white border-t border-earth/10 px-6 md:px-12 lg:px-16 py-16 md:py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.p
-            className="label-text text-sage mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {ui.noteLabel}
-          </motion.p>
-          <motion.p
-            className="body-text text-earth/70 text-base md:text-lg leading-loose"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            {ui.noteBody1}
-          </motion.p>
-          <motion.p
-            className="body-text text-earth/50 text-sm mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-          >
-            {ui.noteBody2}
-          </motion.p>
-          <motion.div
-            className="mt-10"
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.35 }}
-          >
-            <a
-              href={whatsappUrl(undefined, undefined, lang)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost text-deep-moss border-deep-moss/30 inline-flex"
-            >
-              <span>{ui.startConsultation}</span>
-              <span aria-hidden>→</span>
-            </a>
-          </motion.div>
-        </div>
-      </div>
     </section>
   )
 }
