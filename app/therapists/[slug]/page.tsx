@@ -79,8 +79,8 @@ function TherapistProfileLayout({
           <motion.p {...inView()} className="label-text text-sage mb-3">
             {therapist.role}
           </motion.p>
-          <motion.p {...inView(0.05)} className="label-text text-sand/70 mb-10 flex items-center gap-2">
-            <span aria-hidden className="text-sand/40">◎</span>
+          <motion.p {...inView(0.05)} className="label-text text-earth/60 mb-10 flex items-center gap-2">
+            <span aria-hidden className="text-earth/40">◎</span>
             {therapist.location}
           </motion.p>
 
@@ -94,7 +94,7 @@ function TherapistProfileLayout({
 
           <motion.blockquote
             {...inView(0.2)}
-            className="font-cormorant italic text-sand/80 mb-8 pl-4 border-l border-sand/20"
+            className="font-cormorant italic text-earth/70 mb-8 pl-4 border-l border-earth/20"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.65 }}
           >
             {therapist.philosophy.split('\n').map((line, i) => (
@@ -102,13 +102,13 @@ function TherapistProfileLayout({
             ))}
           </motion.blockquote>
 
-          <motion.div {...inView(0.3)} className="body-text text-sage/65 space-y-3 text-sm md:text-base mb-8">
+          <motion.div {...inView(0.3)} className="body-text text-earth/65 space-y-3 text-sm md:text-base mb-8">
             {therapist.atmosphere.split('\n\n').map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </motion.div>
 
-          <motion.p {...inView(0.35)} className="font-cormorant italic text-sage text-lg mb-8">
+          <motion.p {...inView(0.35)} className="font-cormorant italic text-earth/55 text-lg mb-8">
             {therapist.presence}
           </motion.p>
 
@@ -116,7 +116,7 @@ function TherapistProfileLayout({
           <motion.button
             {...inView(0.4)}
             onClick={() => setExpanded(!expanded)}
-            className="label-text text-sand/50 hover:text-sand transition-colors duration-300 flex items-center gap-3 mb-6"
+            className="label-text text-earth/50 hover:text-earth/80 transition-colors duration-300 flex items-center gap-3 mb-6"
             style={{ cursor: 'none' }}
           >
             <span>{expanded ? ui.close : ui.specializationsBtn}</span>
@@ -138,19 +138,19 @@ function TherapistProfileLayout({
               >
                 <div className="pb-8 space-y-6">
                   <div>
-                    <p className="label-text text-sage/50 mb-3">{ui.technicalSpec}</p>
+                    <p className="label-text text-earth/50 mb-3">{ui.technicalSpec}</p>
                     <ul className="space-y-1.5">
                       {therapist.strengths.map((s) => (
-                        <li key={s} className="body-text text-sage/60 text-sm flex items-start gap-2">
-                          <span className="text-sand/30 mt-1 shrink-0">·</span>
+                        <li key={s} className="body-text text-earth/60 text-sm flex items-start gap-2">
+                          <span className="text-earth/30 mt-1 shrink-0">·</span>
                           {s}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <p className="label-text text-sage/50 mb-3">{ui.idealProfile}</p>
-                    <p className="body-text text-sage/60 text-sm">{therapist.ideal}</p>
+                    <p className="label-text text-earth/50 mb-3">{ui.idealProfile}</p>
+                    <p className="body-text text-earth/60 text-sm">{therapist.ideal}</p>
                   </div>
                 </div>
               </motion.div>
@@ -158,15 +158,15 @@ function TherapistProfileLayout({
           </AnimatePresence>
 
           {/* Price + CTA */}
-          <motion.div {...inView(0.44)} className="border-t border-sand/15 pt-8 mt-2">
+          <motion.div {...inView(0.44)} className="border-t border-earth/15 pt-8 mt-2">
             {therapist.supportingTone && (
-              <p className="body-text text-sage/45 text-xs leading-relaxed mb-5">
+              <p className="body-text text-earth/45 text-xs leading-relaxed mb-5">
                 {therapist.supportingTone}
               </p>
             )}
             {therapist.price ? (
               <>
-                <p className="label-text text-sage/50 mb-2">{therapist.priceLabel}</p>
+                <p className="label-text text-earth/50 mb-2">{therapist.priceLabel}</p>
                 <p
                   className="font-cormorant font-light text-deep-moss mb-7"
                   style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1 }}
@@ -175,7 +175,7 @@ function TherapistProfileLayout({
                 </p>
               </>
             ) : (
-              <p className="label-text text-sage/40 mb-7">{ui.availabilityOnRequest}</p>
+              <p className="label-text text-earth/40 mb-7">{ui.availabilityOnRequest}</p>
             )}
             <a
               href={wa}
@@ -186,7 +186,7 @@ function TherapistProfileLayout({
               <span>{ui.requestSession}</span>
               <span aria-hidden>→</span>
             </a>
-            <p className="label-text text-sage/28 text-xs leading-relaxed">
+            <p className="label-text text-earth/40 text-xs leading-relaxed">
               {therapist.consultationNote}
             </p>
           </motion.div>
