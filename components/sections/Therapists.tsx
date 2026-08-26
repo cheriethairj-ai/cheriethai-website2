@@ -233,7 +233,7 @@ export const therapistsData = {
     {
       id: 'pedro',
       name: 'Pedro',
-      role: 'Praticante · Lutador Profissional de MMA · Tecido Profundo',
+      role: 'Praticante · Lutador Profissional de MMA · Bodywork de Combate',
       location: 'São Paulo',
       philosophy: '"Todo mundo acha que um lutador só sabe destruir coisas.\nLutar ensina o contrário.\nEnsina a ler — a tensão que alguém carrega, onde está se protegendo, o que não quer sentir.\n\nAprendi isso no ringue.\nUso a mesma coisa aqui."',
       atmosphere: `Pedro é lutador profissional de MMA. A suposição é que isso o torna bruto. A realidade é o oposto.\n\nO combate e o bodywork restaurativo compartilham a mesma base: os dois exigem uma sensibilidade extraordinária ao corpo sob pressão. Os dois exigem ler a tensão antes que ela se torne movimento. Os dois pedem que você saiba — não adivinhe — onde o corpo está se protegendo e por quê.\n\nPedro passou anos aprendendo a ler corpos no ambiente mais exigente possível. Esse conhecimento não desaparece quando ele entra em uma sala de atendimento. Ele se torna o seu propósito.`,
@@ -340,7 +340,7 @@ export const therapistsData = {
     {
       id: 'pedro',
       name: 'Pedro',
-      role: 'Practitioner · Professional MMA Fighter · Deep Tissue',
+      role: 'Practitioner · Professional MMA Fighter · Combat Bodywork',
       location: 'São Paulo',
       philosophy: '"Everyone assumes a fighter only knows how to break things down.\nFighting teaches you the opposite.\nIt teaches you to read — the tension someone carries, where they\'re protecting, what they won\'t feel.\n\nI learned that in the ring.\nI use the same thing here."',
       atmosphere: `Pedro is a professional MMA fighter. The assumption is that this makes him rough. The reality is the opposite.\n\nCombat and restorative bodywork share the same foundation: both demand an extraordinary sensitivity to the body under pressure. Both require reading tension before it becomes movement. Both ask you to know — not guess — where the body is protecting itself, and why.\n\nPedro spent years learning to read bodies in the most demanding environment possible. That knowledge does not disappear when he enters a treatment room. It becomes its purpose.`,
