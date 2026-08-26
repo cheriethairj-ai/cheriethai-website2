@@ -1,8 +1,7 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useIsTouch } from '@/hooks/useIsTouch'
@@ -35,6 +34,7 @@ const uiTranslations = {
     sectionH2Line1: 'As mãos',
     sectionH2Line2: 'por trás do método.',
     sectionBody: 'Os praticantes CherieThai não são selecionados pelas horas acumuladas. São selecionados pelo que compreendem.',
+    sectionBody2: 'Cada praticante partilha a mesma abordagem e os mesmos padrões — e desenvolve dentro deles uma expressão e presença próprias.',
     teamLabel: 'A Equipe de Praticantes',
     teamBody: 'Cada praticante concluiu formação direta sob orientação de Cherie T. Charnkul. Sem exceções.',
     specializationsSmall: 'Especializações',
@@ -57,6 +57,7 @@ const uiTranslations = {
     sectionH2Line1: 'The hands',
     sectionH2Line2: 'behind the method.',
     sectionBody: 'CherieThai practitioners are not selected by accumulated hours. They are selected by what they understand.',
+    sectionBody2: 'Each practitioner shares the same approach and standards — and develops within them a distinct individual expression.',
     teamLabel: 'The Practitioner Team',
     teamBody: 'Every practitioner completed direct training under the guidance of Cherie T. Charnkul. Without exception.',
     specializationsSmall: 'Specializations',
@@ -786,70 +787,136 @@ function TherapistCard({ therapist, index, ui, lang, scrollId }: { therapist: Th
   )
 }
 
-// ─── Therapist Nav Dropdown ────────────────────────────────────────────────────
+// ─── Practitioner Index Card ───────────────────────────────────────────────────
 
-const NAV_ITEMS = [
-  { label: 'Cherie T. Charnkul', href: '/cherie' },
-  { label: 'Karl', href: '/karl' },
-  { label: 'Pedro', href: '/pedro' },
-  { label: 'Grace-Kelly', href: '/gracekelly' },
-  { label: 'Ricardo', href: '/ricardo' },
-  { label: 'Lucas', href: '/lucas' },
-]
-
-function TherapistNav({ navLabel }: { navLabel: string }) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  const router = useRouter()
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [])
+function PractitionerIndexCard({
+  name, location, role, image, imagePosition, anchor, delay, large,
+}: {
+  name: string
+  location: string
+  role: string
+  image: string | null
+  imagePosition: string
+  anchor: string
+  delay: number
+  large?: boolean
+}) {
+  const scrollTo = () => {
+    document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
-    <div ref={ref} className="relative inline-block">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 label-text text-earth/50 hover:text-earth/80 transition-colors"
-        style={{ fontSize: '0.72rem', letterSpacing: '0.18em' }}
-      >
-        <span>{navLabel}</span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="inline-block"
-          style={{ fontSize: '0.75rem' }}
-        >
-          ↓
-        </motion.span>
-      </button>
+    <motion.button
+      onClick={scrollTo}
+      className="group relative overflow-hidden text-left w-full block"
+      style={{ aspectRatio: '3/4', cursor: 'none' }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.9, delay, ease: [0.25, 0.1, 0.25, 1.0] }}
+    >
+      {image && (
+        <Image
+          src={image}
+          alt={name}
+          fill
+          sizes={large ? '50vw' : '(max-width: 1024px) 50vw, 25vw'}
+          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.025]"
+          style={{ objectPosition: imagePosition, transitionProperty: 'filter, transform' }}
+        />
+      )}
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 mt-2 bg-ivory border border-sand/25 shadow-sm z-20 min-w-[200px]"
+      {/* Gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to top, rgba(13,17,14,0.95) 0%, rgba(13,17,14,0.4) 40%, rgba(13,17,14,0.05) 75%)',
+        }}
+      />
+
+      {/* Text */}
+      <div className="absolute bottom-0 left-0 right-0 px-5 pb-7 md:px-8 md:pb-9">
+        <p
+          className="font-cormorant font-light text-ivory/80 group-hover:text-ivory transition-colors duration-300 mb-1.5"
+          style={{ fontSize: large ? 'clamp(1.4rem, 2.5vw, 2rem)' : 'clamp(1.2rem, 2vw, 1.5rem)', lineHeight: 1.05 }}
+        >
+          {name}
+        </p>
+        <p
+          className="label-text text-sand/35 group-hover:text-sand/60 transition-colors duration-300"
+          style={{ fontSize: '0.48rem', letterSpacing: '0.2em' }}
+        >
+          {location.split('·')[0].trim().toUpperCase()}
+        </p>
+        <p
+          className="label-text text-sage/28 group-hover:text-sage/48 transition-colors duration-300 mt-1"
+          style={{ fontSize: '0.4rem', letterSpacing: '0.14em' }}
+        >
+          {role.split('·').at(-1)?.trim()}
+        </p>
+      </div>
+
+      {/* Hover indicator */}
+      <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="label-text text-sand/55" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>↓</span>
+      </div>
+    </motion.button>
+  )
+}
+
+// ─── Practitioner Index ────────────────────────────────────────────────────────
+
+function PractitionerIndex({ lang }: { lang: 'PT' | 'EN' }) {
+  const founders = foundersData[lang]
+  const therapists = therapistsData[lang]
+
+  return (
+    <div style={{ background: '#0D110E', borderTop: '1px solid rgba(220,201,160,0.06)' }}>
+
+      {/* Founders row — 2 equal wide columns */}
+      <div className="grid grid-cols-2" style={{ borderBottom: '1px solid rgba(220,201,160,0.06)' }}>
+        {founders.map((f, i) => (
+          <div
+            key={f.id}
+            style={{ borderRight: i === 0 ? '1px solid rgba(220,201,160,0.06)' : undefined }}
           >
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => { setOpen(false); router.push(item.href) }}
-                className="w-full text-left px-5 py-3.5 label-text text-earth/60 hover:text-earth hover:bg-sand/10 transition-colors border-b border-sand/10 last:border-b-0"
-                style={{ fontSize: '0.68rem', letterSpacing: '0.16em' }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <PractitionerIndexCard
+              name={f.name}
+              location={f.location}
+              role={f.role}
+              image={f.image}
+              imagePosition={f.imagePosition ?? 'center top'}
+              anchor={`therapist-${f.id}`}
+              delay={i * 0.1}
+              large
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Therapists row — 2 col mobile, 4 col desktop */}
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {therapists.map((t, i) => (
+          <div
+            key={t.id}
+            style={{
+              borderRight: '1px solid rgba(220,201,160,0.06)',
+              borderBottom: '1px solid rgba(220,201,160,0.06)',
+            }}
+          >
+            <PractitionerIndexCard
+              name={t.name}
+              location={t.location}
+              role={t.role}
+              image={t.image}
+              imagePosition={t.imagePosition ?? 'center top'}
+              anchor={`therapist-${t.id}`}
+              delay={0.2 + i * 0.07}
+            />
+          </div>
+        ))}
+      </div>
+
     </div>
   )
 }
@@ -868,52 +935,57 @@ export default function Therapists() {
       {/* ── Section header ── */}
       <div className="bg-ivory px-6 md:px-12 lg:px-16 pt-24 md:pt-36 pb-16 md:pb-20">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-6">
-            <motion.p
-              className="label-text text-sage"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              {ui.sectionLabel}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <TherapistNav navLabel={ui.navLabel} />
-            </motion.div>
-          </div>
 
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-            <motion.h2
-              className="display-section text-deep-moss"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
-            >
-              {ui.sectionH2Line1}<br />{ui.sectionH2Line2}
-            </motion.h2>
+          <motion.p
+            className="label-text text-sage mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            {ui.sectionLabel}
+          </motion.p>
 
-            <motion.p
-              className="body-text text-earth/60 max-w-xs text-sm md:text-base"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              {ui.sectionBody}
-            </motion.p>
-          </div>
+          <motion.h2
+            className="display-section text-deep-moss mb-8"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.08, ease: [0.25, 0.1, 0.25, 1.0] }}
+          >
+            {ui.sectionH2Line1}<br />{ui.sectionH2Line2}
+          </motion.h2>
+
+          <motion.p
+            className="body-text text-earth/65"
+            style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', maxWidth: '46ch', marginBottom: '0.75rem' }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {ui.sectionBody}
+          </motion.p>
+
+          <motion.p
+            className="body-text text-earth/40"
+            style={{ fontSize: 'clamp(0.875rem, 1.3vw, 0.95rem)', maxWidth: '46ch' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            {ui.sectionBody2}
+          </motion.p>
+
         </div>
       </div>
 
+      {/* ── Practitioner visual index ── */}
+      <PractitionerIndex lang={lang} />
+
       {/* ── Founders, full-width editorial rows ── */}
-      <div className="border-t border-sand/10">
+      <div>
         {founders.map((founder) => (
           <FounderRow
             key={founder.id}
