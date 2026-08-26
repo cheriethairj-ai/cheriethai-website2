@@ -253,7 +253,7 @@ export const therapistsData = {
       imagePosition: 'center center',
       priceLabel: 'Sessões com Pedro' as string | null,
       price: 'R$ 350' as string | null,
-      supportingTone: 'Trabalho preciso de tecido profundo com vocabulário anatômico de combate, para corpos que exigem acesso real.' as string | null,
+      supportingTone: 'Tecido profundo informado por anos lendo corpos sob pressão real. Não é intuição — é inteligência anatômica construída dentro do ringue.' as string | null,
       consultationNote: 'Disponibilidade e formatos adicionais mediante consulta.',
     },
     {
@@ -359,7 +359,7 @@ export const therapistsData = {
       imagePosition: 'center center',
       priceLabel: 'Sessions with Pedro' as string | null,
       price: 'R$ 350' as string | null,
-      supportingTone: 'Precise deep tissue work with an anatomical understanding shaped through combat sports, designed for bodies under real physical demand.' as string | null,
+      supportingTone: 'Deep tissue work informed by years of reading bodies under real pressure. Not intuition — anatomical intelligence built inside the ring.' as string | null,
       consultationNote: 'Availability and additional formats upon request.',
     },
     {
