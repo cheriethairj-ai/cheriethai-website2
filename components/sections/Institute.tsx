@@ -153,14 +153,24 @@ export default function Institute() {
               worthy of their potential.</>
             )}
           </motion.p>
-          <motion.a
-            {...inView(0.3)}
-            href="#institute-cursos"
-            className="btn-ghost text-sand/80 border-sand/30 inline-flex"
-          >
-            <span>{lang === 'PT' ? 'Consultar Disponibilidade' : 'Check Availability'}</span>
-            <span aria-hidden>→</span>
-          </motion.a>
+          <div className="flex flex-wrap gap-4">
+            <motion.a
+              {...inView(0.3)}
+              href="#institute-cursos"
+              className="btn-ghost text-sand/80 border-sand/30 inline-flex"
+            >
+              <span>{lang === 'PT' ? 'Consultar Disponibilidade' : 'Check Availability'}</span>
+              <span aria-hidden>→</span>
+            </motion.a>
+            <motion.a
+              {...inView(0.38)}
+              href="/alunos"
+              className="btn-ghost text-sand/45 border-sand/15 inline-flex"
+            >
+              <span>{lang === 'PT' ? 'Ver Praticantes Formados' : 'View Graduate Practitioners'}</span>
+              <span aria-hidden>→</span>
+            </motion.a>
+          </div>
         </div>
       </div>
 
