@@ -829,27 +829,27 @@ function PractitionerIndexCard({
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to top, rgba(13,17,14,0.95) 0%, rgba(13,17,14,0.4) 40%, rgba(13,17,14,0.05) 75%)',
+          background: 'linear-gradient(to top, rgba(13,17,14,1) 0%, rgba(13,17,14,0.75) 35%, rgba(13,17,14,0.15) 65%, transparent 100%)',
         }}
       />
 
       {/* Text */}
       <div className="absolute bottom-0 left-0 right-0 px-5 pb-7 md:px-8 md:pb-9">
         <p
-          className="font-cormorant font-light text-ivory/80 group-hover:text-ivory transition-colors duration-300 mb-1.5"
-          style={{ fontSize: large ? 'clamp(1.4rem, 2.5vw, 2rem)' : 'clamp(1.2rem, 2vw, 1.5rem)', lineHeight: 1.05 }}
+          className="font-cormorant font-light text-ivory transition-colors duration-300 mb-2"
+          style={{ fontSize: large ? 'clamp(1.5rem, 2.5vw, 2.1rem)' : 'clamp(1.25rem, 2vw, 1.6rem)', lineHeight: 1.05 }}
         >
           {name}
         </p>
         <p
-          className="label-text text-sand/35 group-hover:text-sand/60 transition-colors duration-300"
-          style={{ fontSize: '0.48rem', letterSpacing: '0.2em' }}
+          className="label-text text-sand/70 group-hover:text-sand/90 transition-colors duration-300"
+          style={{ fontSize: '0.52rem', letterSpacing: '0.18em' }}
         >
           {location.split('·')[0].trim().toUpperCase()}
         </p>
         <p
-          className="label-text text-sage/28 group-hover:text-sage/48 transition-colors duration-300 mt-1"
-          style={{ fontSize: '0.4rem', letterSpacing: '0.14em' }}
+          className="label-text text-sage/55 group-hover:text-sage/80 transition-colors duration-300 mt-1"
+          style={{ fontSize: '0.46rem', letterSpacing: '0.14em' }}
         >
           {role.split('·').at(-1)?.trim()}
         </p>
