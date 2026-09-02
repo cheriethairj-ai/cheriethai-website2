@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useCallback } from 'react'
 import CustomCursor from '@/components/CustomCursor'
 
 const KARL_WA = `https://wa.me/5521996466022?text=${encodeURIComponent("Hello Karl, I'd like to enquire about the CherieThai Thailand Retreat 2027.")}`
@@ -23,17 +23,43 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 1.0, delay, ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number] },
 })
 
-// ─── Accommodation ────────────────────────────────────────────────────────────
+// ─── Pricing types ─────────────────────────────────────────────────────────────
 
-const rooms = [
+type PricingSharedOnly = {
+  type: 'shared-only'
+  perPerson: string
+  note: string
+}
+
+type PricingDual = {
+  type: 'dual'
+  private: { total: string }
+  shared: { total: string; perPerson: string }
+}
+
+type Room = {
+  id: string
+  name: string
+  tag: string
+  description: string
+  pricing: PricingSharedOnly | PricingDual
+  photos: string[]
+  waLink: string
+}
+
+// ─── Accommodation data ────────────────────────────────────────────────────────
+
+const rooms: Room[] = [
   {
     id: 'harmony',
     name: 'Harmony House',
     tag: 'SHARED DORMITORY',
-    description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students throughout the retreat.',
-    investment: 'US$ 1,000',
-    investmentLabel: 'PER PERSON',
-    privateNote: null as string | null,
+    description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students. Harmony House is the most accessible entry point into the retreat.',
+    pricing: {
+      type: 'shared-only',
+      perPerson: 'US$ 1,000',
+      note: 'Shared dormitory · No private occupancy option',
+    },
     photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Harmony House (Shared Dormitory). Could you please confirm availability?"),
   },
@@ -41,69 +67,263 @@ const rooms = [
     id: 'hill',
     name: 'Hill Haven',
     tag: 'GARDEN & MOUNTAIN VIEWS',
-    description: 'Private and shared room options set among garden and mountain views. A considered, comfortable base between training sessions — quiet enough to rest well, generous enough to feel like a proper retreat.',
-    investment: '~ US$ 1,200',
-    investmentLabel: 'PER PERSON · SHARED',
-    privateNote: 'Private room options available at a premium — enquire directly.',
+    description: 'A significant step up in privacy and comfort. Hill Haven offers garden view and mountain view rooms, each with considerably more space and quiet than the shared dormitory. Available for private occupancy or shared between two people.',
+    pricing: {
+      type: 'dual',
+      private: { total: 'US$ 1,600' },
+      shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per person' },
+    },
     photos: ['/retreat/resort-2.jpg', '/retreat/resort-5.jpg'],
-    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options?"),
+    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
   },
   {
     id: 'earth',
     name: 'Earth Lodge',
-    tag: 'PREMIUM ACCOMMODATION',
-    description: 'The most spacious option at VOASIS, with mountain views, a private bathtub and carefully considered interiors. For those who want the complete retreat experience with genuine comfort and privacy.',
-    investment: '~ US$ 1,400',
-    investmentLabel: 'PER PERSON · SHARED',
-    privateNote: 'Private room options available at a premium — enquire directly.',
+    tag: 'MOUNTAIN VIEW · BATHTUB',
+    description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
+    pricing: {
+      type: 'dual',
+      private: { total: 'US$ 1,900' },
+      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per person' },
+    },
     photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/resort-5.jpg'],
-    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options?"),
+    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
   },
 ]
 
-type Room = typeof rooms[0]
+const INVESTMENT_INCLUDES = [
+  '22 hours of hands-on CherieThai Institute training',
+  '4 teaching days',
+  '4 nights accommodation at VOASIS Valley Krabi',
+  'CherieThai Institute Thailand Intensive Certificate',
+  'Pool · Ice bath · Jacuzzi · Sauna · Steam room · Gym',
+  'Wi-Fi and communal spaces',
+  'Airport transfers — official arrival and departure dates',
+]
 
-function RoomCard({ room }: { room: Room }) {
-  const [activePhoto, setActivePhoto] = useState(0)
+// ─── Gallery ──────────────────────────────────────────────────────────────────
+
+function RoomGallery({ photos, name, tag }: { photos: string[]; name: string; tag: string }) {
+  const [current, setCurrent] = useState(0)
+  const [lightbox, setLightbox] = useState(false)
+  const touchStartX = useRef(0)
+
+  const prev = useCallback(() => setCurrent(i => (i - 1 + photos.length) % photos.length), [photos.length])
+  const next = useCallback(() => setCurrent(i => (i + 1) % photos.length), [photos.length])
+
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 40) diff > 0 ? next() : prev()
+  }
 
   return (
-    <motion.div
-      {...reveal()}
-      className="grid grid-cols-1 lg:grid-cols-2"
-      style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}
-    >
-      {/* Photo */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', minHeight: '300px' }}>
-        <Image
-          src={room.photos[activePhoto]}
-          alt={room.name}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          style={{ objectFit: 'cover', objectPosition: 'center', transition: 'opacity 0.5s ease' }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(13,17,14,0.4) 0%, transparent 50%)' }} />
-        <div className="absolute top-5 left-5">
-          <span className="label-text" style={{ fontSize: '0.42rem', letterSpacing: '0.22em', color: 'rgba(220,201,160,0.8)', background: 'rgba(13,17,14,0.6)', padding: '4px 10px', backdropFilter: 'blur(4px)' }}>
-            {room.tag}
+    <>
+      {/* Gallery */}
+      <div
+        className="relative overflow-hidden group"
+        style={{ aspectRatio: '4/3', minHeight: '300px', cursor: 'pointer' }}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        onClick={() => setLightbox(true)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={photos[current]}
+              alt={`${name} — photo ${current + 1}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(13,17,14,0.5) 0%, transparent 45%)' }} />
+
+        {/* Tag */}
+        <div className="absolute top-5 left-5 z-10">
+          <span className="label-text" style={{ fontSize: '0.42rem', letterSpacing: '0.22em', color: 'rgba(220,201,160,0.85)', background: 'rgba(13,17,14,0.65)', padding: '5px 11px', backdropFilter: 'blur(6px)' }}>
+            {tag}
           </span>
         </div>
-        {room.photos.length > 1 && (
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
-            {room.photos.map((_, i) => (
+
+        {/* Expand hint */}
+        <div
+          className="absolute top-5 right-5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ background: 'rgba(13,17,14,0.6)', backdropFilter: 'blur(6px)', padding: '5px 10px' }}
+        >
+          <span className="label-text text-sand/60" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>EXPAND</span>
+        </div>
+
+        {/* Prev / Next arrows */}
+        {photos.length > 1 && (
+          <>
+            <button
+              onClick={e => { e.stopPropagation(); prev() }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all duration-200 opacity-0 group-hover:opacity-100"
+              style={{ width: '36px', height: '36px', background: 'rgba(13,17,14,0.65)', backdropFilter: 'blur(6px)', border: '1px solid rgba(220,201,160,0.15)', color: 'rgba(220,201,160,0.8)', fontSize: '1.1rem', cursor: 'pointer' }}
+              aria-label="Previous photo"
+            >
+              ‹
+            </button>
+            <button
+              onClick={e => { e.stopPropagation(); next() }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all duration-200 opacity-0 group-hover:opacity-100"
+              style={{ width: '36px', height: '36px', background: 'rgba(13,17,14,0.65)', backdropFilter: 'blur(6px)', border: '1px solid rgba(220,201,160,0.15)', color: 'rgba(220,201,160,0.8)', fontSize: '1.1rem', cursor: 'pointer' }}
+              aria-label="Next photo"
+            >
+              ›
+            </button>
+          </>
+        )}
+
+        {/* Dots */}
+        {photos.length > 1 && (
+          <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center gap-2">
+            {photos.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActivePhoto(i)}
-                style={{ width: '18px', height: '3px', borderRadius: '2px', border: 'none', cursor: 'pointer', background: i === activePhoto ? 'rgba(220,201,160,0.9)' : 'rgba(220,201,160,0.25)', transition: 'background 0.3s', padding: 0 }}
+                onClick={e => { e.stopPropagation(); setCurrent(i) }}
+                style={{
+                  width: i === current ? '22px' : '6px',
+                  height: '3px',
+                  borderRadius: '2px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: i === current ? 'rgba(220,201,160,0.95)' : 'rgba(220,201,160,0.3)',
+                  transition: 'all 0.3s ease',
+                  padding: 0,
+                }}
+                aria-label={`Photo ${i + 1}`}
               />
             ))}
           </div>
         )}
       </div>
 
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            style={{ background: 'rgba(10,13,11,0.96)', backdropFilter: 'blur(8px)' }}
+            onClick={() => setLightbox(false)}
+            onTouchStart={onTouchStart}
+            onTouchEnd={e => {
+              const diff = touchStartX.current - e.changedTouches[0].clientX
+              if (Math.abs(diff) > 40) { diff > 0 ? next() : prev() }
+            }}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setLightbox(false)}
+              className="absolute top-6 right-6 z-10 label-text text-sand/50 hover:text-sand/90 transition-colors"
+              style={{ fontSize: '0.5rem', letterSpacing: '0.22em', background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              CLOSE ×
+            </button>
+
+            {/* Image */}
+            <div className="relative w-full h-full flex items-center justify-center px-14 md:px-24 py-14">
+              <div className="relative w-full h-full" style={{ maxWidth: '1200px', maxHeight: '80vh' }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current}
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.97 }}
+                    transition={{ duration: 0.35 }}
+                    className="absolute inset-0"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <Image
+                      src={photos[current]}
+                      alt={`${name} — photo ${current + 1}`}
+                      fill
+                      sizes="100vw"
+                      style={{ objectFit: 'contain' }}
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Lightbox prev/next */}
+            {photos.length > 1 && (
+              <>
+                <button
+                  onClick={e => { e.stopPropagation(); prev() }}
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2"
+                  style={{ width: '44px', height: '44px', background: 'rgba(220,201,160,0.08)', border: '1px solid rgba(220,201,160,0.15)', color: 'rgba(220,201,160,0.7)', fontSize: '1.4rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Previous photo"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={e => { e.stopPropagation(); next() }}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2"
+                  style={{ width: '44px', height: '44px', background: 'rgba(220,201,160,0.08)', border: '1px solid rgba(220,201,160,0.15)', color: 'rgba(220,201,160,0.7)', fontSize: '1.4rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Next photo"
+                >
+                  ›
+                </button>
+              </>
+            )}
+
+            {/* Lightbox dots */}
+            {photos.length > 1 && (
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
+                {photos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={e => { e.stopPropagation(); setCurrent(i) }}
+                    style={{ width: i === current ? '22px' : '6px', height: '3px', borderRadius: '2px', border: 'none', cursor: 'pointer', background: i === current ? 'rgba(220,201,160,0.9)' : 'rgba(220,201,160,0.25)', transition: 'all 0.3s ease', padding: 0 }}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Counter */}
+            <p className="absolute bottom-6 right-8 label-text text-sand/30" style={{ fontSize: '0.44rem', letterSpacing: '0.2em' }}>
+              {current + 1} / {photos.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
+// ─── Room card ────────────────────────────────────────────────────────────────
+
+function RoomCard({ room }: { room: Room }) {
+  return (
+    <motion.div
+      {...reveal()}
+      className="grid grid-cols-1 lg:grid-cols-2"
+      style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}
+    >
+      {/* Gallery */}
+      <RoomGallery photos={room.photos} name={room.name} tag={room.tag} />
+
       {/* Text */}
       <div className="flex flex-col justify-between px-8 md:px-12 py-10 md:py-14" style={{ background: 'rgba(13,17,14,0.6)' }}>
         <div>
-          <h3 className="font-cormorant font-light text-ivory mb-5" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 0.95 }}>
+          <h3 className="font-cormorant font-light text-ivory mb-4" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 0.95 }}>
             {room.name}
           </h3>
           <p className="body-text text-sand/50 leading-loose mb-8" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 0.95rem)', maxWidth: '42ch' }}>
@@ -111,21 +331,83 @@ function RoomCard({ room }: { room: Room }) {
           </p>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', paddingTop: '1.5rem' }}>
-          <p className="label-text text-sage/35 mb-1" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>
-            RETREAT INVESTMENT · {room.investmentLabel}
-          </p>
-          <p className="font-cormorant font-light text-sand/85 mb-3" style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', lineHeight: 1 }}>
-            {room.investment}
-          </p>
-          {room.privateNote && (
-            <p className="label-text text-sage/30 mb-4" style={{ fontSize: '0.4rem', letterSpacing: '0.14em' }}>
-              {room.privateNote}
+        {/* Pricing */}
+        <div>
+          <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', paddingTop: '1.5rem', marginBottom: '1.5rem' }}>
+            <p className="label-text text-sage/35 mb-5" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>
+              RETREAT INVESTMENT
             </p>
-          )}
-          <p className="label-text text-sage/20 mb-6" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
-            4 NIGHTS ACCOMMODATION · TRAINING & CERTIFICATE INCLUDED · FOOD NOT INCLUDED
-          </p>
+
+            {room.pricing.type === 'shared-only' ? (
+              /* Harmony House */
+              <div>
+                <p
+                  className="font-cormorant font-light text-sand/90"
+                  style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 1, marginBottom: '0.4rem' }}
+                >
+                  {room.pricing.perPerson}
+                </p>
+                <p className="label-text text-sage/35" style={{ fontSize: '0.42rem', letterSpacing: '0.2em' }}>
+                  PER PERSON
+                </p>
+                <p className="label-text text-sage/25 mt-3" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
+                  {room.pricing.note}
+                </p>
+              </div>
+            ) : (
+              /* Hill Haven & Earth Lodge */
+              <div className="grid grid-cols-2 gap-4" style={{ borderTop: '0' }}>
+                {/* Private */}
+                <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
+                  <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
+                    PRIVATE<br />1 PERSON
+                  </p>
+                  <p
+                    className="font-cormorant font-light text-sand/90"
+                    style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}
+                  >
+                    {room.pricing.private.total}
+                  </p>
+                  <p className="label-text text-sage/25 mt-1.5" style={{ fontSize: '0.36rem', letterSpacing: '0.14em' }}>
+                    TOTAL INVESTMENT
+                  </p>
+                </div>
+                {/* Shared */}
+                <div className="pl-2">
+                  <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
+                    SHARED<br />2 PEOPLE
+                  </p>
+                  <p
+                    className="font-cormorant font-light text-sand/90"
+                    style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}
+                  >
+                    {room.pricing.shared.total}
+                  </p>
+                  <p className="label-text text-sage/45 mt-1" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
+                    {room.pricing.shared.perPerson}
+                  </p>
+                  <p className="label-text text-sage/25 mt-0.5" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
+                    TOTAL INVESTMENT
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* What's included (collapsed list) */}
+          <div style={{ borderTop: '1px solid rgba(220,201,160,0.06)', paddingTop: '1.25rem', marginBottom: '1.5rem' }}>
+            <p className="label-text text-sage/25 mb-3" style={{ fontSize: '0.38rem', letterSpacing: '0.18em' }}>
+              INVESTMENT INCLUDES
+            </p>
+            {INVESTMENT_INCLUDES.map(item => (
+              <p key={item} className="label-text text-sage/22" style={{ fontSize: '0.36rem', letterSpacing: '0.1em', lineHeight: 1.9 }}>
+                · {item}
+              </p>
+            ))}
+            <p className="label-text text-sage/20 mt-3" style={{ fontSize: '0.36rem', letterSpacing: '0.14em' }}>
+              FOOD NOT INCLUDED · MEAL PACKAGES AVAILABLE THROUGH VOASIS
+            </p>
+          </div>
 
           <a
             href={room.waLink}
