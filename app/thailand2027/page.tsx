@@ -823,7 +823,7 @@ export default function Thailand2027Page() {
                     Born in Phimai, Thailand and educated in the United Kingdom, Cherie established her professional practice in Brazil. Her understanding of Thai bodywork began within the culture from which the practice originates and has continued to develop through formal training, years of hands-on clinical practice, and ongoing study of anatomy, biomechanics and manual therapy.
                   </p>
                   <p>
-                    Her work focuses on the intersection of traditional Thai technique and contemporary anatomical knowledge, examining classical positions through biomechanics, refining leverage and preserving the rhythm and physical intelligence of the original practice. She teaches practitioners internationally and is currently undertaking undergraduate studies in biomedical sciences.
+                    Her work focuses on the intersection of traditional Thai technique and contemporary anatomical knowledge, examining classical positions through biomechanics, refining leverage and preserving the rhythm and physical intelligence of the original practice. She teaches practitioners internationally and is currently undertaking undergraduate studies in biomedical sciences at the Open University.
                   </p>
                 </div>
               </div>
