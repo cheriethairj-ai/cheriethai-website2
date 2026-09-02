@@ -137,7 +137,7 @@ export default function Footer() {
       <div className="px-6 md:px-12 lg:px-16 pb-8 border-t border-sand/5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6">
           <p className="label-text text-sage/25 text-xs">
-            © {new Date().getFullYear()} CherieThai Institute&nbsp;·&nbsp;São Paulo&nbsp;·&nbsp;Rio de Janeiro
+            © {new Date().getFullYear()} CherieThai Institute&nbsp;·&nbsp;All rights reserved&nbsp;·&nbsp;São Paulo&nbsp;·&nbsp;Rio de Janeiro
           </p>
           <div className="flex items-center gap-6">
             <a href="/privacy" className="label-text text-sage/25 hover:text-sage/50 transition-colors text-xs">
