@@ -500,6 +500,88 @@ export default function Thailand2027Page() {
           </div>
         </div>
 
+        {/* ── Teaching Faculty ── */}
+        <div
+          className="px-6 md:px-12 lg:px-16"
+          style={{
+            paddingTop: 'clamp(5rem, 12vw, 9rem)',
+            paddingBottom: 'clamp(5rem, 12vw, 9rem)',
+            borderTop: '1px solid rgba(220,201,160,0.07)',
+          }}
+        >
+          <motion.p {...reveal()} className="label-text text-sage/30 mb-16" style={{ fontSize: '0.48rem', letterSpacing: '0.28em' }}>
+            YOUR TEACHERS
+          </motion.p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0" style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}>
+
+            {/* Cherie */}
+            <motion.div
+              {...reveal(0)}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"
+              style={{ borderBottom: '1px solid rgba(220,201,160,0.07)', borderRight: '0px' }}
+            >
+              <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', minHeight: '280px' }}>
+                <Image
+                  src="/portrait-cherie-2.jpg"
+                  alt="Cherie T. Charnkul"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 50%, rgba(13,17,14,0.3) 100%)' }} />
+              </div>
+              <div className="flex flex-col justify-end px-8 md:px-10 py-10 md:py-12" style={{ background: 'rgba(13,17,14,0.5)' }}>
+                <p className="label-text text-sage/35 mb-4" style={{ fontSize: '0.44rem', letterSpacing: '0.28em' }}>FOUNDER · CHERIETHAI INSTITUTE</p>
+                <h3 className="font-cormorant font-light text-ivory mb-6" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.05 }}>
+                  Cherie T. Charnkul
+                </h3>
+                <div className="space-y-4 body-text text-sand/45 leading-loose" style={{ fontSize: '0.875rem' }}>
+                  <p>
+                    Born in Phimai, Thailand and educated in the United Kingdom, Cherie established her professional practice in Brazil. Her understanding of Thai bodywork began within the culture from which the practice originates and has continued to develop through formal training, years of hands-on clinical practice, and ongoing study of anatomy, biomechanics and manual therapy.
+                  </p>
+                  <p>
+                    Her work focuses on the intersection of traditional Thai technique and contemporary anatomical knowledge — examining classical positions through biomechanics, refining leverage, and preserving the rhythm and physical intelligence of the original practice. She teaches practitioners internationally and is currently undertaking undergraduate studies in biomedical sciences.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Karl */}
+            <motion.div
+              {...reveal(0.1)}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"
+              style={{ borderLeft: '1px solid rgba(220,201,160,0.07)', borderBottom: '1px solid rgba(220,201,160,0.07)' }}
+            >
+              <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', minHeight: '280px' }}>
+                <Image
+                  src="/portrait-karl-bio.jpg"
+                  alt="Karl Georges"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 50%, rgba(13,17,14,0.3) 100%)' }} />
+              </div>
+              <div className="flex flex-col justify-end px-8 md:px-10 py-10 md:py-12" style={{ background: 'rgba(13,17,14,0.5)' }}>
+                <p className="label-text text-sage/35 mb-4" style={{ fontSize: '0.44rem', letterSpacing: '0.28em' }}>CO-FOUNDER · TRADITIONAL THAI LINEAGE</p>
+                <h3 className="font-cormorant font-light text-ivory mb-6" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.05 }}>
+                  Karl Georges
+                </h3>
+                <div className="space-y-4 body-text text-sand/45 leading-loose" style={{ fontSize: '0.875rem' }}>
+                  <p>
+                    Karl Georges is co-founder of CherieThai and one of the most deeply trained traditional Thai bodywork practitioners in Brazil. Based in Rio de Janeiro, his practice is rooted in the ancestral traditions of Thai work — floor-based, without oil, guided by the meridian lines of the body and a rhythmic intelligence that cannot be learned from a manual.
+                  </p>
+                  <p>
+                    He carries lineage, not technique. His role within this training is to bring the traditional foundation of Thai bodywork into direct contact with the table-based clinical approach — ensuring students understand the roots of what they are learning.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+
         {/* ── Reserve ── */}
         <div
           className="relative overflow-hidden"
