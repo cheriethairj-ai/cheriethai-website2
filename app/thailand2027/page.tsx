@@ -98,7 +98,7 @@ const INVESTMENT_INCLUDES = [
   'CherieThai Institute Thailand Intensive Certificate',
   'Pool · Ice bath · Jacuzzi · Sauna · Steam room · Gym',
   'Wi-Fi and communal spaces',
-  'Airport transfers — official arrival and departure dates',
+  'Airport transfers on official arrival and departure dates',
 ]
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
@@ -508,20 +508,20 @@ export default function Thailand2027Page() {
                 className="font-cormorant font-light text-ivory"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.1, marginBottom: '2.5rem' }}
               >
-                22 hours of concentrated<br />hands-on training —<br /><span style={{ color: 'rgba(170,182,162,0.5)' }}>in the country where it began.</span>
+                22 hours of concentrated<br />hands-on training<br /><span style={{ color: 'rgba(170,182,162,0.5)' }}>in the country where it began.</span>
               </h2>
               <div className="border-l border-sand/15 pl-5">
                 <p className="body-text text-sand/40" style={{ fontSize: '0.85rem', lineHeight: 1.85 }}>
-                  This is a small-group intensive training programme. Not a retreat for rest. Not a yoga teacher training. Not a certification mill. A focused, in-person learning experience with CherieThai Institute — held in Thailand because there is nowhere better to learn this work.
+                  This is a small-group intensive training programme. Not a retreat for rest. Not a yoga teacher training. Not a certification mill. A focused, in-person learning experience with CherieThai Institute, held in Thailand because there is nowhere better to learn this work.
                 </p>
               </div>
             </motion.div>
 
             <motion.div {...reveal(0.1)} className="flex flex-col gap-7">
               {[
-                'The 2027 Thailand Intensive is a 22-hour practical training programme held at VOASIS Valley — a private retreat venue set within the limestone mountains of Krabi, southern Thailand.',
+                'The 2027 Thailand Intensive is a 22-hour practical training programme held at VOASIS Valley, a private retreat venue set within the limestone mountains of Krabi, southern Thailand.',
                 'All training is massage-table based, covering the core principles and technique of Thai bodywork adapted for clinical practice: body mechanics, pressure, passive mobility, stretching, sequencing and extended hands-on application.',
-                'The format is deliberately compact. Four teaching days — two full days of seven hours each, two shorter days of four hours — with enough free time to rest, explore Krabi and absorb what you are learning.',
+                'The format is deliberately compact: four teaching days, two of seven hours and two of four hours, with enough free time between them to rest, explore Krabi and absorb what you are learning.',
               ].map((para, i) => (
                 <p key={i} className="body-text text-sand/50 leading-loose" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
                   {para}
@@ -532,7 +532,7 @@ export default function Thailand2027Page() {
                 <div>
                   <p className="label-text text-sage/30 mb-3" style={{ fontSize: '0.42rem', letterSpacing: '0.22em' }}>INCLUDED</p>
                   {[
-                    '22h practical training — massage table',
+                    '22h hands-on training · massage table',
                     '4 nights · VOASIS Valley Krabi',
                     'CherieThai Institute certificate',
                     'Full use of VOASIS facilities',
@@ -573,7 +573,7 @@ export default function Thailand2027Page() {
                   day: '01',
                   hours: '4h',
                   title: 'Arrival & First Training Block',
-                  body: 'Check in at VOASIS, orientation to the space and training structure, then the first practical session of the retreat. The shorter day is intentional — time to arrive properly before the work begins.',
+                  body: 'Check in at VOASIS, orientation to the space and training structure, then the first practical session of the retreat. The shorter day is intentional. Time to arrive properly before the work begins.',
                 },
                 {
                   day: '02',
@@ -585,13 +585,13 @@ export default function Thailand2027Page() {
                   day: '03',
                   hours: '7h',
                   title: 'Full Intensive Day',
-                  body: 'Continued depth — clinical sequencing, passive mobility, positioning and partner work. Building on the previous day with greater complexity and refinement.',
+                  body: 'Continued depth. Clinical sequencing, passive mobility, positioning and partner work, building on the previous day with greater complexity and refinement.',
                 },
                 {
                   day: '04',
                   hours: '4h',
                   title: 'Integration & Review',
-                  body: 'Final practical session, integration of the full programme, review and assessment. The afternoon is free — time to explore Krabi before departure. Certificate issued on completion.',
+                  body: 'Final practical session, integration of the full programme, review and assessment. The afternoon is free. Time to explore Krabi before departure. Certificate issued on completion.',
                 },
               ].map(({ day, hours, title, body }, i) => (
                 <motion.div
@@ -823,7 +823,7 @@ export default function Thailand2027Page() {
                     Born in Phimai, Thailand and educated in the United Kingdom, Cherie established her professional practice in Brazil. Her understanding of Thai bodywork began within the culture from which the practice originates and has continued to develop through formal training, years of hands-on clinical practice, and ongoing study of anatomy, biomechanics and manual therapy.
                   </p>
                   <p>
-                    Her work focuses on the intersection of traditional Thai technique and contemporary anatomical knowledge — examining classical positions through biomechanics, refining leverage, and preserving the rhythm and physical intelligence of the original practice. She teaches practitioners internationally and is currently undertaking undergraduate studies in biomedical sciences.
+                    Her work focuses on the intersection of traditional Thai technique and contemporary anatomical knowledge, examining classical positions through biomechanics, refining leverage and preserving the rhythm and physical intelligence of the original practice. She teaches practitioners internationally and is currently undertaking undergraduate studies in biomedical sciences.
                   </p>
                 </div>
               </div>
@@ -852,10 +852,10 @@ export default function Thailand2027Page() {
                 </h3>
                 <div className="space-y-4 body-text text-sand/45 leading-loose" style={{ fontSize: '0.875rem' }}>
                   <p>
-                    Karl Georges is co-founder of CherieThai and one of the most deeply trained traditional Thai bodywork practitioners in Brazil. Based in Rio de Janeiro, his practice is rooted in the ancestral traditions of Thai work — floor-based, without oil, guided by the meridian lines of the body and a rhythmic intelligence that cannot be learned from a manual.
+                    Karl Georges is co-founder of CherieThai and one of the most deeply trained traditional Thai bodywork practitioners in Brazil. Based in Rio de Janeiro, his practice is rooted in the ancestral traditions of Thai work: floor-based, without oil, guided by the meridian lines of the body and a rhythmic intelligence that cannot be learned from a manual.
                   </p>
                   <p>
-                    He carries lineage, not technique. His role within this training is to bring the traditional foundation of Thai bodywork into direct contact with the table-based clinical approach — ensuring students understand the roots of what they are learning.
+                    He carries lineage, not technique. His role within this training is to bring the traditional foundation of Thai bodywork into direct contact with the clinical approach, so students understand the roots of what they are learning.
                   </p>
                 </div>
               </div>
