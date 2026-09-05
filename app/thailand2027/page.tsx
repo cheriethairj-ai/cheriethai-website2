@@ -57,7 +57,7 @@ const rooms: Room[] = [
     description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students. Harmony House is the most accessible entry point into the retreat.',
     pricing: {
       type: 'shared-only',
-      perPerson: 'US$ 1,000',
+      perPerson: 'US$ 870',
       note: 'Shared dormitory · No private occupancy option',
     },
     photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
@@ -71,7 +71,7 @@ const rooms: Room[] = [
     pricing: {
       type: 'dual',
       private: { total: 'US$ 1,600' },
-      shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per person' },
+      shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per participant' },
     },
     photos: ['/retreat/resort-2.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
@@ -83,8 +83,8 @@ const rooms: Room[] = [
     description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
     pricing: {
       type: 'dual',
-      private: { total: 'US$ 1,900' },
-      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per person' },
+      private: { total: 'US$ 2,400' },
+      shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant' },
     },
     photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
@@ -360,7 +360,7 @@ function RoomCard({ room }: { room: Room }) {
                 {/* Private */}
                 <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
                   <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
-                    PRIVATE<br />1 PERSON
+                    1 PARTICIPANT<br />PRIVATE ROOM
                   </p>
                   <p
                     className="font-cormorant font-light text-sand/90"
@@ -375,7 +375,7 @@ function RoomCard({ room }: { room: Room }) {
                 {/* Shared */}
                 <div className="pl-2">
                   <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
-                    SHARED<br />2 PEOPLE
+                    2 PARTICIPANTS<br />SHARING THE ROOM
                   </p>
                   <p
                     className="font-cormorant font-light text-sand/90"
@@ -387,7 +387,7 @@ function RoomCard({ room }: { room: Room }) {
                     {room.pricing.shared.perPerson}
                   </p>
                   <p className="label-text text-sage/25 mt-0.5" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
-                    TOTAL INVESTMENT
+                    COMBINED TOTAL FOR BOTH PARTICIPANTS
                   </p>
                 </div>
               </div>
