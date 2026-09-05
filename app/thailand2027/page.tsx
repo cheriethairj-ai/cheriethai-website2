@@ -73,7 +73,7 @@ const rooms: Room[] = [
       private: { total: 'US$ 1,600' },
       shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per participant' },
     },
-    photos: ['/retreat/resort-2.jpg', '/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
+    photos: ['/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
   },
   {
@@ -98,7 +98,6 @@ const INVESTMENT_INCLUDES = [
   'CherieThai Institute Thailand Intensive Certificate',
   'Pool · Ice bath · Jacuzzi · Sauna · Steam room · Gym',
   'Wi-Fi and communal spaces',
-  'Airport transfers on official arrival and departure dates',
 ]
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
@@ -536,7 +535,6 @@ export default function Thailand2027Page() {
                     '4 nights · VOASIS Valley Krabi',
                     'CherieThai Institute certificate',
                     'Full use of VOASIS facilities',
-                    'Airport transfers (arrival & departure days)',
                   ].map((item) => (
                     <p key={item} className="body-text text-sand/40 mb-1.5" style={{ fontSize: '0.8rem', lineHeight: 1.6 }}>{item}</p>
                   ))}
@@ -744,7 +742,6 @@ export default function Thailand2027Page() {
                   'Gym',
                   'Wi-Fi',
                   'Coworking & community areas',
-                  'Airport transfers (arrival & departure)',
                 ].map((facility) => (
                   <div key={facility} className="flex items-start gap-2">
                     <span className="text-sage/30 mt-0.5" style={{ fontSize: '0.6rem' }}>·</span>
