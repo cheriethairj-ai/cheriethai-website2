@@ -86,7 +86,7 @@ const rooms: Room[] = [
       private: { total: 'US$ 2,400' },
       shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant' },
     },
-    photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg', '/retreat/resort-5.jpg'],
+    photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
   },
 ]
