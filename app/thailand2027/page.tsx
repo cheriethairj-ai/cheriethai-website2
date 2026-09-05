@@ -681,6 +681,40 @@ export default function Thailand2027Page() {
           </div>
         </div>
 
+        {/* ── Venue video ── */}
+        <div className="relative overflow-hidden" style={{ height: 'clamp(480px, 70vw, 780px)' }}>
+          <video
+            src="/retreat/voasis.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '100%',
+              minHeight: '100%',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'cover',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to bottom, rgba(13,17,14,0.15) 0%, rgba(13,17,14,0.1) 50%, rgba(13,17,14,0.55) 100%)',
+            }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
+            <p className="label-text text-sand/40" style={{ fontSize: '0.46rem', letterSpacing: '0.28em' }}>
+              VOASIS VALLEY · KRABI · THAILAND
+            </p>
+          </div>
+        </div>
+
         {/* ── Venue facilities ── */}
         <div
           className="px-6 md:px-12 lg:px-16"

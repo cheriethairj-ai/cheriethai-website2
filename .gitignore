@@ -36,5 +36,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 *.mp4
+!public/retreat/voasis.mp4
 public/phimai-bg.mov
 .env*
