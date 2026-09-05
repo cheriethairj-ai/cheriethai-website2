@@ -509,11 +509,6 @@ export default function Thailand2027Page() {
               >
                 22 hours of concentrated<br />hands-on training<br /><span style={{ color: 'rgba(170,182,162,0.5)' }}>in the country where it began.</span>
               </h2>
-              <div className="border-l border-sand/15 pl-5">
-                <p className="body-text text-sand/40" style={{ fontSize: '0.85rem', lineHeight: 1.85 }}>
-                  This is a small-group intensive training programme. Not a retreat for rest. Not a yoga teacher training. Not a certification mill. A focused, in-person learning experience with CherieThai Institute, held in Thailand because there is nowhere better to learn this work.
-                </p>
-              </div>
             </motion.div>
 
             <motion.div {...reveal(0.1)} className="flex flex-col gap-7">
