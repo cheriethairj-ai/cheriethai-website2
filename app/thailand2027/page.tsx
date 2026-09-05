@@ -73,7 +73,7 @@ const rooms: Room[] = [
       private: { total: 'US$ 1,600' },
       shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per participant' },
     },
-    photos: ['/retreat/resort-2.jpg', '/retreat/resort-5.jpg'],
+    photos: ['/retreat/resort-2.jpg', '/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
   },
   {
@@ -86,7 +86,7 @@ const rooms: Room[] = [
       private: { total: 'US$ 2,400' },
       shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant' },
     },
-    photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/resort-5.jpg'],
+    photos: ['/retreat/resort-3.jpg', '/retreat/resort-4.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
   },
 ]
@@ -656,6 +656,28 @@ export default function Thailand2027Page() {
                 A private retreat venue set between limestone cliffs and tropical rainforest in southern Thailand. Quiet, considered and entirely removed from distraction.
               </p>
             </motion.div>
+          </div>
+        </div>
+
+        {/* ── Venue photo strip ── */}
+        <div className="grid grid-cols-2">
+          <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
+            <Image
+              src="/retreat/venue-living-room.jpg"
+              alt="VOASIS Valley — living area"
+              fill
+              sizes="50vw"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
+          <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
+            <Image
+              src="/retreat/venue-hill1.jpg"
+              alt="VOASIS Valley — grounds"
+              fill
+              sizes="50vw"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
           </div>
         </div>
 
