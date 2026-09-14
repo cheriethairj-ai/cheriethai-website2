@@ -10,6 +10,215 @@ const KARL_WA = `https://wa.me/5521996466022?text=${encodeURIComponent("Hello Ka
 const KARL_BASE = '5521996466022'
 const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponent(msg)}`
 
+// ─── Booking Modal ────────────────────────────────────────────────────────────
+
+const ROOM_OPTIONS = [
+  { value: 'harmony',       label: 'Harmony House — Shared Dormitory',        price: 'US$ 870',   saving: null },
+  { value: 'hill-private',  label: 'Hill Haven — Private Room',                price: 'US$ 1,450', saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven — Shared Room (per person)',    price: 'US$ 1,000', saving: 'US$150' },
+  { value: 'earth-private', label: 'Earth Lodge — Private Room',               price: 'US$ 2,150', saving: 'US$250' },
+  { value: 'earth-shared',  label: 'Earth Lodge — Shared Room (per person)',   price: 'US$ 1,400', saving: 'US$250' },
+]
+
+function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
+  const [room, setRoom] = useState(defaultRoom || 'harmony')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const selectedRoom = ROOM_OPTIONS.find(r => r.value === room)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, whatsapp, room }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setError('Something went wrong. Please try again.')
+        setLoading(false)
+      }
+    } catch {
+      setError('Something went wrong. Please try again.')
+      setLoading(false)
+    }
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    background: 'rgba(220,201,160,0.04)',
+    border: '1px solid rgba(220,201,160,0.12)',
+    color: '#F5F0E8',
+    padding: '0.85rem 1rem',
+    fontSize: '0.875rem',
+    fontFamily: 'inherit',
+    outline: 'none',
+    transition: 'border-color 0.2s',
+  }
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontSize: '0.4rem',
+    letterSpacing: '0.22em',
+    color: 'rgba(170,182,162,0.45)',
+    marginBottom: '0.5rem',
+    fontFamily: 'inherit',
+  }
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ background: 'rgba(10,13,11,0.97)', backdropFilter: 'blur(10px)' }}
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
+            className="w-full max-w-lg"
+            style={{ background: '#0D110E', border: '1px solid rgba(220,201,160,0.1)', padding: 'clamp(2rem, 5vw, 3rem)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between mb-8">
+              <div>
+                <p className="label-text text-sage/35 mb-2" style={{ fontSize: '0.44rem', letterSpacing: '0.28em' }}>
+                  CHERIETHAI INSTITUTE · THAILAND 2027
+                </p>
+                <h2 className="font-cormorant font-light text-ivory" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1 }}>
+                  Reserve your space.
+                </h2>
+              </div>
+              <button
+                onClick={onClose}
+                className="label-text text-sage/30 hover:text-sage/70 transition-colors"
+                style={{ fontSize: '0.44rem', letterSpacing: '0.2em', background: 'none', border: 'none', cursor: 'pointer', marginTop: '4px' }}
+              >
+                CLOSE ×
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name */}
+              <div>
+                <label style={labelStyle}>FULL NAME</label>
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  placeholder="Your full name"
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label style={labelStyle}>EMAIL ADDRESS</label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  style={inputStyle}
+                />
+              </div>
+
+              {/* WhatsApp */}
+              <div>
+                <label style={labelStyle}>WHATSAPP NUMBER (WITH COUNTRY CODE)</label>
+                <input
+                  type="tel"
+                  required
+                  value={whatsapp}
+                  onChange={e => setWhatsapp(e.target.value)}
+                  placeholder="+44 7700 900000"
+                  style={inputStyle}
+                />
+                <p style={{ fontSize: '0.38rem', letterSpacing: '0.14em', color: 'rgba(170,182,162,0.3)', marginTop: '0.4rem', fontFamily: 'inherit' }}>
+                  Cherie will contact you here to arrange your pre-screening video call.
+                </p>
+              </div>
+
+              {/* Room */}
+              <div>
+                <label style={labelStyle}>ACCOMMODATION</label>
+                <select
+                  required
+                  value={room}
+                  onChange={e => setRoom(e.target.value)}
+                  style={{ ...inputStyle, cursor: 'pointer' }}
+                >
+                  {ROOM_OPTIONS.map(opt => (
+                    <option key={opt.value} value={opt.value} style={{ background: '#0D110E' }}>
+                      {opt.label} — {opt.price}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Price summary */}
+              {selectedRoom && (
+                <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', paddingTop: '1.25rem' }}>
+                  <div className="flex items-baseline justify-between">
+                    <p className="label-text text-sage/35" style={{ fontSize: '0.42rem', letterSpacing: '0.2em' }}>TOTAL</p>
+                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', lineHeight: 1 }}>
+                      {selectedRoom.price}
+                    </p>
+                  </div>
+                  {selectedRoom.saving && (
+                    <p className="label-text text-sage/50 mt-1 text-right" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
+                      FULL PAYMENT DISCOUNT · YOU SAVE {selectedRoom.saving}
+                    </p>
+                  )}
+                  <p className="label-text text-sage/25 mt-1 text-right" style={{ fontSize: '0.36rem', letterSpacing: '0.12em' }}>
+                    INCLUDES TRAINING · ACCOMMODATION · CERTIFICATE · ALL COURSE MATERIALS
+                  </p>
+                </div>
+              )}
+
+              {error && (
+                <p style={{ fontSize: '0.8rem', color: 'rgba(220,100,100,0.8)', fontFamily: 'inherit' }}>{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-ghost text-sand/70 border-sand/25 w-full flex items-center justify-center gap-3"
+                style={{ opacity: loading ? 0.5 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+              >
+                <span>{loading ? 'Redirecting to payment…' : 'Proceed to payment'}</span>
+                {!loading && <span aria-hidden>→</span>}
+              </button>
+
+              <p className="label-text text-sage/20 text-center" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
+                SECURED BY STRIPE · APPLE PAY · GOOGLE PAY · CREDIT CARD · PIX
+              </p>
+            </form>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 const reveal = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -33,8 +242,9 @@ type PricingSharedOnly = {
 
 type PricingDual = {
   type: 'dual'
-  private: { total: string }
-  shared: { total: string; perPerson: string }
+  saving: string
+  private: { original: string; total: string }
+  shared: { total: string; perPerson: string; originalPerPerson: string }
 }
 
 type Room = {
@@ -70,8 +280,9 @@ const rooms: Room[] = [
     description: 'A significant step up in privacy and comfort. Hill Haven offers garden view and mountain view rooms, each with considerably more space and quiet than the shared dormitory. Available for private occupancy or shared between two people.',
     pricing: {
       type: 'dual',
-      private: { total: 'US$ 1,600' },
-      shared: { total: 'US$ 2,300', perPerson: 'US$ 1,150 per participant' },
+      saving: 'US$150',
+      private: { original: 'US$ 1,600', total: 'US$ 1,450' },
+      shared: { total: 'US$ 2,000', perPerson: 'US$ 1,000 per participant', originalPerPerson: 'US$ 1,150' },
     },
     photos: ['/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
@@ -83,8 +294,9 @@ const rooms: Room[] = [
     description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
     pricing: {
       type: 'dual',
-      private: { total: 'US$ 2,400' },
-      shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant' },
+      saving: 'US$250',
+      private: { original: 'US$ 2,400', total: 'US$ 2,150' },
+      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650' },
     },
     photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
@@ -309,7 +521,7 @@ function RoomGallery({ photos, name, tag }: { photos: string[]; name: string; ta
 
 // ─── Room card ────────────────────────────────────────────────────────────────
 
-function RoomCard({ room }: { room: Room }) {
+function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => void }) {
   return (
     <motion.div
       {...reveal()}
@@ -355,40 +567,45 @@ function RoomCard({ room }: { room: Room }) {
               </div>
             ) : (
               /* Hill Haven & Earth Lodge */
-              <div className="grid grid-cols-2 gap-4" style={{ borderTop: '0' }}>
-                {/* Private */}
-                <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
-                  <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
-                    1 PARTICIPANT<br />PRIVATE ROOM
-                  </p>
-                  <p
-                    className="font-cormorant font-light text-sand/90"
-                    style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}
-                  >
-                    {room.pricing.private.total}
-                  </p>
-                  <p className="label-text text-sage/25 mt-1.5" style={{ fontSize: '0.36rem', letterSpacing: '0.14em' }}>
-                    TOTAL INVESTMENT
-                  </p>
+              <div>
+                <div className="grid grid-cols-2 gap-4" style={{ borderTop: '0' }}>
+                  {/* Private */}
+                  <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
+                    <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
+                      1 PARTICIPANT<br />PRIVATE ROOM
+                    </p>
+                    <p className="label-text text-sage/25 mb-1" style={{ fontSize: '0.36rem', letterSpacing: '0.1em', textDecoration: 'line-through' }}>
+                      {room.pricing.private.original}
+                    </p>
+                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
+                      {room.pricing.private.total}
+                    </p>
+                    <p className="label-text text-sage/25 mt-1.5" style={{ fontSize: '0.36rem', letterSpacing: '0.14em' }}>
+                      TOTAL INVESTMENT
+                    </p>
+                  </div>
+                  {/* Shared */}
+                  <div className="pl-2">
+                    <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
+                      2 PARTICIPANTS<br />SHARING THE ROOM
+                    </p>
+                    <p className="label-text text-sage/25 mb-1" style={{ fontSize: '0.36rem', letterSpacing: '0.1em', textDecoration: 'line-through' }}>
+                      {room.pricing.shared.originalPerPerson}
+                    </p>
+                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
+                      {room.pricing.shared.total}
+                    </p>
+                    <p className="label-text text-sage/45 mt-1" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
+                      {room.pricing.shared.perPerson}
+                    </p>
+                    <p className="label-text text-sage/25 mt-0.5" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
+                      COMBINED TOTAL FOR BOTH PARTICIPANTS
+                    </p>
+                  </div>
                 </div>
-                {/* Shared */}
-                <div className="pl-2">
-                  <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
-                    2 PARTICIPANTS<br />SHARING THE ROOM
-                  </p>
-                  <p
-                    className="font-cormorant font-light text-sand/90"
-                    style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}
-                  >
-                    {room.pricing.shared.total}
-                  </p>
-                  <p className="label-text text-sage/45 mt-1" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
-                    {room.pricing.shared.perPerson}
-                  </p>
-                  <p className="label-text text-sage/25 mt-0.5" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
-                    COMBINED TOTAL FOR BOTH PARTICIPANTS
-                  </p>
-                </div>
+                <p className="label-text text-sage/40 mt-4" style={{ fontSize: '0.38rem', letterSpacing: '0.16em' }}>
+                  SAVE {room.pricing.saving} WHEN PAYING IN FULL ONLINE
+                </p>
               </div>
             )}
           </div>
@@ -408,15 +625,13 @@ function RoomCard({ room }: { room: Room }) {
             </p>
           </div>
 
-          <a
-            href={room.waLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => onBook(room.id)}
             className="btn-ghost text-sand/70 border-sand/25 inline-flex"
           >
             <span>Reserve this space</span>
             <span aria-hidden>→</span>
-          </a>
+          </button>
         </div>
       </div>
     </motion.div>
@@ -426,9 +641,22 @@ function RoomCard({ room }: { room: Room }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Thailand2027Page() {
+  const [bookingOpen, setBookingOpen] = useState(false)
+  const [bookingRoom, setBookingRoom] = useState('harmony')
+
+  const openBooking = (roomId: string) => {
+    setBookingRoom(roomId)
+    setBookingOpen(true)
+  }
+
   return (
     <>
       <CustomCursor />
+      <BookingModal
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        defaultRoom={bookingRoom}
+      />
 
       <main style={{ background: '#0D110E', minHeight: '100svh', color: '#F5F0E8' }}>
 
@@ -770,7 +998,7 @@ export default function Thailand2027Page() {
 
         <div className="mb-0" style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}>
           {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+            <RoomCard key={room.id} room={room} onBook={openBooking} />
           ))}
         </div>
 
@@ -912,6 +1140,89 @@ export default function Thailand2027Page() {
           </div>
         </div>
 
+        {/* ── FAQ ── */}
+        <div
+          className="px-6 md:px-12 lg:px-16"
+          style={{
+            paddingTop: 'clamp(5rem, 12vw, 9rem)',
+            paddingBottom: 'clamp(5rem, 12vw, 9rem)',
+            borderTop: '1px solid rgba(220,201,160,0.07)',
+          }}
+        >
+          <div className="max-w-6xl">
+            <motion.p {...reveal()} className="label-text text-sage/30 mb-16" style={{ fontSize: '0.48rem', letterSpacing: '0.28em' }}>
+              COMMON QUESTIONS
+            </motion.p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              {[
+                {
+                  q: 'Do I need prior experience in Thai bodywork?',
+                  a: 'No. The training is open to all levels. If you are coming without a professional background, you will receive preparatory movements and foundational guidelines in advance of the retreat so that you arrive with a good base to work from.',
+                },
+                {
+                  q: 'Is this suitable for experienced practitioners?',
+                  a: 'Yes. The programme includes adaptations and more advanced configurations for practitioners who already have a foundation. You will be worked with at your level throughout the training, and corrections are given individually.',
+                },
+                {
+                  q: 'Is food included?',
+                  a: 'Food is not included in the retreat investment. Meals can be purchased directly through VOASIS (3 meals per day: 1,100 THB · brunch and dinner: 1,000 THB), or you can explore the local restaurants and cafés in Krabi.',
+                },
+                {
+                  q: 'What language is the training taught in?',
+                  a: 'The training is conducted entirely in English.',
+                },
+                {
+                  q: 'How many participants will be in the group?',
+                  a: 'This is a small group intensive. Numbers are deliberately limited to preserve the quality of instruction, individual attention and the atmosphere of the retreat. Places are allocated on a first-confirmed basis.',
+                },
+                {
+                  q: 'What airport should I fly into?',
+                  a: 'Fly into Krabi International Airport (KBV), with direct or connecting flights from Bangkok (Suvarnabhumi or Don Mueang). VOASIS offers a resort transfer at 600 THB per person. We can arrange this for you — just let Karl know your arrival details when you book.',
+                },
+                {
+                  q: 'Are payment plans available?',
+                  a: 'Payment plans can be arranged on request. Get in touch via the contact details on this page and we will find an arrangement that works for you.',
+                },
+                {
+                  q: 'How do I secure my place?',
+                  a: 'Click "Reserve your space", fill in your details and complete your payment securely online. Your place is confirmed on receipt of payment. Cherie will then be in touch on WhatsApp to arrange your pre-screening call.',
+                },
+                {
+                  q: 'What is included in the training?',
+                  a: 'Everything needed for the training is provided — massage tables, all course materials, and your CherieThai Institute certificate on completion. You only need to bring yourself and suitable clothing.',
+                },
+                {
+                  q: 'What should I bring?',
+                  a: 'Comfortable, loose clothing suitable for practical bodywork training. All equipment and course materials are provided. A notebook is welcome but not required. The climate in Krabi in January is warm and dry.',
+                },
+              ].map(({ q, a }, i) => (
+                <motion.div
+                  key={q}
+                  {...reveal(i * 0.05)}
+                  className="py-10 md:py-12"
+                  style={{
+                    borderTop: '1px solid rgba(220,201,160,0.07)',
+                    borderRight: i % 2 === 0 ? '1px solid rgba(220,201,160,0.07)' : 'none',
+                    paddingRight: i % 2 === 0 ? 'clamp(1.5rem, 5vw, 5rem)' : '0',
+                    paddingLeft: i % 2 === 1 ? 'clamp(1.5rem, 5vw, 5rem)' : '0',
+                  }}
+                >
+                  <h3
+                    className="font-cormorant font-light text-ivory mb-4"
+                    style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', lineHeight: 1.2 }}
+                  >
+                    {q}
+                  </h3>
+                  <p className="body-text text-sand/45 leading-loose" style={{ fontSize: '0.875rem' }}>
+                    {a}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ── Reserve ── */}
         <div
           className="relative overflow-hidden"
@@ -929,25 +1240,20 @@ export default function Thailand2027Page() {
               >
                 Reserve your space.
               </h2>
-              <p className="body-text text-sand/45 leading-loose mb-4" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', maxWidth: '44ch' }}>
-                This training is intimate by design. Some accommodation has been reserved for the teaching team, so the number of places available to participants is deliberately limited.
-              </p>
-              <p className="body-text text-sand/30 leading-loose mb-12" style={{ fontSize: '0.875rem', maxWidth: '44ch' }}>
-                Contact Karl directly to confirm availability and secure your accommodation.
+              <p className="body-text text-sand/45 leading-loose mb-12" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', maxWidth: '44ch' }}>
+                This training is intimate by design. Places are limited. Choose your accommodation and complete your booking securely online.
               </p>
 
-              <a
-                href={KARL_WA}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => openBooking('harmony')}
                 className="btn-ghost text-sand/70 border-sand/25 inline-flex"
               >
-                <span>Speak with Karl</span>
+                <span>Reserve your space</span>
                 <span aria-hidden>→</span>
-              </a>
+              </button>
 
               <p className="label-text text-sage/20 mt-8" style={{ fontSize: '0.46rem', letterSpacing: '0.18em' }}>
-                WHATSAPP · RIO DE JANEIRO
+                APPLE PAY · GOOGLE PAY · CREDIT CARD · PIX
               </p>
             </motion.div>
           </div>
