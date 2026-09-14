@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       automatic_tax: { enabled: false },
       allow_promotion_codes: false,
       submit_type: 'auto',
-      saved_payment_method_options: { payment_method_save: 'enabled' },
+      customer_email: email,
       line_items: [
         {
           price_data: {
