@@ -606,44 +606,56 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
             ) : (
               /* Hill Haven & Earth Lodge */
               <div>
-                <div className="grid grid-cols-2 gap-4" style={{ borderTop: '0' }}>
-                  {/* Private */}
+                {/* Standard pricing */}
+                <div className="grid grid-cols-2 gap-4 mb-5">
                   <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
                     <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
                       1 PARTICIPANT<br />PRIVATE ROOM
                     </p>
-                    <p className="label-text text-sage/25 mb-1" style={{ fontSize: '0.36rem', letterSpacing: '0.1em', textDecoration: 'line-through' }}>
+                    <p className="font-cormorant font-light text-sand/50" style={{ fontSize: 'clamp(1.2rem, 2vw, 1.6rem)', lineHeight: 1.05 }}>
                       {room.pricing.private.original}
                     </p>
-                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
-                      {room.pricing.private.total}
-                    </p>
-                    <p className="label-text text-sage/25 mt-1.5" style={{ fontSize: '0.36rem', letterSpacing: '0.14em' }}>
-                      TOTAL INVESTMENT
-                    </p>
                   </div>
-                  {/* Shared */}
                   <div className="pl-2">
                     <p className="label-text text-sage/40 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
                       2 PARTICIPANTS<br />SHARING THE ROOM
                     </p>
-                    <p className="label-text text-sage/25 mb-1" style={{ fontSize: '0.36rem', letterSpacing: '0.1em', textDecoration: 'line-through' }}>
+                    <p className="font-cormorant font-light text-sand/50" style={{ fontSize: 'clamp(1.2rem, 2vw, 1.6rem)', lineHeight: 1.05 }}>
                       {room.pricing.shared.originalPerPerson}
                     </p>
-                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
-                      {room.pricing.shared.total}
-                    </p>
-                    <p className="label-text text-sage/45 mt-1" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
-                      {room.pricing.shared.perPerson}
-                    </p>
-                    <p className="label-text text-sage/25 mt-0.5" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
-                      COMBINED TOTAL FOR BOTH PARTICIPANTS
+                    <p className="label-text text-sage/30 mt-1" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
+                      PER PERSON
                     </p>
                   </div>
                 </div>
-                <p className="label-text text-sage/40 mt-4" style={{ fontSize: '0.38rem', letterSpacing: '0.16em' }}>
-                  SAVE {room.pricing.saving} WHEN PAYING IN FULL ONLINE
-                </p>
+
+                {/* Online full payment discount */}
+                <div style={{ border: '1px solid rgba(220,201,160,0.12)', padding: '1rem 1.25rem', background: 'rgba(220,201,160,0.03)' }}>
+                  <p className="label-text text-sand/60 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
+                    ONLINE FULL PAYMENT — SAVE {room.pricing.saving}
+                  </p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="pr-4" style={{ borderRight: '1px solid rgba(220,201,160,0.08)' }}>
+                      <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
+                        {room.pricing.private.total}
+                      </p>
+                      <p className="label-text text-sage/35 mt-1" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
+                        PRIVATE · 1 PERSON
+                      </p>
+                    </div>
+                    <div className="pl-2">
+                      <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', lineHeight: 1.05 }}>
+                        {room.pricing.shared.total}
+                      </p>
+                      <p className="label-text text-sage/35 mt-1" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
+                        SHARED · {room.pricing.shared.perPerson}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="label-text text-sage/30 mt-3" style={{ fontSize: '0.36rem', letterSpacing: '0.13em' }}>
+                    This price applies exclusively when paying in full online. Payment plans are available on request at the standard rate.
+                  </p>
+                </div>
               </div>
             )}
           </div>
