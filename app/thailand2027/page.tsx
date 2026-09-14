@@ -13,11 +13,11 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 // ─── Booking Modal ────────────────────────────────────────────────────────────
 
 const ROOM_OPTIONS = [
-  { value: 'harmony',       label: 'Harmony House — Shared Dormitory',        price: 'US$ 870',   saving: null },
-  { value: 'hill-private',  label: 'Hill Haven — Private Room',                price: 'US$ 1,450', saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven — Shared Room (per person)',    price: 'US$ 1,000', saving: 'US$150' },
-  { value: 'earth-private', label: 'Earth Lodge — Private Room',               price: 'US$ 2,150', saving: 'US$250' },
-  { value: 'earth-shared',  label: 'Earth Lodge — Shared Room (per person)',   price: 'US$ 1,400', saving: 'US$250' },
+  { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',         perPerson: false, saving: null },
+  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450',       perPerson: false, saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000',       perPerson: true,  saving: 'US$150' },
+  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150',       perPerson: false, saving: 'US$250' },
+  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400',       perPerson: true,  saving: 'US$250' },
 ]
 
 function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
@@ -105,7 +105,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                     CHERIETHAI INSTITUTE · THAILAND 2027
                   </p>
                   <h2 className="font-cormorant font-light text-ivory" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', lineHeight: 1 }}>
-                    Reserve your place.
+                    Complete your booking.
                   </h2>
                   <p className="text-sand/50 mt-2" style={{ fontSize: '0.82rem', lineHeight: 1.6 }}>
                     11–14 January 2027 · VOASIS Valley · Krabi, Thailand
@@ -148,8 +148,8 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   placeholder="your@email.com"
                   style={inputStyle}
                 />
-                <p className="text-sage/45 mt-1.5" style={{ fontSize: '0.75rem' }}>
-                  Your payment confirmation and receipt will be sent here.
+                <p className="text-sage/60 mt-1.5" style={{ fontSize: '0.75rem' }}>
+                  Your booking confirmation and receipt will be sent here.
                 </p>
               </div>
 
@@ -164,14 +164,17 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   placeholder="+44 7700 900000"
                   style={inputStyle}
                 />
-                <p className="text-sand/55 mt-1.5" style={{ fontSize: '0.75rem', lineHeight: 1.5 }}>
-                  Cherie will reach out on WhatsApp to arrange a short video call with you before the retreat begins.
-                </p>
+                <div className="mt-2" style={{ borderLeft: '1px solid rgba(220,201,160,0.12)', paddingLeft: '0.75rem' }}>
+                  <p className="text-sand/50" style={{ fontSize: '0.68rem', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>BEFORE THE RETREAT</p>
+                  <p className="text-sand/65" style={{ fontSize: '0.78rem', lineHeight: 1.6 }}>
+                    Cherie will contact you personally on WhatsApp to schedule a short video call before the retreat.
+                  </p>
+                </div>
               </div>
 
               {/* Room */}
               <div>
-                <label style={labelStyle}>Accommodation</label>
+                <label style={labelStyle}>Choose your accommodation</label>
                 <select
                   required
                   value={room}
@@ -180,7 +183,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                 >
                   {ROOM_OPTIONS.map(opt => (
                     <option key={opt.value} value={opt.value} style={{ background: '#111714' }}>
-                      {opt.label} · {opt.price}
+                      {opt.label} — {opt.price}{opt.perPerson ? ' per person' : ''}
                     </option>
                   ))}
                 </select>
@@ -193,7 +196,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div>
                       <p className="text-ivory" style={{ fontSize: '0.88rem', lineHeight: 1.4 }}>CherieThai Thailand Retreat 2027</p>
-                      <p className="text-sand/45" style={{ fontSize: '0.78rem', marginTop: '2px' }}>{selectedRoom.label}</p>
+                      <p className="text-sand/55" style={{ fontSize: '0.78rem', marginTop: '2px' }}>{selectedRoom.label}{selectedRoom.perPerson ? ' — per person' : ''}</p>
                     </div>
                     <p className="font-cormorant font-light text-sand/90 whitespace-nowrap" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', lineHeight: 1 }}>
                       {selectedRoom.price}
@@ -205,8 +208,8 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                     </p>
                   )}
                   <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '0.75rem', paddingTop: '0.75rem' }}>
-                    <p className="text-sand/35" style={{ fontSize: '0.72rem', lineHeight: 1.6 }}>
-                      Includes: 22h hands-on training · 4 nights accommodation · CherieThai Institute certificate · all course materials
+                    <p className="text-sand/55" style={{ fontSize: '0.72rem', lineHeight: 1.6 }}>
+                      Includes: 22h hands-on training · 3 nights accommodation · CherieThai Institute certificate · course materials
                     </p>
                   </div>
                 </div>
@@ -237,16 +240,16 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   gap: '0.5rem',
                 }}
               >
-                {loading ? 'REDIRECTING TO PAYMENT…' : 'PROCEED TO SECURE PAYMENT →'}
+                {loading ? 'REDIRECTING TO PAYMENT…' : 'COMPLETE YOUR BOOKING →'}
               </button>
 
               {/* Trust strip */}
               <div style={{ borderTop: '1px solid rgba(220,201,160,0.07)', paddingTop: '1rem' }}>
-                <p className="text-sand/35 text-center mb-2" style={{ fontSize: '0.72rem' }}>
-                  🔒 Secured by Stripe — your card details are never shared with us
+                <p className="text-sand/50 text-center mb-2" style={{ fontSize: '0.72rem', lineHeight: 1.6 }}>
+                  Secure payment powered by Stripe. Your payment details are encrypted and never shared with us.
                 </p>
-                <p className="text-sand/25 text-center" style={{ fontSize: '0.68rem', letterSpacing: '0.08em' }}>
-                  Apple Pay · Google Pay · Credit Card · Pix
+                <p className="text-sand/40 text-center" style={{ fontSize: '0.68rem', letterSpacing: '0.1em' }}>
+                  Pix · Apple Pay · Google Pay · Credit Card
                 </p>
               </div>
             </form>
