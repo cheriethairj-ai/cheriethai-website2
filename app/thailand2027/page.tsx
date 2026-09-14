@@ -13,11 +13,11 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 // ─── Booking Modal ────────────────────────────────────────────────────────────
 
 const ROOM_OPTIONS = [
-  { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',         perPerson: false, saving: null },
-  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450',       perPerson: false, saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000',       perPerson: true,  saving: 'US$150' },
-  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150',       perPerson: false, saving: 'US$250' },
-  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400',       perPerson: true,  saving: 'US$250' },
+  { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,     perPerson: false, saving: null },
+  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450', totalPrice: null,     perPerson: false, saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$150' },
+  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,     perPerson: false, saving: 'US$250' },
+  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$250' },
 ]
 
 function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
@@ -213,11 +213,23 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div>
                       <p className="text-ivory" style={{ fontSize: '0.88rem', lineHeight: 1.4 }}>CherieThai Thailand Retreat 2027</p>
-                      <p className="text-sand/55" style={{ fontSize: '0.78rem', marginTop: '2px' }}>{selectedRoom.label}{selectedRoom.perPerson ? ' — per person' : ''}</p>
+                      <p className="text-sand/55" style={{ fontSize: '0.78rem', marginTop: '2px' }}>{selectedRoom.label}</p>
                     </div>
-                    <p className="font-cormorant font-light text-sand/90 whitespace-nowrap" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', lineHeight: 1 }}>
-                      {selectedRoom.price}
-                    </p>
+                    <div className="text-right whitespace-nowrap">
+                      {selectedRoom.perPerson ? (
+                        <>
+                          <p className="text-sand/55" style={{ fontSize: '0.72rem', marginBottom: '0.2rem' }}>{selectedRoom.price} × 2</p>
+                          <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', lineHeight: 1 }}>
+                            {selectedRoom.totalPrice}
+                          </p>
+                          <p className="text-sand/40" style={{ fontSize: '0.68rem', marginTop: '0.2rem' }}>total for 2 people</p>
+                        </>
+                      ) : (
+                        <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', lineHeight: 1 }}>
+                          {selectedRoom.price}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   {selectedRoom.saving && (
                     <p className="text-sage/70 mt-2" style={{ fontSize: '0.75rem' }}>
