@@ -15,10 +15,15 @@ const ROOM_PRICES: Record<string, { amount: number; label: string }> = {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, whatsapp, room } = await req.json()
+    const { name, name2, email, whatsapp, room } = await req.json()
 
     if (!name || !email || !whatsapp || !room) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    const isShared = room === 'hill-shared' || room === 'earth-shared'
+    if (isShared && !name2) {
+      return NextResponse.json({ error: 'Please enter the second person\'s full name.' }, { status: 400 })
     }
 
     const roomOption = ROOM_PRICES[room]
@@ -52,12 +57,14 @@ export async function POST(req: NextRequest) {
       ],
       metadata: {
         participant_name: name,
+        ...(name2 ? { participant_name_2: name2 } : {}),
         whatsapp,
         room: roomOption.label,
       },
       payment_intent_data: {
         metadata: {
           participant_name: name,
+          ...(name2 ? { participant_name_2: name2 } : {}),
           whatsapp,
           room: roomOption.label,
         },

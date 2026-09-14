@@ -22,6 +22,7 @@ const ROOM_OPTIONS = [
 
 function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
   const [name, setName] = useState('')
+  const [name2, setName2] = useState('')
   const [email, setEmail] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [room, setRoom] = useState(defaultRoom || 'harmony')
@@ -29,6 +30,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
   const [error, setError] = useState('')
 
   const selectedRoom = ROOM_OPTIONS.find(r => r.value === room)
+  const isShared = room === 'hill-shared' || room === 'earth-shared'
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -38,7 +40,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, whatsapp, room }),
+        body: JSON.stringify({ name, name2: isShared ? name2 : undefined, email, whatsapp, room }),
       })
       const data = await res.json()
       if (data.url) {
@@ -126,16 +128,31 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
 
               {/* Name */}
               <div>
-                <label style={labelStyle}>Full name</label>
+                <label style={labelStyle}>{isShared ? 'First person — full name' : 'Full name'}</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  placeholder="Your full name"
+                  placeholder="Full name"
                   style={inputStyle}
                 />
               </div>
+
+              {/* Second person name — shared rooms only */}
+              {isShared && (
+                <div>
+                  <label style={labelStyle}>Second person — full name</label>
+                  <input
+                    type="text"
+                    required
+                    value={name2}
+                    onChange={e => setName2(e.target.value)}
+                    placeholder="Full name"
+                    style={inputStyle}
+                  />
+                </div>
+              )}
 
               {/* Email */}
               <div>
