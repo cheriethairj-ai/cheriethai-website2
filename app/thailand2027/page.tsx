@@ -314,7 +314,7 @@ type PricingDual = {
   type: 'dual'
   saving: string
   private: { original: string; total: string }
-  shared: { total: string; perPerson: string; originalPerPerson: string }
+  shared: { total: string; perPerson: string; originalPerPerson: string; originalTotal: string }
 }
 
 type Room = {
@@ -352,7 +352,7 @@ const rooms: Room[] = [
       type: 'dual',
       saving: 'US$150',
       private: { original: 'US$ 1,600', total: 'US$ 1,450' },
-      shared: { total: 'US$ 2,000', perPerson: 'US$ 1,000 per participant', originalPerPerson: 'US$ 1,150' },
+      shared: { total: 'US$ 2,000', perPerson: 'US$ 1,000 per participant', originalPerPerson: 'US$ 1,150', originalTotal: 'US$ 2,300' },
     },
     photos: ['/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
@@ -366,7 +366,7 @@ const rooms: Room[] = [
       type: 'dual',
       saving: 'US$250',
       private: { original: 'US$ 2,400', total: 'US$ 2,150' },
-      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650' },
+      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
     },
     photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
@@ -653,10 +653,10 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
                       2 PARTICIPANTS<br />SHARING THE ROOM
                     </p>
                     <p className="font-cormorant font-light text-sand/50" style={{ fontSize: 'clamp(1.2rem, 2vw, 1.6rem)', lineHeight: 1.05 }}>
-                      {room.pricing.shared.originalPerPerson}
+                      {room.pricing.shared.originalTotal}
                     </p>
                     <p className="label-text text-sage/30 mt-1" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
-                      PER PERSON
+                      TOTAL · {room.pricing.shared.originalPerPerson} PP
                     </p>
                   </div>
                 </div>
@@ -680,7 +680,7 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
                         {room.pricing.shared.total}
                       </p>
                       <p className="label-text text-sage/35 mt-1" style={{ fontSize: '0.34rem', letterSpacing: '0.12em' }}>
-                        SHARED · {room.pricing.shared.perPerson}
+                        TOTAL · {room.pricing.shared.perPerson} PP
                       </p>
                     </div>
                   </div>
