@@ -7,8 +7,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 const ROOM_PRICES: Record<string, { amount: number; label: string }> = {
   'harmony':          { amount: 87000,  label: 'Harmony House — Shared Dormitory' },
-  'hill-private':     { amount: 145000, label: 'Hill Haven — Private Room' },
-  'hill-shared':      { amount: 100000, label: 'Hill Haven — Shared Room (per person)' },
+  'hill-private':     { amount: 135000, label: 'Hill Haven — Private Room' },
+  'hill-shared':      { amount: 90000,  label: 'Hill Haven — Shared Room (per person)' },
   'earth-private':    { amount: 215000, label: 'Earth Lodge — Private Room' },
   'earth-shared':     { amount: 140000, label: 'Earth Lodge — Shared Room (per person)' },
 }

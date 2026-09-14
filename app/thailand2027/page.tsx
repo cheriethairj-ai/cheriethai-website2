@@ -15,8 +15,8 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 const ROOM_OPTIONS = [
   { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,       perPerson: false, saving: 'US$250' },
   { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$500' },
-  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450', totalPrice: null,       perPerson: false, saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$300' },
+  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,350', totalPrice: null,       perPerson: false, saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$900',   totalPrice: 'US$1,800', perPerson: true,  saving: 'US$300' },
   { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,       perPerson: false, saving: null },
 ]
 
@@ -356,8 +356,8 @@ const rooms: Room[] = [
     pricing: {
       type: 'dual',
       saving: 'US$150',
-      private: { original: 'US$ 1,600', total: 'US$ 1,450' },
-      shared: { total: 'US$ 2,000', perPerson: 'US$ 1,000 per participant', originalPerPerson: 'US$ 1,150', originalTotal: 'US$ 2,300' },
+      private: { original: 'US$ 1,500', total: 'US$ 1,350' },
+      shared: { total: 'US$ 1,800', perPerson: 'US$ 900 per participant', originalPerPerson: 'US$ 1,050', originalTotal: 'US$ 2,100' },
     },
     photos: ['/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
