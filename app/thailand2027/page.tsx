@@ -688,6 +688,123 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
   )
 }
 
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
+const FAQ_ITEMS = [
+  {
+    q: 'Do I need prior experience in Thai bodywork?',
+    a: 'No. The training is open to all levels. If you are coming without a professional background, you will receive preparatory movements and foundational guidelines in advance of the retreat so that you arrive with a good base to work from.',
+  },
+  {
+    q: 'Is this suitable for experienced practitioners?',
+    a: 'Yes. The programme includes adaptations and more advanced configurations for practitioners who already have a foundation. You will be worked with at your level throughout the training, and corrections are given individually.',
+  },
+  {
+    q: 'Is food included?',
+    a: 'Food is not included in the retreat investment. Meals can be purchased directly through VOASIS (3 meals per day: 1,100 THB · brunch and dinner: 1,000 THB), or you can explore the local restaurants and cafés in Krabi.',
+  },
+  {
+    q: 'What language is the training taught in?',
+    a: 'The training is conducted entirely in English.',
+  },
+  {
+    q: 'How many participants will be in the group?',
+    a: 'This is a small group intensive. Numbers are deliberately limited to preserve the quality of instruction, individual attention and the atmosphere of the retreat. Places are allocated on a first-confirmed basis.',
+  },
+  {
+    q: 'What airport should I fly into?',
+    a: 'Fly into Krabi International Airport (KBV), with direct or connecting flights from Bangkok (Suvarnabhumi or Don Mueang). VOASIS offers a resort transfer at 600 THB per person. We can arrange this for you — just let Karl know your arrival details when you book.',
+  },
+  {
+    q: 'Are payment plans available?',
+    a: 'Payment plans can be arranged on request. Get in touch via the contact details on this page and we will find an arrangement that works for you.',
+  },
+  {
+    q: 'How do I secure my place?',
+    a: 'Click "Reserve your space", fill in your details and complete your payment securely online. Your place is confirmed on receipt of payment. Cherie will then be in touch on WhatsApp to arrange your pre-screening call.',
+  },
+  {
+    q: 'What is included in the training?',
+    a: 'Everything needed for the training is provided — massage tables, all course materials, and your CherieThai Institute certificate on completion. You only need to bring yourself and suitable clothing.',
+  },
+  {
+    q: 'What should I bring?',
+    a: 'Comfortable, loose clothing suitable for practical bodywork training. A swimsuit or bikini for use of the pool, jacuzzi and ice bath. All training equipment and course materials are provided. The climate in Krabi in January is warm and dry.',
+  },
+]
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-start justify-between gap-6 py-7 text-left"
+        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+      >
+        <h3
+          className="font-cormorant font-light text-ivory"
+          style={{ fontSize: 'clamp(1rem, 1.6vw, 1.25rem)', lineHeight: 1.3 }}
+        >
+          {q}
+        </h3>
+        <span
+          className="text-sage/40 flex-shrink-0 mt-1 transition-transform duration-300"
+          style={{ fontSize: '1rem', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
+        >
+          +
+        </span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
+            style={{ overflow: 'hidden' }}
+          >
+            <p className="body-text text-sand/50 leading-loose pb-7" style={{ fontSize: '0.9rem' }}>
+              {a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+function FaqSection() {
+  return (
+    <div
+      className="px-6 md:px-12 lg:px-16"
+      style={{
+        paddingTop: 'clamp(5rem, 12vw, 9rem)',
+        paddingBottom: 'clamp(5rem, 12vw, 9rem)',
+        borderTop: '1px solid rgba(220,201,160,0.07)',
+      }}
+    >
+      <div className="max-w-6xl">
+        <motion.p {...reveal()} className="label-text text-sage/30 mb-12" style={{ fontSize: '0.48rem', letterSpacing: '0.28em' }}>
+          COMMON QUESTIONS
+        </motion.p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 lg:gap-x-28">
+          <div>
+            {FAQ_ITEMS.filter((_, i) => i % 2 === 0).map(({ q, a }) => (
+              <FaqItem key={q} q={q} a={a} />
+            ))}
+          </div>
+          <div>
+            {FAQ_ITEMS.filter((_, i) => i % 2 === 1).map(({ q, a }) => (
+              <FaqItem key={q} q={q} a={a} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Thailand2027Page() {
@@ -1191,87 +1308,7 @@ export default function Thailand2027Page() {
         </div>
 
         {/* ── FAQ ── */}
-        <div
-          className="px-6 md:px-12 lg:px-16"
-          style={{
-            paddingTop: 'clamp(5rem, 12vw, 9rem)',
-            paddingBottom: 'clamp(5rem, 12vw, 9rem)',
-            borderTop: '1px solid rgba(220,201,160,0.07)',
-          }}
-        >
-          <div className="max-w-6xl">
-            <motion.p {...reveal()} className="label-text text-sage/30 mb-16" style={{ fontSize: '0.48rem', letterSpacing: '0.28em' }}>
-              COMMON QUESTIONS
-            </motion.p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-              {[
-                {
-                  q: 'Do I need prior experience in Thai bodywork?',
-                  a: 'No. The training is open to all levels. If you are coming without a professional background, you will receive preparatory movements and foundational guidelines in advance of the retreat so that you arrive with a good base to work from.',
-                },
-                {
-                  q: 'Is this suitable for experienced practitioners?',
-                  a: 'Yes. The programme includes adaptations and more advanced configurations for practitioners who already have a foundation. You will be worked with at your level throughout the training, and corrections are given individually.',
-                },
-                {
-                  q: 'Is food included?',
-                  a: 'Food is not included in the retreat investment. Meals can be purchased directly through VOASIS (3 meals per day: 1,100 THB · brunch and dinner: 1,000 THB), or you can explore the local restaurants and cafés in Krabi.',
-                },
-                {
-                  q: 'What language is the training taught in?',
-                  a: 'The training is conducted entirely in English.',
-                },
-                {
-                  q: 'How many participants will be in the group?',
-                  a: 'This is a small group intensive. Numbers are deliberately limited to preserve the quality of instruction, individual attention and the atmosphere of the retreat. Places are allocated on a first-confirmed basis.',
-                },
-                {
-                  q: 'What airport should I fly into?',
-                  a: 'Fly into Krabi International Airport (KBV), with direct or connecting flights from Bangkok (Suvarnabhumi or Don Mueang). VOASIS offers a resort transfer at 600 THB per person. We can arrange this for you — just let Karl know your arrival details when you book.',
-                },
-                {
-                  q: 'Are payment plans available?',
-                  a: 'Payment plans can be arranged on request. Get in touch via the contact details on this page and we will find an arrangement that works for you.',
-                },
-                {
-                  q: 'How do I secure my place?',
-                  a: 'Click "Reserve your space", fill in your details and complete your payment securely online. Your place is confirmed on receipt of payment. Cherie will then be in touch on WhatsApp to arrange your pre-screening call.',
-                },
-                {
-                  q: 'What is included in the training?',
-                  a: 'Everything needed for the training is provided — massage tables, all course materials, and your CherieThai Institute certificate on completion. You only need to bring yourself and suitable clothing.',
-                },
-                {
-                  q: 'What should I bring?',
-                  a: 'Comfortable, loose clothing suitable for practical bodywork training. All equipment and course materials are provided. A notebook is welcome but not required. The climate in Krabi in January is warm and dry.',
-                },
-              ].map(({ q, a }, i) => (
-                <motion.div
-                  key={q}
-                  {...reveal(i * 0.05)}
-                  className="py-10 md:py-12"
-                  style={{
-                    borderTop: '1px solid rgba(220,201,160,0.07)',
-                    borderRight: i % 2 === 0 ? '1px solid rgba(220,201,160,0.07)' : 'none',
-                    paddingRight: i % 2 === 0 ? 'clamp(1.5rem, 5vw, 5rem)' : '0',
-                    paddingLeft: i % 2 === 1 ? 'clamp(1.5rem, 5vw, 5rem)' : '0',
-                  }}
-                >
-                  <h3
-                    className="font-cormorant font-light text-ivory mb-4"
-                    style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', lineHeight: 1.2 }}
-                  >
-                    {q}
-                  </h3>
-                  <p className="body-text text-sand/45 leading-loose" style={{ fontSize: '0.875rem' }}>
-                    {a}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <FaqSection />
 
         {/* ── Reserve ── */}
         <div
