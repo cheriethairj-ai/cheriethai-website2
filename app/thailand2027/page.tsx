@@ -1387,15 +1387,18 @@ export default function Thailand2027Page() {
               </p>
 
               <button
-                onClick={() => openBooking('harmony')}
+                onClick={() => openBooking('earth-private')}
                 className="btn-ghost text-sand/70 border-sand/25 inline-flex"
               >
-                <span>Reserve your space</span>
+                <span>Complete your booking — secure payment</span>
                 <span aria-hidden>→</span>
               </button>
 
-              <p className="label-text text-sage/20 mt-8" style={{ fontSize: '0.46rem', letterSpacing: '0.18em' }}>
-                APPLE PAY · GOOGLE PAY · CREDIT CARD · PIX
+              <p className="label-text text-sage/35 mt-4" style={{ fontSize: '0.44rem', letterSpacing: '0.16em' }}>
+                Pix · Apple Pay · Google Pay · Credit Card
+              </p>
+              <p className="label-text text-sage/20 mt-2" style={{ fontSize: '0.4rem', letterSpacing: '0.14em' }}>
+                Powered by Stripe · Encrypted · Never stored with us
               </p>
             </motion.div>
           </div>
