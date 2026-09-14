@@ -729,7 +729,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What should I bring?',
-    a: 'Comfortable, loose clothing suitable for practical bodywork training. A swimsuit or bikini for use of the pool, jacuzzi and ice bath. All training equipment and course materials are provided. The climate in Krabi in January is warm and dry.',
+    a: 'Comfortable, loose clothing suitable for practical bodywork training. A swimsuit or bikini is required for the oil work component of the training, and can also be used for the pool, jacuzzi and ice bath. All training equipment and course materials are provided. The climate in Krabi in January is warm and dry.',
   },
 ]
 
