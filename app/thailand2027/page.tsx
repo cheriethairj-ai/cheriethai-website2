@@ -44,11 +44,11 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
       if (data.url) {
         window.location.href = data.url
       } else {
-        setError('Something went wrong. Please try again.')
+        setError(data.error || 'Something went wrong. Please try again.')
         setLoading(false)
       }
-    } catch {
-      setError('Something went wrong. Please try again.')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
       setLoading(false)
     }
   }
