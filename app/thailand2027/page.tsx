@@ -55,23 +55,25 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: 'rgba(220,201,160,0.04)',
-    border: '1px solid rgba(220,201,160,0.12)',
+    background: 'rgba(255,255,255,0.04)',
+    border: '1px solid rgba(220,201,160,0.2)',
     color: '#F5F0E8',
-    padding: '0.85rem 1rem',
-    fontSize: '0.875rem',
+    padding: '0.9rem 1rem',
+    fontSize: '0.95rem',
     fontFamily: 'inherit',
     outline: 'none',
+    borderRadius: '2px',
     transition: 'border-color 0.2s',
   }
 
   const labelStyle: React.CSSProperties = {
     display: 'block',
-    fontSize: '0.4rem',
-    letterSpacing: '0.22em',
-    color: 'rgba(170,182,162,0.45)',
+    fontSize: '0.72rem',
+    letterSpacing: '0.08em',
+    color: 'rgba(220,201,160,0.7)',
     marginBottom: '0.5rem',
     fontFamily: 'inherit',
+    fontWeight: 500,
   }
 
   return (
@@ -82,7 +84,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 overflow-y-auto"
           style={{ background: 'rgba(10,13,11,0.97)', backdropFilter: 'blur(10px)' }}
           onClick={onClose}
         >
@@ -91,33 +93,40 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
-            className="w-full max-w-lg"
-            style={{ background: '#0D110E', border: '1px solid rgba(220,201,160,0.1)', padding: 'clamp(2rem, 5vw, 3rem)' }}
+            className="w-full max-w-lg my-auto"
+            style={{ background: '#111714', border: '1px solid rgba(220,201,160,0.15)' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-start justify-between mb-8">
-              <div>
-                <p className="label-text text-sage/35 mb-2" style={{ fontSize: '0.44rem', letterSpacing: '0.28em' }}>
-                  CHERIETHAI INSTITUTE · THAILAND 2027
-                </p>
-                <h2 className="font-cormorant font-light text-ivory" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1 }}>
-                  Reserve your space.
-                </h2>
+            <div className="px-8 pt-8 pb-6" style={{ borderBottom: '1px solid rgba(220,201,160,0.08)' }}>
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="label-text text-sage/50 mb-2" style={{ fontSize: '0.65rem', letterSpacing: '0.2em' }}>
+                    CHERIETHAI INSTITUTE · THAILAND 2027
+                  </p>
+                  <h2 className="font-cormorant font-light text-ivory" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', lineHeight: 1 }}>
+                    Reserve your place.
+                  </h2>
+                  <p className="text-sand/50 mt-2" style={{ fontSize: '0.82rem', lineHeight: 1.6 }}>
+                    11–14 January 2027 · VOASIS Valley · Krabi, Thailand
+                  </p>
+                </div>
+                <button
+                  onClick={onClose}
+                  className="text-sage/40 hover:text-sage/80 transition-colors"
+                  style={{ fontSize: '1.2rem', background: 'none', border: 'none', cursor: 'pointer', lineHeight: 1, marginLeft: '1rem', flexShrink: 0 }}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
               </div>
-              <button
-                onClick={onClose}
-                className="label-text text-sage/30 hover:text-sage/70 transition-colors"
-                style={{ fontSize: '0.44rem', letterSpacing: '0.2em', background: 'none', border: 'none', cursor: 'pointer', marginTop: '4px' }}
-              >
-                CLOSE ×
-              </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="px-8 py-7 space-y-5">
+
               {/* Name */}
               <div>
-                <label style={labelStyle}>FULL NAME</label>
+                <label style={labelStyle}>Full name</label>
                 <input
                   type="text"
                   required
@@ -130,7 +139,7 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
 
               {/* Email */}
               <div>
-                <label style={labelStyle}>EMAIL ADDRESS</label>
+                <label style={labelStyle}>Email address</label>
                 <input
                   type="email"
                   required
@@ -139,11 +148,14 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   placeholder="your@email.com"
                   style={inputStyle}
                 />
+                <p className="text-sage/45 mt-1.5" style={{ fontSize: '0.75rem' }}>
+                  Your payment confirmation and receipt will be sent here.
+                </p>
               </div>
 
               {/* WhatsApp */}
               <div>
-                <label style={labelStyle}>WHATSAPP NUMBER (WITH COUNTRY CODE)</label>
+                <label style={labelStyle}>WhatsApp number (with country code)</label>
                 <input
                   type="tel"
                   required
@@ -152,14 +164,14 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   placeholder="+44 7700 900000"
                   style={inputStyle}
                 />
-                <p style={{ fontSize: '0.38rem', letterSpacing: '0.14em', color: 'rgba(170,182,162,0.3)', marginTop: '0.4rem', fontFamily: 'inherit' }}>
-                  Cherie will contact you here to arrange your pre-screening video call.
+                <p className="text-sand/55 mt-1.5" style={{ fontSize: '0.75rem', lineHeight: 1.5 }}>
+                  Cherie will reach out on WhatsApp to arrange a short video call with you before the retreat begins.
                 </p>
               </div>
 
               {/* Room */}
               <div>
-                <label style={labelStyle}>ACCOMMODATION</label>
+                <label style={labelStyle}>Accommodation</label>
                 <select
                   required
                   value={room}
@@ -167,8 +179,8 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
                   style={{ ...inputStyle, cursor: 'pointer' }}
                 >
                   {ROOM_OPTIONS.map(opt => (
-                    <option key={opt.value} value={opt.value} style={{ background: '#0D110E' }}>
-                      {opt.label} — {opt.price}
+                    <option key={opt.value} value={opt.value} style={{ background: '#111714' }}>
+                      {opt.label} · {opt.price}
                     </option>
                   ))}
                 </select>
@@ -176,41 +188,67 @@ function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: 
 
               {/* Price summary */}
               {selectedRoom && (
-                <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', paddingTop: '1.25rem' }}>
-                  <div className="flex items-baseline justify-between">
-                    <p className="label-text text-sage/35" style={{ fontSize: '0.42rem', letterSpacing: '0.2em' }}>TOTAL</p>
-                    <p className="font-cormorant font-light text-sand/90" style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', lineHeight: 1 }}>
+                <div style={{ background: 'rgba(220,201,160,0.04)', border: '1px solid rgba(220,201,160,0.1)', padding: '1.25rem', borderRadius: '2px' }}>
+                  <p className="text-sand/50 mb-3" style={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>Order summary</p>
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                      <p className="text-ivory" style={{ fontSize: '0.88rem', lineHeight: 1.4 }}>CherieThai Thailand Retreat 2027</p>
+                      <p className="text-sand/45" style={{ fontSize: '0.78rem', marginTop: '2px' }}>{selectedRoom.label}</p>
+                    </div>
+                    <p className="font-cormorant font-light text-sand/90 whitespace-nowrap" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', lineHeight: 1 }}>
                       {selectedRoom.price}
                     </p>
                   </div>
                   {selectedRoom.saving && (
-                    <p className="label-text text-sage/50 mt-1 text-right" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
-                      FULL PAYMENT DISCOUNT · YOU SAVE {selectedRoom.saving}
+                    <p className="text-sage/70 mt-2" style={{ fontSize: '0.75rem' }}>
+                      Full payment discount applied — you save {selectedRoom.saving}
                     </p>
                   )}
-                  <p className="label-text text-sage/25 mt-1 text-right" style={{ fontSize: '0.36rem', letterSpacing: '0.12em' }}>
-                    INCLUDES TRAINING · ACCOMMODATION · CERTIFICATE · ALL COURSE MATERIALS
-                  </p>
+                  <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '0.75rem', paddingTop: '0.75rem' }}>
+                    <p className="text-sand/35" style={{ fontSize: '0.72rem', lineHeight: 1.6 }}>
+                      Includes: 22h hands-on training · 4 nights accommodation · CherieThai Institute certificate · all course materials
+                    </p>
+                  </div>
                 </div>
               )}
 
               {error && (
-                <p style={{ fontSize: '0.8rem', color: 'rgba(220,100,100,0.8)', fontFamily: 'inherit' }}>{error}</p>
+                <p className="text-red-400" style={{ fontSize: '0.82rem' }}>{error}</p>
               )}
 
               <button
                 type="submit"
                 disabled={loading}
-                className="btn-ghost text-sand/70 border-sand/25 w-full flex items-center justify-center gap-3"
-                style={{ opacity: loading ? 0.5 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+                className="w-full"
+                style={{
+                  background: loading ? 'rgba(220,201,160,0.1)' : 'rgba(220,201,160,0.12)',
+                  border: '1px solid rgba(220,201,160,0.35)',
+                  color: '#DCC9A0',
+                  padding: '1rem',
+                  fontSize: '0.78rem',
+                  letterSpacing: '0.15em',
+                  fontFamily: 'inherit',
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                  opacity: loading ? 0.6 : 1,
+                  transition: 'all 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                }}
               >
-                <span>{loading ? 'Redirecting to payment…' : 'Proceed to payment'}</span>
-                {!loading && <span aria-hidden>→</span>}
+                {loading ? 'REDIRECTING TO PAYMENT…' : 'PROCEED TO SECURE PAYMENT →'}
               </button>
 
-              <p className="label-text text-sage/20 text-center" style={{ fontSize: '0.38rem', letterSpacing: '0.14em' }}>
-                SECURED BY STRIPE · APPLE PAY · GOOGLE PAY · CREDIT CARD · PIX
-              </p>
+              {/* Trust strip */}
+              <div style={{ borderTop: '1px solid rgba(220,201,160,0.07)', paddingTop: '1rem' }}>
+                <p className="text-sand/35 text-center mb-2" style={{ fontSize: '0.72rem' }}>
+                  🔒 Secured by Stripe — your card details are never shared with us
+                </p>
+                <p className="text-sand/25 text-center" style={{ fontSize: '0.68rem', letterSpacing: '0.08em' }}>
+                  Apple Pay · Google Pay · Credit Card · Pix
+                </p>
+              </div>
             </form>
           </motion.div>
         </motion.div>
