@@ -29,9 +29,14 @@ export async function POST(req: NextRequest) {
     const origin = req.headers.get('origin') || 'https://cheriethai.com.br'
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      ui_mode: 'hosted_page',
       mode: 'payment',
-      customer_email: email,
+      billing_address_collection: 'auto',
+      phone_number_collection: { enabled: false },
+      automatic_tax: { enabled: false },
+      allow_promotion_codes: false,
+      submit_type: 'auto',
+      saved_payment_method_options: { payment_method_save: 'enabled' },
       line_items: [
         {
           price_data: {
@@ -45,18 +50,6 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      metadata: {
-        participant_name: name,
-        whatsapp,
-        room: roomOption.label,
-      },
-      payment_intent_data: {
-        metadata: {
-          participant_name: name,
-          whatsapp,
-          room: roomOption.label,
-        },
-      },
       success_url: `${origin}/thailand2027/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/thailand2027#accommodation`,
     })
