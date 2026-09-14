@@ -63,7 +63,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url })
   } catch (err) {
-    console.error('Stripe error:', err)
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('Stripe error:', message)
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }
