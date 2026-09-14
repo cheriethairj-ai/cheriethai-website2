@@ -13,11 +13,11 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 // ─── Booking Modal ────────────────────────────────────────────────────────────
 
 const ROOM_OPTIONS = [
-  { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,     perPerson: false, saving: null },
-  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450', totalPrice: null,     perPerson: false, saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$300' },
-  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,     perPerson: false, saving: 'US$250' },
+  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,       perPerson: false, saving: 'US$250' },
   { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$500' },
+  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450', totalPrice: null,       perPerson: false, saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$300' },
+  { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,       perPerson: false, saving: null },
 ]
 
 function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
@@ -321,6 +321,8 @@ type Room = {
   id: string
   name: string
   tag: string
+  availability?: string
+  availabilityUrgent?: boolean
   description: string
   pricing: PricingSharedOnly | PricingDual
   photos: string[]
@@ -331,17 +333,20 @@ type Room = {
 
 const rooms: Room[] = [
   {
-    id: 'harmony',
-    name: 'Harmony House',
-    tag: 'SHARED DORMITORY',
-    description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students. Harmony House is the most accessible entry point into the retreat.',
+    id: 'earth',
+    name: 'Earth Lodge',
+    tag: 'MOUNTAIN VIEW · BATHTUB',
+    availability: '1 remaining',
+    availabilityUrgent: true,
+    description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
     pricing: {
-      type: 'shared-only',
-      perPerson: 'US$ 870',
-      note: 'Shared dormitory · No private occupancy option',
+      type: 'dual',
+      saving: 'US$250',
+      private: { original: 'US$ 2,400', total: 'US$ 2,150' },
+      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
     },
-    photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
-    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Harmony House (Shared Dormitory). Could you please confirm availability?"),
+    photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
+    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
   },
   {
     id: 'hill',
@@ -358,18 +363,19 @@ const rooms: Room[] = [
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
   },
   {
-    id: 'earth',
-    name: 'Earth Lodge',
-    tag: 'MOUNTAIN VIEW · BATHTUB',
-    description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
+    id: 'harmony',
+    name: 'Harmony House',
+    tag: 'SHARED DORMITORY',
+    availability: '4 spaces remaining',
+    availabilityUrgent: false,
+    description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students. Harmony House is the most accessible entry point into the retreat.',
     pricing: {
-      type: 'dual',
-      saving: 'US$250',
-      private: { original: 'US$ 2,400', total: 'US$ 2,150' },
-      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
+      type: 'shared-only',
+      perPerson: 'US$ 870',
+      note: 'Shared dormitory · No private occupancy option',
     },
-    photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
-    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
+    photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
+    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Harmony House (Shared Dormitory). Could you please confirm availability?"),
   },
 ]
 
@@ -604,9 +610,26 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
       {/* Text */}
       <div className="flex flex-col justify-between px-8 md:px-12 py-10 md:py-14" style={{ background: 'rgba(13,17,14,0.6)' }}>
         <div>
-          <h3 className="font-cormorant font-light text-ivory mb-4" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 0.95 }}>
-            {room.name}
-          </h3>
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <h3 className="font-cormorant font-light text-ivory" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', lineHeight: 0.95 }}>
+              {room.name}
+            </h3>
+            {room.availability && (
+              <span
+                className="label-text shrink-0 mt-1"
+                style={{
+                  fontSize: '0.38rem',
+                  letterSpacing: '0.14em',
+                  color: room.availabilityUrgent ? 'rgba(220,180,120,0.9)' : 'rgba(170,182,162,0.7)',
+                  border: `1px solid ${room.availabilityUrgent ? 'rgba(220,180,120,0.3)' : 'rgba(170,182,162,0.2)'}`,
+                  padding: '3px 8px',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {room.availability.toUpperCase()}
+              </span>
+            )}
+          </div>
           <p className="body-text text-sand/50 leading-loose mb-8" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 0.95rem)', maxWidth: '42ch' }}>
             {room.description}
           </p>
@@ -1376,6 +1399,30 @@ export default function Thailand2027Page() {
               </p>
             </motion.div>
           </div>
+        </div>
+
+        {/* ── Karl contact ── */}
+        <div className="px-6 md:px-12 lg:px-16 py-16 md:py-20" style={{ borderTop: '1px solid rgba(220,201,160,0.07)' }}>
+          <motion.div {...reveal()} className="max-w-xl">
+            <p className="label-text text-sage/30 mb-5" style={{ fontSize: '0.46rem', letterSpacing: '0.28em' }}>
+              PAYMENT PLANS & QUESTIONS
+            </p>
+            <h2 className="font-cormorant font-light text-ivory mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', lineHeight: 1.05 }}>
+              Need to arrange a payment plan?
+            </h2>
+            <p className="body-text text-sand/45 leading-loose mb-8" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 0.95rem)', maxWidth: '44ch' }}>
+              Payment plans are available on request. Get in touch with Karl directly on WhatsApp and he will find an arrangement that works for you.
+            </p>
+            <a
+              href={KARL_WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost text-sand/70 border-sand/25 inline-flex"
+            >
+              <span>Message Karl on WhatsApp</span>
+              <span aria-hidden>→</span>
+            </a>
+          </motion.div>
         </div>
 
         {/* ── Footer ── */}
