@@ -50,6 +50,18 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
+      metadata: {
+        participant_name: name,
+        whatsapp,
+        room: roomOption.label,
+      },
+      payment_intent_data: {
+        metadata: {
+          participant_name: name,
+          whatsapp,
+          room: roomOption.label,
+        },
+      },
       success_url: `${origin}/thailand2027/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/thailand2027#accommodation`,
     })
