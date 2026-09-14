@@ -15,9 +15,9 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 const ROOM_OPTIONS = [
   { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,     perPerson: false, saving: null },
   { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,450', totalPrice: null,     perPerson: false, saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$150' },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,000', totalPrice: 'US$2,000', perPerson: true,  saving: 'US$300' },
   { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,     perPerson: false, saving: 'US$250' },
-  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$250' },
+  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$500' },
 ]
 
 function BookingModal({ open, onClose, defaultRoom }: { open: boolean; onClose: () => void; defaultRoom?: string }) {
