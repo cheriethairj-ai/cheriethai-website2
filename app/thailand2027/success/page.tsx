@@ -26,19 +26,19 @@ export default function SuccessPage() {
             className="font-cormorant font-light text-ivory mb-6"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 0.95 }}
           >
-            Your place<br />is reserved.
+            You&rsquo;re officially<br />confirmed.
           </h1>
 
           <div
             style={{ borderTop: '1px solid rgba(220,201,160,0.1)', borderBottom: '1px solid rgba(220,201,160,0.1)', padding: '2rem 0', margin: '2rem 0' }}
           >
             <p className="body-text text-sand/55 leading-loose" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1rem)' }}>
-              Thank you for booking your place at the CherieThai Thailand Retreat 2027.
-              A confirmation has been sent to your email.
+              Thank you for completing your payment for the CherieThai Thailand Retreat 2027.
+              Your place on the training is now fully confirmed, and a payment confirmation has been sent to your email.
             </p>
             <p className="body-text text-sand/40 leading-loose mt-4" style={{ fontSize: '0.9rem' }}>
-              Cherie will be in touch on WhatsApp to arrange your pre-screening video call before the retreat.
-              Please keep an eye out for her message.
+              Cherie will contact you via WhatsApp to schedule a video call with you before the retreat.
+              This will give you a chance to meet, discuss any relevant information and make sure everything is prepared before Thailand.
             </p>
           </div>
 
