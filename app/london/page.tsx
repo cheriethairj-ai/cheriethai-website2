@@ -598,8 +598,6 @@ function ResidencySection() {
 const interestOptions = [
   'Private appointment',
   'Corporate or private event',
-  'Partnership or collaboration',
-  'Press enquiry',
 ]
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
