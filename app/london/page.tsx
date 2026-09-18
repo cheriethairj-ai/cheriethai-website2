@@ -597,14 +597,12 @@ function ResidencySection() {
 
 const interestOptions = [
   'Private appointment',
-  'Corporate or private event',
 ]
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 function WaitlistForm() {
   const [formState, setFormState] = useState<FormState>('idle')
-  const [interest, setInterest] = useState('')
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -617,7 +615,6 @@ function WaitlistForm() {
     if (!data.get('lastName')) newErrors.lastName = 'Required'
     if (!data.get('email')) newErrors.email = 'Required'
     if (!data.get('area')) newErrors.area = 'Required'
-    if (!interest) newErrors.interest = 'Please select one'
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -636,7 +633,7 @@ function WaitlistForm() {
           lastName: data.get('lastName'),
           email: data.get('email'),
           area: data.get('area'),
-          interest,
+          interest: 'Private appointment',
           message: data.get('message'),
         }),
       })
@@ -792,36 +789,6 @@ function WaitlistForm() {
                 )}
               </div>
 
-              <div className="border-t border-sand/10 py-6">
-                <label className="block label-text text-sage/35 mb-5" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                  PRIMARY INTEREST
-                </label>
-                <div className="flex flex-wrap gap-3">
-                  {interestOptions.map((opt) => (
-                    <button
-                      key={opt}
-                      type="button"
-                      onClick={() => setInterest(opt)}
-                      className="label-text transition-all duration-300 px-4 py-2.5 border"
-                      style={{
-                        fontSize: '0.52rem',
-                        letterSpacing: '0.18em',
-                        borderColor: interest === opt ? 'rgba(220,201,160,0.55)' : 'rgba(220,201,160,0.12)',
-                        color: interest === opt ? 'rgba(245,240,232,0.85)' : 'rgba(245,240,232,0.3)',
-                        background: interest === opt ? 'rgba(220,201,160,0.05)' : 'transparent',
-                        cursor: 'none',
-                      }}
-                    >
-                      {opt.toUpperCase()}
-                    </button>
-                  ))}
-                </div>
-                {errors.interest && (
-                  <p className="label-text text-earth/70 mt-3" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                    {errors.interest}
-                  </p>
-                )}
-              </div>
 
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
