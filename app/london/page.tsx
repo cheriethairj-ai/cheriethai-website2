@@ -146,10 +146,10 @@ function LondonHero() {
           style={{ fontSize: 'clamp(3.2rem, 9vw, 8.5rem)' }}
         >
           <motion.span className="block" {...fadeUp(0.7)}>
-            CherieThai
+            The body is
           </motion.span>
           <motion.span className="block" {...fadeUp(0.9)}>
-            comes to London.
+            architecture.
           </motion.span>
         </motion.h1>
 
@@ -158,8 +158,8 @@ function LondonHero() {
           className="body-text text-sand/65 max-w-sm md:max-w-md mb-8 md:mb-10"
           style={{ fontSize: 'clamp(0.85rem, 1.6vw, 0.975rem)' }}
         >
-          For a limited period, CherieThai will be available in London through
-          a small number of private founder appointments.
+          CherieThai arrives in London this November for an exclusive three-week residency.
+          Priority access is strictly limited and available by waitlist only.
         </motion.p>
 
         <motion.div
@@ -538,44 +538,44 @@ function ResidencySection() {
 
         {/* Details grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 border-t border-sand/8 pt-14 md:pt-20">
-          {[
-            {
-              label: 'APPOINTMENT LENGTH',
-              value: '100 minutes',
-              detail: 'One session per visit recommended',
-            },
-            {
-              label: 'RATE',
-              value: '£250',
-              detail: 'Payment confirmed at booking',
-            },
-            {
-              label: 'AVAILABILITY',
-              value: 'Priority list first',
-              detail: 'Remaining appointments released publicly',
-            },
-          ].map((item, i) => (
-            <motion.div key={item.label} {...revealInView(i * 0.1)}>
-              <p
-                className="label-text text-sage/30 mb-3"
-                style={{ fontSize: '0.5rem', letterSpacing: '0.25em' }}
-              >
-                {item.label}
-              </p>
-              <p
-                className="font-cormorant font-light text-ivory/75 mb-2"
-                style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}
-              >
-                {item.value}
-              </p>
-              <p
-                className="body-text text-sage/40"
-                style={{ fontSize: '0.8rem' }}
-              >
-                {item.detail}
-              </p>
-            </motion.div>
-          ))}
+          <motion.div {...revealInView(0)}>
+            <p className="label-text text-sage/30 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.25em' }}>
+              APPOINTMENT LENGTH
+            </p>
+            <p className="font-cormorant font-light text-ivory/75 mb-2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}>
+              100 minutes
+            </p>
+            <p className="body-text text-sage/40" style={{ fontSize: '0.8rem' }}>
+              Uncompromised. Unhurried. Full-body structural work.
+            </p>
+          </motion.div>
+
+          <motion.div {...revealInView(0.1)}>
+            <p className="label-text text-sage/30 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.25em' }}>
+              NOVEMBER INAUGURAL RATE
+            </p>
+            <p className="font-cormorant font-light text-ivory/75 mb-1" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}>
+              £195
+            </p>
+            <p className="body-text text-sage/40 mb-1" style={{ fontSize: '0.8rem' }}>
+              Standard rate: <span style={{ textDecoration: 'line-through', opacity: 0.6 }}>£250</span>
+            </p>
+            <p className="body-text text-sage/30" style={{ fontSize: '0.75rem', lineHeight: 1.6 }}>
+              This rate is exclusive to the November residency and will not be extended to future editions.
+            </p>
+          </motion.div>
+
+          <motion.div {...revealInView(0.2)}>
+            <p className="label-text text-sage/30 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.25em' }}>
+              ACCESS
+            </p>
+            <p className="font-cormorant font-light text-ivory/75 mb-2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}>
+              Priority list first
+            </p>
+            <p className="body-text text-sage/40" style={{ fontSize: '0.8rem' }}>
+              Slots are strictly limited. When the residency is full, it is full.
+            </p>
+          </motion.div>
         </div>
 
         <motion.div {...revealInView(0.2)} className="mt-16 md:mt-20">
@@ -673,7 +673,7 @@ function WaitlistForm() {
           className="display-section text-ivory mb-5"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)' }}
         >
-          Join the London priority list.
+          The waitlist is now open.
         </motion.h2>
 
         <motion.p
@@ -681,8 +681,10 @@ function WaitlistForm() {
           className="body-text text-sand/45 mb-14"
           style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)', maxWidth: '38rem' }}
         >
-          Joining the priority list does not require payment or commit you to an
-          appointment. It gives you first access to the London diary when booking opens.
+          CherieThai operates on a concierge model. There is no public booking calendar.
+          Access to the November residency is granted via a private priority waitlist — reviewed
+          in order of registration and confirmed directly by the practice within 48 hours.
+          Joining does not require payment or commit you to an appointment.
         </motion.p>
 
         <AnimatePresence mode="wait">
@@ -701,8 +703,9 @@ function WaitlistForm() {
                 You are on the priority list.
               </p>
               <p className="body-text text-sand/45 text-sm">
-                We will be in touch personally to confirm availability and
-                session details before the residency opens.
+                This is not a newsletter sign-up. Cherie will be in touch personally
+                within 48 hours to confirm your slot, session logistics and the
+                private venue address.
               </p>
             </motion.div>
           ) : (
@@ -852,7 +855,7 @@ function WaitlistForm() {
                   className="btn-ghost text-sand/70 border-sand/25 justify-between w-full sm:w-auto sm:min-w-[260px]"
                 >
                   <span>
-                    {formState === 'submitting' ? 'Sending…' : 'Join the priority list'}
+                    {formState === 'submitting' ? 'Sending…' : 'Apply for priority access'}
                   </span>
                   <span aria-hidden>→</span>
                 </button>
@@ -860,9 +863,8 @@ function WaitlistForm() {
                   className="body-text text-sage/25 mt-6 leading-relaxed"
                   style={{ fontSize: '0.75rem', maxWidth: '36rem' }}
                 >
-                  Joining the priority list does not require payment or commit you to
-                  an appointment. Session availability and location details will be
-                  shared directly with priority list members.
+                  100-minute sessions · £195 November rate · Central London · Strictly limited availability.
+                  The exact venue is disclosed exclusively to confirmed bookings.
                 </p>
               </div>
             </motion.form>
