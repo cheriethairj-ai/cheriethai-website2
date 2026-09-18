@@ -603,6 +603,7 @@ type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 function WaitlistForm() {
   const [formState, setFormState] = useState<FormState>('idle')
+  const [confirmed, setConfirmed] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -615,6 +616,8 @@ function WaitlistForm() {
     if (!data.get('lastName')) newErrors.lastName = 'Required'
     if (!data.get('email')) newErrors.email = 'Required'
     if (!data.get('area')) newErrors.area = 'Required'
+    if (!data.get('focus')) newErrors.focus = 'Required'
+    if (!confirmed) newErrors.confirmed = 'Please confirm to continue'
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -633,6 +636,7 @@ function WaitlistForm() {
           lastName: data.get('lastName'),
           email: data.get('email'),
           area: data.get('area'),
+          focus: data.get('focus'),
           interest: 'Private appointment',
           message: data.get('message'),
         }),
@@ -792,6 +796,24 @@ function WaitlistForm() {
 
               <div className="border-t border-sand/10 py-6">
                 <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
+                  PRIMARY FOCUS FOR YOUR SESSION
+                </label>
+                <input
+                  name="focus"
+                  type="text"
+                  placeholder="e.g. athletic performance, chronic compression, structural alignment, injury recovery"
+                  className="input-underline"
+                  style={{ color: '#F5F0E8' }}
+                />
+                {errors.focus && (
+                  <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
+                    {errors.focus}
+                  </p>
+                )}
+              </div>
+
+              <div className="border-t border-sand/10 py-6">
+                <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
                   OPTIONAL MESSAGE
                 </label>
                 <textarea
@@ -806,6 +828,41 @@ function WaitlistForm() {
                     lineHeight: '1.7',
                   }}
                 />
+              </div>
+
+              <div className="border-t border-sand/10 py-6">
+                <label
+                  className="flex items-start gap-4 cursor-pointer group"
+                  onClick={() => setConfirmed(c => !c)}
+                >
+                  <div
+                    style={{
+                      width: '18px',
+                      height: '18px',
+                      border: `1px solid ${confirmed ? 'rgba(220,201,160,0.6)' : 'rgba(220,201,160,0.2)'}`,
+                      background: confirmed ? 'rgba(220,201,160,0.08)' : 'transparent',
+                      flexShrink: 0,
+                      marginTop: '2px',
+                      transition: 'all 0.2s',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {confirmed && (
+                      <span style={{ color: 'rgba(220,201,160,0.8)', fontSize: '0.65rem', lineHeight: 1 }}>✓</span>
+                    )}
+                  </div>
+                  <p className="body-text text-sand/50 leading-relaxed" style={{ fontSize: '0.82rem' }}>
+                    I understand that CherieThai sessions are an intensive, 100-minute clinical investment.
+                    I am ready to invest in premium structural therapy at the inaugural November rate of <span className="text-sand/75">£195</span>.
+                  </p>
+                </label>
+                {errors.confirmed && (
+                  <p className="label-text text-earth/70 mt-3" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
+                    {errors.confirmed}
+                  </p>
+                )}
               </div>
 
               <div className="border-t border-sand/10 pt-8 pb-2">

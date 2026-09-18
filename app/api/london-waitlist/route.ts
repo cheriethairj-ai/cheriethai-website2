@@ -19,11 +19,10 @@ import nodemailer from 'nodemailer'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { firstName, lastName, email, area, interest, message } = body
-
+    const { firstName, lastName, email, area, focus, interest, message } = body
 
     // Server-side validation
-    if (!firstName || !lastName || !email || !area || !interest) {
+    if (!firstName || !lastName || !email || !area || !focus || !interest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
@@ -52,7 +51,7 @@ New London Waitlist Submission
 Name:             ${firstName} ${lastName}
 Email:            ${email}
 London area:      ${area}
-Primary interest: ${interest}
+Session focus:    ${focus}
 Message:          ${message || '(none)'}
 
 Submitted:        ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}
@@ -94,6 +93,10 @@ Submitted:        ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Londo
       <div class="row">
         <span class="label">Email</span>
         <span class="value"><a href="mailto:${email}">${email}</a></span>
+      </div>
+      <div class="row">
+        <span class="label">Session focus</span>
+        <span class="value">${focus}</span>
       </div>
       <div class="row">
         <span class="label">London area</span>
