@@ -661,29 +661,28 @@ function WaitlistForm() {
 
         <motion.p
           {...revealInView(0)}
-          className="label-text text-sage/30 mb-8"
-          style={{ fontSize: '0.52rem', letterSpacing: '0.28em' }}
+          className="label-text text-sage/50 mb-6"
+          style={{ fontSize: '0.62rem', letterSpacing: '0.24em' }}
         >
-          10 · PRIORITY WAITING LIST
+          PRIORITY WAITING LIST
         </motion.p>
 
         <motion.h2
           {...revealInView(0.06)}
-          className="display-section text-ivory mb-5"
-          style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)' }}
+          className="font-cormorant font-light text-ivory mb-6"
+          style={{ fontSize: 'clamp(2.4rem, 5vw, 3.5rem)', lineHeight: 1.05 }}
         >
-          The waitlist is now open.
+          Apply for access.
         </motion.h2>
 
         <motion.p
           {...revealInView(0.12)}
-          className="body-text text-sand/45 mb-14"
-          style={{ fontSize: 'clamp(0.875rem, 1.5vw, 0.95rem)', maxWidth: '38rem' }}
+          className="body-text text-sand/65 mb-12"
+          style={{ fontSize: '1rem', lineHeight: 1.8, maxWidth: '38rem' }}
         >
-          CherieThai operates on a concierge model. There is no public booking calendar.
-          Access to the November residency is granted via a private priority waitlist — reviewed
-          in order of registration and confirmed directly by the practice within 48 hours.
-          Joining does not require payment or commit you to an appointment.
+          There is no public booking calendar. Access is granted via a private priority
+          waitlist, reviewed in order of registration and confirmed personally within 48 hours.
+          Joining does not require payment.
         </motion.p>
 
         <AnimatePresence mode="wait">
@@ -717,157 +716,99 @@ function WaitlistForm() {
               noValidate
               className="space-y-0"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-sand/10 py-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                    FIRST NAME
+                  <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>
+                    First name
                   </label>
                   <input
                     name="firstName"
                     type="text"
                     placeholder="First name"
-                    className="input-underline"
-                    style={{ color: '#F5F0E8' }}
                     autoComplete="given-name"
+                    style={{
+                      width: '100%', background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8',
+                      padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit',
+                      outline: 'none', borderRadius: '2px',
+                    }}
                   />
-                  {errors.firstName && (
-                    <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                      {errors.firstName}
-                    </p>
-                  )}
+                  {errors.firstName && <p style={{ color: '#c97b7b', fontSize: '0.75rem', marginTop: '0.4rem' }}>{errors.firstName}</p>}
                 </div>
                 <div>
-                  <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                    LAST NAME
+                  <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>
+                    Last name
                   </label>
                   <input
                     name="lastName"
                     type="text"
                     placeholder="Last name"
-                    className="input-underline"
-                    style={{ color: '#F5F0E8' }}
                     autoComplete="family-name"
+                    style={{
+                      width: '100%', background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8',
+                      padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit',
+                      outline: 'none', borderRadius: '2px',
+                    }}
                   />
-                  {errors.lastName && (
-                    <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                      {errors.lastName}
-                    </p>
-                  )}
+                  {errors.lastName && <p style={{ color: '#c97b7b', fontSize: '0.75rem', marginTop: '0.4rem' }}>{errors.lastName}</p>}
                 </div>
               </div>
 
-              <div className="border-t border-sand/10 py-6">
-                <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                  EMAIL
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  className="input-underline"
-                  style={{ color: '#F5F0E8' }}
-                  autoComplete="email"
-                />
-                {errors.email && (
-                  <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                    {errors.email}
-                  </p>
-                )}
+              {/* Email */}
+              <div className="mb-5">
+                <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>Email address</label>
+                <input name="email" type="email" placeholder="your@email.com" autoComplete="email"
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8', padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', borderRadius: '2px' }} />
+                {errors.email && <p style={{ color: '#c97b7b', fontSize: '0.75rem', marginTop: '0.4rem' }}>{errors.email}</p>}
               </div>
 
-              <div className="border-t border-sand/10 py-6">
-                <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                  LONDON AREA / POSTCODE
-                </label>
-                <input
-                  name="area"
-                  type="text"
-                  placeholder="e.g. Shoreditch, E1, Hackney"
-                  className="input-underline"
-                  style={{ color: '#F5F0E8' }}
-                />
-                {errors.area && (
-                  <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                    {errors.area}
-                  </p>
-                )}
+              {/* London area */}
+              <div className="mb-5">
+                <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>London area or postcode</label>
+                <input name="area" type="text" placeholder="e.g. Shoreditch, Hackney, E1"
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8', padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', borderRadius: '2px' }} />
+                {errors.area && <p style={{ color: '#c97b7b', fontSize: '0.75rem', marginTop: '0.4rem' }}>{errors.area}</p>}
               </div>
 
-
-              <div className="border-t border-sand/10 py-6">
-                <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                  PRIMARY FOCUS FOR YOUR SESSION
-                </label>
-                <input
-                  name="focus"
-                  type="text"
-                  placeholder="e.g. athletic performance, chronic compression, structural alignment, injury recovery"
-                  className="input-underline"
-                  style={{ color: '#F5F0E8' }}
-                />
-                {errors.focus && (
-                  <p className="label-text text-earth/70 mt-1" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                    {errors.focus}
-                  </p>
-                )}
+              {/* Session focus */}
+              <div className="mb-5">
+                <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>Primary focus for your session</label>
+                <input name="focus" type="text" placeholder="e.g. athletic performance, chronic compression, structural alignment, injury recovery"
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8', padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', borderRadius: '2px' }} />
+                {errors.focus && <p style={{ color: '#c97b7b', fontSize: '0.75rem', marginTop: '0.4rem' }}>{errors.focus}</p>}
               </div>
 
-              <div className="border-t border-sand/10 py-6">
-                <label className="block label-text text-sage/35 mb-3" style={{ fontSize: '0.5rem', letterSpacing: '0.22em' }}>
-                  OPTIONAL MESSAGE
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder=""
-                  className="input-underline resize-none"
-                  style={{
-                    color: '#F5F0E8',
-                    borderBottom: '1px solid rgba(107,92,78,0.25)',
-                    width: '100%',
-                    lineHeight: '1.7',
-                  }}
-                />
+              {/* Optional message */}
+              <div className="mb-8">
+                <label className="block text-sand/70 mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.06em' }}>Anything else you'd like us to know <span className="text-sand/35">(optional)</span></label>
+                <textarea name="message" rows={3} className="resize-none"
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(220,201,160,0.25)', color: '#F5F0E8', padding: '0.85rem 1rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', borderRadius: '2px', lineHeight: '1.7' }} />
               </div>
 
-              <div className="border-t border-sand/10 py-6">
-                <label
-                  className="flex items-start gap-4 cursor-pointer group"
-                  onClick={() => setConfirmed(c => !c)}
-                >
-                  <div
-                    style={{
-                      width: '18px',
-                      height: '18px',
-                      border: `1px solid ${confirmed ? 'rgba(220,201,160,0.6)' : 'rgba(220,201,160,0.2)'}`,
-                      background: confirmed ? 'rgba(220,201,160,0.08)' : 'transparent',
-                      flexShrink: 0,
-                      marginTop: '2px',
-                      transition: 'all 0.2s',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {confirmed && (
-                      <span style={{ color: 'rgba(220,201,160,0.8)', fontSize: '0.65rem', lineHeight: 1 }}>✓</span>
-                    )}
+              {/* Confirmation checkbox */}
+              <div className="mb-8" style={{ background: 'rgba(220,201,160,0.04)', border: '1px solid rgba(220,201,160,0.12)', padding: '1.25rem 1.5rem', borderRadius: '2px' }}>
+                <label className="flex items-start gap-4 cursor-pointer" onClick={() => setConfirmed(c => !c)}>
+                  <div style={{
+                    width: '20px', height: '20px', flexShrink: 0, marginTop: '2px',
+                    border: `1px solid ${confirmed ? 'rgba(220,201,160,0.7)' : 'rgba(220,201,160,0.3)'}`,
+                    background: confirmed ? 'rgba(220,201,160,0.12)' : 'transparent',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s',
+                  }}>
+                    {confirmed && <span style={{ color: 'rgba(220,201,160,0.9)', fontSize: '0.75rem', lineHeight: 1 }}>✓</span>}
                   </div>
-                  <p className="body-text text-sand/50 leading-relaxed" style={{ fontSize: '0.82rem' }}>
+                  <p style={{ fontSize: '0.88rem', color: 'rgba(245,240,232,0.7)', lineHeight: 1.7 }}>
                     I understand that CherieThai sessions are an intensive, 100-minute clinical investment.
-                    I am ready to invest in premium structural therapy at the inaugural November rate of <span className="text-sand/75">£195</span>.
+                    I am ready to invest in premium structural therapy at the inaugural November rate of{' '}
+                    <span style={{ color: 'rgba(220,201,160,0.9)' }}>£195</span>.
                   </p>
                 </label>
-                {errors.confirmed && (
-                  <p className="label-text text-earth/70 mt-3" style={{ fontSize: '0.5rem', letterSpacing: '0.15em' }}>
-                    {errors.confirmed}
-                  </p>
-                )}
+                {errors.confirmed && <p style={{ color: '#c97b7b', fontSize: '0.78rem', marginTop: '0.75rem' }}>{errors.confirmed}</p>}
               </div>
 
-              <div className="border-t border-sand/10 pt-8 pb-2">
+              <div className="pt-2 pb-2">
                 {formState === 'error' && (
-                  <p className="label-text text-earth/70 mb-4" style={{ fontSize: '0.52rem', letterSpacing: '0.15em' }}>
+                  <p style={{ color: '#c97b7b', fontSize: '0.82rem', marginBottom: '1rem' }}>
                     Something went wrong. Please try again or email us directly.
                   </p>
                 )}
