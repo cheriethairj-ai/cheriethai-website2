@@ -352,6 +352,8 @@ const rooms: Room[] = [
     id: 'hill',
     name: 'Hill Haven',
     tag: 'GARDEN & MOUNTAIN VIEWS',
+    availability: '5 spaces remaining',
+    availabilityUrgent: true,
     description: 'A significant step up in privacy and comfort. Hill Haven offers garden view and mountain view rooms, each with considerably more space and quiet than the shared dormitory. Available for private occupancy or shared between two people.',
     pricing: {
       type: 'dual',
@@ -366,8 +368,8 @@ const rooms: Room[] = [
     id: 'harmony',
     name: 'Harmony House',
     tag: 'SHARED DORMITORY',
-    availability: '4 spaces remaining',
-    availabilityUrgent: false,
+    availability: '3 spaces remaining',
+    availabilityUrgent: true,
     description: 'Bunk-bed dormitory accommodation in a shared communal space. Well-suited for solo practitioners who want to focus on the training and connect naturally with fellow students. Harmony House is the most accessible entry point into the retreat.',
     pricing: {
       type: 'shared-only',
