@@ -1522,26 +1522,27 @@ export const students: Student[] = [
     instagram: 'massagensthallys',
   },
   {
-    id: 'laurasantos',
-    name: 'Laura Santos',
-    city: 'Geneva',
+    id: 'larasantos',
+    name: 'Lara Santos',
+    city: 'Monthey',
     country: 'Switzerland',
     descriptors: ['Thorough', 'Nuanced', 'Tenacious'],
     descriptorsPT: ['Minuciosa', 'Perspicaz', 'Tenaz'],
-    bio: 'Laura comes from a nursing background — and that clinical foundation is present throughout her work. She approaches the body with the attentiveness of someone trained to observe, to question and to understand what they are seeing before they act.',
+    bio: 'Lara comes from a nursing background — and that clinical foundation is present throughout her work. She approaches the body with the attentiveness of someone trained to observe, to question and to understand what they are seeing before they act.',
     bioPoints: [
-      'Of all the students in this training, Laura asked the most questions. Not out of uncertainty, but out of genuine curiosity — a desire to understand the reasoning behind the movement, not just the movement itself. That quality of mind, brought into the hands, produces a quality of touch that is thoughtful, responsive and constantly refining itself.',
+      'Of all the students in this training, Lara asked the most questions. Not out of uncertainty, but out of genuine curiosity — a desire to understand the reasoning behind the movement, not just the movement itself. Before coming to this training she had already spent a month in Thailand immersed in the practice, which speaks to the seriousness with which she approaches this work.',
       'Her work is quietly surprising. The initial contact is soft and exploratory, building a sense of ease — and then, when the moment calls for it, she applies real force with complete confidence. The contrast is intentional and effective. She manoeuvres with a physical ease that speaks to genuine athleticism, and her oil work in particular was beautiful.',
-      'Laura is now beginning a new chapter — bringing her clinical intelligence and her developing bodywork practice to Geneva. She will represent this work exceptionally well.',
+      'Lara is now beginning a new chapter — bringing her clinical intelligence and her developing bodywork practice to Monthey in the French-speaking canton of Valais. She will represent this work exceptionally well.',
     ],
-    bioPT: 'Laura vem de uma formação em enfermagem — e essa base clínica está presente em todo o seu trabalho. Ela se aproxima do corpo com a atenção de quem foi treinado para observar, questionar e compreender o que está vendo antes de agir.',
+    bioPT: 'Lara vem de uma formação em enfermagem — e essa base clínica está presente em todo o seu trabalho. Ela se aproxima do corpo com a atenção de quem foi treinado para observar, questionar e compreender o que está vendo antes de agir.',
     bioPTPoints: [
-      'De todos os alunos desta formação, Laura foi quem mais fez perguntas. Não por insegurança, mas por curiosidade genuína — um desejo de entender o raciocínio por trás do movimento, não apenas o movimento em si. Essa qualidade de mente, trazida para as mãos, produz uma qualidade de toque que é pensativa, responsiva e constantemente se refinando.',
+      'De todos os alunos desta formação, Lara foi quem mais fez perguntas. Não por insegurança, mas por curiosidade genuína — um desejo de entender o raciocínio por trás do movimento, não apenas o movimento em si. Antes de chegar a esta formação, ela já havia passado um mês na Tailândia imersa na prática, o que fala da seriedade com que aborda este trabalho.',
       'Seu trabalho é discretamente surpreendente. O contato inicial é suave e exploratório, construindo uma sensação de conforto — e então, quando o momento exige, ela aplica força real com total confiança. O contraste é intencional e eficaz. Ela se movimenta com uma facilidade física que fala de genuíno atletismo, e seu trabalho com óleo em particular foi bonito de se ver.',
-      'Laura está agora começando um novo capítulo — trazendo sua inteligência clínica e sua prática em desenvolvimento para Genebra. Ela representará este trabalho de forma excepcional.',
+      'Lara está agora começando um novo capítulo — trazendo sua inteligência clínica e sua prática em desenvolvimento para Monthey, no cantão francófono do Valais. Ela representará este trabalho de forma excepcional.',
     ],
     youtubeId: '',
-    coordinates: [6.143, 46.204], // Geneva, Switzerland
+    coordinates: [6.953, 46.254], // Monthey, Valais, Switzerland
+    instagram: 'aye.kura',
   },
 ]
 
