@@ -1356,8 +1356,8 @@ export const students: Student[] = [
     country: 'Brasil',
     city2: 'Zurich',
     country2: 'Switzerland',
-    descriptors: ['Athletic', 'Liberating', 'Deep'],
-    descriptorsPT: ['Atlética', 'Libertadora', 'Profunda'],
+    descriptors: ['Kinetic', 'Liberating', 'Releasing'],
+    descriptorsPT: ['Cinética', 'Libertadora', 'Desbloqueadora'],
     bio: 'Carol came into the training with a background in massage therapy before building a career as an entrepreneur in the construction industry — and the combination of those two worlds shows clearly in how she works.',
     bioPoints: [
       'As a jiu-jitsu athlete herself, she has an instinctive understanding of how the body holds load, where tension accumulates and how to access it. Her approach is direct, layered and deeply physical — she goes into the tissue with confidence and a clear sense of what she is looking for.',
@@ -1379,8 +1379,8 @@ export const students: Student[] = [
     name: 'Ivan Zorzin',
     city: 'Porto Alegre',
     country: 'Brasil',
-    descriptors: ['Precise', 'Methodical', 'Athletic'],
-    descriptorsPT: ['Preciso', 'Metódico', 'Atlético'],
+    descriptors: ['Exacting', 'Rigorous', 'Disciplined'],
+    descriptorsPT: ['Exigente', 'Rigoroso', 'Disciplinado'],
     bio: 'Ivan holds a world record in laminated flooring — and that background tells you almost everything about how he approaches the work. He is a man who does not do things to an acceptable standard. He does them to the highest standard possible, or not at all.',
     bioPoints: [
       'He came into the training with no previous experience in massage, which made what followed all the more remarkable. His ability to absorb and execute movement — complex positioning, precise technique, the mechanics of how the body needs to be handled — was exceptional from early on. Karl, who received his work during the training, described it as high quality. For someone working through these techniques for the first time, that is not a small thing to hear.',
@@ -1402,8 +1402,8 @@ export const students: Student[] = [
     name: 'Angela Menezes',
     city: 'Chapada Diamantina',
     country: 'Brasil',
-    descriptors: ['Fluid', 'Warm', 'Experienced'],
-    descriptorsPT: ['Fluida', 'Calorosa', 'Experiente'],
+    descriptors: ['Unhurried', 'Warm', 'Seasoned'],
+    descriptorsPT: ['Pausada', 'Calorosa', 'Veterana'],
     bio: 'Angela has been working with the body since 1995 — a trajectory that has taken her through Ayurvedic practice in India, training in Rolfing and hot mat therapy, and decades of clinical experience rooted in a deep and genuine care for the people she works with.',
     bioPoints: [
       'Trained originally as an architect, she brings a structural eye to everything she does — an understanding of form, proportion and how things are held together. That sensibility is present in her bodywork: considered, layered and built with intention.',
@@ -1419,6 +1419,29 @@ export const students: Student[] = [
     youtubeId: '',
     coordinates: [-41.453, -12.453], // Chapada Diamantina
     instagram: 'angelamanezesmasso',
+  },
+  {
+    id: 'nathaliamendes',
+    name: 'Nathalia Mendes',
+    city: 'Arraial d\'Ajuda',
+    country: 'Brasil',
+    descriptors: ['Balletic', 'Luminous', 'Sovereign'],
+    descriptorsPT: ['Balética', 'Luminosa', 'Soberana'],
+    bio: 'There are students who follow instruction, and then there are students who absorb it — who listen so completely that when they move, what you said becomes inseparable from what they do. Nathalia is the second kind.',
+    bioPoints: [
+      'She runs her own institute in Arraial d\'Ajuda and trains her own students. To work with someone who already occupies that position — who carries both the authority of a practitioner and the openness of a student — is a particular privilege. She came to the training not to be introduced to the body, but to take what she already understood further.',
+      'Her movement had the quality of a ballerina: precise, unhurried and deeply controlled, yet completely free of stiffness. Subtle and powerful in the same breath. She did not reach for techniques — she inhabited them. Her final routine was among the most beautiful I have seen.',
+      'To call Nathalia my student is one of my deepest honours. What she carries forward from this training, and what she gives to the students she forms in turn, speaks to everything the CherieThai Institute exists to do.',
+    ],
+    bioPT: 'Há alunos que seguem a instrução, e depois há alunos que a absorvem — que ouvem tão completamente que quando se movem, o que você disse se torna inseparável do que fazem. Nathalia é do segundo tipo.',
+    bioPTPoints: [
+      'Ela dirige seu próprio instituto em Arraial d\'Ajuda e forma seus próprios alunos. Trabalhar com alguém que já ocupa essa posição — que carrega tanto a autoridade de uma praticante quanto a abertura de uma estudante — é um privilégio particular. Ela veio para a formação não para ser apresentada ao corpo, mas para levar o que já compreendia mais longe.',
+      'Seu movimento tinha a qualidade de uma bailarina: preciso, sem pressa e profundamente controlado, mas completamente livre de rigidez. Sutil e poderoso ao mesmo tempo. Ela não buscava as técnicas — ela as habitava. Sua apresentação final foi uma das mais bonitas que já vi.',
+      'Chamar Nathalia de minha aluna é uma das minhas mais profundas honras. O que ela carrega adiante desta formação, e o que ela dá às alunas que forma por sua vez, fala de tudo aquilo para o qual o Instituto CherieThai existe.',
+    ],
+    youtubeId: '',
+    coordinates: [-39.066, -16.474], // Arraial d'Ajuda
+    instagram: 'nathaliamendes.om',
   },
 ]
 
