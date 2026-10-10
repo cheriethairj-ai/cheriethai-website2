@@ -1495,6 +1495,32 @@ export const students: Student[] = [
     coordinates2: [-46.561, -21.787], // Poços de Caldas, Minas Gerais
     instagram: 'danimassagetherapist',
   },
+  {
+    id: 'thallyslima',
+    name: 'Thallys Lima',
+    city: 'Porto Alegre',
+    country: 'Brasil',
+    city2: 'São Paulo',
+    country2: 'Brasil',
+    descriptors: ['Virtuosic', 'Inventive', 'Flamboyant'],
+    descriptorsPT: ['Virtuoso', 'Inventivo', 'Exuberante'],
+    bio: 'Thallys is one of the most naturally gifted therapists I have ever had the privilege of watching work. There are practitioners who learn a sequence and there are practitioners who create one — and Thallys is entirely the second kind.',
+    bioPoints: [
+      'He never set out to become a therapist. But some people are called to a practice in ways that cannot be planned, and what emerges when that happens often carries a quality that deliberate pursuit rarely produces. Thallys works as though the body is a living composition — each transition leading inevitably into the next, each movement a considered response to what came before it. Watching him is like watching something being made.',
+      'His style is flamboyant in the finest sense: expressive, generous and completely his own. But beneath the artistry there is real technical substance — potent pressure, precise placement and a versatility that allows him to move between registers with complete ease. The two qualities do not compete. In his hands, they are inseparable.',
+      'A travelling therapist based between Porto Alegre and São Paulo, Thallys brings to every room an energy that is immediately felt. It was one of my deepest honours to help him flourish. What he does with this work, I have no doubt, will be worth watching.',
+    ],
+    bioPT: 'Thallys é um dos terapeutas mais naturalmente talentosos que já tive o privilégio de ver trabalhar. Há praticantes que aprendem uma sequência e há praticantes que criam uma — e Thallys é inteiramente do segundo tipo.',
+    bioPTPoints: [
+      'Ele nunca planejou se tornar terapeuta. Mas algumas pessoas são chamadas para uma prática de formas que não podem ser planejadas, e o que emerge quando isso acontece muitas vezes carrega uma qualidade que a busca deliberada raramente produz. Thallys trabalha como se o corpo fosse uma composição viva — cada transição levando inevitavelmente à próxima, cada movimento uma resposta refletida ao que veio antes. Vê-lo trabalhar é como assistir algo sendo criado.',
+      'Seu estilo é exuberante no melhor sentido: expressivo, generoso e completamente seu. Mas por baixo da arte há uma substância técnica real — pressão potente, posicionamento preciso e uma versatilidade que lhe permite transitar entre registros com total facilidade. As duas qualidades não competem. Em suas mãos, são inseparáveis.',
+      'Terapeuta itinerante entre Porto Alegre e São Paulo, Thallys traz a cada ambiente uma energia que é imediatamente sentida. Foi uma das minhas maiores honras ajudá-lo a florescer. O que ele fará com este trabalho, não tenho dúvida, valerá a pena acompanhar.',
+    ],
+    youtubeId: '',
+    coordinates: [-51.217, -30.027], // Porto Alegre
+    coordinates2: [-46.633, -23.550], // São Paulo
+    instagram: 'massagensthallys',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
