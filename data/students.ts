@@ -1639,6 +1639,29 @@ export const students: Student[] = [
     coordinates: [-47.509, -14.134], // Chapada dos Veadeiros, Goiás
     instagram: 'alineferreira.t',
   },
+  {
+    id: 'talitasilva',
+    name: 'Talita Silva',
+    city: 'Lençóis',
+    country: 'Brasil',
+    descriptors: ['Rooted', 'Sensory', 'Natural'],
+    descriptorsPT: ['Enraizada', 'Sensorial', 'Natural'],
+    bio: 'Talita is based in Lençóis, in the heart of the Chapada Diamantina — and there is something about that place, and about her, that feels completely aligned. She is a woman connected to the land, to the body and to the quiet intelligence that comes from working with both.',
+    bioPoints: [
+      'Her background is in aesthetics, and the sensitivity that develops through that kind of work — the attentiveness to skin, texture, detail and the comfort of another person — translates directly into the quality of her touch. There is a gentleness and a care in everything she does that makes her work genuinely inviting.',
+      'Watching her work, I found myself thinking: I would want to receive this. That is not something I say often. It is the most honest measure of what a practitioner produces, and Talita produces it naturally.',
+      'She is talented, grounded and entirely herself — qualities that, in this work, are more than enough to build something meaningful.',
+    ],
+    bioPT: 'Talita é baseada em Lençóis, no coração da Chapada Diamantina — e há algo naquele lugar, e nela, que parece completamente alinhado. Ela é uma mulher conectada à terra, ao corpo e à inteligência silenciosa que vem de trabalhar com ambos.',
+    bioPTPoints: [
+      'Sua formação é em estética, e a sensibilidade que se desenvolve através desse tipo de trabalho — a atenção à pele, à textura, ao detalhe e ao conforto de outra pessoa — se traduz diretamente na qualidade do seu toque. Há uma gentileza e um cuidado em tudo o que ela faz que torna seu trabalho genuinamente convidativo.',
+      'Observando-a trabalhar, me peguei pensando: eu gostaria de receber isso. Isso não é algo que eu digo frequentemente. É a medida mais honesta do que um praticante produz, e Talita o produz naturalmente.',
+      'Ela é talentosa, enraizada e inteiramente ela mesma — qualidades que, neste trabalho, são mais do que suficientes para construir algo significativo.',
+    ],
+    youtubeId: '',
+    coordinates: [-41.389, -12.564], // Lençóis, Chapada Diamantina
+    instagram: 'talita_silva_wellness',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
