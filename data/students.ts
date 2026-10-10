@@ -1349,6 +1349,31 @@ export const students: Student[] = [
     youtubeId: '',
     coordinates: [103.820, 1.352], // Singapore
   },
+  {
+    id: 'carolviana',
+    name: 'Carol Viana',
+    city: 'Chapada Diamantina',
+    country: 'Brasil',
+    city2: 'Zurich',
+    country2: 'Switzerland',
+    descriptors: ['Athletic', 'Liberating', 'Deep'],
+    descriptorsPT: ['Atlética', 'Libertadora', 'Profunda'],
+    bio: 'Carol came into the training with a background in massage therapy before building a career as an entrepreneur in the construction industry — and the combination of those two worlds shows clearly in how she works.',
+    bioPoints: [
+      'As a jiu-jitsu athlete herself, she has an instinctive understanding of how the body holds load, where tension accumulates and how to access it. Her approach is direct, layered and deeply physical — she goes into the tissue with confidence and a clear sense of what she is looking for.',
+      'Her liberation techniques stood out immediately. She has a particular ability to release muscle with precision and intention, especially in heavier bodies where other practitioners might hesitate. There is no timidity in her touch.',
+      'Carol splits her time between Chapada Diamantina and Zurich, bringing a standard of structural bodywork that is rarely found in either setting.',
+    ],
+    bioPT: 'Carol chegou à formação com experiência em massoterapia antes de construir uma carreira como empresária no setor da construção — e a combinação desses dois mundos aparece claramente na forma como ela trabalha.',
+    bioPTPoints: [
+      'Como atleta de jiu-jitsu, ela tem uma compreensão instintiva de como o corpo carrega carga, onde a tensão se acumula e como acessá-la. Sua abordagem é direta, em camadas e profundamente física — ela penetra no tecido com confiança e um senso claro do que está procurando.',
+      'Suas técnicas de libertação muscular se destacaram imediatamente. Ela tem uma capacidade particular de liberar o músculo com precisão e intenção, especialmente em corpos mais densos, onde outros praticantes poderiam hesitar. Não há timidez no seu toque.',
+      'Carol divide seu tempo entre a Chapada Diamantina e Zurique, trazendo um nível de trabalho estrutural raramente encontrado em qualquer um desses contextos.',
+    ],
+    youtubeId: '',
+    coordinates: [-41.453, -12.453], // Chapada Diamantina
+    coordinates2: [8.542, 47.377],   // Zurich
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
