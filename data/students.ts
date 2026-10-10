@@ -1397,6 +1397,29 @@ export const students: Student[] = [
     youtubeId: '',
     coordinates: [-51.217, -30.027], // Porto Alegre (update when exact city confirmed)
   },
+  {
+    id: 'angelamenezes',
+    name: 'Angela Menezes',
+    city: 'Chapada Diamantina',
+    country: 'Brasil',
+    descriptors: ['Fluid', 'Warm', 'Experienced'],
+    descriptorsPT: ['Fluida', 'Calorosa', 'Experiente'],
+    bio: 'Angela has been working with the body since 1995 — a trajectory that has taken her through Ayurvedic practice in India, training in Rolfing and hot mat therapy, and decades of clinical experience rooted in a deep and genuine care for the people she works with.',
+    bioPoints: [
+      'Trained originally as an architect, she brings a structural eye to everything she does — an understanding of form, proportion and how things are held together. That sensibility is present in her bodywork: considered, layered and built with intention.',
+      'On the table, her work is fluid and strong. There is a continuity to the way she moves through the body that speaks to her years of practice — she does not rush, she does not force, and the quality of her touch reflects someone who has spent a long time learning how to listen through her hands.',
+      'Angela is based in Pratinha, in the heart of the Chapada Diamantina. Her warmth and emotional presence are inseparable from her work — she brings a quality of care to each session that is felt long before and long after the hands-on work begins.',
+    ],
+    bioPT: 'Angela trabalha com o corpo desde 1995 — uma trajetória que a levou pela prática ayurvédica na Índia, formação em Rolfing e terapia de colchão quente, e décadas de experiência clínica enraizada em um cuidado profundo e genuíno pelas pessoas com quem trabalha.',
+    bioPTPoints: [
+      'Formada originalmente em arquitetura, ela traz um olhar estrutural para tudo o que faz — uma compreensão de forma, proporção e como as coisas se sustentam. Essa sensibilidade está presente em seu trabalho corporal: cuidadoso, em camadas e construído com intenção.',
+      'Na maca, seu trabalho é fluido e forte. Há uma continuidade na maneira como ela percorre o corpo que fala dos seus anos de prática — ela não tem pressa, não força, e a qualidade do seu toque reflete alguém que passou muito tempo aprendendo a ouvir com as mãos.',
+      'Angela é baseada em Pratinha, no coração da Chapada Diamantina. Seu calor e presença emocional são inseparáveis do seu trabalho — ela traz uma qualidade de cuidado a cada sessão que é sentida muito antes e muito depois do trabalho manual começar.',
+    ],
+    youtubeId: '',
+    coordinates: [-41.453, -12.453], // Chapada Diamantina
+    instagram: 'angelamanezesmasso',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
