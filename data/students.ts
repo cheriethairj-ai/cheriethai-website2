@@ -1616,6 +1616,29 @@ export const students: Student[] = [
     coordinates: [-43.172, -22.906], // Rio de Janeiro
     instagram: 'theubodywork',
   },
+  {
+    id: 'alineferreira',
+    name: 'Aline Ferreira',
+    city: 'Chapada dos Veadeiros',
+    country: 'Brasil',
+    descriptors: ['Distinctive', 'Painterly', 'Compelling'],
+    descriptorsPT: ['Distinta', 'Pictórica', 'Arrebatadora'],
+    bio: 'Aline is one of those practitioners who arrives already formed. Trained in Chiang Mai, established across Brazil and Portugal, with her own students and a loyal client base that returns to her repeatedly — she did not come to this training to be introduced to the work. She came to take it further.',
+    bioPoints: [
+      'Watching her is an aesthetic experience. Her movement has a quality that is entirely her own — the emphasis she brings to each technique is never overdone, always complementary, always in service of what the body is already receiving. There is a visual language to her work, a coherence between how she moves and what she produces, that is rare and immediately recognisable.',
+      'Through this training she developed a new precision in her liberation techniques — adding a layer of structural specificity to a style that was already beautiful. That combination, the fluidity she already possessed meeting the detail she acquired here, is what makes her work so compelling to observe.',
+      'Aline is singular in every sense. Her presence, her appearance, her approach — nothing is accidental and nothing is generic. I believe she has more potential than almost anyone I have taught, and I am genuinely excited to see where she takes this internationally.',
+    ],
+    bioPT: 'Aline é uma daquelas praticantes que chega já formada. Treinada em Chiang Mai, estabelecida no Brasil e em Portugal, com seus próprios alunos e uma base de clientes fiéis que retornam a ela repetidamente — ela não veio a esta formação para ser apresentada ao trabalho. Ela veio para levá-lo mais longe.',
+    bioPTPoints: [
+      'Observá-la é uma experiência estética. Seu movimento tem uma qualidade inteiramente sua — a ênfase que ela traz a cada técnica nunca é excessiva, sempre complementar, sempre a serviço do que o corpo já está recebendo. Há uma linguagem visual no seu trabalho, uma coerência entre como ela se move e o que produz, que é rara e imediatamente reconhecível.',
+      'Através desta formação ela desenvolveu uma nova precisão em suas técnicas de libertação — adicionando uma camada de especificidade estrutural a um estilo que já era bonito. Essa combinação, a fluidez que ela já possuía encontrando o detalhe que adquiriu aqui, é o que torna seu trabalho tão arrebatador de se observar.',
+      'Aline é singular em todos os sentidos. Sua presença, sua aparência, sua abordagem — nada é acidental e nada é genérico. Acredito que ela tem mais potencial do que quase qualquer pessoa que já ensinei, e estou genuinamente animada para ver para onde ela levará isso internacionalmente.',
+    ],
+    youtubeId: '',
+    coordinates: [-47.509, -14.134], // Chapada dos Veadeiros, Goiás
+    instagram: 'alineferreira.t',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
