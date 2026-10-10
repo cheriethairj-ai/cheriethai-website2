@@ -1178,7 +1178,7 @@ export const students: Student[] = [
       'O que diferencia Ana Clara é a completude com que ela compreende as pessoas. Ela lê o que está presente — a tensão, a história, aquilo que ainda não foi dito — e trabalha com tudo isso. Ela acessa camadas no corpo que muitos praticantes nunca alcançam, não pela força, mas pela qualidade de sua presença e de sua capacidade profundamente desenvolvida para o contato.',
       'Seu fluxo se fortaleceu consideravelmente. Sua potência aumentou. Retornar a esta formação demonstrou o tipo de comprometimento que separa os praticantes que são bons dos que se tornam excepcionais. Ana Clara está muito claramente nesse segundo caminho.',
     ],
-    youtubeId: 'YXMWcdVbc2M',
+    youtubeId: 'kDxrmavD8ho',
     coordinates: [-46.585, -23.318], // Mairiporã, São Paulo
     instagram: 'anaclaragarcia.tsh',
   },
@@ -1368,7 +1368,7 @@ export const students: Student[] = [
       'Suas técnicas de libertação muscular se destacaram imediatamente. Ela tem uma capacidade particular de liberar o músculo com precisão e intenção, especialmente em corpos mais densos, onde outros praticantes poderiam hesitar. Não há timidez no seu toque.',
       'Carol divide seu tempo entre a Chapada Diamantina e Zurique, trazendo um nível de trabalho estrutural raramente encontrado em qualquer um desses contextos.',
     ],
-    youtubeId: '',
+    youtubeId: 'K7mStszRjJ0',
     coordinates: [-41.453, -12.453], // Chapada Diamantina
     coordinates2: [8.542, 47.377],   // Zurich
   },
@@ -1392,7 +1392,7 @@ export const students: Student[] = [
       'O que Ivan demonstra é que o bodywork, em sua essência, é artesanato. E artesanato é algo que ele compreende completamente.',
     ],
     nonPracticing: true,
-    youtubeId: '',
+    youtubeId: 'zYHLAc1sXOY',
     coordinates: [-51.217, -30.027], // Porto Alegre (update when exact city confirmed)
   },
   {
@@ -1414,7 +1414,7 @@ export const students: Student[] = [
       'Na maca, seu trabalho é fluido e forte. Há uma continuidade na maneira como ela percorre o corpo que fala dos seus anos de prática — ela não tem pressa, não força, e a qualidade do seu toque reflete alguém que passou muito tempo aprendendo a ouvir com as mãos.',
       'Angela é baseada em Pratinha, no coração da Chapada Diamantina. Seu calor e presença emocional são inseparáveis do seu trabalho — ela traz uma qualidade de cuidado a cada sessão que é sentida muito antes e muito depois do trabalho manual começar.',
     ],
-    youtubeId: '',
+    youtubeId: 'DxzFdcjYydg',
     coordinates: [-41.453, -12.453], // Chapada Diamantina
     instagram: 'angelamanezesmasso',
   },
@@ -1437,7 +1437,7 @@ export const students: Student[] = [
       'Seu movimento tinha a qualidade de uma bailarina: preciso, sem pressa e profundamente controlado, mas completamente livre de rigidez. Sutil e poderoso ao mesmo tempo. Ela não buscava as técnicas — ela as habitava. Sua apresentação final foi uma das mais bonitas que já vi.',
       'Chamar Nathalia de minha aluna é uma das minhas mais profundas honras. O que ela carrega adiante desta formação, e o que ela dá às alunas que forma por sua vez, fala de tudo aquilo para o qual o Instituto CherieThai existe.',
     ],
-    youtubeId: '',
+    youtubeId: '-8A8FnaFA2c',
     coordinates: [-39.066, -16.474], // Arraial d'Ajuda
     instagram: 'nathaliamendes.om',
   },
@@ -1462,7 +1462,7 @@ export const students: Student[] = [
       'O que a diferencia é a forma como ela lê um corpo. Antes da técnica, antes da sequência, já existe uma compreensão — de onde ir, o que é necessário, quanto. Esse tipo de percepção não se ensina. Ou está presente ou não está. Em Fabiana, está completamente presente.',
       'Nascida na Bolívia e baseada no Recife, ela traz ao seu trabalho um calor e uma luminosidade que são inseparáveis de sua qualidade terapêutica. Os dois não estão em tensão. Em suas mãos, são a mesma coisa.',
     ],
-    youtubeId: '',
+    youtubeId: 'BXKCL_n44EI',
     coordinates: [-34.881, -8.053],  // Recife
     coordinates2: [-68.119, -16.500], // La Paz, Bolivia
     instagram: 'fabiana_andrealopes',
@@ -1488,7 +1488,7 @@ export const students: Student[] = [
       'Seu toque é excepcional. As mãos são sensíveis, a pressão é confiante, e há uma elegância na maneira como ela se move que torna seu trabalho genuinamente bonito de se observar. Ela tem o que alguns praticantes levam anos tentando desenvolver e outros simplesmente possuem: um dom natural para o contato.',
       'Daniela é ousada e brilhantemente ela mesma — há uma presença vívida e alegre em tudo o que ela faz que faz as pessoas quererem estar na sala. Foi uma honra tê-la nesta formação, e ela voltará para o curso completo de Thai.',
     ],
-    youtubeId: '',
+    youtubeId: 'tCLhwwI0UFg',
     coordinates: [-73.971, 40.776],   // Manhattan, New York
     coordinates2: [-46.561, -21.787], // Poços de Caldas, Minas Gerais
     instagram: 'danimassagetherapist',
@@ -1514,7 +1514,7 @@ export const students: Student[] = [
       'Seu estilo é exuberante no melhor sentido: expressivo, generoso e completamente seu. Mas por baixo da arte há uma substância técnica real — pressão potente, posicionamento preciso e uma versatilidade que lhe permite transitar entre registros com total facilidade. As duas qualidades não competem. Em suas mãos, são inseparáveis.',
       'Terapeuta itinerante entre Porto Alegre e São Paulo, Thallys traz a cada ambiente uma energia que é imediatamente sentida. Foi uma das minhas maiores honras ajudá-lo a florescer. O que ele fará com este trabalho, não tenho dúvida, valerá a pena acompanhar.',
     ],
-    youtubeId: '',
+    youtubeId: '-FwU_MLFSEk',
     coordinates: [-51.217, -30.027], // Porto Alegre
     coordinates2: [-46.633, -23.550], // São Paulo
     instagram: 'massagensthallys',
@@ -1538,7 +1538,7 @@ export const students: Student[] = [
       'Seu trabalho é discretamente surpreendente. O contato inicial é suave e exploratório, construindo uma sensação de conforto — e então, quando o momento exige, ela aplica força real com total confiança. O contraste é intencional e eficaz. Ela se movimenta com uma facilidade física que fala de genuíno atletismo, e seu trabalho com óleo em particular foi bonito de se ver.',
       'Lara está agora começando um novo capítulo — trazendo sua inteligência clínica e sua prática em desenvolvimento para Monthey, no cantão francófono do Valais. Ela representará este trabalho de forma excepcional.',
     ],
-    youtubeId: '',
+    youtubeId: 'FJXGNl-dvnc',
     coordinates: [6.953, 46.254], // Monthey, Valais, Switzerland
     instagram: 'aye.kura',
   },
@@ -1561,7 +1561,7 @@ export const students: Student[] = [
       'Ela se movimenta pelo corpo com uma inteligência física que vai muito além da técnica convencional — ocupando posições e ângulos que a maioria dos terapeutas nunca tentaria, e executando-os com uma elegância que é simplesmente hipnotizante. Sua consciência corporal é excepcional. O nível de conscience corporelle que ela carrega é do tipo que não pode ser ensinado de fora.',
       'Aos 28 anos, Ana já tem seu próprio estúdio de bem-estar em Viana do Castelo, seus próprios cursos e experiência como supervisora no Four Seasons. Ela está no início do que espero ser uma carreira notável neste trabalho.',
     ],
-    youtubeId: '',
+    youtubeId: 'aWeY1_pcU1Y',
     coordinates: [-8.831, 41.694], // Viana do Castelo, Portugal
     instagram: 'ayna.wellnessstudio',
   },
@@ -1586,7 +1586,7 @@ export const students: Student[] = [
       'Como terapeuta de alongamento, sua compreensão do corpo em movimento já é refinada. O que me impressionou foi como ela estendeu completamente essa inteligência para o trabalho com óleo — uma disciplina inteiramente diferente — absorvendo-o com uma determinação e abertura que raramente vejo. Ela deu tudo nesta formação.',
       'Victoria está pensando em continuar com o curso completo de Thai, e não tenho dúvida de que trará a mesma convicção para ele. Seja o que for que ela construa a seguir, ela fará de forma linda.',
     ],
-    youtubeId: '',
+    youtubeId: 'Y8qc6E6mVhA',
     coordinates: [-97.743, 30.267],  // Austin, Texas
     coordinates2: [-43.172, -22.906], // Rio de Janeiro
     instagram: 'mindfulcarioca',
@@ -1610,7 +1610,7 @@ export const students: Student[] = [
       'Sua apresentação final foi diferente de tudo o mais na formação. Ajudei-o a construir sua coreografia porque conseguia ver qual era sua base — alavancagem — e queria lhe dar uma estrutura que permitisse que essa qualidade liderasse. O que ele produziu foi poderoso, preciso e genuinamente impressionante de se ver. Delicado onde precisava ser delicado. Potente onde precisava ser potente.',
       'Matheus está no início de algo. Ele é forte, gentil e tem uma qualidade de presença que atrai as pessoas naturalmente. Estou ansiosa para vê-lo se desenvolver ainda mais nas sessões de revisão que virão.',
     ],
-    youtubeId: '',
+    youtubeId: 'AyWetqgRTMk',
     coordinates: [-43.172, -22.906], // Rio de Janeiro
     instagram: 'theubodywork',
   },
@@ -1633,7 +1633,7 @@ export const students: Student[] = [
       'Através desta formação ela desenvolveu uma nova precisão em suas técnicas de libertação — adicionando uma camada de especificidade estrutural a um estilo que já era bonito. Essa combinação, a fluidez que ela já possuía encontrando o detalhe que adquiriu aqui, é o que torna seu trabalho tão arrebatador de se observar.',
       'Aline é singular em todos os sentidos. Sua presença, sua aparência, sua abordagem — nada é acidental e nada é genérico. Acredito que ela tem mais potencial do que quase qualquer pessoa que já ensinei, e estou genuinamente animada para ver para onde ela levará isso internacionalmente.',
     ],
-    youtubeId: '',
+    youtubeId: 'crXL0vlCn6k',
     coordinates: [-47.509, -14.134], // Chapada dos Veadeiros, Goiás
     instagram: 'alineferreira.t',
   },
@@ -1656,7 +1656,7 @@ export const students: Student[] = [
       'Observando-a trabalhar, me peguei pensando: eu gostaria de receber isso. Isso não é algo que eu digo frequentemente. É a medida mais honesta do que um praticante produz, e Talita o produz naturalmente.',
       'Ela é talentosa, enraizada e inteiramente ela mesma — qualidades que, neste trabalho, são mais do que suficientes para construir algo significativo.',
     ],
-    youtubeId: '',
+    youtubeId: '557ViMSnSUE',
     coordinates: [-41.389, -12.564], // Lençóis, Chapada Diamantina
     instagram: 'talita_silva_wellness',
   },
