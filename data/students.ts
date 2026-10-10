@@ -1567,6 +1567,32 @@ export const students: Student[] = [
     coordinates: [-8.831, 41.694], // Viana do Castelo, Portugal
     instagram: 'ayna.wellnessstudio',
   },
+  {
+    id: 'victoriamaya',
+    name: 'Victoria Maya',
+    city: 'Austin',
+    country: 'United States',
+    city2: 'Rio de Janeiro',
+    country2: 'Brasil',
+    descriptors: ['Vivacious', 'Nourishing', 'Unwavering'],
+    descriptorsPT: ['Vivaz', 'Nutritiva', 'Inabalável'],
+    bio: 'Victoria is a stretch therapist and Pilates instructor from Rio de Janeiro, now based in Austin, Texas — and she carries the warmth and physical intelligence of both of those worlds into everything she does.',
+    bioPoints: [
+      'Her presence alone changes the quality of a session. There is something in the way Victoria moves through a room — humble, radiant and completely genuine — that makes people feel held before the work has even begun. That quality of presence, when it translates into the hands, produces something closer to a healing experience than a treatment. Several times during the training I simply stopped to watch.',
+      'As a stretch therapist, her understanding of the body in movement is already refined. What impressed me was how completely she extended that intelligence into the oil work — an entirely different discipline — absorbing it with a determination and openness that I rarely see. She gave everything to this training.',
+      'Victoria is thinking of continuing with the full Thai course, and I have no doubt she will bring the same conviction to it. Whatever she builds next, she will do it beautifully.',
+    ],
+    bioPT: 'Victoria é terapeuta de alongamento e instrutora de Pilates do Rio de Janeiro, atualmente baseada em Austin, Texas — e ela carrega o calor e a inteligência física de ambos os mundos em tudo o que faz.',
+    bioPTPoints: [
+      'Só a sua presença muda a qualidade de uma sessão. Há algo na maneira como Victoria se move por um ambiente — humilde, radiante e completamente genuína — que faz as pessoas se sentirem acolhidas antes mesmo de o trabalho começar. Essa qualidade de presença, quando se traduz nas mãos, produz algo mais próximo de uma experiência curativa do que um tratamento. Várias vezes durante a formação eu simplesmente parei para observar.',
+      'Como terapeuta de alongamento, sua compreensão do corpo em movimento já é refinada. O que me impressionou foi como ela estendeu completamente essa inteligência para o trabalho com óleo — uma disciplina inteiramente diferente — absorvendo-o com uma determinação e abertura que raramente vejo. Ela deu tudo nesta formação.',
+      'Victoria está pensando em continuar com o curso completo de Thai, e não tenho dúvida de que trará a mesma convicção para ele. Seja o que for que ela construa a seguir, ela fará de forma linda.',
+    ],
+    youtubeId: '',
+    coordinates: [-97.743, 30.267],  // Austin, Texas
+    coordinates2: [-43.172, -22.906], // Rio de Janeiro
+    instagram: 'mindfulcarioca',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
