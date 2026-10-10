@@ -1544,6 +1544,29 @@ export const students: Student[] = [
     coordinates: [6.953, 46.254], // Monthey, Valais, Switzerland
     instagram: 'aye.kura',
   },
+  {
+    id: 'anabranquinho',
+    name: 'Ana Branquinho',
+    city: 'Viana do Castelo',
+    country: 'Portugal',
+    descriptors: ['Captivating', 'Choreographic', 'Microscopic'],
+    descriptorsPT: ['Cativante', 'Coreográfica', 'Microscópica'],
+    bio: 'Ana is a contemporary dancer — and from the first moment she works, that is completely apparent. Not in a way that distracts from the therapy, but in the way that makes everything she does look inevitable. Her body does not perform the movements. It inhabits them.',
+    bioPoints: [
+      'What sets her apart is the scale at which she operates. Ana understands the microscopic — the minuscule adjustments in angle, weight and direction that most practitioners either never perceive or never learn to control. She listened to every detail and returned it with complete fidelity, translated into something that already felt entirely her own. Her flows were among the most magnificent I have seen.',
+      'She manoeuvres across the body with a physical intelligence that goes far beyond conventional technique — occupying positions and angles that most therapists would never attempt, and executing them with an elegance that is simply mesmerising. Her body awareness is exceptional. The conscience corporelle she carries is the kind that cannot be taught from the outside.',
+      'At 28, Ana already has her own wellness studio in Viana do Castelo, her own courses and a supervisory background at the Four Seasons. She is at the very beginning of what I expect will be a remarkable career in this work.',
+    ],
+    bioPT: 'Ana é uma dançarina contemporânea — e desde o primeiro momento em que trabalha, isso é completamente evidente. Não de uma forma que distrai da terapia, mas da forma que faz com que tudo o que ela faz pareça inevitável. Seu corpo não executa os movimentos. Ele os habita.',
+    bioPTPoints: [
+      'O que a diferencia é a escala na qual ela opera. Ana compreende o microscópico — os ajustes minúsculos em ângulo, peso e direção que a maioria dos praticantes nunca percebe ou nunca aprende a controlar. Ela ouviu cada detalhe e o devolveu com total fidelidade, traduzido em algo que já parecia inteiramente seu. Seus fluxos foram alguns dos mais magníficos que já vi.',
+      'Ela se movimenta pelo corpo com uma inteligência física que vai muito além da técnica convencional — ocupando posições e ângulos que a maioria dos terapeutas nunca tentaria, e executando-os com uma elegância que é simplesmente hipnotizante. Sua consciência corporal é excepcional. O nível de conscience corporelle que ela carrega é do tipo que não pode ser ensinado de fora.',
+      'Aos 28 anos, Ana já tem seu próprio estúdio de bem-estar em Viana do Castelo, seus próprios cursos e experiência como supervisora no Four Seasons. Ela está no início do que espero ser uma carreira notável neste trabalho.',
+    ],
+    youtubeId: '',
+    coordinates: [-8.831, 41.694], // Viana do Castelo, Portugal
+    instagram: 'ayna.wellnessstudio',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
