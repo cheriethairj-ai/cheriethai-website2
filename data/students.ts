@@ -1477,7 +1477,7 @@ export const students: Student[] = [
     city2: 'Poços de Caldas',
     country2: 'Brasil',
     descriptors: ['Dazzling', 'Bold', 'Deft'],
-    descriptorsPT: ['Deslumbrante', 'Ousada', 'Hábil'],
+    descriptorsPT: ['Deslumbrante', 'Arrojada', 'Hábil'],
     bio: 'Daniela is a Brazilian aestheticist based in Manhattan, originally from Poços de Caldas in Minas Gerais — and she carries both of those worlds with her: the warmth and physical intelligence of her Brazilian formation, and the precision and professionalism demanded by one of the most competitive cities on earth.',
     bioPoints: [
       'She came to the training with an existing background in lymphatic massage and previous Thai experience, which gave her a strong foundation to build on. What became apparent quickly was her ability to receive feedback and immediately translate it — not just repeating what was said, but refining it further. She took direction, absorbed it, and returned something better. That is an uncommon quality.',
