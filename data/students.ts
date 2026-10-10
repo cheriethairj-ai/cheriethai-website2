@@ -1443,6 +1443,32 @@ export const students: Student[] = [
     coordinates: [-39.066, -16.474], // Arraial d'Ajuda
     instagram: 'nathaliamendes.om',
   },
+  {
+    id: 'fabianaalopes',
+    name: 'Fabiana Andrea Lopes',
+    city: 'Recife',
+    country: 'Brasil',
+    city2: 'La Paz',
+    country2: 'Bolivia',
+    descriptors: ['Radiant', 'Prescient', 'Forceful'],
+    descriptorsPT: ['Radiante', 'Visionária', 'Incisiva'],
+    bio: 'There is a quality in Fabiana\'s presence that is difficult to describe clinically. She enters a room and it shifts. People who have received her work speak about her in terms that go beyond technique — a feeling of being deeply read, of something being seen and addressed that they had not found words for themselves.',
+    bioPoints: [
+      'Her bodywork is strong and flowing in equal measure. The pressure is real and purposeful, her sense of rhythm is natural, and the continuity between movements gives her work a quality that is beautiful to watch. She absorbed the movements faster than almost anyone in the training — not just mechanically, but expressively. Her final routine was one of my favourites.',
+      'What sets her apart is the way she reads a body. Before the technique, before the sequence, there is already an understanding — of where to go, what is needed, how much. That kind of perception is not taught. It is either present or it is not. In Fabiana, it is completely present.',
+      'Born in Bolivia and based in Recife, she brings to her work a warmth and radiance that are inseparable from its therapeutic quality. The two are not in tension. In her hands, they are the same thing.',
+    ],
+    bioPT: 'Há uma qualidade na presença de Fabiana que é difícil de descrever clinicamente. Ela entra em um ambiente e ele muda. Pessoas que receberam seu trabalho falam sobre ela em termos que vão além da técnica — uma sensação de ser profundamente lida, de que algo foi visto e tratado que elas mesmas não tinham encontrado palavras para expressar.',
+    bioPTPoints: [
+      'Seu trabalho corporal é forte e fluido em igual medida. A pressão é real e proposital, seu senso de ritmo é natural, e a continuidade entre os movimentos dá ao seu trabalho uma qualidade bonita de se ver. Ela absorveu os movimentos mais rápido do que quase qualquer pessoa na formação — não apenas mecanicamente, mas expressivamente. Sua apresentação final foi uma das minhas favoritas.',
+      'O que a diferencia é a forma como ela lê um corpo. Antes da técnica, antes da sequência, já existe uma compreensão — de onde ir, o que é necessário, quanto. Esse tipo de percepção não se ensina. Ou está presente ou não está. Em Fabiana, está completamente presente.',
+      'Nascida na Bolívia e baseada no Recife, ela traz ao seu trabalho um calor e uma luminosidade que são inseparáveis de sua qualidade terapêutica. Os dois não estão em tensão. Em suas mãos, são a mesma coisa.',
+    ],
+    youtubeId: '',
+    coordinates: [-34.881, -8.053],  // Recife
+    coordinates2: [-68.119, -16.500], // La Paz, Bolivia
+    instagram: 'fabiana_andrealopes',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
