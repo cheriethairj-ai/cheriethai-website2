@@ -1376,7 +1376,7 @@ export const students: Student[] = [
   },
   {
     id: 'ivan',
-    name: 'Ivan',
+    name: 'Ivan Zorzin',
     city: 'Porto Alegre',
     country: 'Brasil',
     descriptors: ['Precise', 'Methodical', 'Athletic'],
