@@ -1593,6 +1593,29 @@ export const students: Student[] = [
     coordinates2: [-43.172, -22.906], // Rio de Janeiro
     instagram: 'mindfulcarioca',
   },
+  {
+    id: 'matheuspergolizzi',
+    name: 'Matheus Pergolizzi',
+    city: 'Rio de Janeiro',
+    country: 'Brasil',
+    descriptors: ['Aerial', 'Electric', 'Dynamic'],
+    descriptorsPT: ['Aéreo', 'Elétrico', 'Dinâmico'],
+    bio: 'Matheus is a professional pole dancer — and that background gave him something that years of conventional massage training often cannot: a complete, embodied understanding of leverage, counterweight and how the body can be used as an instrument of precision.',
+    bioPoints: [
+      'He came into the training with no previous massage experience. Within days it was clear that this was someone who would not need long. His pole dancing career had already given him exceptional spatial awareness, extraordinary body control and an instinct for how force and position interact. The moment he connected those qualities to the techniques, his work became entirely his own.',
+      'His final presentation was unlike anything else in the training. I helped him build his choreography because I could see what his foundation was — leverage — and I wanted to give him a framework that would let that quality lead. What he produced was powerful, precise and genuinely arresting to watch. Delicate where it needed to be delicate. Potent where it needed to be potent.',
+      'Matheus is at the beginning of something. He is strong, sweet and has a quality of presence that draws people in naturally. I am looking forward to seeing him develop further in the revision sessions ahead.',
+    ],
+    bioPT: 'Matheus é um dançarino profissional de pole dance — e esse histórico lhe deu algo que anos de treinamento convencional em massagem muitas vezes não conseguem: uma compreensão completa e incorporada de alavancagem, contrapeso e como o corpo pode ser usado como instrumento de precisão.',
+    bioPTPoints: [
+      'Ele chegou à formação sem experiência anterior em massagem. Em poucos dias ficou claro que este era alguém que não precisaria de muito tempo. Sua carreira no pole dance já lhe havia dado uma consciência espacial excepcional, controle corporal extraordinário e um instinto para como força e posição interagem. No momento em que conectou essas qualidades às técnicas, seu trabalho se tornou inteiramente seu.',
+      'Sua apresentação final foi diferente de tudo o mais na formação. Ajudei-o a construir sua coreografia porque conseguia ver qual era sua base — alavancagem — e queria lhe dar uma estrutura que permitisse que essa qualidade liderasse. O que ele produziu foi poderoso, preciso e genuinamente impressionante de se ver. Delicado onde precisava ser delicado. Potente onde precisava ser potente.',
+      'Matheus está no início de algo. Ele é forte, gentil e tem uma qualidade de presença que atrai as pessoas naturalmente. Estou ansiosa para vê-lo se desenvolver ainda mais nas sessões de revisão que virão.',
+    ],
+    youtubeId: '',
+    coordinates: [-43.172, -22.906], // Rio de Janeiro
+    instagram: 'theubodywork',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
