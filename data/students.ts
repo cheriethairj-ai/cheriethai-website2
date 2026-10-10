@@ -1469,6 +1469,32 @@ export const students: Student[] = [
     coordinates2: [-68.119, -16.500], // La Paz, Bolivia
     instagram: 'fabiana_andrealopes',
   },
+  {
+    id: 'danielamariano',
+    name: 'Daniela Mariano',
+    city: 'New York',
+    country: 'United States',
+    city2: 'Poços de Caldas',
+    country2: 'Brasil',
+    descriptors: ['Dazzling', 'Bold', 'Deft'],
+    descriptorsPT: ['Deslumbrante', 'Ousada', 'Hábil'],
+    bio: 'Daniela is a Brazilian aestheticist based in Manhattan, originally from Poços de Caldas in Minas Gerais — and she carries both of those worlds with her: the warmth and physical intelligence of her Brazilian formation, and the precision and professionalism demanded by one of the most competitive cities on earth.',
+    bioPoints: [
+      'She came to the training with an existing background in lymphatic massage and previous Thai experience, which gave her a strong foundation to build on. What became apparent quickly was her ability to receive feedback and immediately translate it — not just repeating what was said, but refining it further. She took direction, absorbed it, and returned something better. That is an uncommon quality.',
+      'Her touch is exceptional. The hands are sensitive, the pressure is confident, and there is an elegance to the way she moves that makes her work genuinely beautiful to observe. She has what some practitioners spend years trying to develop and others simply have: a natural gift for contact.',
+      'Daniela is bold and brilliantly herself — there is a vivid, joyful presence to everything she does that makes people want to be in the room. It was an honour to have her in this training, and she will be back for the full Thai course.',
+    ],
+    bioPT: 'Daniela é uma esteticista brasileira baseada em Manhattan, originalmente de Poços de Caldas, em Minas Gerais — e ela carrega os dois mundos consigo: o calor e a inteligência física de sua formação brasileira, e a precisão e o profissionalismo exigidos por uma das cidades mais competitivas do mundo.',
+    bioPTPoints: [
+      'Ela chegou à formação com experiência prévia em massagem linfática e em técnicas tailandesas, o que lhe deu uma base sólida para desenvolver. O que ficou evidente rapidamente foi sua capacidade de receber feedback e traduzi-lo imediatamente — não apenas repetindo o que foi dito, mas refinando ainda mais. Ela recebia a orientação, absorvia e devolvia algo melhor. Essa é uma qualidade incomum.',
+      'Seu toque é excepcional. As mãos são sensíveis, a pressão é confiante, e há uma elegância na maneira como ela se move que torna seu trabalho genuinamente bonito de se observar. Ela tem o que alguns praticantes levam anos tentando desenvolver e outros simplesmente possuem: um dom natural para o contato.',
+      'Daniela é ousada e brilhantemente ela mesma — há uma presença vívida e alegre em tudo o que ela faz que faz as pessoas quererem estar na sala. Foi uma honra tê-la nesta formação, e ela voltará para o curso completo de Thai.',
+    ],
+    youtubeId: '',
+    coordinates: [-73.971, 40.776],   // Manhattan, New York
+    coordinates2: [-46.561, -21.787], // Poços de Caldas, Minas Gerais
+    instagram: 'danimassagetherapist',
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
