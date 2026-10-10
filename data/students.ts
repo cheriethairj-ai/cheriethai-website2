@@ -1374,6 +1374,29 @@ export const students: Student[] = [
     coordinates: [-41.453, -12.453], // Chapada Diamantina
     coordinates2: [8.542, 47.377],   // Zurich
   },
+  {
+    id: 'ivan',
+    name: 'Ivan',
+    city: 'Porto Alegre',
+    country: 'Brasil',
+    descriptors: ['Precise', 'Methodical', 'Athletic'],
+    descriptorsPT: ['Preciso', 'Metódico', 'Atlético'],
+    bio: 'Ivan holds a world record in laminated flooring — and that background tells you almost everything about how he approaches the work. He is a man who does not do things to an acceptable standard. He does them to the highest standard possible, or not at all.',
+    bioPoints: [
+      'He came into the training with no previous experience in massage, which made what followed all the more remarkable. His ability to absorb and execute movement — complex positioning, precise technique, the mechanics of how the body needs to be handled — was exceptional from early on. Karl, who received his work during the training, described it as high quality. For someone working through these techniques for the first time, that is not a small thing to hear.',
+      'He is older, experienced and carries a physical discipline formed through years of mountain biking and athletic life. That foundation — the body awareness, the endurance, the attention to how effort is applied — translated directly into the quality of his touch.',
+      'What Ivan demonstrates is that bodywork, at its core, is craftsmanship. And craftsmanship is something he understands completely.',
+    ],
+    bioPT: 'Ivan detém um recorde mundial em piso laminado — e esse contexto diz quase tudo sobre como ele se aproxima do trabalho. Ele é um homem que não faz as coisas dentro de um padrão aceitável. Ele as faz no mais alto padrão possível, ou simplesmente não as faz.',
+    bioPTPoints: [
+      'Ele chegou à formação sem nenhuma experiência anterior em massagem, o que tornou o que se seguiu ainda mais notável. Sua capacidade de absorver e executar movimentos — posicionamentos complexos, técnicas precisas, a mecânica de como o corpo precisa ser tratado — foi excepcional desde o início. Karl, que recebeu seu trabalho durante a formação, descreveu como de alta qualidade. Para alguém trabalhando com essas técnicas pela primeira vez, não é pouca coisa.',
+      'Ele é mais velho, experiente e carrega uma disciplina física formada por anos de mountain bike e vida atlética. Essa base — a consciência corporal, a resistência, a atenção a como o esforço é aplicado — se traduziu diretamente na qualidade do seu toque.',
+      'O que Ivan demonstra é que o bodywork, em sua essência, é artesanato. E artesanato é algo que ele compreende completamente.',
+    ],
+    nonPracticing: true,
+    youtubeId: '',
+    coordinates: [-51.217, -30.027], // Porto Alegre (update when exact city confirmed)
+  },
 ]
 
 // ─── City coordinate reference (approximate centres) ──────────────────────────
