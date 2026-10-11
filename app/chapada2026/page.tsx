@@ -157,17 +157,17 @@ export default function Chapada2026Page() {
                       </span>
                       <div className="flex-1 min-w-0">
                         <p
-                          className="font-cormorant font-light text-ivory/70 group-hover:text-ivory/95 transition-colors duration-300 leading-tight mb-1"
-                          style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)' }}
+                          className="font-cormorant font-light text-ivory/70 group-hover:text-ivory/95 transition-colors duration-300 leading-tight mb-2"
+                          style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.6rem)' }}
                         >
                           {name}
                         </p>
                         {descriptors && (
                           <p
-                            className="label-text text-sage/30 group-hover:text-sage/50 transition-colors duration-300"
-                            style={{ fontSize: '0.42rem', letterSpacing: '0.14em' }}
+                            className="label-text text-sage/35 group-hover:text-sage/55 transition-colors duration-300"
+                            style={{ fontSize: '0.55rem', letterSpacing: '0.14em' }}
                           >
-                            {descriptors.join(' · ')}
+                            {descriptors.join('  ·  ')}
                           </p>
                         )}
                       </div>
