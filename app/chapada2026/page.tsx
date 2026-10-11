@@ -97,10 +97,18 @@ export default function Chapada2026Page() {
 
           <motion.p
             {...fadeUp(0.24)}
+            className="label-text text-sand/60 mb-2"
+            style={{ fontSize: '0.65rem', letterSpacing: '0.22em' }}
+          >
+            CANTO DA SERIEMA · CAMPOS DE SÃO JOÃO
+          </motion.p>
+
+          <motion.p
+            {...fadeUp(0.28)}
             className="label-text text-sage/35"
             style={{ fontSize: '0.5rem', letterSpacing: '0.26em' }}
           >
-            {inst.location.toUpperCase()}
+            CHAPADA DIAMANTINA, BAHIA
             &nbsp;&nbsp;·&nbsp;&nbsp;
             {lang === 'PT' ? inst.datePT : inst.dateEN}
             &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -158,14 +166,14 @@ export default function Chapada2026Page() {
                       <div className="flex-1 min-w-0">
                         <p
                           className="font-cormorant font-light text-ivory/70 group-hover:text-ivory/95 transition-colors duration-300 leading-tight mb-2"
-                          style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.6rem)' }}
+                          style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2rem)' }}
                         >
                           {name}
                         </p>
                         {descriptors && (
                           <p
-                            className="label-text text-sage/35 group-hover:text-sage/55 transition-colors duration-300"
-                            style={{ fontSize: '0.55rem', letterSpacing: '0.14em' }}
+                            className="label-text text-sage/40 group-hover:text-sage/60 transition-colors duration-300"
+                            style={{ fontSize: '0.65rem', letterSpacing: '0.14em' }}
                           >
                             {descriptors.join('  ·  ')}
                           </p>
