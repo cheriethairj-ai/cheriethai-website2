@@ -400,7 +400,7 @@ function StudentDirectory({
             <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.05)' }} />
           </div>
 
-          {institutions.map((inst) => (
+          {institutions.filter(inst => !inst.hideFromDirectory).map((inst) => (
             <button
               key={inst.id}
               onClick={() => {

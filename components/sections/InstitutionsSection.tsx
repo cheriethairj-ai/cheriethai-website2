@@ -31,7 +31,7 @@ export default function InstitutionsSection() {
 
       {/* ── Institution cards ── */}
       <div className="flex flex-col gap-24 md:gap-32">
-        {institutions.map((inst, instIdx) => {
+        {institutions.filter(inst => !inst.hideFromDirectory).map((inst, instIdx) => {
           const description = lang === 'PT' ? inst.descriptionPT : inst.descriptionEN
           const impact = lang === 'PT' ? inst.impactPT : inst.impactEN
 

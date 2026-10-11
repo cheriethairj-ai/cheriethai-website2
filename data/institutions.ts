@@ -18,6 +18,7 @@ export type InstitutionEntry = {
   impactEN: string[]
   students: string[]
   photos: string[]       // paths relative to /public
+  hideFromDirectory?: boolean  // true = page exists but hidden from public listings
 }
 
 export const institutions: InstitutionEntry[] = [
@@ -108,6 +109,7 @@ export const institutions: InstitutionEntry[] = [
       'What was cultivated throughout this week — the precision, the body reading, the quality of touch, the ability to build a sequence with intention — are foundations that each will carry differently into their work.',
       'Each profile on the CherieThai Institute graduates page includes each practitioner\'s individual description of how they apply this approach. Visiting those profiles is the best way to understand what this group represents.',
     ],
+    hideFromDirectory: true,
     students: [
       'Carol Viana',
       'Ivan Zorzin',
