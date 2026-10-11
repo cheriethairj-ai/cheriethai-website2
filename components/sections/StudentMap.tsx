@@ -38,13 +38,14 @@ function groupByCity(list: Student[]): CityGroup[] {
 }
 
 // Build secondary-location groups filtered by view
-function getSecondaryGroups(all: Student[], view: 'brazil' | 'world'): CityGroup[] {
+function getSecondaryGroups(all: Student[], view: 'all' | 'brazil' | 'world'): CityGroup[] {
   const map: Record<string, CityGroup> = {}
   for (const s of all) {
     if (!s.coordinates2 || !s.city2 || !s.country2) continue
     const isBrazil2 = s.country2 === 'Brasil' || s.country2 === 'Brazil'
     if (view === 'brazil' && !isBrazil2) continue
     if (view === 'world' && isBrazil2) continue
+    // view === 'all': include everything
     if (!map[s.city2]) {
       map[s.city2] = { city: s.city2, country: s.country2, coordinates: s.coordinates2, students: [] }
     }
@@ -62,17 +63,17 @@ type DropdownState = { group: CityGroup; x: number; y: number } | null
 export default function StudentMap() {
   const router = useRouter()
   const { lang } = useLanguage()
-  const [view, setView] = useState<'brazil' | 'world'>('brazil')
+  const [view, setView] = useState<'all' | 'brazil' | 'world'>('all')
   const [position, setPosition] = useState<{ coordinates: [number, number]; zoom: number }>({
-    coordinates: [-52, -14],
-    zoom: 3.2,
+    coordinates: [10, 20],
+    zoom: 1,
   })
   const [dropdown, setDropdown] = useState<DropdownState>(null)
   const [search, setSearch] = useState('')
 
   const brazilStudents = students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
   const worldStudents  = students.filter(s => s.country !== 'Brasil' && s.country !== 'Brazil')
-  const visibleStudents = view === 'brazil' ? brazilStudents : worldStudents
+  const visibleStudents = view === 'all' ? students : view === 'brazil' ? brazilStudents : worldStudents
   const cityGroups = groupByCity(visibleStudents)
 
   // Secondary pins: e.g. Yuri in SP on Brazil map, Anna in Hungary on world map
@@ -93,7 +94,7 @@ export default function StudentMap() {
     setPosition(
       view === 'brazil'
         ? { coordinates: [-52, -14], zoom: 3.2 }
-        : { coordinates: [10, 20],  zoom: 1 }
+        : { coordinates: [10, 20], zoom: 1 }
     )
   }, [view])
 
@@ -113,7 +114,7 @@ export default function StudentMap() {
       <div className="flex items-center justify-between mb-6">
         {/* Tab toggle */}
         <div className="flex items-center gap-6">
-          {(['brazil', 'world'] as const).map((v) => (
+          {(['all', 'brazil', 'world'] as const).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
@@ -127,9 +128,11 @@ export default function StudentMap() {
                 cursor: 'none',
               }}
             >
-              {v === 'brazil'
-                ? (lang === 'EN' ? 'BRAZIL' : 'BRASIL')
-                : (lang === 'EN' ? 'WORLD' : 'MUNDO')}
+              {v === 'all'
+                ? (lang === 'EN' ? 'ALL' : 'TODOS')
+                : v === 'brazil'
+                  ? (lang === 'EN' ? 'BRAZIL' : 'BRASIL')
+                  : (lang === 'EN' ? 'WORLD' : 'MUNDO')}
             </button>
           ))}
         </div>
@@ -324,7 +327,7 @@ function StudentDirectory({
   search,
   onSearchChange,
 }: {
-  view: 'brazil' | 'world'
+  view: 'all' | 'brazil' | 'world'
   search: string
   onSearchChange: (v: string) => void
 }) {
@@ -334,7 +337,7 @@ function StudentDirectory({
 
   // When searching: scan all students; otherwise filter by current view tab
   const isSearching = query.length > 0
-  const baseStudents = isSearching
+  const baseStudents = isSearching || view === 'all'
     ? students
     : view === 'brazil'
       ? students.filter(s => s.country === 'Brasil' || s.country === 'Brazil')
@@ -400,7 +403,12 @@ function StudentDirectory({
           {institutions.map((inst) => (
             <button
               key={inst.id}
-              onClick={() => router.push(`/${inst.id.replace('shambhala-spa-paraty', 'shambhalaspa')}`)}
+              onClick={() => {
+                const slug = inst.id
+                  .replace('shambhala-spa-paraty', 'shambhalaspa')
+                  .replace('chapada-2026', 'chapada2026')
+                router.push(`/${slug}`)
+              }}
               className="group w-full flex items-center justify-between py-5 border-b text-left hover:bg-sand/[0.02] transition-colors duration-200"
               style={{ borderColor: 'rgba(220,201,160,0.07)', cursor: 'none' }}
             >
