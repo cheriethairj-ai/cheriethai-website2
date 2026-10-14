@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
 
       await transporter.sendMail({
         from: `"CherieThai London Waitlist" <${gmailUser}>`,
-        to: 'cheriethairj@gmail.com',
+        to: 'hello@cheriethai.com.br',
         replyTo: email,
         subject: `New London Waitlist — ${firstName} ${lastName}`,
         text: `
