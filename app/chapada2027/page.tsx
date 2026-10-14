@@ -380,7 +380,7 @@ export default function Chapada2027Page() {
 
                 {/* Location + dates */}
                 <p className="label-text text-sand/40 mt-3 mb-6" style={{ fontSize: '0.52rem', letterSpacing: '0.2em' }}>
-                  CANTO DA SERIEMA · BAHIA
+                  CHAPADA DIAMANTINA · BAHIA
                   &nbsp;&nbsp;·&nbsp;&nbsp;
                   {lang === 'PT' ? '26 SET – 3 OUT 2027' : '26 SEPT – 3 OCT 2027'}
                 </p>
