@@ -355,28 +355,55 @@ export default function Chapada2027Page() {
 
               {/* Price block */}
               <div
-                className="mb-10 p-8"
+                className="mb-10"
                 style={{
                   background: 'rgba(220,201,160,0.03)',
-                  border: '1px solid rgba(220,201,160,0.1)',
+                  border: '1px solid rgba(220,201,160,0.12)',
+                  padding: 'clamp(2rem, 4vw, 2.5rem)',
                 }}
               >
-                <p className="label-text text-sage/30 mb-3" style={{ fontSize: '0.46rem', letterSpacing: '0.28em' }}>
+                {/* Top label row */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.1)' }} />
+                  <p className="label-text text-sage/35 shrink-0" style={{ fontSize: '0.44rem', letterSpacing: '0.3em' }}>
+                    {lang === 'PT' ? 'INSTITUTO CHERIETHAI · 5ª EDIÇÃO' : 'CHERIETHAI INSTITUTE · 5TH EDITION'}
+                  </p>
+                  <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.1)' }} />
+                </div>
+
+                {/* Retreat name */}
+                <p className="font-cormorant font-light text-ivory/70 mb-1"
+                  style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', lineHeight: 1.05, letterSpacing: '-0.01em' }}>
+                  Chapada Diamantina<br />
+                  <span style={{ color: 'rgba(245,240,232,0.38)' }}>Thai Bodywork</span>
+                </p>
+
+                {/* Location + dates */}
+                <p className="label-text text-sand/40 mt-3 mb-6" style={{ fontSize: '0.52rem', letterSpacing: '0.2em' }}>
+                  CANTO DA SERIEMA · BAHIA
+                  &nbsp;&nbsp;·&nbsp;&nbsp;
+                  {lang === 'PT' ? '26 SET – 3 OUT 2027' : '26 SEPT – 3 OCT 2027'}
+                </p>
+
+                <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '0', paddingTop: '1.5rem' }} />
+
+                {/* Price */}
+                <p className="label-text text-sage/30 mb-2" style={{ fontSize: '0.44rem', letterSpacing: '0.28em' }}>
                   {lang === 'PT' ? 'INVESTIMENTO · POR PESSOA' : 'INVESTMENT · PER PERSON'}
                 </p>
-                <p className="font-cormorant font-light text-ivory/85"
-                  style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                <p className="font-cormorant font-light text-ivory/90"
+                  style={{ fontSize: 'clamp(3.2rem, 6vw, 4.2rem)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                   R$ 9.400
                 </p>
-                <p className="label-text text-sage/35 mt-2" style={{ fontSize: '0.54rem', letterSpacing: '0.18em' }}>
+                <p className="label-text text-sage/35 mt-2 mb-6" style={{ fontSize: '0.52rem', letterSpacing: '0.18em' }}>
                   ~USD 1.900 · {lang === 'PT' ? 'CÂMBIO APROXIMADO' : 'APPROXIMATE AT CURRENT RATE'}
                 </p>
 
-                <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '1.5rem', paddingTop: '1.5rem' }}>
-                  <p className="label-text text-sand/35" style={{ fontSize: '0.54rem', letterSpacing: '0.12em', lineHeight: 1.8 }}>
+                <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', paddingTop: '1.25rem' }}>
+                  <p className="label-text text-sand/32" style={{ fontSize: '0.52rem', letterSpacing: '0.12em', lineHeight: 1.9 }}>
                     {lang === 'PT'
-                      ? 'Valor inclui hospedagem, alimentação completa e todos os materiais do curso. Planos de pagamento disponíveis mediante consulta.'
-                      : 'Price includes accommodation, all meals and course materials. Payment plans available on request.'}
+                      ? 'Inclui hospedagem, alimentação completa e materiais do curso. Planos de pagamento disponíveis.'
+                      : 'Includes accommodation, all meals and course materials. Payment plans available on request.'}
                   </p>
                 </div>
               </div>
