@@ -369,7 +369,7 @@ export default function Chapada2027Page() {
                   R$ 9.400
                 </p>
                 <p className="label-text text-sage/35 mt-2" style={{ fontSize: '0.54rem', letterSpacing: '0.18em' }}>
-                  ~USD 1.866 · {lang === 'PT' ? 'CÂMBIO APROXIMADO' : 'APPROXIMATE AT CURRENT RATE'}
+                  ~USD 1.900 · {lang === 'PT' ? 'CÂMBIO APROXIMADO' : 'APPROXIMATE AT CURRENT RATE'}
                 </p>
 
                 <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '1.5rem', paddingTop: '1.5rem' }}>
