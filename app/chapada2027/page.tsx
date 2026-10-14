@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
@@ -390,6 +391,72 @@ export default function Chapada2027Page() {
 
             </motion.div>
           </div>
+
+          {/* ── Photo + Video Gallery ── */}
+          <motion.div {...reveal(0.04)} className="mb-20 md:mb-28">
+            <div className="flex items-center gap-4 mb-8">
+              <p className="label-text text-sage/25 shrink-0" style={{ fontSize: '0.46rem', letterSpacing: '0.26em' }}>
+                {lang === 'PT' ? 'DA CHAPADA · OUTUBRO 2026' : 'FROM THE CHAPADA · OCTOBER 2026'}
+              </p>
+              <div className="flex-1 h-px" style={{ background: 'rgba(220,201,160,0.05)' }} />
+            </div>
+
+            {/* Photos — portrait grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+              {[
+                { src: '/chapada2027/photo-1.jpg', w: 2268, h: 4032 },
+                { src: '/chapada2027/photo-2.jpg', w: 3279, h: 4096 },
+                { src: '/chapada2027/photo-3.jpg', w: 3279, h: 4096 },
+                { src: '/chapada2027/photo-4.jpg', w: 2735, h: 4096 },
+              ].map(({ src, w, h }, i) => (
+                <motion.div
+                  key={src}
+                  {...reveal(0.04 + i * 0.04)}
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: '3/4' }}
+                >
+                  <Image
+                    src={src}
+                    alt={`Chapada Diamantina Thai Bodywork — ${i + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Videos */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
+              {[
+                '/chapada2027/video-1.mp4',
+                '/chapada2027/video-2.mp4',
+                '/chapada2027/video-3.mp4',
+                '/chapada2027/video-4.mp4',
+                '/chapada2027/video-5.mp4',
+              ].map((src, i) => (
+                <motion.div
+                  key={src}
+                  {...reveal(0.04 + i * 0.04)}
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: '9/16', background: 'rgba(13,17,14,0.8)' }}
+                >
+                  <video
+                    src={src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* ── Conducted in English note ── */}
           <motion.div {...reveal(0.04)} className="mb-20 md:mb-24">
