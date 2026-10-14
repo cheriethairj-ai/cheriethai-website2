@@ -381,8 +381,6 @@ export default function Chapada2027Page() {
                 {/* Location + dates */}
                 <p className="label-text text-sand/40 mt-3 mb-6" style={{ fontSize: '0.52rem', letterSpacing: '0.2em' }}>
                   CHAPADA DIAMANTINA · BAHIA
-                  &nbsp;&nbsp;·&nbsp;&nbsp;
-                  {lang === 'PT' ? '26 SET – 3 OUT 2027' : '26 SEPT – 3 OCT 2027'}
                 </p>
 
                 <div style={{ borderTop: '1px solid rgba(220,201,160,0.08)', marginTop: '0', paddingTop: '1.5rem' }} />
