@@ -40,6 +40,9 @@ export default function CoursesPage() {
           <Link href="/thailand2027" className="btn-ghost text-sand/55 border-sand/15" style={{ textDecoration: 'none' }}>
             Thailand 2027 →
           </Link>
+          <Link href="/chapada2027" className="btn-ghost text-sand/55 border-sand/15" style={{ textDecoration: 'none' }}>
+            Chapada 2027 →
+          </Link>
           <Link href="/alunos" className="btn-ghost text-sand/55 border-sand/15" style={{ textDecoration: 'none' }}>
             Certified Students →
           </Link>
