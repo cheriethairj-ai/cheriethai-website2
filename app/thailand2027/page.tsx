@@ -13,8 +13,8 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 // ─── Booking Modal ────────────────────────────────────────────────────────────
 
 const ROOM_OPTIONS = [
-  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,150', totalPrice: null,       perPerson: false, saving: 'US$250' },
-  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,400', totalPrice: 'US$2,800', perPerson: true,  saving: 'US$500' },
+  { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,400', totalPrice: null,       perPerson: false, saving: null },
+  { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,650', totalPrice: 'US$3,300', perPerson: true,  saving: null },
   { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,350', totalPrice: null,       perPerson: false, saving: 'US$150' },
   { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$900',   totalPrice: 'US$1,800', perPerson: true,  saving: 'US$300' },
   { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,       perPerson: false, saving: null },
@@ -341,9 +341,9 @@ const rooms: Room[] = [
     description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
     pricing: {
       type: 'dual',
-      saving: 'US$250',
-      private: { original: 'US$ 2,400', total: 'US$ 2,150' },
-      shared: { total: 'US$ 2,800', perPerson: 'US$ 1,400 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
+      saving: '',
+      private: { original: 'US$ 2,400', total: 'US$ 2,400' },
+      shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
     },
     photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
@@ -687,7 +687,7 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
                 </div>
 
                 {/* Online full payment discount */}
-                <div style={{ border: '1px solid rgba(220,201,160,0.12)', padding: '1rem 1.25rem', background: 'rgba(220,201,160,0.03)' }}>
+                {room.pricing.saving && <div style={{ border: '1px solid rgba(220,201,160,0.12)', padding: '1rem 1.25rem', background: 'rgba(220,201,160,0.03)' }}>
                   <p className="label-text text-sand/60 mb-3" style={{ fontSize: '0.4rem', letterSpacing: '0.2em' }}>
                     ONLINE FULL PAYMENT — SAVE {room.pricing.saving}
                   </p>
@@ -712,7 +712,7 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
                   <p className="label-text text-sage/30 mt-3" style={{ fontSize: '0.36rem', letterSpacing: '0.13em' }}>
                     This price applies exclusively when paying in full online. Payment plans are available on request at the standard rate.
                   </p>
-                </div>
+                </div>}
               </div>
             )}
           </div>
