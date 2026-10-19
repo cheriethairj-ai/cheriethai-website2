@@ -333,22 +333,6 @@ type Room = {
 
 const rooms: Room[] = [
   {
-    id: 'earth',
-    name: 'Earth Lodge',
-    tag: 'MOUNTAIN VIEW · BATHTUB',
-    availability: 'Sold out',
-    availabilityUrgent: false,
-    description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
-    pricing: {
-      type: 'dual',
-      saving: '',
-      private: { original: 'US$ 2,400', total: 'US$ 2,400' },
-      shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
-    },
-    photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
-    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
-  },
-  {
     id: 'hill',
     name: 'Hill Haven',
     tag: 'GARDEN & MOUNTAIN VIEWS',
@@ -378,6 +362,22 @@ const rooms: Room[] = [
     },
     photos: ['/retreat/harmony-1.jpg', '/retreat/harmony-2.jpg', '/retreat/harmony-3.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Harmony House (Shared Dormitory). Could you please confirm availability?"),
+  },
+  {
+    id: 'earth',
+    name: 'Earth Lodge',
+    tag: 'MOUNTAIN VIEW · BATHTUB',
+    availability: 'Sold out',
+    availabilityUrgent: false,
+    description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
+    pricing: {
+      type: 'dual',
+      saving: '',
+      private: { original: 'US$ 2,400', total: 'US$ 2,400' },
+      shared: { total: 'US$ 3,300', perPerson: 'US$ 1,650 per participant', originalPerPerson: 'US$ 1,650', originalTotal: 'US$ 3,300' },
+    },
+    photos: ['/retreat/resort-3.jpg', '/retreat/earth-room.jpg', '/retreat/earth-bath.jpg', '/retreat/earth-bathroom.jpg'],
+    waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Earth Lodge. Could you please confirm availability and room options (private or shared)?"),
   },
 ]
 
