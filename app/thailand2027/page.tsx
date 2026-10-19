@@ -620,11 +620,11 @@ function RoomCard({ room, onBook }: { room: Room; onBook: (roomId: string) => vo
               <span
                 className="label-text shrink-0 mt-1"
                 style={{
-                  fontSize: '0.38rem',
+                  fontSize: room.availabilityUrgent ? '0.38rem' : '0.52rem',
                   letterSpacing: '0.14em',
-                  color: room.availabilityUrgent ? 'rgba(220,180,120,0.9)' : 'rgba(170,182,162,0.7)',
-                  border: `1px solid ${room.availabilityUrgent ? 'rgba(220,180,120,0.3)' : 'rgba(170,182,162,0.2)'}`,
-                  padding: '3px 8px',
+                  color: room.availabilityUrgent ? 'rgba(220,180,120,0.9)' : 'rgba(170,182,162,0.85)',
+                  border: `1px solid ${room.availabilityUrgent ? 'rgba(220,180,120,0.3)' : 'rgba(170,182,162,0.3)'}`,
+                  padding: room.availabilityUrgent ? '3px 8px' : '4px 12px',
                   whiteSpace: 'nowrap',
                 }}
               >
