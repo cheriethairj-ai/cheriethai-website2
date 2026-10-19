@@ -336,8 +336,8 @@ const rooms: Room[] = [
     id: 'earth',
     name: 'Earth Lodge',
     tag: 'MOUNTAIN VIEW · BATHTUB',
-    availability: '2 / 3 lodges remaining',
-    availabilityUrgent: true,
+    availability: 'Sold out',
+    availabilityUrgent: false,
     description: 'The highest accommodation category at VOASIS. Mountain views, a private bathtub and the most spacious interiors on the property. For those who want to arrive well-rested, recover fully between training days and experience the retreat at its fullest.',
     pricing: {
       type: 'dual',
