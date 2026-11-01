@@ -594,12 +594,12 @@ export default function Institute() {
                 </motion.h3>
 
                 <motion.div {...inView(0.1)} className="mb-10">
-                  <p className="label-text text-sage/40 mb-3">{lang === 'PT' ? 'Datas da Próxima Edição' : 'Next Edition Dates'}</p>
+                  <p className="label-text text-sage/40 mb-3">{lang === 'PT' ? 'Próxima Edição · 5ª Edição' : 'Next Edition · 5th Edition'}</p>
                   <p
                     className="font-cormorant font-light text-sand/65"
                     style={{ fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', lineHeight: 1.1 }}
                   >
-                    {lang === 'PT' ? '28 Set – 4 Out 2026' : '28 Sep – 4 Oct 2026'}
+                    {lang === 'PT' ? '26 Set – 3 Out 2027' : '26 Sep – 3 Oct 2027'}
                   </p>
                 </motion.div>
 
@@ -608,7 +608,7 @@ export default function Institute() {
                   style={{ fontSize: 'clamp(1.75rem, 3vw, 2.75rem)', lineHeight: 1 }}
                   {...inView(0.15)}
                 >
-                  R$&nbsp;8.200
+                  R$&nbsp;9.400
                 </motion.p>
 
                 <motion.div {...inView(0.18)} className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10">
@@ -633,11 +633,19 @@ export default function Institute() {
                   ))}
                 </motion.div>
 
-                <motion.div {...inView(0.22)} className="border border-sand/15 px-5 py-4 inline-block">
-                  <p className="label-text text-sage/40 text-xs mb-1">{lang === 'PT' ? 'Vagas 2026' : '2026 Availability'}</p>
-                  <p className="body-text text-sand/60 text-sm">
-                    {lang === 'PT' ? 'Esgotado. Sem previsão de reabertura.' : 'Sold out. No reopening date set.'}
-                  </p>
+                <motion.div {...inView(0.22)}>
+                  <a
+                    href="/chapada2027"
+                    className="inline-flex items-center gap-3 border border-sand/25 px-5 py-4 hover:border-sand/50 transition-colors duration-300"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <div>
+                      <p className="label-text text-sage/50 text-xs mb-1">{lang === 'PT' ? 'Vagas 2027 · Disponível' : '2027 · Available to Book'}</p>
+                      <p className="body-text text-sand/70 text-sm">
+                        {lang === 'PT' ? 'Reservar uma vaga →' : 'Reserve your place →'}
+                      </p>
+                    </div>
+                  </a>
                 </motion.div>
               </div>
 
