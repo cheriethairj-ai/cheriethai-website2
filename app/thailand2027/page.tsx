@@ -336,7 +336,7 @@ const rooms: Room[] = [
     id: 'hill',
     name: 'Hill Haven',
     tag: 'GARDEN & MOUNTAIN VIEWS',
-    availability: '4 / 8 spaces remaining',
+    availability: '2 / 8 spaces remaining',
     availabilityUrgent: true,
     description: 'A significant step up in privacy and comfort. Hill Haven offers garden view and mountain view rooms, each with considerably more space and quiet than the shared dormitory. Available for private occupancy or shared between two people.',
     pricing: {
