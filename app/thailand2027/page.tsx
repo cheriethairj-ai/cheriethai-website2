@@ -15,8 +15,8 @@ const wa = (msg: string) => `https://wa.me/${KARL_BASE}?text=${encodeURIComponen
 const ROOM_OPTIONS = [
   { value: 'earth-private', label: 'Earth Lodge · Private Room',            price: 'US$2,400', totalPrice: null,       perPerson: false, saving: null },
   { value: 'earth-shared',  label: 'Earth Lodge · Shared Room',             price: 'US$1,650', totalPrice: 'US$3,300', perPerson: true,  saving: null },
-  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,350', totalPrice: null,       perPerson: false, saving: 'US$150' },
-  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$900',   totalPrice: 'US$1,800', perPerson: true,  saving: 'US$300' },
+  { value: 'hill-private',  label: 'Hill Haven · Private Room',             price: 'US$1,500', totalPrice: null,       perPerson: false, saving: null },
+  { value: 'hill-shared',   label: 'Hill Haven · Shared Room',              price: 'US$1,050', totalPrice: 'US$2,100', perPerson: true,  saving: null },
   { value: 'harmony',       label: 'Harmony House · Shared Dormitory',      price: 'US$870',   totalPrice: null,       perPerson: false, saving: null },
 ]
 
@@ -341,9 +341,9 @@ const rooms: Room[] = [
     description: 'A significant step up in privacy and comfort. Hill Haven offers garden view and mountain view rooms, each with considerably more space and quiet than the shared dormitory. Available for private occupancy or shared between two people.',
     pricing: {
       type: 'dual',
-      saving: 'US$150',
-      private: { original: 'US$ 1,500', total: 'US$ 1,350' },
-      shared: { total: 'US$ 1,800', perPerson: 'US$ 900 per participant', originalPerPerson: 'US$ 1,050', originalTotal: 'US$ 2,100' },
+      saving: '',
+      private: { original: null, total: 'US$ 1,500' },
+      shared: { total: 'US$ 2,100', perPerson: 'US$ 1,050 per participant', originalPerPerson: null, originalTotal: null },
     },
     photos: ['/retreat/hill-2.jpg', '/retreat/hill-room-1.jpg', '/retreat/hill-room-2.jpg', '/retreat/hill-bathroom.jpg', '/retreat/resort-5.jpg'],
     waLink: wa("Hello Karl, I'm interested in reserving a place at the CherieThai Thailand Retreat 2027 — Hill Haven. Could you please confirm availability and room options (garden view / mountain view, private or shared)?"),
