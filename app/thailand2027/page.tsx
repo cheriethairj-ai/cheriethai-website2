@@ -313,8 +313,8 @@ type PricingSharedOnly = {
 type PricingDual = {
   type: 'dual'
   saving: string
-  private: { original: string; total: string }
-  shared: { total: string; perPerson: string; originalPerPerson: string; originalTotal: string }
+  private: { original: string | null; total: string }
+  shared: { total: string; perPerson: string; originalPerPerson: string | null; originalTotal: string | null }
 }
 
 type Room = {
