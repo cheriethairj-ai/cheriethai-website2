@@ -54,7 +54,7 @@ const content = {
     headline: 'Uma prática construída\nao longo de décadas.\nNão inventada. Herdada,\ne aprofundada com o tempo.',
     intro: `O trabalho CherieThai tem uma qualidade reconhecível. Quem já recebeu ou observou uma sessão sabe: há um ritmo, uma geometria, uma forma de ler o corpo que não se aprende apenas de um livro ou de um curso.
 
-Esse estilo foi moldado por décadas de formação — enraizado na tradição Isaan do nordeste da Tailândia, uma linhagem regional distinta que difere significativamente de outros estilos de Thai massage. Foi aprofundado ainda pela trajetória de Cherie na dança competitiva e nas artes marciais. Essa base é visível no trabalho: uma atenção distinta às linhas e formas, o uso de alavancagem, a construção de forma dentro de cada movimento — cada um com a intenção de criar uma sensação específica no corpo de quem recebe.
+Esse estilo foi moldado por décadas de formação, enraizado na tradição Isaan do nordeste da Tailândia, uma linhagem regional distinta que difere significativamente de outros estilos de Thai massage. Foi aprofundado ainda pela trajetória de Cherie na dança competitiva e nas artes marciais. Essa base é visível no trabalho: uma atenção distinta às linhas e formas, o uso de alavancagem, a construção de forma dentro de cada movimento, cada um com a intenção de criar uma sensação específica no corpo de quem recebe.
 
 Não inventamos movimentos. E não queremos crédito por isso.`,
 
@@ -62,7 +62,7 @@ Não inventamos movimentos. E não queremos crédito por isso.`,
     photoCredit: 'Fotos em breve',
 
     namingTitle: 'Por que nomeamos os movimentos',
-    namingBody: `Dar nomes aos movimentos é uma ferramenta de ensino — não uma reivindicação de autoria.
+    namingBody: `Dar nomes aos movimentos é uma ferramenta de ensino, não uma reivindicação de autoria.
 
 Quando um aluno ouve o nome de uma posição pela primeira vez e encontra aquele lugar no corpo, algo fixa. O nome se torna uma referência. Uma porta para entrar mais rápido na próxima vez.
 
@@ -71,16 +71,16 @@ Nomeamos para ensinar com mais clareza. Para que o aluno tenha uma linguagem int
     lineageTitle: 'Sobre a linhagem',
     lineageBody: `Todo movimento que ensinamos tem uma origem que nos antecede.
 
-As bases vêm das tradições de Thai massage nas quais Cherie se formou. Vêm do bodywork que praticamos e recebemos. Vêm da dança — uma linguagem corporal que Cherie carregou durante anos e que informa, de forma invisível mas real, como o movimento é percebido e transmitido dentro de uma sessão.
+As bases vêm das tradições de Thai massage nas quais Cherie se formou. Vêm do bodywork que praticamos e recebemos. Vêm da dança, uma linguagem corporal que Cherie carregou durante anos e que informa, de forma invisível mas real, como o movimento é percebido e transmitido dentro de uma sessão.
 
-Adaptamos. Refinamos. Encontramos uma expressão própria. Mas isso não é propriedade — é prática.
+Adaptamos. Refinamos. Encontramos uma expressão própria. Mas isso não é propriedade, é prática.
 
 Não concordamos com a cultura de reivindicar posse sobre movimentos, especialmente quando vem de praticantes que não têm raízes nas tradições que dizem representar. O corpo não pertence a ninguém. As tradições que nos formaram foram passadas através de gerações, de mão em mão, muito antes de existirmos.
 
 O que é nosso é o cuidado com que ensinamos. A fidelidade com que transmitimos. E a honestidade de dizer de onde veio cada coisa.`,
 
     studentLabel: 'ALUNOS · SESSÕES · FORMAÇÃO',
-    studentCaption: 'O estilo CherieThai em prática — sessões, treinamentos e formações ao longo dos anos.',
+    studentCaption: 'O estilo CherieThai em prática, sessões, treinamentos e formações ao longo dos anos.',
 
     closingQuote: '"O que torna este trabalho nosso não é o que inventamos. É a forma como cuidamos do que recebemos."',
 
@@ -94,7 +94,7 @@ O que é nosso é o cuidado com que ensinamos. A fidelidade com que transmitimos
     headline: 'A practice built\nover decades.\nNot invented. Inherited,\nand deepened over time.',
     intro: `CherieThai work has a recognisable quality. Anyone who has received or observed a session knows: there is a rhythm, a geometry, a way of reading the body that cannot be learned from a book or a single course alone.
 
-This style was shaped by decades of training — rooted in the Isaan tradition of northeast Thailand, a distinct regional lineage that differs significantly from other Thai massage styles. It was deepened further through Cherie's background in competitive dance and martial arts. That foundation is visible in the work: a distinct attention to line and shape, the use of leverage, the building of form within each movement — each with the intention of creating a specific sensation in the body of the receiver.
+This style was shaped by decades of training, rooted in the Isaan tradition of northeast Thailand, a distinct regional lineage that differs significantly from other Thai massage styles. It was deepened further through Cherie's background in competitive dance and martial arts. That foundation is visible in the work: a distinct attention to line and shape, the use of leverage, the building of form within each movement, each with the intention of creating a specific sensation in the body of the receiver.
 
 We did not invent movements. And we do not want credit for that.`,
 
@@ -102,7 +102,7 @@ We did not invent movements. And we do not want credit for that.`,
     photoCredit: 'Photos coming soon',
 
     namingTitle: 'Why we name movements',
-    namingBody: `Naming movements is a teaching tool — not a claim of authorship.
+    namingBody: `Naming movements is a teaching tool, not a claim of authorship.
 
 When a student hears the name of a position for the first time and finds that place in the body, something fixes. The name becomes a reference. A door to enter faster the next time.
 
@@ -111,16 +111,16 @@ We name to teach with more clarity. So that students have an internal language t
     lineageTitle: 'On lineage',
     lineageBody: `Every movement we teach has an origin that precedes us.
 
-The foundations come from the Thai massage traditions in which Cherie trained. From the bodywork we have practised and received. From dance — a physical language that Cherie carried for years and that informs, invisibly but really, how movement is perceived and transmitted within a session.
+The foundations come from the Thai massage traditions in which Cherie trained. From the bodywork we have practised and received. From dance, a physical language that Cherie carried for years and that informs, invisibly but really, how movement is perceived and transmitted within a session.
 
-We have adapted. Refined. Found our own expression. But that is not ownership — it is practice.
+We have adapted. Refined. Found our own expression. But that is not ownership, it is practice.
 
 We do not agree with the culture of claiming ownership over movements, especially when it comes from practitioners who have no roots in the traditions they claim to represent. The body belongs to no one. The traditions that formed us were passed through generations, hand to hand, long before we existed.
 
 What is ours is the care with which we teach. The faithfulness with which we transmit. And the honesty of saying where each thing came from.`,
 
     studentLabel: 'STUDENTS · SESSIONS · TRAINING',
-    studentCaption: 'The CherieThai style in practice — sessions, trainings and formations over the years.',
+    studentCaption: 'The CherieThai style in practice, sessions, trainings and formations over the years.',
 
     closingQuote: '"What makes this work ours is not what we invented. It is how carefully we hold what we were given."',
 
