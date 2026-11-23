@@ -54,7 +54,7 @@ const content = {
     headline: 'Uma prática construída\nao longo de décadas.\nNão inventada. Herdada,\ne aprofundada com o tempo.',
     intro: `O trabalho CherieThai tem uma qualidade reconhecível. Quem já recebeu ou observou uma sessão sabe: há um ritmo, uma geometria, uma forma de ler o corpo que não se aprende apenas de um livro ou de um curso.
 
-Esse estilo foi moldado por décadas de formação — nas tradições do Thai massage, e pela trajetória de Cherie na dança competitiva e nas artes marciais. Essa base é visível no trabalho: uma atenção distinta às linhas e formas, o uso de alavancagem, a construção de forma dentro de cada movimento.
+Esse estilo foi moldado por décadas de formação — enraizado na tradição Isaan do nordeste da Tailândia, uma linhagem regional distinta que difere significativamente de outros estilos de Thai massage. Foi aprofundado ainda pela trajetória de Cherie na dança competitiva e nas artes marciais. Essa base é visível no trabalho: uma atenção distinta às linhas e formas, o uso de alavancagem, a construção de forma dentro de cada movimento.
 
 Não inventamos movimentos. E não queremos crédito por isso.`,
 
@@ -94,7 +94,7 @@ O que é nosso é o cuidado com que ensinamos. A fidelidade com que transmitimos
     headline: 'A practice built\nover decades.\nNot invented. Inherited,\nand deepened over time.',
     intro: `CherieThai work has a recognisable quality. Anyone who has received or observed a session knows: there is a rhythm, a geometry, a way of reading the body that cannot be learned from a book or a single course alone.
 
-This style was shaped by decades of training — in Thai massage traditions, and through Cherie's background in competitive dance and martial arts. That foundation is visible in the work: a distinct attention to line and shape, the use of leverage, the building of form within each movement.
+This style was shaped by decades of training — rooted in the Isaan tradition of northeast Thailand, a distinct regional lineage that differs significantly from other Thai massage styles. It was deepened further through Cherie's background in competitive dance and martial arts. That foundation is visible in the work: a distinct attention to line and shape, the use of leverage, the building of form within each movement.
 
 We did not invent movements. And we do not want credit for that.`,
 
