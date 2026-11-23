@@ -51,7 +51,7 @@ function PhotoPlaceholder({ label, aspectRatio = '3/4' }: { label?: string; aspe
 const content = {
   PT: {
     eyebrow: 'A PRÁTICA',
-    headline: 'Um estilo reconhecido\npelo que sente,\nnão pelo que reivindica.',
+    headline: 'Uma prática construída\nao longo de décadas.\nNão inventada. Herdada,\nrefinada e feita\ninteiramente nossa.',
     intro: `O trabalho CherieThai tem uma qualidade reconhecível. Quem já recebeu ou observou uma sessão sabe: há um ritmo, uma continuidade, uma forma de ler o corpo que não se aprende apenas de um livro ou de um curso.
 
 Esse estilo nasceu de décadas de formação — nas tradições do Thai massage, no bodywork que Cherie treinou ao longo de anos, e numa trajetória no mundo da dança que moldou profundamente como o movimento é sentido e transmitido.
@@ -91,7 +91,7 @@ O que é nosso é o cuidado com que ensinamos. A fidelidade com que transmitimos
   },
   EN: {
     eyebrow: 'THE PRACTICE',
-    headline: 'A style recognised\nby how it feels,\nnot by what it claims.',
+    headline: 'A practice built\nover decades.\nNot invented. Inherited,\nrefined, and made\nentirely our own.',
     intro: `CherieThai work has a recognisable quality. Anyone who has received or watched a session knows: there is a rhythm, a continuity, a way of reading the body that cannot be learned from a book or a single course alone.
 
 This style was born from decades of training — in Thai massage traditions, in the bodywork Cherie studied over many years, and from a background in dance that has deeply shaped how movement is felt and transmitted.
