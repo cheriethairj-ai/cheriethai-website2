@@ -27,6 +27,7 @@ const navItemsPT = [
     ],
   },
   { label: 'Terapeutas', href: '/therapists' },
+  { label: 'A Prática', href: '/the-practice' },
   { label: 'To Embody', href: '/toembody' },
   {
     label: 'Instituto',
@@ -62,6 +63,7 @@ const navItemsEN = [
     ],
   },
   { label: 'Therapists', href: '/therapists' },
+  { label: 'The Practice', href: '/the-practice' },
   { label: 'To Embody', href: '/toembody' },
   {
     label: 'Institute',
